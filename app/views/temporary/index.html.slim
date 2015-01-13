@@ -1,0 +1,162 @@
+.ui.blue.inverted.main.menu
+  a.item onclick="$('.ui.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('setting', 'dimPage', false).sidebar('toggle')"
+    | Меню
+  .right.menu
+    a.item
+      | logout
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler#left onclick="$('.ui.right.sidebar').sidebar('setting', 'transition', 'scale down').sidebar('setting', 'dimPage', false).sidebar('toggle')"
+  i.content.icon
+
+.ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu
+  .item
+    img.ui.avatar.image src="http://placekitten.com/g/200/300"
+    | email@example.com
+  a.item
+    i.user.icon
+    | Профиль
+  a.item
+    i.student.icon
+    | Бесплатный курс
+  a.item
+    i.suitcase.icon
+    | Курсы
+  a.item
+    i.alarm.icon
+    | Объявления
+  a.item
+    i.help.icon
+    | F.A.Q
+  a.item
+    i.gift.icon
+    | Бонусы
+  a.item
+    i.users.icon
+    | Сообщество
+
+.ui.right.sidebar.ui.segment
+  .ui.segment
+    .ui.header
+      | Руководитель курса
+    img.ui.avatar.image src="https://placekitten.com/g/50/50"
+    | Василий Олег Оксана
+  .ui.segment
+    .ui.header
+      | Однокурсники
+    .ui.ordered.divided.list
+      .item
+        .right.floated.compact.ui.button
+          i.mail.icon
+        img.ui.avatar.image src="https://placekitten.com/g/40/40"
+        .content
+          .header
+            | Валера Арматура
+          | 50 баллов
+      .item
+        .right.floated.compact.ui.button
+          i.mail.icon
+        img.ui.avatar.image src="https://placekitten.com/g/70/70"
+        .content
+          .header
+            | Арнольд Фихтенгольц
+          | 10 баллов
+
+  .ui.segment
+    .ui.header
+      | Объявления
+    .item
+      .content
+        | Объявление 1
+    .item
+      .content
+        | Объявление 2
+
+  .ui.segment
+    .ui.header
+      | Порекомендуйте наш курс
+    .ui.facebook.button
+      i.facebook.icon
+      | Facebook
+    .ui.twitter.button
+      i.twitter.icon
+      | Twitter
+    .ui.google.plus.button
+      i.google.plus.icon
+      | Google Plus
+    .ui.vk.button
+      i.vk.icon
+      | VK
+
+
+.container
+  .ui.primary.segment
+    .ui.header
+      | О курсе
+    | Видео (вводная часть, напуственное слово руководителя)
+      Формат обучения (описание)
+      Плюсы от прохождения курса
+
+  .ui.primary.segment
+    .ui.header
+      | ДИРЕКТОРСКИЙ КУРС (даты прохождения, время)
+    .ui.steps
+      .completed.step
+        i.ok.icon
+        .content
+          .title
+            | Video
+      .completed.step
+        i.ok.icon
+        .content
+          .title
+            | Test
+      .active.step
+        i.info.icon
+        .content
+          .title
+            | Summary
+      .step
+        i.question.icon
+        .content
+          .title
+            | Exam
+
+    .ui.secondary.header
+      | Моя успеваемость
+    table.ui.table
+      thead
+        tr
+          th
+            | Модуль
+          th
+            | Задание
+          th
+            | Ошибки
+          th
+            | Баллы
+          th
+            | Итого
+          th
+            | Макс.Баллов
+      tbody
+        tr
+          td
+            | module 1
+          td
+            | test 1
+          td
+            | 2
+          td
+            | 3
+          td 5
+          td 55
+        tr
+          td
+            | module 2
+          td
+            | test 2
+          td
+            | 4
+          td
+            | 3
+          td 5
+          td 55
