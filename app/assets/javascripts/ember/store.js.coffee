@@ -6,6 +6,3 @@ DS.RESTAdapter.reopen(
   headers:
     "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content')
 )
-
-Yufu.ApplicationAdapter = DS.ActiveModelAdapter.extend
-  namespace: 'api/v1'
