@@ -45,7 +45,7 @@ gem 'jquery-turbolinks'
 
 # Ember js
 gem 'ember-rails'
-gem 'ember-source', '1.7.0'
+gem 'ember-source', '1.8'
 gem 'emblem-rails'
 gem 'momentjs-rails'
 
@@ -94,7 +94,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring'
   gem 'quiet_assets'
   gem 'capistrano'
   gem 'rvm-capistrano'
