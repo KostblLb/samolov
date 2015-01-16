@@ -1,4 +1,5 @@
 #= require jquery
+#= require semantic-ui
 #= require moment
 #= require moment/ru.js
 #= require handlebars

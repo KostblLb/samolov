@@ -1,1 +1,36 @@
-| hi from ember
+.ui.blue.inverted.main.menu
+  a.item onclick="$('.ui.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('setting', 'dimPage', false).sidebar('toggle')"
+    | Меню
+  .right.menu
+    a.item
+      | logout
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler#left onclick="$('.ui.right.sidebar').sidebar('setting', 'transition', 'scale down').sidebar('setting', 'dimPage', false).sidebar('toggle')"
+  i.content.icon
+
+.ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu
+  .item
+    img.ui.avatar.image src="http://placekitten.com/g/200/300"
+    | email@example.com
+  a.item
+    i.user.icon
+    | Профиль
+  a.item
+    i.student.icon
+    | Бесплатный курс
+  a.item
+    i.suitcase.icon
+    | Курсы
+  a.item
+    i.alarm.icon
+    | Объявления
+  a.item
+    i.help.icon
+    | F.A.Q
+  a.item
+    i.gift.icon
+    | Бонусы
+  a.item
+    i.users.icon
+    | Сообщество
+.container
+  | hi from ember
