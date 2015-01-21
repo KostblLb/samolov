@@ -30,7 +30,7 @@ role :db,  domain, :primary => true
 after 'deploy', 'deploy:migrate'
 after 'deploy:update', 'deploy:cleanup'
 namespace :deploy do
-  samolovsk :init_vhost do
+  task :init_vhost do
     run "ln -s #{deploy_to}/current/config/#{application}.vhost /etc/nginx/sites-enabled/#{application}"
   end
 end
