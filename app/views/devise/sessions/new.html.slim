@@ -1,0 +1,23 @@
+.container.devise
+  .ui.segment
+    .ui.form
+      h4.dividing.header
+        | Вход
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email
+          br
+          = f.email_field :email, autofocus: true
+        .field
+          = f.label :password
+          br
+          = f.password_field :password, autocomplete: "off"
+        - if devise_mapping.rememberable?
+          .field
+            .ui.toggle.checkbox
+              = f.check_box :remember_me
+              = f.label :remember_me
+        .actions
+          = button_tag type: 'submit', class: 'ui submit button' do
+            | Вход
+      = render "devise/shared/links"
