@@ -1,5 +1,5 @@
 upstream samolov_server {
-    server unix:/var/www/samolov/shared/sockets/puma.sock fail_timeout=0;
+    server unix:/var/www/samolov/shared/sockets/unicorn.sock fail_timeout=0;
 }
 
 server {

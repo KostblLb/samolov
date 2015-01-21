@@ -104,5 +104,5 @@ group :development do
 end
 
 group :production do
-  gem 'puma', platform: :ruby
+  gem 'unicorn', platform: :ruby
 end

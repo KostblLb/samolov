@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  devise_for :admins
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show, :update]
@@ -6,8 +12,6 @@ Rails.application.routes.draw do
   end
 
   get 'cabinet' => 'cabinet#index'
-
-  devise_for :users
   get 'temporary/index'
 
   root 'cabinet#index'
