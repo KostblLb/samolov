@@ -102,3 +102,7 @@ group :development do
   gem 'capistrano-unicorn', :require => false
   gem 'capistrano-sidekiq'
 end
+
+group :production do
+  gem 'puma', platform: :ruby
+end
