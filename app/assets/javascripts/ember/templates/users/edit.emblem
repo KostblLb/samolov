@@ -1,0 +1,16 @@
+form.ui.form
+  h4.ui.dividing.header
+    | Редактирование профиля
+  .field
+    label
+      | Email
+    = input value=email
+  .field
+    label
+      | Имя
+    = input value=lastName
+  .field
+    | Фамилия
+    = input value=firstName
+  .ui.submit.button{action 'save'}
+    | Сохранить

@@ -1,0 +1,29 @@
+.ui.two.column.grid
+  .column
+    .ui.card
+      .image
+        img src='http://placekitten.com/g/500/500'
+      .content
+        = if itsMe
+          link-to 'users.edit'
+            i.right.floated.edit.icon
+        .header
+          = fullName
+  .column
+    .ui.raised.segment
+      .ui.teal.ribbon.label
+        | Email
+      p
+        = email
+
+      .ui.teal.ribbon.label
+        | Имя
+      p
+        = firstName
+
+
+      .ui.teal.ribbon.label
+        | Фамилия
+      p
+        = lastName
+

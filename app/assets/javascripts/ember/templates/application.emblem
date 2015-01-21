@@ -11,7 +11,7 @@
   .item
     img.ui.avatar.image src="http://placekitten.com/g/200/300"
     | email@example.com
-  a.item
+  = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
   a.item
@@ -33,4 +33,58 @@
     i.users.icon
     | Сообщество
 .container
-  | hi from ember
+  = outlet
+
+
+.ui.right.sidebar.ui.segment
+  .ui.segment
+    .ui.header
+      | Руководитель курса
+    img.ui.avatar.image src="https://placekitten.com/g/50/50"
+    | Василий Олег Оксана
+  .ui.segment
+    .ui.header
+      | Однокурсники
+    .ui.ordered.divided.list
+      .item
+        .right.floated.compact.ui.button
+          i.mail.icon
+        img.ui.avatar.image src="https://placekitten.com/g/40/40"
+        .content
+          .header
+            | Валера Арматура
+          | 50 баллов
+      .item
+        .right.floated.compact.ui.button
+          i.mail.icon
+        img.ui.avatar.image src="https://placekitten.com/g/70/70"
+        .content
+          .header
+            | Арнольд Фихтенгольц
+          | 10 баллов
+
+  .ui.segment
+    .ui.header
+      | Объявления
+    .item
+      .content
+        | Объявление 1
+    .item
+      .content
+        | Объявление 2
+
+  .ui.segment
+    .ui.header
+      | Порекомендуйте наш курс
+    .ui.facebook.button
+      i.facebook.icon
+      | Facebook
+    .ui.twitter.button
+      i.twitter.icon
+      | Twitter
+    .ui.google.plus.button
+      i.google.plus.icon
+      | Google Plus
+    .ui.vk.button
+      i.vk.icon
+      | VK
