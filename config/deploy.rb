@@ -1,8 +1,7 @@
 
 require 'rvm/capistrano' # Для работы rvm
 require 'bundler/capistrano' # Для работы bundler. При изменении гемов bundler автоматически обновит все гемы на сервере, чтобы они в точности соответствовали гемам разработчика.
-require 'puma/capistrano'
-
+require 'capistrano-unicorn'
 
 
 set :application, 'samolov'
@@ -29,6 +28,10 @@ role :db,  domain, :primary => true
 
 after 'deploy', 'deploy:migrate'
 after 'deploy:update', 'deploy:cleanup'
+after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:restart'   # app preloaded
+after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
+
 namespace :deploy do
   task :init_vhost do
     run "ln -s #{deploy_to}/current/config/#{application}.vhost /etc/nginx/sites-enabled/#{application}"
