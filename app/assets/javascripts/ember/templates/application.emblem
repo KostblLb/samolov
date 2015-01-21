@@ -2,8 +2,8 @@
   a.item onclick="$('.ui.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('setting', 'dimPage', false).sidebar('toggle')"
     | Меню
   .right.menu
-    a.item
-      | logout
+    a.item href='/users/sign_out'
+      | Выход
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#left onclick="$('.ui.right.sidebar').sidebar('setting', 'transition', 'scale down').sidebar('setting', 'dimPage', false).sidebar('toggle')"
   i.content.icon
 

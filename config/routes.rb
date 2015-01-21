@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   devise_for :users
   get 'temporary/index'
 
+  root 'cabinet#index'
+
 end
