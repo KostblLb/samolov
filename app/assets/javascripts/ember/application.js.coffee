@@ -22,6 +22,7 @@ Ember.Application.initializer
     if window.myId?
       container.lookup('store:main').find('user', window.myId).then (user)->
         container.register 'user:current', user, {instantiate: false, singleton: true}
+        container.register 'user:not_current', user, {instantiate: false, singleton: true}
 
         # Inject the namespace into controllers and routes
         container.injection 'route', 'currentUser', 'user:current'

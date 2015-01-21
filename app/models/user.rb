@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Paperclip
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,4 +37,20 @@ class User
 
   field :first_name
   field :last_name
+
+  has_mongoid_attached_file :avatar, default_url: '/default_avatar.jpg'
+  validates_attachment_content_type :avatar, :content_type => /\Aimage/
+
+  before_save :set_avatar_extension
+  private
+  def set_avatar_extension
+    if self.avatar_content_type.nil? || self.avatar_file_name != 'data'
+      return true
+    end
+    begin
+      name = SecureRandom.uuid
+    end while !User.where(avatar_file_name: name).empty?
+    extension = self.avatar_content_type.gsub('image/', '.')
+    self.avatar.instance_write(:file_name, name+extension)
+  end
 end

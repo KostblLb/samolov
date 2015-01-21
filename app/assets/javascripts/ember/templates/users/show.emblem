@@ -2,7 +2,7 @@
   .column
     .ui.card
       .image
-        img src='http://placekitten.com/g/500/500'
+        img src=avatarUrl
       .content
         = if itsMe
           link-to 'users.edit'

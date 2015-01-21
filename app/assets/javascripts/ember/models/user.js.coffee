@@ -4,6 +4,8 @@ Samolov.User = DS.Model.extend
   email:     DS.attr 'string'
   lastName:  DS.attr 'string'
   firstName: DS.attr 'string'
+  avatarUrl: DS.attr 'string'
+  avatar:    DS.attr 'string'
 
   fullName: (->
     firstName = @get('firstName') || ''

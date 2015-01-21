@@ -6,6 +6,7 @@ gem 'rails', '~>4.1.0'
 
 # Mongoid and utils
 gem 'mongoid', '~> 4.0.0'
+gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 
 gem 'active_model_serializers'
 

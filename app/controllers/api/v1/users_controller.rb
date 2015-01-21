@@ -23,7 +23,7 @@ module Api
 
       protected
       def user_params
-        params.require(:user).permit :email, :last_name, :first_name
+        params.require(:user).permit :email, :last_name, :first_name, :avatar
       end
 
       def set_user

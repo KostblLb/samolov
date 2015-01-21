@@ -9,8 +9,8 @@
 
 .ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu
   .item
-    img.ui.avatar.image src="http://placekitten.com/g/200/300"
-    | email@example.com
+    img.ui.avatar.image src=currentUser.avatarUrl
+    = currentUser.email
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
