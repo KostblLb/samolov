@@ -4,3 +4,6 @@ Samolov.Router.map ()->
   @resource 'users', ->
     @route 'show', path: ':id'
     @route 'edit'
+
+  @resource 'messages', ->
+    @route 'new'

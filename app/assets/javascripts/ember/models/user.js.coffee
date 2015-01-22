@@ -8,7 +8,7 @@ Samolov.User = DS.Model.extend
   avatar:    DS.attr 'string'
 
   fullName: (->
-    firstName = @get('firstName') || ''
+    firstName = @get('firstName') || 'No name'
     lastName  = @get('lastName')  || ''
     "#{firstName} #{lastName}"
   ).property('firstName', 'lastName')

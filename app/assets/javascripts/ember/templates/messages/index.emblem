@@ -1,0 +1,12 @@
+.ui.divided.list
+  = each
+    .item
+      link-to 'messages.new' (query-params recipient_id=sender.id)
+        i.right.floated.reply.icon
+      img.ui.avatar.image src=sender.avatarUrl
+
+      .content
+        link-to 'users.show' sender class='header'
+          = sender.fullName
+        .description
+          = body

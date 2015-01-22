@@ -14,6 +14,9 @@
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
+  = link-to 'messages.index' class='item'
+    i.mail.icon
+    | Сообщения
   a.item
     i.student.icon
     | Бесплатный курс

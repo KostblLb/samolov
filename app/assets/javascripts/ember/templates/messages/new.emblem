@@ -1,0 +1,13 @@
+form.ui.form
+  h4.ui.dividing.header
+    | Новое сообщение
+  .field
+    label
+      | Кому
+    = view 'select'  selection=recipient.content content=users optionValuePath='content.id' optionLabelPath='content.fullName'
+  .field
+    label
+      | Текст
+    = textarea value=body
+  .ui.submit.button{action 'save'}
+    | Сохранить

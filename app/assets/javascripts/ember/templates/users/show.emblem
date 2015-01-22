@@ -7,6 +7,9 @@
         = if itsMe
           link-to 'users.edit'
             i.right.floated.edit.icon
+        = else
+          link-to 'messages.new' (query-params recipient_id=this.id)
+            i.right.floated.mail.icon
         .header
           = fullName
   .column
