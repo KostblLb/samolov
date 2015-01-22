@@ -4,7 +4,7 @@
   | Видео (вводная часть, напуственное слово руководителя)
       Формат обучения (описание)
       Плюсы от прохождения курса
-  .ui.video data-url="http://www.youtube.com/watch?v=wlFHRC7RvBY"
+  .ui.video data-url="http://vimeo.com/117481433"
   .ui.primary.segment
     .ui.header
       | ДИРЕКТОРСКИЙ КУРС (даты прохождения, время)
