@@ -14,9 +14,12 @@
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
-  = link-to 'messages.index' class='item'
+  = link-to 'messages' class='item'
     i.mail.icon
     | Сообщения
+  = link-to 'users' class='item'
+    i.users.icon
+    | Пользователи
   a.item
     i.student.icon
     | Бесплатный курс
@@ -32,9 +35,7 @@
   a.item
     i.gift.icon
     | Бонусы
-  a.item
-    i.users.icon
-    | Сообщество
+
 .container
   = outlet
 
