@@ -17,10 +17,10 @@
   = link-to 'messages' class='item'
     i.mail.icon
     | Сообщения
-  = link-to 'users' class='item'
+  = link-to 'users.index' class='item'
     i.users.icon
     | Пользователи
-  a.item
+  = link-to 'free' class='item'
     i.student.icon
     | Бесплатный курс
   a.item
