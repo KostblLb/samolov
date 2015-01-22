@@ -1,6 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      before_action :authenticate_user!
       before_action :set_user, except: :index
       respond_to :json
 

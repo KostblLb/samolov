@@ -82,7 +82,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-mocks'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'cucumber-rails', require: false
   gem 'selenium-webdriver'
   gem 'rack'
