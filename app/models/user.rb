@@ -45,6 +45,11 @@ class User
   validates_attachment_content_type :avatar, :content_type => /\Aimage/
 
   before_save :set_avatar_extension
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   private
   def set_avatar_extension
     if self.avatar_content_type.nil? || self.avatar_file_name != 'data'
