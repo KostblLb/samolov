@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show, :create]
       resources :courses,  only: [:index, :show]
       resources :groups,   only: [:index, :show]
+      resources :parts,    only: [:index, :show]
     end
   end
 
