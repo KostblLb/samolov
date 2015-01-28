@@ -8,3 +8,5 @@ Samolov.Course = DS.Model.extend
   needBuy: (->
     @get('status') == 'new'
   ).property('status')
+
+  myGroup: DS.belongsTo 'group', async: true

@@ -11,4 +11,4 @@ Samolov.Router.map ()->
     @route 'new'
 
   @resource 'courses', ->
-    @route 'show', path: ':id '
+    @route 'show', path: ':id'

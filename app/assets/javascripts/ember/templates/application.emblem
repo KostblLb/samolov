@@ -41,41 +41,7 @@
 
 
 .ui.right.sidebar.ui.segment
-  .ui.segment
-    .ui.header
-      | Руководитель курса
-    img.ui.avatar.image src="https://placekitten.com/g/50/50"
-    | Василий Олег Оксана
-  .ui.segment
-    .ui.header
-      | Однокурсники
-    .ui.ordered.divided.list
-      .item
-        .right.floated.compact.ui.button
-          i.mail.icon
-        img.ui.avatar.image src="https://placekitten.com/g/40/40"
-        .content
-          .header
-            | Валера Арматура
-          | 50 баллов
-      .item
-        .right.floated.compact.ui.button
-          i.mail.icon
-        img.ui.avatar.image src="https://placekitten.com/g/70/70"
-        .content
-          .header
-            | Арнольд Фихтенгольц
-          | 10 баллов
-
-  .ui.segment
-    .ui.header
-      | Объявления
-    .item
-      .content
-        | Объявление 1
-    .item
-      .content
-        | Объявление 2
+  = outlet 'right_sidebar'
 
   .ui.segment
     .ui.header

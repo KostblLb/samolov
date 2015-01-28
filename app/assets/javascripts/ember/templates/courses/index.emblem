@@ -10,7 +10,7 @@ h2.ui.header
           a href='' class='right floated compact ui blue button'
             | Купить
         = else
-          link-to 'courses.show' this class='right floated compact ui blue button'
+          link-to 'courses.show' id class='right floated compact ui blue button'
             | К курсу
         .content
           .header

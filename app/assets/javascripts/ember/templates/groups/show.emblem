@@ -1,0 +1,30 @@
+= with myGroup
+  .ui.segment
+    .ui.header
+      | Руководитель курса
+    img.ui.avatar.image src=teacher.avatarUrl
+    = teacher.fullName
+    .ui.segment
+      .ui.header
+        | Однокурсники
+      .ui.ordered.divided.list
+        = each students
+          = unless itsMe
+            .item
+              link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+                i.mail.icon
+              img.ui.avatar.image src=avatarUrl
+              .content
+                .header
+                  = fullName
+                | 50 баллов
+
+    .ui.segment
+      .ui.header
+        | Объявления
+      .item
+        .content
+          | Объявление 1
+      .item
+        .content
+          | Объявление 2
