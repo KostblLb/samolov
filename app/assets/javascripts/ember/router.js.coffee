@@ -9,3 +9,6 @@ Samolov.Router.map ()->
 
   @resource 'messages', ->
     @route 'new'
+
+  @resource 'courses', ->
+    @route 'show', path: ':id '

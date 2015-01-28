@@ -23,7 +23,7 @@
   = link-to 'free' class='item'
     i.student.icon
     | Бесплатный курс
-  a.item
+  = link-to 'courses.index' class='item'
     i.suitcase.icon
     | Курсы
   a.item

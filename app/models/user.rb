@@ -41,6 +41,8 @@ class User
   has_many :inbox,  class_name: 'Message', inverse_of: :recipient
   has_many :outbox, class_name: 'Message', inverse_of: :sender
 
+  has_many :course_progresses
+
   has_mongoid_attached_file :avatar, default_url: '/default_avatar.jpg'
   validates_attachment_content_type :avatar, :content_type => /\Aimage/
 
@@ -48,6 +50,10 @@ class User
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def has_course?(course)
+    course_progresses.where(course: course).exists?
   end
 
   private
