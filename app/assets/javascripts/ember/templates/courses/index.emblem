@@ -8,9 +8,11 @@ h2.ui.header
       .item
         = if needBuy
           a href='' class='right floated compact ui blue button'
+            i.shop.icon
             | Купить
         = else
           link-to 'courses.show' id class='right floated compact ui blue button'
+            i.unlock.icon
             | К курсу
         .content
           .header

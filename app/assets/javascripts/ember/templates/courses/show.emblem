@@ -4,9 +4,15 @@ h2.ui.header
     = name
 .ui.segment
   = description
-
-  p
-    | And Other info.
-
   p
     | Информации о моей группе в правом сайдбаре
+.ui.segment
+  h3.ui.header
+    .content
+      | Разделы
+  .ui.cards
+    = each parts
+      .blue.card
+        .content
+          link-to 'part' id class='header'
+            = name

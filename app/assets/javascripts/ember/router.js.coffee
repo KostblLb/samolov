@@ -12,3 +12,5 @@ Samolov.Router.map ()->
 
   @resource 'courses', ->
     @route 'show', path: ':id'
+
+  @resource 'part', path: ':part_id'

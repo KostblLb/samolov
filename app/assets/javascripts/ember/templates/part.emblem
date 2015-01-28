@@ -1,0 +1,7 @@
+h2.ui.header
+  .content
+    = name
+
+.ui.segment
+  h3.ui.header
+    | Список модулей

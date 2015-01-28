@@ -10,3 +10,5 @@ Samolov.Course = DS.Model.extend
   ).property('status')
 
   myGroup: DS.belongsTo 'group', async: true
+
+  parts: DS.hasMany 'part', async: true
