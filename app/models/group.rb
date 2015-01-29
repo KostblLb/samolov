@@ -4,10 +4,14 @@ class Group
   belongs_to :course
   belongs_to :teacher, class_name: 'User'
 
+  embeds_many :adverts
+
   has_and_belongs_to_many :students, class_name: 'User', after_add: :create_course_progress_for_user
 
   after_save :resolve_students
   validates_presence_of :course, :teacher
+
+  accepts_nested_attributes_for :adverts
 
   def name
     if persisted?

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :groups,   only: [:index, :show]
       resources :parts,    only: [:index, :show]
       resources :units,    only: [:index, :show]
+      resources :adverts,  only: [:index, :show, :create, :destroy]
     end
   end
 
