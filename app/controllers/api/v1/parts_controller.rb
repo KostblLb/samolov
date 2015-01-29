@@ -4,7 +4,8 @@ module Api
       respond_to :json
 
       def index
-        @parts = Part.all
+        course = Course.find params[:course_id]
+        @parts = course.parts
         respond_with @parts
       end
 

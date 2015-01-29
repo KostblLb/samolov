@@ -10,7 +10,7 @@ RSpec.describe Api::V1::PartsController, type: :controller do
 
   describe "GET index" do
     it "assigns all parts as @parts" do
-      get :index
+      get :index, course_id: part.course.to_param
       expect(assigns(:parts)).to eq([part])
     end
   end

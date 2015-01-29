@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :courses,  only: [:index, :show]
       resources :groups,   only: [:index, :show]
       resources :parts,    only: [:index, :show]
+      resources :units,    only: [:index, :show]
     end
   end
 
