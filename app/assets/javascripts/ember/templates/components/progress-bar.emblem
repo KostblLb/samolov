@@ -1,0 +1,4 @@
+.bar
+.label
+  = percent
+  | &nbsp%

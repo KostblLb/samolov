@@ -1,0 +1,21 @@
+h2.ui.header
+  .content
+    = name
+
+.ui.segment
+  .ui.header
+    .ui.steps
+      link-to (query-params scope='video') class="step"
+        | Видео
+      a.step
+        | Тест
+      link-to (query-params scope='summary') class="step"
+        | Конспект
+      a.step
+        | Кейс
+      a.step
+        | Вебинар
+      a.step
+        | Домашние задание
+  .ui.secondary.segment
+    = outlet
