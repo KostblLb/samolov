@@ -1,1 +1,14 @@
-| Webinar
+= with webinar
+  .ui.blue.ribbon.label
+    | Ссылка
+  p
+    a href=link target='_blank'
+      | Перейти к вебинару
+  .ui.blue.ribbon.label
+    | Начало
+  p
+    = formattedStart
+  .ui.blue.ribbon.label
+    | Закончится
+  p
+    = formattedEnd
