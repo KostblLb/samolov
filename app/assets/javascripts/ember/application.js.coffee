@@ -26,6 +26,7 @@ Ember.Application.initializer
 
         # Inject the namespace into controllers and routes
         container.injection 'route', 'currentUser', 'user:current'
+        container.injection 'model', 'currentUser', 'user:current'
         container.injection 'controller', 'currentUser', 'user:current'
 
         # Continue the Application boot process, allowing other Initializers to run

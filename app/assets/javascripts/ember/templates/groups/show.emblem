@@ -20,11 +20,13 @@
                 | 50 баллов
 
     .ui.segment
-      .ui.header
+      .header
         | Объявления
-      .item
-        .content
-          | Объявление 1
-      .item
-        .content
-          | Объявление 2
+      .ui.divided.list
+        = each adverts
+          .item
+            .header
+              = title
+            = text
+      = if canICreateAdvert
+        | Add
