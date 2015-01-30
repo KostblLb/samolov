@@ -5,7 +5,7 @@ Samolov.Webinar = DS.Model.extend
   start: DS.attr 'date'
   end:   DS.attr 'date'
 
-  format: 'dd-MM-YYYY в hh:mm'
+  format: 'DD-MM-YYYY в HH:mm'
 
   convertDate: (field) ->
     date = @.get field
