@@ -7,15 +7,15 @@ h2.ui.header
     .ui.steps
       link-to (query-params scope='video') class="step"
         | Видео
-      a.step
+      link-to (query-params scope='test') class="step"
         | Тест
       link-to (query-params scope='summary') class="step"
         | Конспект
-      a.step
+      link-to (query-params scope='case') class="step"
         | Кейс
-      a.step
+      link-to (query-params scope='webinar') class="step"
         | Вебинар
-      a.step
-        | Домашние задание
+      link-to (query-params scope='homework') class="step"
+        | Домашнее задание
   .ui.secondary.segment
     = outlet
