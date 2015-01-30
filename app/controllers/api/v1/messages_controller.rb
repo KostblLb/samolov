@@ -19,7 +19,7 @@ module Api
         if @message.save
           respond_with @message, status: :created, location: false
         else
-          respond_with @message, status: unprocessable_entity
+          respond_with @message, status: :unprocessable_entity
         end
       end
 

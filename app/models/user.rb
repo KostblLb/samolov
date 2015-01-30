@@ -42,6 +42,7 @@ class User
   has_many :outbox, class_name: 'Message', inverse_of: :sender
 
   has_many :course_progresses
+  has_and_belongs_to_many :groups
 
   has_mongoid_attached_file :avatar, default_url: '/default_avatar.jpg'
   validates_attachment_content_type :avatar, :content_type => /\Aimage/
