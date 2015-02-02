@@ -15,6 +15,19 @@ RSpec.describe User, :type => :model do
     context 'user has not progress for course' do
       it {is_expected.to be_falsey}
     end
+  end
 
+  describe '#teacher?' do
+    subject{user.teacher?}
+
+    context 'user has not trained groups' do
+      let(:user) {create :user}
+      it {is_expected.to be_falsey}
+    end
+
+    context 'user is teacher in a group' do
+      let(:user) {create :user, trained_groups: [(build :group)]}
+      it {is_expected.to be_truthy}
+    end
   end
 end

@@ -9,13 +9,29 @@ RSpec.describe Api::V1::GroupsController, type: :controller do
   end
 
   describe "GET index" do
-    it "assigns all groups as @groups" do
-      get :index
-      expect(assigns(:groups)).to eq([group])
+    context 'signed in as students' do
+      let(:user) {group.students.first}
+      before(:each) {user.save && sign_in(user)}
+
+      it 'assigns groups where I study as @groups' do
+        get :index
+        expect(assigns(:groups)).to eq([group])
+      end
+    end
+    context 'signed in as students' do
+      let(:user) {group.teacher}
+      before(:each) {sign_in user}
+
+      it 'assigns groups where I am teacher as @groups' do
+        get :index, scope: 'as_teacher'
+        expect(assigns(:groups)).to eq([group])
+      end
     end
   end
 
   describe "GET show" do
+    let(:user) {group.students.first}
+    before(:each) {user.save && sign_in(user)}
     it "assigns the requested group as @group" do
       get :show, {:id => group.to_param}
       expect(assigns(:group)).to eq(group)
