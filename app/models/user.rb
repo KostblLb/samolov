@@ -61,6 +61,7 @@ class User
   def teacher?
     trained_groups.any?
   end
+  alias :is_teacher :teacher?
 
   private
   def set_avatar_extension

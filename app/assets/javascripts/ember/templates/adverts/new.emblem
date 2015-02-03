@@ -1,0 +1,17 @@
+h2.ui.header
+  i.announcement.icon
+  .content
+    | Новое объявление
+
+.ui.segment
+  form.ui.form
+    .field
+      label
+        | Тема
+      = input value=title
+    .field
+      label
+        | Текст
+      = textarea value=text
+    button.ui.button{action 'create'}
+      | Добавить новое объявление

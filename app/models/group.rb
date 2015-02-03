@@ -1,6 +1,8 @@
 class Group
   include Mongoid::Document
 
+  field :name
+
   belongs_to :course
   belongs_to :teacher, class_name: 'User', inverse_of: :trained_groups
 
@@ -15,7 +17,7 @@ class Group
 
   def name
     if persisted?
-      "#{course.name} | #{teacher.name}"
+      super || "#{course.name} | #{teacher.name}"
     else
       'Новая группа'
     end

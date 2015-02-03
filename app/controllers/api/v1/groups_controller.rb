@@ -11,7 +11,7 @@ module Api
       end
 
       def show
-        @group = scoped_collection.find params[:id]
+        @group = Group.find params[:id]
         respond_with @group
       end
 

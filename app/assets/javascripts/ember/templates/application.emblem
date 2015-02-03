@@ -20,9 +20,10 @@
   = link-to 'users.index' class='item'
     i.users.icon
     | Пользователи
-  = link-to 'free' class='item'
-    i.student.icon
-    | Бесплатный курс
+  = if currentUser.isTeacher
+    = link-to 'groups.index' class='item'
+      i.student.icon
+      | Мои группы
   = link-to 'courses.index' class='item'
     i.suitcase.icon
     | Курсы

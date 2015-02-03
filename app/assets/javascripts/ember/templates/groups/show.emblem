@@ -1,32 +1,39 @@
-= with myGroup
-  .ui.segment
-    .ui.header
-      | Руководитель курса
-    img.ui.avatar.image src=teacher.avatarUrl
-    = teacher.fullName
-    .ui.segment
-      .ui.header
-        | Однокурсники
-      .ui.ordered.divided.list
-        = each students
-          = unless itsMe
-            .item
-              link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
-                i.mail.icon
-              img.ui.avatar.image src=avatarUrl
-              .content
-                .header
-                  = fullName
-                | 50 баллов
+h2.ui.header
+  .content
+    = name
 
-    .ui.segment
-      .header
-        | Объявления
-      .ui.divided.list
-        = each adverts
-          .item
-            .header
-              = title
-            = text
-      = if canICreateAdvert
-        | Add
+.ui.segment
+  .ui.blue.ribbon.label
+    | Название курса
+  p
+    = course.name
+
+  .ui.blue.ribbon.label
+    | Студенты
+  table.ui.celled.striped.table
+    thead
+      tr
+        th
+          | Студент
+        th
+    tbody
+      = each students
+        tr
+          td
+            link-to 'users.show' id
+              = fullName
+          td
+            link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+              i.mail.icon
+
+  .ui.blue.ribbon.label
+    | Объявления
+  .ui.divided.list
+    = each adverts
+      .item
+        .header
+          = title
+        = text
+  = if canICreateAdvert
+    link-to 'adverts.new' class='ui button'
+      | Добавить объявление

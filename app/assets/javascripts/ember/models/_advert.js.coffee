@@ -3,3 +3,5 @@
 Samolov.Advert = DS.Model.extend
   title: DS.attr 'string'
   text: DS.attr 'string'
+  groupId: DS.attr 'string', serialize: false
+

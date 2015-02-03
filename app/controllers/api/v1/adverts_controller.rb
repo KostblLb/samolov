@@ -20,7 +20,7 @@ module Api
 
       def create
         authorize! :manage_adverts, @group
-        @advert = @group.adverts.new
+        @advert = @group.adverts.new advert_params
         if @advert.save
           respond_with @advert, status: :created, location: false
         else
@@ -36,7 +36,7 @@ module Api
 
       private
       def advert_params
-        params.require(:advert).permit :tittle, :text
+        params.require(:advert).permit :title, :text
       end
 
       def set_advert
