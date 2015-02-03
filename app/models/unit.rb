@@ -7,5 +7,9 @@ class Unit
 
   belongs_to :part
 
+  has_many :exams, dependent: :destroy
+
+  accepts_nested_attributes_for :exams
+
   validates_presence_of :name, :summary
 end

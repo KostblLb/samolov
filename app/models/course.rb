@@ -8,6 +8,7 @@ class Course
   has_many :groups
   has_many :parts, dependent: :destroy
 
+
   accepts_nested_attributes_for :parts
 
   def group_for(user)
