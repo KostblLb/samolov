@@ -11,9 +11,8 @@ class Unit
 
   accepts_nested_attributes_for :webinar
 
-  has_many :exams, dependent: :destroy
-
-  accepts_nested_attributes_for :exams
+  belongs_to :first_test, class_name: 'Exam', inverse_of: :exam, dependent: :destroy
+  belongs_to :second_test, class_name: 'Exam', inverse_of: :exam, dependent: :destroy
 
   validates_presence_of :name, :summary
 end
