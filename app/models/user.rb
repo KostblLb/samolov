@@ -42,6 +42,7 @@ class User
   has_many :outbox, class_name: 'Message', inverse_of: :sender
 
   has_many :course_progresses
+  has_many :trained_groups, class_name: 'Group', inverse_of: :teacher
   has_and_belongs_to_many :groups
 
 
@@ -57,6 +58,11 @@ class User
   def has_course?(course)
     course_progresses.where(course: course).exists?
   end
+
+  def teacher?
+    trained_groups.any?
+  end
+  alias :is_teacher :teacher?
 
   private
   def set_avatar_extension

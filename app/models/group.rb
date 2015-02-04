@@ -1,12 +1,14 @@
 class Group
   include Mongoid::Document
 
+  field :name
+
   belongs_to :course
-  belongs_to :teacher, class_name: 'User'
+  belongs_to :teacher, class_name: 'User', inverse_of: :trained_groups
 
   embeds_many :adverts
 
-  has_and_belongs_to_many :students, class_name: 'User', after_add: :create_course_progress_for_user
+  has_and_belongs_to_many :students, class_name: 'User', after_add: :create_course_progress_for_user, inverse_of: :groups
 
   after_save :resolve_students
   validates_presence_of :course, :teacher
@@ -15,7 +17,7 @@ class Group
 
   def name
     if persisted?
-      "#{course.name} | #{teacher.name}"
+      super || "#{course.name} | #{teacher.name}"
     else
       'Новая группа'
     end

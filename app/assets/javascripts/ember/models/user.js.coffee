@@ -6,6 +6,7 @@ Samolov.User = DS.Model.extend
   firstName: DS.attr 'string'
   avatarUrl: DS.attr 'string'
   avatar:    DS.attr 'string'
+  isTeacher: DS.attr 'boolean'
 
   fullName: (->
     firstName = @get('firstName') || 'No name'

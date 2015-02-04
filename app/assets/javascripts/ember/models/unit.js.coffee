@@ -6,4 +6,5 @@ Samolov.Unit = DS.Model.extend
   videoLink: DS.attr 'string'
 
   part: DS.belongsTo 'part', async: true
+  webinar: DS.belongsTo 'webinar'
 

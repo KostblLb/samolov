@@ -6,4 +6,4 @@ Samolov.CoursesShowRoute = Ember.Route.extend
 
   renderTemplate: ->
     @render()
-    @render 'groups/show',  outlet: 'right_sidebar'
+    @render 'groups/show_in_sidebar',  outlet: 'right_sidebar'
