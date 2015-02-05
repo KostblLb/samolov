@@ -1,0 +1,11 @@
+.ui.segment
+  .content
+    | Правила прохождения теста
+    br
+    | И Другая информация
+
+  .ui.horizontal.divider
+
+  button.ui.green.button
+    i.play.icon
+    | Начать тест

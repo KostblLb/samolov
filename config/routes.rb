@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :exams,     only: [:index, :show]
       resources :questions, only: [:index, :show]
       resources :answers,   only: [:index, :show]
+      resources :quizzes,   only: :show
     end
   end
 

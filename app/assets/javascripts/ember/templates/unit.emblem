@@ -7,11 +7,11 @@ h2.ui.header
     .ui.steps
       link-to (query-params scope='video') class="step"
         | Видео
-      link-to (query-params scope='test') class="step"
+      link-to 'quiz' quizId class="step"
         | Тест
       link-to (query-params scope='summary') class="step"
         | Конспект
-      link-to (query-params scope='case') class="step"
+      link-to 'quiz' caseId (query-params scope='case') class="step"
         | Кейс
       link-to (query-params scope='webinar') class="step"
         | Вебинар

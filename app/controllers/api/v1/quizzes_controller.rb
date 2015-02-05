@@ -1,6 +1,6 @@
 module Api
   module V1
-    class QuizsController < ApplicationController
+    class QuizzesController < ApplicationController
       respond_to :json
       
       def show
