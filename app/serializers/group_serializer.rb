@@ -1,5 +1,5 @@
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :teacher_id, :name
+  attributes :id, :teacher, :name
 
   has_one :course
   has_many :adverts

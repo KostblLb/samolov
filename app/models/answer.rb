@@ -5,5 +5,6 @@ class Answer
   field :is_correct, type: Boolean
 
   belongs_to :question
+  has_many :user_answers
 
 end

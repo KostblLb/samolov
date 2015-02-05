@@ -5,8 +5,9 @@ module Api
 
       def index
         unit = Unit.find params[:unit_id]
-        @exams = unit.exams
-        respond_with @exams
+        @first_exam = unit.first_test
+        @second_exam = unit.second_test
+        respond_with(@first_exam, @second_exam )
       end
 
       def show

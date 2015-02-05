@@ -10,9 +10,8 @@ class Unit
   belongs_to :part
 
   accepts_nested_attributes_for :webinar
-
-  belongs_to :first_test, class_name: 'Exam', inverse_of: :exam, dependent: :destroy
-  belongs_to :second_test, class_name: 'Exam', inverse_of: :exam, dependent: :destroy
+  belongs_to :first_test, class_name: 'Exam', inverse_of: :unit, dependent: :destroy
+  belongs_to :second_test, class_name: 'Exam', inverse_of: :uint, dependent: :destroy
 
   validates_presence_of :name, :summary
 end

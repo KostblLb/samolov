@@ -2,6 +2,7 @@ class UserAnswer
   include Mongoid::Document
 
   belongs_to :question
-  has_many :answers
+  belongs_to :answer
+  belongs_to :exam_progress
 
 end
