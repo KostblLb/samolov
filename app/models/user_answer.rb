@@ -3,6 +3,6 @@ class UserAnswer
 
   belongs_to :question
   belongs_to :answer
-  belongs_to :exam_progress
+  belongs_to :quiz_progress
 
 end

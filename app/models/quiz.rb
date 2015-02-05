@@ -2,11 +2,11 @@ class Quiz
   include Mongoid::Document
 
   field :name
-  field :is_test, type: Boolean
 
-  belongs_to :test_socket, class_name: 'Unit', inverse_of: :test
+  belongs_to :test_socket, class_name: 'Unit', inverse_of: :quiz
   belongs_to :case_socket, class_name: 'Unit', inverse_of: :case
   has_many :questions, dependent: :destroy
+  has_many :quiz_progresses
 
   validate :only_one_socket_present
 

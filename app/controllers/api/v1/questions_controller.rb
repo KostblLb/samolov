@@ -4,8 +4,8 @@ module Api
       respond_to :json
 
       def index
-        test = Test.find params[:test_id]
-        @questions = test.questions
+        quiz = Quiz.find params[:test_id]
+        @questions = quiz.questions
         respond_with @questions
       end
 

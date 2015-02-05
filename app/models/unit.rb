@@ -9,10 +9,10 @@ class Unit
 
   belongs_to :part
   
-  has_one :test, class_name: 'Quiz', inverse_of: :test_socket, dependent: :destroy
+  has_one :quiz, class_name: 'Quiz', inverse_of: :test_socket, dependent: :destroy
   has_one :case, class_name: 'Quiz', inverse_of: :case_socket, dependent: :destroy
 
   accepts_nested_attributes_for :webinar
 
-   validates_presence_of :name, :summary
+  validates_presence_of :name, :summary
 end

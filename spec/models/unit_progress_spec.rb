@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe CourseProgress do
+RSpec.describe UnitProgress do
   describe 'create new object' do
     before(:each) {subject.save}
-    subject{CourseProgress.new}
+    subject{UnitProgress.new}
 
     it 'creates parts progresses' do
-      expect(subject.course_part_progresses.count).to eq(1)
+      expect(subject.quiz_progress)
+      expect(subject.case_progress)
     end
   end
 end
