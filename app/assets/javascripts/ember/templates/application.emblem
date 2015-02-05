@@ -1,13 +1,12 @@
 .ui.blue.inverted.main.menu
-  a.item onclick="$('.ui.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('setting', 'dimPage', false).sidebar('toggle')"
-    | Меню
+  a.item
   .right.menu
     a.item href='/users/sign_out'
       | Выход
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#left onclick="$('.ui.right.sidebar').sidebar('setting', 'transition', 'scale down').sidebar('setting', 'dimPage', false).sidebar('toggle')"
   i.content.icon
 
-.ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu
+.ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu.visible
   .item
     img.ui.avatar.image src=currentUser.avatarUrl
     = currentUser.email
@@ -24,7 +23,7 @@
     = link-to 'groups.index' class='item'
       i.student.icon
       | Мои группы
-  = link-to 'courses.index' class='item'
+  = link-to 'courses' class='item'
     i.suitcase.icon
     | Курсы
   a.item
