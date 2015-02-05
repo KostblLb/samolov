@@ -18,6 +18,6 @@ Samolov.Router.map ()->
       @resource 'adverts', ->
         @route 'new'
 
-
+  @resource 'question', path: 'question/:id'
   @resource 'part', path: 'part/:part_id'
   @resource 'unit', path: 'unit/:unit_id'

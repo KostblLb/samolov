@@ -1,3 +1,5 @@
-class QuizSerializer < ActiveModel::Serializer
-  attributes :id, :test_name, :question_text, :answer_ids
+class QuestionSerializer < ActiveModel::Serializer
+  attributes :id, :text
+
+  has_many :answers
 end

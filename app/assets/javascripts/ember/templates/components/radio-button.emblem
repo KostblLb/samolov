@@ -1,0 +1,4 @@
+.ui.toggle.checkbox
+  input name=name type='radio'
+  label
+    = label
