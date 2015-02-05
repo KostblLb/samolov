@@ -14,6 +14,7 @@ Samolov.Router.map ()->
   @resource 'course', path: 'courses/:id', ->
     @resource 'part', path: 'part/:part_id'
     @resource 'unit', path: 'unit/:unit_id'
+    @resource 'quiz', path: 'quize/:quiz_id'
 
   @resource 'groups', ->
     @route 'show', path: ':id', ->
