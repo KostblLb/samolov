@@ -11,7 +11,7 @@ h2.ui.header
             i.shop.icon
             | Купить
         = else
-          link-to 'courses.show' id class='right floated compact ui blue button'
+          link-to 'course' id class='right floated compact ui blue button'
             i.unlock.icon
             | К курсу
         .content

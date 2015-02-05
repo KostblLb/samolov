@@ -11,5 +11,6 @@ Samolov.Group = DS.Model.extend
 
 
   canICreateAdvert: (->
+    return false unless @get('teacher').content?
     @get('teacher').content.id == window.myId
   ).property('teacher')
