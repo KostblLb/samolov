@@ -1,6 +1,6 @@
 # For more information see: http://emberjs.com/guides/routing/
 
-Samolov.CoursesShowRoute = Ember.Route.extend
+Samolov.CourseRoute = Ember.Route.extend
   model: (params)->
     @store.find 'course', params.id
 
