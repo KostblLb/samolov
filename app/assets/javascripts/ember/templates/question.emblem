@@ -1,0 +1,19 @@
+.ui.segment
+  .ui.header
+    | Вопрос
+  .content
+    = text
+  .ui.horizontal.divider
+    | Варианты ответа
+    i.pointing.down.icon
+  form.ui.form
+    = each answers
+      .field
+        radio-button name='user_answer' selection=controller.userAnswer value=id label=text
+
+
+    .ui.horizontal.divider
+    = if userAnswer
+      button.ui.button{action 'answer'}
+        | Дальше
+        i.arrow.right.icon
