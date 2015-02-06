@@ -10,6 +10,8 @@ class Quiz
 
   validate :only_one_socket_present
 
+  accepts_nested_attributes_for :questions
+
   protected
   def only_one_socket_present
     errors[:case_socket] << 'only one socket can be presented' if quiz_socket.present? && case_socket.present?
