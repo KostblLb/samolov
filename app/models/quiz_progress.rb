@@ -18,6 +18,11 @@ class QuizProgress
     self.update! current_question: quiz.questions.where(:id.gt => current_question.id).first
   end
 
+  def correct_answers_count
+    return nil if current_question.present?
+    user_answers.inject(0) {|sum, item| item.is_correct ? sum + 1 : sum}
+  end
+
   private
   def set_current_question
     self.current_question = quiz.questions.first

@@ -1,7 +1,6 @@
 h2.ui.header
   | Результаты теста
 .ui.segment
-  | Вы достигли дна
   = with quiz
     table.ui.table
       thead
@@ -25,3 +24,6 @@ h2.ui.header
               = else
                 i.minus.square.icon
 
+  .ui.horizontal.divider
+    i.bar.chart.icon
+    | Итог
