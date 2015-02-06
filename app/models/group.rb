@@ -36,6 +36,6 @@ class Group
     end
   end
   def create_course_progress_for_user(user)
-    user.course_progresses.create course: course, group: self
+    user.course_progresses.create course: course, group: self, user: user
   end
 end
