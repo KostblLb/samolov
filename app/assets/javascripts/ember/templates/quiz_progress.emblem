@@ -1,2 +1,34 @@
+h2.ui.header
+  | Результаты теста
 .ui.segment
-  | Вы достигли дна
+  = with quiz
+    table.ui.table
+      thead
+        tr
+          th
+            | №
+          th
+            | Вопрос
+          th
+            | Результат
+      tbody
+        = each questions
+          tr class=myAnswer.isCorrect:positive:negative
+            td
+              = inc _view.contentIndex
+            td
+              = text
+            td
+              = if myAnswer.isCorrect
+                i.check.square.icon
+              = else
+                i.minus.square.icon
+
+  .ui.horizontal.divider
+    i.bar.chart.icon
+    | Итог
+  p
+    | Правильных ответов -&nbsp
+    = correctAnswersCount
+    | &nbspиз&nbsp
+    = quiz.questions.length

@@ -4,3 +4,5 @@ Samolov.Question = DS.Model.extend
   text: DS.attr 'string'
 
   answers: DS.hasMany 'answer'
+
+  myAnswer: DS.belongsTo 'user_answer'

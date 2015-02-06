@@ -12,6 +12,8 @@ class UserAnswer
 
   after_create :set_next_question
 
+  delegate :is_correct, to: :answer
+
   private
   def answer_only_current_question
     errors[:question] << 'user can answer only current question' unless question == quiz_progress.current_question
