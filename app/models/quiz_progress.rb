@@ -13,14 +13,26 @@ class QuizProgress
 
   validates_presence_of :quiz
 
+  def scale
+    quiz_progress_socket.try(:scale) || case_progress_socket.try(:scale)
+  end
+
   def next_question!
     return false if user_answers.where(question: current_question).empty?
     self.update! current_question: quiz.questions.where(:id.gt => current_question.id).first
   end
 
   def correct_answers_count
-    return nil if current_question.present?
+    return 0 if current_question.present?
     user_answers.inject(0) {|sum, item| item.is_correct ? sum + 1 : sum}
+  end
+
+  def points
+    scale.points_for mistakes_count
+  end
+
+  def mistakes_count
+    quiz.questions.count - correct_answers_count
   end
 
   private

@@ -28,7 +28,7 @@ describe QuizProgress do
     subject{quiz_progress.correct_answers_count}
     context 'current-question present' do
       let(:quiz_progress) {create :quiz_progress}
-      it{is_expected.to be_nil}
+      it{is_expected.to eq(0)}
     end
 
     context 'current_question is nil' do
@@ -43,7 +43,13 @@ describe QuizProgress do
 
       it{is_expected.to eq(1)}
     end
+  end
 
+  describe '#points' do
+    let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+
+    subject{quiz_progress.points}
+    it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
   end
 
 end

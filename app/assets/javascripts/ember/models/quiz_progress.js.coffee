@@ -2,6 +2,7 @@
 
 Samolov.QuizProgress = DS.Model.extend
   currentQuestionId: DS.attr 'string'
-  correctAnswersCount: DS.attr 'string'
+  correctAnswersCount: DS.attr 'number'
+  points: DS.attr 'number'
 
   quiz: DS.belongsTo 'quiz', async: true
