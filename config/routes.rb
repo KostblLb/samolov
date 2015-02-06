@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       resources :questions, only: [:index, :show]
       resources :answers,   only: [:index, :show]
       resources :quizzes,   only: :show
+      resources :quiz_progresses,   only: :show
+      resources :user_answers, only: :create
     end
   end
 

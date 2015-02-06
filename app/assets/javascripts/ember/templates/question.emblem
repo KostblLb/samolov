@@ -9,7 +9,7 @@
   form.ui.form
     = each answers
       .field
-        radio-button name='user_answer' selection=controller.userAnswer value=id label=text
+        radio-button name='user_answer' selection=controller.userAnswer value=this label=text
 
 
     .ui.horizontal.divider

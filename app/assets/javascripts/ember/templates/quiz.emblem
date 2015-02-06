@@ -6,6 +6,6 @@
 
   .ui.horizontal.divider
 
-  button.ui.green.button
+  link-to 'quiz_progress' myProgressId class='ui green button'
     i.play.icon
     | Начать тест

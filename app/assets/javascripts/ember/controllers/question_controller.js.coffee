@@ -5,5 +5,12 @@ Samolov.QuestionController = Ember.ObjectController.extend
 
   actions:
     answer: ->
-      # TODO: Implement true logic
-      console.log "User select answer #{@get 'userAnswer'}"
+      userAnswer = @store.createRecord 'user_answer', {
+        answer: @get('userAnswer')
+        question: @get('model')
+      }
+      userAnswer.save().then (userAnswer) =>
+        @store.find('quiz_progress', userAnswer.get('quizProgressId')).then (progress) =>
+          progress.reload().then =>
+            @transitionToRoute('quiz_progress', userAnswer.get('quizProgressId'))
+
