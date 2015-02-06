@@ -4,7 +4,7 @@ class Unit
   field :name
   field :video_link
   field :summary
-
+  has_many :unit_progresses
   embeds_one :webinar
 
   belongs_to :part
