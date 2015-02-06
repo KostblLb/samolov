@@ -11,7 +11,7 @@ h2.ui.header
         | Тест
       link-to (query-params scope='summary') class="step"
         | Конспект
-      link-to 'quiz' caseId (query-params scope='case') class="step"
+      link-to 'quiz' caseId class="step"
         | Кейс
       link-to (query-params scope='webinar') class="step"
         | Вебинар
