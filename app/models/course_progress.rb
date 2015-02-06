@@ -11,6 +11,7 @@ class CourseProgress
 
   after_create :create_part_progresses
 
+
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }
