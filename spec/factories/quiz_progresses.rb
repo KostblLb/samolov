@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :quiz_progress do
     association :quiz
-    association :user
+    association :student, factory: :user
   end
 end

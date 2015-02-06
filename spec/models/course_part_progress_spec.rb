@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CoursePartProgress do
   describe 'create new object' do
     before(:each) {subject.save}
-    subject{FactoryGirl.create :course_part_progress}
+    subject{create :course_part_progress}
 
     it 'creates unit progresses' do
       expect(subject.unit_progresses.count).to eq(2)
