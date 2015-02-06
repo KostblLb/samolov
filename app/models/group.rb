@@ -10,6 +10,7 @@ class Group
   embeds_many :adverts
 
   has_and_belongs_to_many :students, class_name: 'User', after_add: :create_course_progress_for_user, inverse_of: :groups
+  has_many :course_progresses, dependent: :destroy
 
   after_initialize :set_default_scale
   after_save :resolve_students

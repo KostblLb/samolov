@@ -7,7 +7,7 @@ class QuizProgress
   belongs_to :case_progress_socket, class_name: 'UnitProgress', inverse_of: :case_progress
   belongs_to :current_question, class_name: 'Question'
 
-  has_many :user_answers
+  has_many :user_answers, dependent: :destroy
 
   before_create :set_current_question
 
