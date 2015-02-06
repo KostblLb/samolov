@@ -37,7 +37,7 @@ RSpec.describe UserAnswer do
 
     it 'sets next question in quiz_progress' do
       expected_next = quiz_progress.quiz.questions.where(:id.gt => quiz_progress.current_question).first
-      expect{subject}.to change{quiz_progress.current_question}.to(expected_next)
+      expect{subject}.to change{quiz_progress.reload.current_question}.to(expected_next)
     end
   end
 
