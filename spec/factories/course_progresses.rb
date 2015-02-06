@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :course_progress do
-    association :user
+    association :student, factory: :user
     association :course
   end
 end
