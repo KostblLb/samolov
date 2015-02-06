@@ -27,3 +27,8 @@ h2.ui.header
   .ui.horizontal.divider
     i.bar.chart.icon
     | Итог
+  p
+    | Правильных ответов -&nbsp
+    = correctAnswersCount
+    | &nbspиз&nbsp
+    = quiz.questions.length

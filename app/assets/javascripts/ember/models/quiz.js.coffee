@@ -5,3 +5,4 @@ Samolov.Quiz = DS.Model.extend
   myProgressId: DS.attr 'string'
 
   questions: DS.hasMany 'questions'
+
