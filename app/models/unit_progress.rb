@@ -7,9 +7,11 @@ class UnitProgress
   belongs_to :unit
   after_create :create_quiz_progress
 
+  delegate :scale, to: :course_part_progress
+
   private
   def create_quiz_progress
-    quiz_progress.save
-    case_progress.save
+    # quiz_progress.save
+    # case_progress.save
   end
 end

@@ -1,10 +1,13 @@
 class CourseProgress
   include Mongoid::Document
 
+  # TODO: should be deprecated. Course should be delegated to group
   belongs_to :course
   belongs_to :student, class_name: 'User'
+  belongs_to :group
   has_many :course_part_progresses, dependent: :destroy
 
+  delegate :scale, to: :group
 
   after_create :create_part_progresses
 

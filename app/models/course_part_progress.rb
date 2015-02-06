@@ -7,6 +7,8 @@ class CoursePartProgress
 
   after_create :create_ut_progresses
 
+  delegate :scale, to: :course_progress
+
   private
   def create_ut_progresses
     part.units.each {|u| create_unit_progress(u) }
