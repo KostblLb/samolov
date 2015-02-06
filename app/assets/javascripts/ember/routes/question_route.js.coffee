@@ -2,4 +2,4 @@
 
 Samolov.QuestionRoute = Ember.Route.extend
   model: (params)->
-    @store.find 'question', params.id
+    @store.find 'question', params.question_id

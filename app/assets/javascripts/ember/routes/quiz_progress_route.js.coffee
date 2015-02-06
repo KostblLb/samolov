@@ -7,3 +7,5 @@ Samolov.QuizProgressRoute = Ember.Route.extend
     currentQuestion = progress.get 'currentQuestionId'
     if currentQuestion?
       @transitionTo 'question', currentQuestion
+    else
+     @_super

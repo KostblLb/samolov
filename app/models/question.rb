@@ -8,4 +8,6 @@ class Question
   has_many :user_answers, dependent: :destroy
 
   accepts_nested_attributes_for :answers
+
+  alias :name :text
 end
