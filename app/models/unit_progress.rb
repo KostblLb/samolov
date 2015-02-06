@@ -8,8 +8,8 @@ class UnitProgress
   after_create :create_quiz_progress
 
   private
- # def create_quiz_progress
-#    quiz_progress.save
- #   case_progress.save
- # end
+  def create_quiz_progress
+    quiz_progress.save
+    case_progress.save
+  end
 end
