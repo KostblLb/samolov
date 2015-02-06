@@ -10,4 +10,8 @@ class Section
   def include?(integer)
     integer <= to && integer >= from
   end
+
+  def name
+    "#{from} - #{to}"
+  end
 end

@@ -32,3 +32,6 @@ h2.ui.header
     = correctAnswersCount
     | &nbspиз&nbsp
     = quiz.questions.length
+  p
+    | Баллы -&nbsp
+    = points
