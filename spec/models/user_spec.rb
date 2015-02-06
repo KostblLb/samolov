@@ -8,7 +8,7 @@ RSpec.describe User, :type => :model do
     subject{user.has_course? course}
 
     context 'user has progress for course' do
-      before(:each) {create :course_progress, user: user, course: course}
+      before(:each) {create :course_progress, student: user, course: course}
       it {is_expected.to be_truthy}
     end
 
