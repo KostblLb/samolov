@@ -42,6 +42,11 @@ class User
   has_many :outbox, class_name: 'Message', inverse_of: :sender
 
   has_many :course_progresses
+  has_many :course_part_progresses
+  has_many :unit_progresses
+  has_many :quiz_progresses
+  has_many :user_answers
+
   has_many :trained_groups, class_name: 'Group', inverse_of: :teacher
   has_and_belongs_to_many :groups
 

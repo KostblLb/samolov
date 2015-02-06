@@ -4,6 +4,7 @@ class UserAnswer
   belongs_to :question
   belongs_to :answer
   belongs_to :quiz_progress
+  belongs_to :student, class_name: 'User'
 
   validates_presence_of :question, :answer, :quiz_progress
   validate :answer_only_current_question, if: :new_record?

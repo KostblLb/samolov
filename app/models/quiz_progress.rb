@@ -2,7 +2,7 @@ class QuizProgress
   include Mongoid::Document
 
   belongs_to :quiz
-  belongs_to :user
+  belongs_to :student, class_name: 'User'
   belongs_to :quiz_progress_socket, class_name: 'UnitProgress', inverse_of: :quiz_progress
   belongs_to :case_progress_socket, class_name: 'UnitProgress', inverse_of: :case_progress
   belongs_to :current_question, class_name: 'Question'

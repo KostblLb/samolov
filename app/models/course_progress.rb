@@ -13,6 +13,6 @@ class CourseProgress
     course.parts.each {|p| create_course_part_progress(p) }
   end
   def create_course_part_progress(part)
-    course_part_progresses.create  part: part
+    course_part_progresses.create  part: part, student: student
   end
 end
