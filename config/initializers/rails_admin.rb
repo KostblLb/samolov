@@ -36,4 +36,9 @@ RailsAdmin.config do |config|
     field :summary, :ck_editor
     include_all_fields
   end
+
+  config.model Question do
+    field :text, :text
+    include_all_fields
+  end
 end
