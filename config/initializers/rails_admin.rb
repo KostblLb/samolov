@@ -35,5 +35,9 @@ RailsAdmin.config do |config|
   config.model Unit do
     field :summary, :ck_editor
     include_all_fields
+#    edit do
+#      field :quiz, :belongs_to_association
+#      field :case, :belongs_to_association
+#    end
   end
 end
