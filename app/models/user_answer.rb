@@ -2,17 +2,21 @@ class UserAnswer
   include Mongoid::Document
 
   belongs_to :question
-  belongs_to :answer
   belongs_to :quiz_progress
   belongs_to :user
 
-  validates_presence_of :question, :answer, :quiz_progress
+  has_and_belongs_to_many :answers
+
+  validates_presence_of :question, :quiz_progress
   validate :answer_only_current_question, if: :new_record?
   validate :answer_belongs_to_question
 
   after_create :set_next_question
 
-  delegate :is_correct, to: :answer
+  def correct?
+    answers.right.count == question.right_answers_count
+  end
+  alias :is_correct :correct?
 
   private
   def answer_only_current_question
@@ -20,7 +24,11 @@ class UserAnswer
   end
 
   def answer_belongs_to_question
-    errors[:answer] << 'answer does not belongs to question' unless question == answer.question
+    answers.each do |answer|
+      errors[:answers] << 'answer does not belongs to question' unless question == answer.question
+      return false
+    end
+    true
   end
 
   def set_next_question

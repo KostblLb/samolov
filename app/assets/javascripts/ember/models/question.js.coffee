@@ -2,7 +2,12 @@
 
 Samolov.Question = DS.Model.extend
   text: DS.attr 'string'
+  rightAnswersCount: DS.attr 'number'
 
   answers: DS.hasMany 'answer'
-
   myAnswer: DS.belongsTo 'user_answer'
+
+  isSingleAnswer: ( ->
+    @get('rightAnswersCount') == 1
+  ).property('rightAnswersCount')
+

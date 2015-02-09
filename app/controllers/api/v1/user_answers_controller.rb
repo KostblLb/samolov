@@ -17,7 +17,7 @@ module Api
 
       private
       def user_answer_params
-        params.require(:user_answer).permit :answer_id
+        params.require(:user_answer).permit answer_ids: []
       end
     end
   end

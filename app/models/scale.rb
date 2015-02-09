@@ -12,7 +12,7 @@ class Scale
   accepts_nested_attributes_for :sections
 
   def points_for(misstakes_count)
-    (sections.select {|s| s.include? misstakes_count}).first.points
+    (sections.select {|s| s.include? misstakes_count}).first.try(:points) || 0
   end
 
   def self.default

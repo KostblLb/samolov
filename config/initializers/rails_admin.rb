@@ -40,4 +40,9 @@ RailsAdmin.config do |config|
 #      field :case, :belongs_to_association
 #    end
   end
+
+  config.model Question do
+    field :text, :text
+    include_all_fields
+  end
 end

@@ -35,8 +35,9 @@ describe QuizProgress do
       let(:quiz_progress) {create :quiz_progress}
       before :each do
         quiz_progress.quiz.questions.first.answers.first.update! is_correct: true
+        quiz_progress.quiz.questions.first.answers.last.update! is_correct: false
         quiz_progress.quiz.questions.each do |q|
-          create :user_answer, question: q, answer: q.answers.first, quiz_progress: quiz_progress
+          create :user_answer, question: q, answers: [q.answers.first], quiz_progress: quiz_progress
         end
       end
 

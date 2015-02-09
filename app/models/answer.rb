@@ -5,6 +5,8 @@ class Answer
   field :is_correct, type: Boolean
 
   belongs_to :question
-  has_many :user_answers
+  has_and_belongs_to_many :user_answers
+
+  scope :right, -> {where is_correct: true}
 
 end
