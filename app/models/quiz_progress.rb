@@ -2,12 +2,12 @@ class QuizProgress
   include Mongoid::Document
 
   belongs_to :quiz
-  belongs_to :student, class_name: 'User'
+  belongs_to :user
   belongs_to :quiz_progress_socket, class_name: 'UnitProgress', inverse_of: :quiz_progress
   belongs_to :case_progress_socket, class_name: 'UnitProgress', inverse_of: :case_progress
   belongs_to :current_question, class_name: 'Question'
 
-  has_many :user_answers
+  has_many :user_answers, dependent: :destroy
 
   before_create :set_current_question
 
@@ -19,7 +19,7 @@ class QuizProgress
 
   def next_question!
     return false if user_answers.where(question: current_question).empty?
-    self.update! current_question: quiz.questions.where(:id.gt => current_question.id).first
+    self.update! current_question_id: quiz.questions.where(:id.gt => current_question.id).first.try(:id)
   end
 
   def correct_answers_count

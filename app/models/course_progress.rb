@@ -3,7 +3,7 @@ class CourseProgress
 
   # TODO: should be deprecated. Course should be delegated to group
   belongs_to :course
-  belongs_to :student, class_name: 'User'
+  belongs_to :user
   belongs_to :group
   has_many :course_part_progresses, dependent: :destroy
 
@@ -17,6 +17,6 @@ class CourseProgress
     course.parts.each {|p| create_course_part_progress(p) }
   end
   def create_course_part_progress(part)
-    course_part_progresses.create  part: part, student: student
+    course_part_progresses.create  part: part, user: user
   end
 end
