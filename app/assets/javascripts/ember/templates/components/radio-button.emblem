@@ -1,4 +1,7 @@
 .ui.toggle.checkbox
-  input name=name type='radio'
+  = if single
+    input name=name type='radio'
+  else
+    input name=name type='checkbox'
   label
     = label

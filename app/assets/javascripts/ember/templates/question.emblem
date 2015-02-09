@@ -3,17 +3,24 @@
     | Вопрос
   .content
     = text
+    p
+      = unless isSingleAnswer
+        i.asterisk.icon
+        | Количиство правильных ответов -&nbsp
+        = rightAnswersCount
   .ui.horizontal.divider
     | Варианты ответа
     i.pointing.down.icon
   form.ui.form
+
     = each answers
       .field
-        radio-button name='user_answer' selection=controller.userAnswer value=this label=text
+        radio-button name='user_answer' selection=controller.userAnswers value=id label=text single=controller.model.isSingleAnswer
 
 
     .ui.horizontal.divider
-    = if userAnswer
+    = if canAnswer
       button.ui.button{action 'answer'}
         | Дальше
         i.arrow.right.icon
+

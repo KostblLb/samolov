@@ -24,7 +24,7 @@ class QuizProgress
 
   def correct_answers_count
     return 0 if current_question.present?
-    user_answers.inject(0) {|sum, item| item.is_correct ? sum + 1 : sum}
+    user_answers.inject(0) {|sum, item| item.correct? ? sum + 1 : sum}
   end
 
   def points

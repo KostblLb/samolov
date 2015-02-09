@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :text
+  attributes :id, :text, :right_answers_count
 
   has_many :answers
 

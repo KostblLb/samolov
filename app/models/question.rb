@@ -10,4 +10,8 @@ class Question
   accepts_nested_attributes_for :answers
 
   alias :name :text
+
+  def right_answers_count
+    answers.right.count
+  end
 end

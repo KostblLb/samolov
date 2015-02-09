@@ -6,7 +6,12 @@ Samolov.RadioButtonComponent = Ember.Component.extend
     @$('.ui.checkbox').checkbox()
 
   click : ->
-    @set "selection", @get('value')
+    needAdd = @get("selection").indexOf(@get("value")) == -1
+    @get('selection').clear() if @get('single')
+    if needAdd
+      @get('selection').pushObject @get('value')
+    else
+      @get('selection').removeObject @get('value')
   checked: (->
-    return @get("value") == @get("selection")
+    return @get("selection").indexOf(@get("value")) != -1
   ).property()
