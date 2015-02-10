@@ -10,6 +10,8 @@ Samolov.Unit = DS.Model.extend
   quizId: DS.attr 'string'
   caseId: DS.attr 'string'
 
+#  myUnitProgressId: DS.attr 'string'
+  myProgress: DS.belongsTo 'unit_progress'
   part: DS.belongsTo 'part', async: true
   webinar: DS.belongsTo 'webinar'
 

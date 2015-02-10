@@ -21,6 +21,10 @@ module Api
           respond_with @unit_progress, status: :some_error
         end
       end
+      private
+      def unit_progress_params
+        params.require(:unit_progress).permit :state
+      end
     end
   end
 end
