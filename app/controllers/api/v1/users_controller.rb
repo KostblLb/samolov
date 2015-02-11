@@ -24,7 +24,8 @@ module Api
 
       protected
       def user_params
-        params.require(:user).permit :email, :last_name, :first_name, :avatar
+        params.require(:user).permit :email, :last_name, :first_name, :avatar, :birthday, :city, :country, :phone, :skype,
+            :company_name, :job_title, :vk_link, :fb_link, :gplus_link, :ln_link, :tw_link
       end
 
       def set_user
