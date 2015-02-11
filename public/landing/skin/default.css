@@ -34,7 +34,7 @@ a:hover,
 .pricing-head .price,
 .validation,
 .comment-wrapper .media h5 a:hover{
-	color:#1e4677;
+	color:#303F52;
 }
 
 /*
@@ -68,7 +68,7 @@ Background color
 span.widget-style,
 .icon-service,
 #demo{
-	background-color:#4d5466;
+	background-color:rgba(198, 163, 107, 0.2);
 }
 
 /*

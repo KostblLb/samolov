@@ -37,6 +37,20 @@ class User
 
   field :first_name
   field :last_name
+  field :birthday, type: Date
+  field :city
+  field :country
+  field :phone
+  field :skype
+  field :company_name
+  field :job_title
+
+  # social
+  field :vk_link
+  field :fb_link
+  field :gplus_link
+  field :ln_link
+  field :tw_link
 
   has_many :inbox,  class_name: 'Message', inverse_of: :recipient
   has_many :outbox, class_name: 'Message', inverse_of: :sender

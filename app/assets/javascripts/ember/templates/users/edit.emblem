@@ -1,23 +1,80 @@
-form.ui.form
-  h4.ui.dividing.header
-    | Редактирование профиля
-  .field
-    label
-      | Email
-    = input value=email
-  .field
-    label
-      | Имя
-    = input value=lastName
-  .field
-    label
-      | Фамилия
-    = input value=firstName
+h2.ui.header
+  | Редактирование профиля
+.ui.segment
+  form.ui.form
+    h3.ui.dividing.header
+      | Личные данные
+    .two.fields
+      .field
+        label
+          | Имя
+        = input value=lastName
+      .field
+        label
+          | Фамилия
+        = input value=firstName
+    .two.fields
+      .field
+        label
+          | Email
+        = input value=email
+      .field
+        label
+          | Аватар
+        view Samolov.FileField name="avatar" file=avatar object=model
 
-  .field
-    label
-      | Аватар
-    view Samolov.FileField name="avatar" file=avatar object=model
+    .field
+      label
+        | Город
+      = input value=city
+    .field
+      label
+        | Страна
+      = input value=country
+    .field
+      label
+        | Телефон
+      = input value=phone
+    .field
+      label
+        | Skype
+      = input value=skype
 
-  .ui.submit.button{action 'save'}
-    | Сохранить
+    h3.ui.dividing.header
+      | Профессиональные данные
+    .two.fields
+      .field
+        label
+          | Название компании
+        = input value=companyName
+      .field
+        label
+          | Должность
+        = input value=jobTitle
+    h3.ui.dividing.header
+      | Профили соц. сетей
+    .two.fields
+    .field.inline
+      label
+        i.vk.icon
+      = input value=vkLink
+    .field.inline
+      label
+        i.facebook.icon
+      = input value=fbLink
+    .field.inline
+      label
+        i.google.plus.icon
+      = input value=gplusLink
+    .field.inline
+      label
+        i.linkedin.icon
+      = input value=lnLink
+    .field.inline
+      label
+        i.twitter.icon
+      = input value=twLink
+
+
+    .ui.submit.button{action 'save'}
+      | Сохранить

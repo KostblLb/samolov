@@ -27,7 +27,7 @@ Typography
 body{
 	background:#fff url(../img/body-bg.png) repeat 0 0;
 	font-family: Roboto;
-	color:#4e4e4e;
+	color:#5B738D;
 	font-weight:300;
 	font-size:14px;
 	line-height:24px;
@@ -52,7 +52,7 @@ a:hover{
 }
 
 label{
-	color:#1e202c;
+	color:#303F52;
 }
 
 h1,
@@ -63,7 +63,7 @@ h5,
 h6{
     font-family: 'Roboto';
 	margin:0 0 20px 0;
-	color:#1e202c;
+	color:#303F52;
 }
 
 h1 span,
@@ -131,7 +131,7 @@ Accordion
 .accordion-heading a:focus{
 	background:none;
 	position:relative;
-	color:#1e202c;
+	color:#303F52;
 	font-size:18px;
 	line-height:24px;
     font-family: 'Roboto';
@@ -145,7 +145,7 @@ Accordion
 
 .dark-bg .accordion-heading a,
 .dark-bg .accordion-heading a:focus{
-	color:#fff;
+	color:#303F52;
 	border:1px solid #fff;
 }
 
@@ -275,10 +275,10 @@ Form
 Navbar
 =========================== */
 .navbar{
-	background:#212731;
+	background:#5B738D;
 	border-radius:0;
 	border:none;
-	border-bottom:5px solid #191e26;
+	border-bottom:5px solid #5B738D;
 	z-index: 999999;
 }
 
@@ -287,7 +287,6 @@ Navbar
 .navbar-inverse .navbar-nav li.active a:active{
 	color:#fff;
 	padding:15px 20px 15px 20px;
-	border-bottom:2px solid #212731;
 	margin-left:1px;
 }
 
@@ -299,7 +298,6 @@ Navbar
 .navbar-inverse .navbar-nav li a.selected:hover,
 .navbar-inverse .navbar-nav li a.selected:focus,
 .navbar-inverse .navbar-nav li a.selected:active{
-	background:#191e26;
 	color:#fff;
 }
 
@@ -368,7 +366,7 @@ Button
 .btn-default,
 .btn-default:focus,
 .btn-default:active{
-	background:#232a34;
+	background:#90ACBA;
 	color:#fff;
 	outline:none;
 }
@@ -379,13 +377,13 @@ Button
 }
 
 .btn-default.btn-bavel{
-	border-bottom:4px solid #1a2028;
+	border-bottom:4px solid #5d6e7b;
 }
 
 .btn-default.btn-bavel:hover{
 	background:#2f3640;
 	color:#fff;
-	border-bottom:4px solid #1e252d;
+	border-bottom:4px solid #5d6e7b;
 }
 
 .btn-green,
@@ -535,7 +533,7 @@ Button
 }
 
 .btn-default.btn-bavel.btn-lg{
-	border-bottom:5px solid #1a2028;
+	border-bottom:5px solid #5d6e7b;
 }
 
 .btn-default.btn-bavel.btn-lg:hover{
