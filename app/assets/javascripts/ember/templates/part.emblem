@@ -1,8 +1,6 @@
-h2.ui.header
-  .content
-    = name
+= view 'progress_header' label='Успех раздела'
 = each units
   .ui.segment
     link-to 'unit' id class="ui header"
       = name
-    progress-bar percent=80
+    /progress-bar percent=80

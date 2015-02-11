@@ -11,6 +11,13 @@ class CourseProgress
 
   after_create :create_part_progresses
 
+  def max_points
+    course_part_progresses.inject(0) {|sum, p| sum + p.max_points}
+  end
+
+  def points
+    course_part_progresses.inject(0) {|sum, p| sum + p.points}
+  end
 
   private
   def create_part_progresses
