@@ -22,9 +22,9 @@
             td
               = name
             td
-              | 5
+              = quiz.myProgress.points
             td
-              | 5
+              = case.myProgress.points
             td
               = myProgress.points
             td
