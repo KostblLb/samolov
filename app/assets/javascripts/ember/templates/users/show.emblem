@@ -22,11 +22,12 @@
             | Email
           .content
             = email
-        .item
-          .header
-            | Телефон
-          .content
-            = phone
+        = if itsMe
+          .item
+            .header
+              | Телефон
+            .content
+              = phone
         .item
           .header
             | Skype
