@@ -10,6 +10,10 @@ class CoursePartProgress
 
   delegate :scale, to: :course_progress
 
+  def max_points
+    unit_progresses.inject(0) {|sum, u| sum + u.max_points}
+  end
+
   private
   def create_ut_progresses
     part.units.each {|u| create_unit_progress(u) }

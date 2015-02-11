@@ -15,4 +15,12 @@ RSpec.describe UnitProgress do
       expect(subject.current_step).to eq("2")
     end
   end
+
+  describe '#max_points' do
+    let(:progress) {FactoryGirl.create :unit_progress}
+
+    it 'returns sum of max points quiz and case' do
+      expect(progress.max_points).to eq(progress.quiz_progress.max_points + progress.case_progress.max_points)
+    end
+  end
 end

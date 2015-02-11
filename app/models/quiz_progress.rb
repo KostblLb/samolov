@@ -31,6 +31,10 @@ class QuizProgress
     scale.points_for mistakes_count
   end
 
+  def max_points
+    scale.points_for 0 
+  end
+
   def mistakes_count
     quiz.questions.count - correct_answers_count
   end
