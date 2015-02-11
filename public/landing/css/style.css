@@ -181,12 +181,13 @@ Contain
 }
 
 .dark-bg{
-	background:#232a34 url(../img/pattern.png) repeat 0 0;
-	color:#fff;
+	background: rgba(144, 172, 186, 0.3);
+	color:#303F52;
+	padding-top: 100px;
 }
 
 .color-bg{
-	background-image:url(../img/pattern.png);
+	background-color: rgba(198, 163, 107, 0.1);
 	background-position:0 0;
 	background-repeat: repeat;
 	color:#fff;
@@ -194,7 +195,7 @@ Contain
 
 .dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4, .dark-bg h5, .dark-bg h6,
 .color-bg h1, .color-bg h2, .color-bg h3, .color-bg h4, .color-bg h5, .color-bg h6{
-	color:#fff;
+	color: #303F52;
 }
 
 /*
@@ -309,7 +310,7 @@ ul.client-list li ul li.last{
 Pricing box
 =========================== */
 .pricing-box{
-	background:#edf1f2;
+	background:rgba(91, 115, 141, 0.1);
 	position:relative;
 	text-align:center;
 	border:1px solid #e0e0e0;
@@ -317,16 +318,33 @@ Pricing box
 	margin-bottom:20px;
 }
 
+.pricing-box.odd{
+	background:rgba(198, 163, 107, 0.1);
+	position:relative;
+	text-align:center;
+	border:1px solid #e0e0e0;
+	border-radius:5px;
+	margin-bottom:20px;
+}
+
+.pricing-head{
+	background:rgba(91, 115, 141, 0.2);
+	border-bottom:5px solid #e0e0e0;
+	padding:10px 0 15px 0;
+}
+
+.pricing-head.odd{
+	background:rgba(198, 163, 107, 0.2);
+	border-bottom:5px solid #e0e0e0;
+	padding:10px 0 15px 0;
+}
+
 .pricing-box.featured{
 	color:#fff;
 	border:1px solid rgba( 35, 42, 52, 0.1);
 }
 
-.pricing-head{
-	background:#e4e8e9;
-	border-bottom:5px solid #e0e0e0;
-	padding:10px 0 15px 0;
-}
+
 
 .pricing-box.featured .pricing-head{
 	background:rgba( 35, 42, 52, 0.1);
@@ -556,7 +574,7 @@ input.subscribe::-webkit-input-placeholder {
 }
 
 .subscribe-button{
-	background:#232a34;
+	background:#90ACBA;
 	position:absolute;
 	padding:23px 35px 22px 35px;
 	border-radius:0 5px 5px 0;
@@ -564,7 +582,7 @@ input.subscribe::-webkit-input-placeholder {
 	line-height:22px;
 	font-weight:700;
 	border:none;
-	border-bottom:5px solid #1a2028;
+	border-bottom:5px solid #5d6e7b;
 	right:0;
 	top:0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -776,11 +794,11 @@ Search
 Footer
 =========================== */
 footer{
-	background:#232a34 url(../img/pattern.png) repeat 0 0;
+	background:#303F52 url(../img/pattern.png) repeat 0 0;
 	float:left;
 	width:100%;
 	text-align:center;
-	color:#6c737c;
+	color: rgba(48, 63, 82, 1);
 	font-size:12px;
 	line-height:12px;
 	padding:20px;
