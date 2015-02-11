@@ -42,6 +42,7 @@
 
 .ui.right.sidebar.ui.segment
   = outlet 'right_sidebar'
+  = outlet 'pivot'
 
   .ui.segment
     .ui.header

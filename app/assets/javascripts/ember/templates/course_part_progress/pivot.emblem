@@ -1,0 +1,32 @@
+= if myProgress
+  .ui.segment
+    h3.ui.header
+      | Зачетка по части - &nbsp
+      = name
+    table.ui.celled.striped.table
+      thead
+        tr
+          th
+            | Модуль
+          th
+            | Тест
+          th
+            | Кейс
+          th
+            | Итог
+          th
+            | Макс. возможно
+      tbody
+        = each units
+          tr
+            td
+              = name
+            td
+              | 5
+            td
+              | 5
+            td
+              = myProgress.points
+            td
+              = myProgress.maxPoints
+
