@@ -15,18 +15,73 @@
   .column
     .ui.raised.segment
       .ui.teal.ribbon.label
-        | Email
-      p
-        = email
+        | Личные данные
+      .ui.celled.list
+        .item
+          .header
+            | Email
+          .content
+            = email
+        .item
+          .header
+            | Телефон
+          .content
+            = phone
+        .item
+          .header
+            | Skype
+          .content
+            = skype
+        .item
+          .header
+            | Город
+          .content
+            = city
+        .item
+          .header
+            | Страна
+          .content
+            = country
+
 
       .ui.teal.ribbon.label
-        | Имя
-      p
-        = firstName
-
-
+        | Профессиональные данные
+      .ui.celled.list
+        .item
+          .header
+            | Компания
+          .content
+            = companyName
+        .item
+          .header
+            | Должность
+          .content
+            = jobTitle
       .ui.teal.ribbon.label
-        | Фамилия
-      p
-        = lastName
-
+        | Профили соц. сетей
+      .ui.list
+        .item
+          .image
+            i.vk.icon
+          .content
+            = vkLink
+        .item
+          .image
+            i.facebook.icon
+          .content
+            = fbLink
+        .item
+          .image
+            i.google.plus.icon
+          .content
+            = gplusLink
+        .item
+          .image
+            i.linkedin.icon
+          .content
+            = lnLink
+        .item
+          .image
+            i.twitter.icon
+          .content
+            = twLink
