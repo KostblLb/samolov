@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :quizzes,           only: :show
       resources :quiz_progresses,   only: :show
       resources :user_answers,      only: :create
-      resources :unit_progresses,   only: :show
+      resources :unit_progresses,   only: [:show, :update]
     end
   end
 

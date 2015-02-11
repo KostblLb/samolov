@@ -10,9 +10,9 @@ RSpec.describe UnitProgress do
       end
 
     it 'next step' do
-      expect(subject.current_step).to eq("1")
+      expect(subject.state).to eq("video")
       subject.next_step
-      expect(subject.current_step).to eq("2")
+      expect(subject.state).to eq("quiz")
     end
   end
 end

@@ -2,29 +2,24 @@ module Api
   module V1
     class UnitProgressesController < ApplicationController
       respond_to :json
-
-      def index
-        unit = Unit.find params[:unit_id]
-        @unit_progressess = unit.unit_progresses
-        respond_with @unit_progresses
-      end
+      before_action :set_unit_progress
 
       def show
-        @unit_progress = UnitProgress.find params[:id]
         respond_with(@unit_progress)
       end
 
       def update
-        if @unit_progress.update unit_progress_params
-          respond_with @unit_progress, status: :updated
-        else
-          respond_with @unit_progress, status: :some_error
-        end
+         @unit_progress.update unit_progress_params
+         respond_with @unit_progress
       end
       private
-      def unit_progress_params
-        params.require(:unit_progress).permit :state
-      end
+        def unit_progress_params
+          params.require(:unit_progress).permit :state
+        end
+
+        def set_unit_progress
+          @unit_progress = UnitProgress.find params[:id]
+        end
     end
   end
 end
