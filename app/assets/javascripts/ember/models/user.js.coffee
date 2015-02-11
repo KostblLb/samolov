@@ -7,6 +7,18 @@ Samolov.User = DS.Model.extend
   avatarUrl: DS.attr 'string'
   avatar:    DS.attr 'string'
   isTeacher: DS.attr 'boolean'
+  birthday:  DS.attr 'date'
+  city:      DS.attr 'string'
+  country:   DS.attr 'string'
+  phone:     DS.attr 'string'
+  skype:     DS.attr 'string'
+  companyName: DS.attr 'string'
+  jobTitle:  DS.attr 'string'
+  vkLink:    DS.attr 'string'
+  fbLink:    DS.attr 'string'
+  gplusLink: DS.attr 'string'
+  lnLink:    DS.attr 'string'
+  twLink:    DS.attr 'string'
 
   fullName: (->
     firstName = @get('firstName') || 'No name'
