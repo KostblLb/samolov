@@ -10,7 +10,6 @@ class Course
 
 
   accepts_nested_attributes_for :parts
-
   def group_for(user)
     return nil if user.nil?
     groups.where(student_ids: user.id).first

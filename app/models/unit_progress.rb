@@ -9,10 +9,29 @@ class UnitProgress
   after_create :create_quiz_progress
 
   delegate :scale, to: :course_part_progress
-
   private
   def create_quiz_progress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
+  end
+
+
+  state_machine :initial => :video do
+
+    state :video
+
+    state :quiz
+
+    state :conspect
+
+    state :case
+
+    state :webinar
+
+    state :homework
+
+    event :next_step do
+      transition :video => :quiz, :quiz => :conspect, :conspect => :case, :case => :webinar, :webinar => :homework
+    end
   end
 end

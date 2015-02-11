@@ -1,1 +1,8 @@
 ui-video data_url=videoLink
+
+.next_button{action 'nextStep'}
+  .ui.right.labeled.icon.button
+    | Next
+    i.right.arrow.icon
+
+
