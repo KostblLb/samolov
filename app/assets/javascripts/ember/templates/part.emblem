@@ -1,5 +1,4 @@
-= partial 'partials/progress_header'
-
+= view 'progress_header' label='Успех раздела'
 = each units
   .ui.segment
     link-to 'unit' id class="ui header"

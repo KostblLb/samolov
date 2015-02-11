@@ -1,4 +1,4 @@
-= partial 'partials/progress_header'
+= view 'progress_header' label='Успех модуля'
 
 .ui.segment
   .ui.header
