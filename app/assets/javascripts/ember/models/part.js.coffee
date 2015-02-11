@@ -3,5 +3,6 @@
 Samolov.Part = DS.Model.extend
   name: DS.attr 'string'
 
-  course: DS.belongsTo 'course', async: true
-  units:  DS.hasMany 'unit',     async: true
+  course:     DS.belongsTo 'course', async: true
+  myProgress: DS.belongsTo 'course_part_progress'
+  units:      DS.hasMany 'unit',     async: true

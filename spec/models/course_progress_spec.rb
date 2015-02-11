@@ -16,4 +16,10 @@ RSpec.describe CourseProgress do
 
     it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.max_points})}
   end
+  describe '#points' do
+    let(:progress) {create :course_progress}
+    subject{progress.points}
+
+    it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
+  end
 end

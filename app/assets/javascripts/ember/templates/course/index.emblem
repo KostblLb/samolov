@@ -1,11 +1,7 @@
-h2.ui.header
-  i.suitcase.icon
-  .content
-    = name
+= partial 'partials/progress_header'
+
 .ui.segment
   = description
-  p
-    | Информации о моей группе в правом сайдбаре
 .ui.segment
   h3.ui.header
     .content

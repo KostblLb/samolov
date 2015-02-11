@@ -33,6 +33,10 @@ class UnitProgress
     quiz_progress.max_points + case_progress.max_points
   end
 
+  def points
+    quiz_progress.points + case_progress.points
+  end
+
   private
   def create_quiz_progress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self

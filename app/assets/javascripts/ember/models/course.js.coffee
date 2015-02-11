@@ -10,5 +10,6 @@ Samolov.Course = DS.Model.extend
   ).property('status')
 
   myGroup: DS.belongsTo 'group', async: true
+  myProgress: DS.belongsTo 'course_progress'
 
   parts: DS.hasMany 'part', async: true

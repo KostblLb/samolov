@@ -15,6 +15,10 @@ class CourseProgress
     course_part_progresses.inject(0) {|sum, p| sum + p.max_points}
   end
 
+  def points
+    course_part_progresses.inject(0) {|sum, p| sum + p.points}
+  end
+
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }
