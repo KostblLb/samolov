@@ -12,3 +12,8 @@
     | Закончится
   p
     = formattedEnd
+
+  = if video
+    .ui.blue.ribbon.label
+      | Видио из архива
+    ui-video data_url=video

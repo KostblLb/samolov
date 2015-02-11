@@ -1,17 +1,15 @@
-h2.ui.header
-  .content
-    = name
+= view 'progress_header' label='Успех модуля'
 
 .ui.segment
   .ui.header
     .ui.steps
       link-to (query-params scope='video') class="step"
         | Видео
-      link-to 'quiz' quizId class="step"
+      link-to 'quiz' quiz.id class="step"
         | Тест
       link-to (query-params scope='summary') class="step"
         | Конспект
-      link-to 'quiz' caseId class="step"
+      link-to 'quiz' case.id class="step"
         | Кейс
       link-to (query-params scope='webinar') class="step"
         | Вебинар

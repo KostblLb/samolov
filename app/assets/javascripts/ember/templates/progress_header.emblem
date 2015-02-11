@@ -1,0 +1,10 @@
+.ui.basic.segment
+  h2.ui.left.floated.header
+    = name
+  h2.ui.right.floated.header
+    = if myProgress
+      .ui.tiny.statistic class=myProgress.color
+        .value
+          = myProgress.success
+        .label
+          = view.label
