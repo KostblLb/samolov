@@ -35,3 +35,8 @@ h2.ui.header
   p
     | Баллы -&nbsp
     = points
+
+  .next_button{action 'nextStep'}
+    .ui.right.labeled.icon.button
+      | Next
+      i.right.arrow.icon

@@ -1,1 +1,5 @@
 == summary
+.next_button{action 'nextStep'}
+  .ui.right.labeled.icon.button
+    | Next
+    i.right.arrow.icon

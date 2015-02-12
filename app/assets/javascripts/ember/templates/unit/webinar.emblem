@@ -17,3 +17,8 @@
     .ui.blue.ribbon.label
       | Видио из архива
     ui-video data_url=video
+
+.next_button{action 'nextStep'}
+  .ui.right.labeled.icon.button
+    | Next
+    i.right.arrow.icon

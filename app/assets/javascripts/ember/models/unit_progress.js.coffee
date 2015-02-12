@@ -1,5 +1,5 @@
 Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
-  state: DS.attr 'number'
+  state: DS.attr 'string'
   unit: DS.belongsTo 'unit', async: true
 
 

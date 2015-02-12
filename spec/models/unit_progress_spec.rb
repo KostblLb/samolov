@@ -10,10 +10,12 @@ RSpec.describe UnitProgress do
     end
   end
 
-    it 'next step' do
-      expect(subject.state).to eq("video")
-      subject.next_step
-      expect(subject.state).to eq("quiz")
+  describe 'next step' do
+    subject{FactoryGirl.create :unit_progress}
+    expect(subject.state).to eq("video")
+    subject.next_step
+    expect(subject.state).to eq("quiz")
+  end
   describe '#max_points' do
     let(:progress) {FactoryGirl.create :unit_progress}
 

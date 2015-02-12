@@ -18,7 +18,7 @@ class UnitProgress
 
     state :quiz
 
-    state :conspect
+    state :summary
 
     state :case
 
