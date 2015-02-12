@@ -18,9 +18,16 @@ class QuizProgress
   end
 
   def next_question!
+
     return false if user_answers.where(question: current_question).empty?
     self.update! current_question_id: quiz.questions.where(:id.gt => current_question.id).first.try(:id)
-
+    if current_question_id ==nil
+      if quiz_progress_socket
+        quiz_progress_socket.next_step
+      else
+        case_progress_socket.next_step
+      end
+    end
   end
 
   def correct_answers_count

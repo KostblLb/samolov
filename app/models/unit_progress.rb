@@ -27,7 +27,7 @@ class UnitProgress
     state :homework
 
     event :next_step do
-      transition :video => :quiz, :quiz => :conspect, :conspect => :case, :case => :webinar, :webinar => :homework
+      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar, :webinar => :homework
     end
   end
 
