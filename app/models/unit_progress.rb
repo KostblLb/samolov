@@ -9,6 +9,8 @@ class UnitProgress
   after_create :create_quiz_progress
 
   delegate :scale, to: :course_part_progress
+  
+
 
   state_machine :initial => :video do
 
@@ -16,7 +18,7 @@ class UnitProgress
 
     state :quiz
 
-    state :conspect
+    state :summary
 
     state :case
 
@@ -25,7 +27,7 @@ class UnitProgress
     state :homework
 
     event :next_step do
-      transition :video => :quiz, :quiz => :conspect, :conspect => :case, :case => :webinar, :webinar => :homework
+      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar, :webinar => :homework
     end
   end
 

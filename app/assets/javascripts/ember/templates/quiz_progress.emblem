@@ -35,3 +35,6 @@ h2.ui.header
   p
     | Баллы -&nbsp
     = points
+
+  link-to 'unit' unitID
+      | Next

@@ -10,6 +10,15 @@ RSpec.describe UnitProgress do
     end
   end
 
+  describe 'next step' do
+    subject{FactoryGirl.create :unit_progress}
+    before(:each) {subject.save}
+    it 'does step' do
+      expect(subject.state).to eq("video")
+      subject.next_step
+      expect(subject.state).to eq("quiz")
+    end
+  end
   describe '#max_points' do
     let(:progress) {FactoryGirl.create :unit_progress}
 
@@ -24,4 +33,15 @@ RSpec.describe UnitProgress do
 
     it {is_expected.to eq(progress.quiz_progress.points + progress.case_progress.points)}
   end
+
+  describe 'step after last question' do
+    subject{FactoryGirl.create :unit_progress, state: 'quiz', quiz_progress:(create :quiz_progress, current_question: nil)}
+
+    it 'does step after last question' do
+      FactoryGirl.create :user_answer, quiz_progress: subject.quiz_progress
+      FactoryGirl.create :user_answer, quiz_progress: subject.quiz_progress
+      expect(subject.state).to eq("summary")
+    end
+  end
+
 end

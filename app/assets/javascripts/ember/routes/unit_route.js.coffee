@@ -11,6 +11,9 @@ Samolov.UnitRoute = Ember.Route.extend
     queryParamsDidChange: (paramsChanged, params)->
       @customRender(params.scope || 'video') unless @lock
 
+    reloadModel: (model)->
+      @controller.get('model').reload().then (model)
+
 
   customRender: (scope) ->
     @render()
@@ -19,3 +22,6 @@ Samolov.UnitRoute = Ember.Route.extend
   renderTemplate: (controller, model)->
     @lock = false
     @customRender(controller.scope)
+
+  beforeRender:->
+    @reloadModel(unit)

@@ -47,9 +47,7 @@ describe QuizProgress do
 
   describe '#points' do
     let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
-
     subject{quiz_progress.points}
     it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
   end
-
 end
