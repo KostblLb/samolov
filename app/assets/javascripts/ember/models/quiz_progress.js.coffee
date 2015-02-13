@@ -7,4 +7,5 @@ Samolov.QuizProgress = DS.Model.extend Samolov.ProgressMixin,
 
   quiz: DS.belongsTo 'quiz', async: true
 
-  unitID: DS.attr 'string'
+  unitId: DS.attr 'string'
+  isQuiz: DS.attr 'boolean'

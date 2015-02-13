@@ -36,5 +36,7 @@ h2.ui.header
     | Баллы -&nbsp
     = points
 
-  link-to 'unit' unitID
-      | Next
+.next_button{action 'backToUnit'}
+  .ui.right.labeled.icon.button
+    | Next
+    i.right.arrow.icon
