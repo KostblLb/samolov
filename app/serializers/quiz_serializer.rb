@@ -11,4 +11,6 @@ class QuizSerializer < ActiveModel::Serializer
   def my_progress
     QuizProgress.where(user: @scope, quiz: @object).first
   end
+
+
 end

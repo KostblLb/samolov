@@ -6,7 +6,9 @@ class UnitProgress
   has_one :quiz_progress, class_name: 'QuizProgress', inverse_of: :quiz_progress_socket, dependent: :destroy
   has_one :case_progress, class_name: 'QuizProgress', inverse_of: :case_progress_socket, dependent: :destroy
   belongs_to :unit
+  has_one :homework_progress, class_name: 'Homework::Progress'
   after_create :create_quiz_progress
+  after_create :creat_homework_progress
 
   delegate :scale, to: :course_part_progress
   
@@ -43,5 +45,8 @@ class UnitProgress
   def create_quiz_progress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
+  end
+  def create_homework_progress
+    homework_progress.create
   end
 end
