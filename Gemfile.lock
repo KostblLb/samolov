@@ -11,11 +11,11 @@ GIT
       polyamorous (~> 1.1)
 
 GIT
-  remote: git://github.com/doabit/semantic-ui-sass.git
-  revision: 7cc93a06871686b9446eafe42961d124a09c4462
-  branch: v1.0beta
+  remote: git://github.com/max-konin/semantic-ui-sass.git
+  revision: 98552c7989f36a26faec398c696fd8dbfe419a82
+  branch: global_variables
   specs:
-    semantic-ui-sass (1.7.3.0)
+    semantic-ui-sass (1.8.1.0)
       sass (~> 3.2)
 
 GEM
