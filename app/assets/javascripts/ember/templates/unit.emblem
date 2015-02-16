@@ -17,3 +17,4 @@
         | Домашнее задание
   .ui.secondary.segment
     = outlet
+  = partial 'unit/next_button'
