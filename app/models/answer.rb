@@ -8,5 +8,6 @@ class Answer
   has_and_belongs_to_many :user_answers
 
   scope :right, -> {where is_correct: true}
+  scope :incorrect, -> {where is_correct: false}
 
 end
