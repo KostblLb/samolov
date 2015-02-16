@@ -18,15 +18,11 @@ class QuizProgress
   end
 
   def next_question!
-
     return false if user_answers.where(question: current_question).empty?
     self.update! current_question_id: quiz.questions.where(:id.gt => current_question.id).first.try(:id)
-    if current_question_id ==nil
-      if quiz_progress_socket
-        quiz_progress_socket.next_step
-      else
-        case_progress_socket.next_step
-      end
+    if current_question_id.nil?
+      quiz_progress_socket.next_step if quiz_progress_socket.present?
+      case_progress_socket.next_step if case_progress_socket.present?
     end
   end
 
@@ -44,7 +40,7 @@ class QuizProgress
   end
 
   def mistakes_count
-    quiz.questions.count - correct_answers_count
+    user_answers.inject(0) {|sum, item| sum + item.mistakes_count}
   end
 
   private

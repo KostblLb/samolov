@@ -74,4 +74,21 @@ RSpec.describe UserAnswer do
     end
   end
 
+  describe '#mistakes_count' do
+    subject{user_answer.mistakes_count}
+    let(:question) {create :question, answers: [create(:answer, is_correct: true), create(:answer, is_correct: true), create(:answer)]}
+    let (:quiz_progress) {create :quiz_progress, quiz: question.quiz}
+    context "user's answer has all right answer" do
+      let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
+                                question: question, answers: question.answers.right}
+      it {is_expected.to eq(0)}
+    end
+
+    context  "user's answer has a incorrect answer" do
+      let(:user_answer) {create :user_answer, question: question, quiz_progress: quiz_progress,
+                                answers: [question.answers.where(is_correct: false).first, question.answers.right.first]}
+      it {is_expected.to eq(1)}
+    end
+  end
+
 end

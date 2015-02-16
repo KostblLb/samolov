@@ -18,6 +18,10 @@ class UserAnswer
   end
   alias :is_correct :correct?
 
+  def mistakes_count
+    answers.incorrect.count
+  end
+
   private
   def answer_only_current_question
     errors[:question] << 'user can answer only current question' unless question == quiz_progress.current_question
