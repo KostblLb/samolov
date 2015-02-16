@@ -8,7 +8,7 @@ class UnitProgress
   belongs_to :unit
   has_one :homework_progress, class_name: 'Homework::Progress'
   after_create :create_quiz_progress
-  after_create :creat_homework_progress
+  #after_create :create_homework_progress
 
   delegate :scale, to: :course_part_progress
   
@@ -46,7 +46,7 @@ class UnitProgress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
   end
-  def create_homework_progress
-    homework_progress.create
-  end
+  #def create_homework_progress
+  #  homework_progress.create
+  #end
 end
