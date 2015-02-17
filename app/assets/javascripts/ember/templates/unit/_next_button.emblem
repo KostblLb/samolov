@@ -1,0 +1,4 @@
+.next_button{action 'nextStep'}
+  .ui.right.labeled.green.icon.button
+    | Далее
+    i.right.arrow.icon
