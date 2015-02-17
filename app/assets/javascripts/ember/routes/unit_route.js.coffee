@@ -17,7 +17,7 @@ Samolov.UnitRoute = Ember.Route.extend
       @transitionTo('quiz', qId)
     else
       if scope == 'case'
-        @transitionTo('case', cId)
+        @transitionTo('quiz', cId)
       else
         @transitionTo('unit', uId, {queryParams: {scope: scope}})
 
