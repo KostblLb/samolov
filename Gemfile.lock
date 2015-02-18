@@ -13,6 +13,7 @@ GIT
 GIT
   remote: git://github.com/max-konin/semantic-ui-sass.git
   revision: 98552c7989f36a26faec398c696fd8dbfe419a82
+  ref: 98552c7989f36a26faec398c696fd8dbfe419a82
   branch: global_variables
   specs:
     semantic-ui-sass (1.8.1.0)
