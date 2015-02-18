@@ -480,6 +480,7 @@ Carousel list
 	display: block;
 }
 .list_carousel li {
+	width: 239px;
 	padding:0;
 	margin:0px 15px -1px 15px;
 	display: block;
