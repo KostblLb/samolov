@@ -45,4 +45,8 @@ RailsAdmin.config do |config|
     field :text, :text
     include_all_fields
   end
+
+  config.model Homework::MetaTask do
+
+  end
 end

@@ -1,5 +1,5 @@
 module Homework
-  class TextField < Task
+  class TextField < TaskBase
     field :answer
   end
 end
