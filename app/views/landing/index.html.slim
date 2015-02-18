@@ -1,60 +1,3 @@
-/! Start home
-section#home style=("overflow-y:hidden; ")
-  video#bgvid autoplay="" loop="" poster="polina.jpg" style=("position: absolute; width:100%; display block; background-size: over; z-index:-1")
-    source src="/corporate.m4v" type="video/mp4"
-  .video_color style="background-color:rgba(48, 48, 48, 0.8); width: 100%; position: absolute; z-index: 0; top: 0; left:0; bottom:0"
-  .container.home-container
-    .row.text-center.wow.fadeInDown data-wow-delay="0.2s"
-      .col-md-8.col-md-offset-2
-        a.logo href="#"
-          img alt="" src="img/logo.png" /
-        .intro
-          h3
-            span ШКОЛА ПОДГОТОВКИ РУКОВОДИТЕЛЕЙ
-            br
-            span  с 1989 года
-        p
-          | развитие управленческих навыков
-/! End home
-
-/! Start header
-header
-  .navbar.navbar-inverse role="navigation"
-    .container
-      .navbar-header
-        button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand href="#"
-          img alt="" src="img/logo-small.png" /
-      .collapse.navbar-collapse.pull-right
-        ul.nav.navbar-nav
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#"
-              | О компании
-            ul.dropdown-menu role="menu"
-              li
-                a href="/about"  Samolov Group
-              li
-                a href="/founders"  Основатели
-              li
-                a href="/history"  История
-          li
-            a href="#freecourse"  Открытые курсы
-          li
-            a href="#gallery" Профессиональные курсы
-          li
-            a href="#pricing"  Директорский курс
-          li
-            a href="#graduate"  Наши выпускники
-          li
-            a href="#contact"  Контакты
-          li
-            a href="/users/sign_in"  Вход
-      /! /.nav-collapse
-
   /! Free courses
   section#freecourse.contain
     .container
@@ -259,39 +202,39 @@ header
             li
               ul
                 li
-                  img.client-logo alt="" src="img/client/kamaz.png"
+                  = image_tag "landing/client/kamaz.png"
                 li
-                  img.client-logo alt="" src="img/client/uaz.png"
+                  = image_tag "landing/client/uaz.png"
                 li
-                  img.client-logo alt="" src="img/client/sportmaster.png"
+                  = image_tag "landing/client/sportmaster.png"
                 li
-                  img.client-logo alt="" src="img/client/strabag.png"
+                  = image_tag "landing/client/strabag.png"
                 li.last
-                  img.client-logo alt="" src="img/client/karcher.png"
+                  = image_tag "landing/client/karcher.png"
             li
               ul
                 li
-                  img.client-logo alt="" src="img/client/beeline.png"
+                  = image_tag "landing/client/beeline.png"
                 li
-                  img.client-logo alt="" src="img/client/megafon.png"
+                  = image_tag "landing/client/megafon.png"
                 li
-                  img.client-logo alt="" src="img/client/tele2.png"
+                  = image_tag "landing/client/tele2.png"
                 li
-                  img.client-logo alt="" src="img/client/vtb.png"
+                  = image_tag "landing/client/vtb.png"
                 li.last
-                  img.client-logo alt="" src="img/client/sberbank.png"
+                  = image_tag "landing/client/sberbank.png"
             li.bottom-list
               ul
                 li
-                  img.client-logo alt="" src="img/client/alfabank.png"
+                  = image_tag "landing/client/alfabank.png"
                 li
-                  img.client-logo alt="" src="img/client/mdm.png"
+                  = image_tag "landing/client/mdm.png"
                 li
-                  img.client-logo alt="" src="img/client/bankzenit.png"
+                  = image_tag "landing/client/bankzenit.png"
                 li
-                  img.client-logo alt="" src="img/client/ingosstrah.png"
+                  = image_tag "landing/client/ingosstrah.png"
                 li.last
-                  img.client-logo alt="" src="img/client/rbk.png"
+                  = image_tag "landing/client/rbk.png"
   /! End client
 
 
@@ -399,21 +342,22 @@ header
             li
               .testimoni
                 a.testimoni-avatar href="#"
-                  img alt="" src="img/testimoni/avatar1.jpg" /
+                  = image_tag "landing/testimoni/avatar1.jpg"
+                  = image_tag "landing/testimoni/avatar1.jpg"
                 p
                   | «Директорский курс» безусловно полезен, дает много новых методик и подходов в решении управленческих задач.
                 span Алексей Елизаров - Банк ЗЕНИТ
             li
               .testimoni
                 a.testimoni-avatar href="#"
-                  img alt="" src="img/testimoni/avatar2.jpg" /
+                  = image_tag "landing/testimoni/avatar2.jpg"
                 p
                   | Samolov Group решает очень четкую и понятную задачу - воспитание в менеджере навыков хорошего управленца. На мой взгляд, в нашей стране это одно из самых полезных образований для руководителей.
                 span Светлана Семенова - НЛ Континент
             li
               .testimoni
                 a.testimoni-avatar href="#"
-                  img alt="" src="img/testimoni/avatar3.jpg" /
+                  = image_tag "landing/testimoni/avatar3.jpg"
                 p
                   | Спасибо за системность подготовленной вами информации и адекватность преподавания. Все полученные навыки – прикладные и позволили решить нам ряд трудностей.
                 span Алексей Дегтярев - B2B-Center
@@ -608,90 +552,3 @@ header
             | Tweets by @twitterdev
 
     /! End subscribe
-  /! Start footer
-  footer
-    .social-network
-      a.social-link href="#"
-        span.icon-social-facebook
-      a.social-link href="#"
-        span.icon-social-twitter
-      a.social-link href="#"
-        span.icon-social-dribbble
-      a.social-link href="#"
-        span.icon-social-tumblr
-  /! End footer
-
-  /!
-    | Bootstrap core JavaScript
-    | \==================================================
-  /! Placed at the end of the document so the pages load faster
-  script src="js/jquery.min.js"
-  script src="js/bootstrap.min.js"
-  script src="js/jquery-easing-1.3.js"
-  /! Fixed navigation
-  script src="js/navigation/jquery.smooth-scroll.js"
-  script src="js/navigation/navbar.js"
-  script src="js/navigation/waypoints.min.js"
-  /! JavaScript jcarousellite
-  script src="js/jcarousellite/jcarousellite_1.0.1c4.js"
-  script src="js/jcarousellite/setting.js"
-  /! parallax
-  script src="js/parallax/jquery.parallax-1.1.3.js"
-  script src="js/parallax/setting.js"
-  /! Ticker
-  script src="js/ticker/ticker.js"
-  script src="js/ticker/setting.js"
-  /! Caroufredsel
-  script src="js/caroufredsel/jquery.carouFredSel-5.5.0.js"
-  script src="js/caroufredsel/setting.js"
-  /! JavaScript totop
-  script src="js/totop/jquery.ui.totop.js"
-  script src="js/totop/setting.js"
-  /! Contact validation js
-  script src="js/validation.js"
-  /! WOW JavaScript
-  script src="js/wow.min.js"
-  /! Custom JavaScript
-  script src="js/custom.js"
-  /! JavaScript color option
-  script src="js/theme-option/demosetting.js"
-  script type="text/javascript" src="//vk.com/js/api/openapi.js?116"
-
-  /! JavaScript bxslider
-  script src="js/jquery.bxslider.min.js"
-  link href="css/jquery.bxslider.css" rel="stylesheet"
-
-
-  javascript:
-    $(document).ready(function () {
-      $('.bxslider').bxSlider({
-        minSlides: 3,
-        maxSlides: 3,
-        slideMargin: 10,
-        slideWidth: 500,
-        controls: true,
-        pager: false,
-        auto: true,
-        autoHover: true
-      });
-    });
-
-    VK.Widgets.Group("vk_groups", {
-      mode: 0,
-      width: "220",
-      height: "400",
-      color1: '',
-      color2: '#303F52',
-      color3: '#5B738D'
-    }, 20003922);
-
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));

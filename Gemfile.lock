@@ -422,6 +422,7 @@ DEPENDENCIES
   ember-source (= 1.8)
   emblem-rails
   factory_girl_rails
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

@@ -1,0 +1,191 @@
+doctype html
+html
+  head
+    = stylesheet_link_tag 'landing'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    link href="ico/favicon.png" rel="icon"
+    title Директорский курс
+    /! General font
+    link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"
+    link href="http://fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css"
+
+    /![if lte IE 7] <script src="font/icons-lte-ie7.js"></script
+    /! Just for debugging purposes. Don't actually copy these 2 lines!
+    /![if lt IE 9] <script src="js/ie8-responsive-file-warning.js"></script
+    script src="js/ie-emulation-modes-warning.js"
+    /! IE10 viewport hack for Surface/desktop Windows 8 bug
+    script src="js/ie10-viewport-bug-workaround.js"
+  //! HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+  //![if lt IE 9]
+  /script src="js/html5shiv.min.js"
+  /script src="js/respond.min.js"
+  = yield :head
+
+  body
+    /! Start home
+    section#home style=("overflow-y:hidden; ")
+      video#bgvid autoplay="" loop="" poster="polina.jpg" style=("position: absolute; width:100%; display block; background-size: over; z-index:-1")
+        source src="/corporate.m4v" type="video/mp4"
+      .video_color style="background-color:rgba(48, 48, 48, 0.8); width: 100%; position: absolute; z-index: 0; top: 0; left:0; bottom:0"
+      .container.home-container
+        .row.text-center.wow.fadeInDown data-wow-delay="0.2s"
+          .col-md-8.col-md-offset-2
+            a.logo href="#"
+              = image_tag 'landing/logo.png'
+            .intro
+              h3
+                span ШКОЛА ПОДГОТОВКИ РУКОВОДИТЕЛЕЙ
+                br
+                span  с 1989 года
+            p
+              | развитие управленческих навыков
+    /! End home
+
+    /! Start header
+    header
+      .navbar.navbar-inverse role="navigation"
+        .container
+          .navbar-header
+            button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="#"
+              = image_tag 'landing/logo-small.png'
+          .collapse.navbar-collapse.pull-right
+            ul.nav.navbar-nav
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown" href="#"
+                  | О компании
+                ul.dropdown-menu role="menu"
+                  li
+                    a href="/about/samolov"  Samolov Group
+                  li
+                    a href="/about/founders"  Основатели
+                  li
+                    a href="/about/history"  История
+              li
+                a href="#freecourse"  Открытые курсы
+              li
+                a href="#profcourse" Профессиональные курсы
+              li
+                a href="#pricing"  Директорский курс
+              li
+                a href="#graduate"  Наши выпускники
+              li
+                a href="#contact"  Контакты
+              li
+                a href="/users/sign_in"  Вход
+    /! /.nav-collapse
+
+    = yield
+
+    /! Start footer
+    footer
+      .social-network
+        a.social-link href="#"
+          span
+            i.fa.fa-facebook
+        a.social-link href="#"
+          span
+            i.fa.fa-twitter
+        a.social-link href="#"
+          span
+            i.fa.fa-vk
+        a.social-link href="#"
+          span
+            i.fa.fa-linkedin
+    /! End footer
+
+    /!
+      | Bootstrap core JavaScript
+      | \==================================================
+    /! Placed at the end of the document so the pages load faster
+    script src="js/jquery.min.js"
+    script src="js/bootstrap.min.js"
+    script src="js/jquery-easing-1.3.js"
+    /! Fixed navigation
+    script src="js/navigation/jquery.smooth-scroll.js"
+    script src="js/navigation/navbar.js"
+    script src="js/navigation/waypoints.min.js"
+    /! JavaScript jcarousellite
+    script src="js/jcarousellite/jcarousellite_1.0.1c4.js"
+    script src="js/jcarousellite/setting.js"
+    /! parallax
+    script src="js/parallax/jquery.parallax-1.1.3.js"
+    script src="js/parallax/setting.js"
+    /! Ticker
+    script src="js/ticker/ticker.js"
+    script src="js/ticker/setting.js"
+    /! Caroufredsel
+    script src="js/caroufredsel/jquery.carouFredSel-5.5.0.js"
+    script src="js/caroufredsel/setting.js"
+    /! JavaScript totop
+    script src="js/totop/jquery.ui.totop.js"
+    script src="js/totop/setting.js"
+    /! Contact validation js
+    script src="js/validation.js"
+    /! WOW JavaScript
+    script src="js/wow.min.js"
+    /! Custom JavaScript
+    script src="js/custom.js"
+    /! JavaScript color option
+    script src="js/theme-option/demosetting.js"
+    script type="text/javascript" src="//vk.com/js/api/openapi.js?116"
+
+    /! JavaScript bxslider
+    script src="js/jquery.bxslider.min.js"
+
+    javascript:
+      $(document).ready(function () {
+        $('.bxslider').bxSlider({
+          minSlides: 3,
+          maxSlides: 3,
+          slideMargin: 10,
+          slideWidth: 500,
+          controls: true,
+          pager: false,
+          auto: true,
+          autoHover: true
+        });
+      });
+
+      VK.Widgets.Group("vk_groups", {
+        mode: 0,
+        width: "220",
+        height: "400",
+        color1: '',
+        color2: '#303F52',
+        color3: '#5B738D'
+      }, 20003922);
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
+        if (d.getElementById(id))return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        t._e = [];
+        t.ready = function (f) {
+          t._e.push(f);
+        };
+        return t;
+      }(document, "script", "twitter-wjs"));
