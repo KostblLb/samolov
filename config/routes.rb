@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'about/samolov'
+
+  get 'about/founders'
+
+  get 'about/history'
+
   get 'landing/index'
 
   devise_for :users

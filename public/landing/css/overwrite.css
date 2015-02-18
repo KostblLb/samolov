@@ -44,11 +44,11 @@ a:active,
 a:focus,
 a:hover{
 	outline:none;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  /*-webkit-transition: all 0.5s ease-in-out;*/
+  /*-moz-transition: all 0.5s ease-in-out;*/
+  /*-o-transition: all 0.5s ease-in-out;*/
+  /*-ms-transition: all 0.5s ease-in-out;*/
+  /*transition: all 0.5s ease-in-out;*/
 }
 
 label{
@@ -64,6 +64,7 @@ h6{
     font-family: 'Roboto';
 	margin:0 0 20px 0;
 	color:#303F52;
+	font-weight: 400;
 }
 
 h1 span,
@@ -73,7 +74,7 @@ h4 span,
 h5 span,
 h6 span{
     font-family: 'Roboto';
-	font-weight: bold;
+	font-weight: 500;
 }
 
 h1{
