@@ -55,6 +55,8 @@ class User
   has_many :inbox,  class_name: 'Message', inverse_of: :recipient
   has_many :outbox, class_name: 'Message', inverse_of: :sender
 
+  has_many :orders, dependent: :destroy
+
   has_many :course_progresses
   has_many :course_part_progresses
   has_many :unit_progresses

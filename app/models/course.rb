@@ -3,6 +3,7 @@ class Course
 
   field :name
   field :description
+  field :cost, type: Float, default: 0
 
   has_many :course_progresses
   has_many :groups

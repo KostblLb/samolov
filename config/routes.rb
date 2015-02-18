@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :quiz_progresses,   only: :show
       resources :user_answers,      only: :create
       resources :unit_progresses,   only: [:show, :update]
+      resources :orders,            only: [:show, :create]
       resources :homework_metas
       resources :homework_meta_tasks
     end
