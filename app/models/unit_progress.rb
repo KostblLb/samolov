@@ -6,7 +6,7 @@ class UnitProgress
   has_one :quiz_progress, class_name: 'QuizProgress', inverse_of: :quiz_progress_socket, dependent: :destroy
   has_one :case_progress, class_name: 'QuizProgress', inverse_of: :case_progress_socket, dependent: :destroy
   belongs_to :unit
-  has_one :homework_progress, class_name: 'Homework::Progress'
+ # has_one :homework_progress, class_name: 'Homework::Progress'
   after_create :create_quiz_progress
   #after_create :create_homework_progress
 

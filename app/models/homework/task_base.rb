@@ -4,6 +4,5 @@ module Homework
     field :is_correct, type: Boolean
     field :comment
     field :description
-    embedded_in :progress
   end
 end
