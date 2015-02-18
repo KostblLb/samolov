@@ -50,7 +50,7 @@ gem 'ember-source', '1.8'
 gem 'emblem-rails'
 gem 'momentjs-rails'
 
-gem 'semantic-ui-sass', github: 'max-konin/semantic-ui-sass', branch: 'global_variables'
+gem 'semantic-ui-sass', github: 'max-konin/semantic-ui-sass', branch: 'global_variables', ref: '98552c7989f36a26faec398c696fd8dbfe419a82'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
