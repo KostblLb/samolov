@@ -1,9 +1,8 @@
 module Homework
-  class MetaTask
+  class TaskBase
     include Mongoid::Document
-    field :task_class
+    field :is_correct, type: Boolean
+    field :comment
     field :description
-    embedded_in :meta
-
   end
 end
