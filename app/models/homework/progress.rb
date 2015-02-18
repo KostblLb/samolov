@@ -7,11 +7,10 @@ module Homework
     belongs_to :unit_progress
     accepts_nested_attributes_for :textfields
 
-    after_create create_tasks
-      homework_meta.task_meta.each do
-        cname = homework_meta.task_meta.task_class.constantize
-        cname.create
-      end
-
+  #   after_create create_tasks
+  #     homework_meta.task_meta.each do
+  #       cname = homework_meta.task_meta.task_class.constantize
+  #       cname.create
+  #     end
   end
 end
