@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'landing/history'
+
+  get 'landing/founders'
+
+  get 'landing/samolov'
+
   get 'about/samolov'
 
   get 'about/founders'

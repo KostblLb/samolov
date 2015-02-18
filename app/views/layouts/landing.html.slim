@@ -2,7 +2,7 @@ doctype html
 html
   head
     = stylesheet_link_tag 'landing'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application'
     = csrf_meta_tags
 
     meta charset="utf-8"
@@ -58,7 +58,7 @@ html
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand href="#"
+            a.navbar-brand href="/landing/index"
               = image_tag 'landing/logo-small.png'
           .collapse.navbar-collapse.pull-right
             ul.nav.navbar-nav
@@ -67,21 +67,21 @@ html
                   | О компании
                 ul.dropdown-menu role="menu"
                   li
-                    a href="/about/samolov"  Samolov Group
+                    a href="/landing/samolov"  Samolov Group
                   li
-                    a href="/about/founders"  Основатели
+                    a href="/landing/founders"  Основатели
                   li
-                    a href="/about/history"  История
+                    a href="/landing/history"  История
               li
-                a href="#freecourse"  Открытые курсы
+                a href="/landing/index#freecourse"  Открытые курсы
               li
-                a href="#profcourse" Профессиональные курсы
+                a href="/landing/index#profcourse" Профессиональные курсы
               li
-                a href="#pricing"  Директорский курс
+                a href="/landing/index#pricing"  Директорский курс
               li
-                a href="#graduate"  Наши выпускники
+                a href="/landing/index#graduate"  Наши выпускники
               li
-                a href="#contact"  Контакты
+                a href="/landing/index#contact"  Контакты
               li
                 a href="/users/sign_in"  Вход
     /! /.nav-collapse
