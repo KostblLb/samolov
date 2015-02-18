@@ -23,5 +23,5 @@ h2.ui.header
       select
         option
           | Банковский перевод
-    button.ui.submit.green.button
+    button.ui.submit.green.button{actions 'create'}
       | Купить
