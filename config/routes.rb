@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'landing/directors'
+
   get 'landing/history'
 
   get 'landing/founders'

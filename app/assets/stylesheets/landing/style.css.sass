@@ -73,10 +73,12 @@
     font-size: 60px
     line-height: 72px
     margin-bottom: 40px
+    text-shadow: 1px 1px 3px black
   h4
     font-size: 46px
     line-height: 58px
     margin-bottom: 20px
+    text-shadow: 1px 1px 3px black
   p
     font-size: 18px
     line-height: 24px
@@ -735,6 +737,33 @@ footer
 
 .parallax
   background: asset_url('landing/parallax-bg.jpg') 0 0 repeat fixed
+  &.par2
+    min-height: 550px
+    background: asset_url('landing/foto_dirkurs.jpg') 0 0 repeat fixed
+    text-shadow: 1px 1px 2px black
+    h2
+      margin-top: 80px
+      margin-bottom: 60px
+      font-weight: 500
+      font-size: 80px
+
+    h3
+      font-weight: 400
+      font-size: 40px
+      line-height: 60px
+      &.blue
+        background-color: #3fa1ca
+      &.black
+        background-color: #5B738D
+    h3, h2
+      color: white
+      text-align: center
+    .btn
+      font-size: 40px
+      line-height: 40px
+      text-transform: uppercase
+      height: 60px
+      font-weight: 500
   position: relative
   color: #fff
   height: 450px
