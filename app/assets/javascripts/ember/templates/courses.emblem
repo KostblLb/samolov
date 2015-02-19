@@ -7,7 +7,7 @@ h2.ui.header
     = each
       .item
         = if needBuy
-          a href='' class='right floated compact ui blue button'
+          link-to 'course.buy' id class='right floated compact ui blue button'
             i.shop.icon
             | Купить
         = else

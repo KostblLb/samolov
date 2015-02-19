@@ -3,6 +3,8 @@
 Samolov.Router.map ()->
   @route 'free'
 
+  @resource 'order', path: 'order/:id'
+
   @resource 'users', ->
     @route 'show', path: ':id'
     @route 'edit'
@@ -12,6 +14,7 @@ Samolov.Router.map ()->
 
   @resource 'courses'
   @resource 'course', path: 'courses/:id', ->
+    @route 'buy'
     @resource 'part', path: 'part/:part_id'
     @resource 'unit', path: 'unit/:unit_id'
     @resource 'quiz', path: 'quize/:quiz_id'

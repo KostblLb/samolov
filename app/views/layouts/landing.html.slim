@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    = stylesheet_link_tag 'landing'
+    = csrf_meta_tags
+
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    link href="ico/favicon.png" rel="icon"
+    title Директорский курс
+    /! General font
+    link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"
+    link href="http://fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css"
+
+  = yield :head
+
+  body
+    /! Start home
+    section#home style=("overflow-y:hidden; ")
+      video#bgvid autoplay="" loop="" style=("position: absolute; width:100%; display block; background-size: over; z-index:-1")
+        source src="/corporate.m4v" type="video/mp4"
+      .video_color style="background-color:rgba(48, 48, 48, 0.8); width: 100%; position: absolute; z-index: 0; top: 0; left:0; bottom:0"
+      .container.home-container
+        .row.text-center.wow.fadeInDown data-wow-delay="0.2s"
+          .col-md-8.col-md-offset-2
+            a.logo href="#"
+              = image_tag 'landing/logo.png'
+            .intro
+              h3
+                span ШКОЛА ПОДГОТОВКИ РУКОВОДИТЕЛЕЙ
+                br
+                span  с 1989 года
+            p
+              | развитие управленческих навыков
+    /! End home
+
+    /! Start header
+    header
+      .navbar.navbar-inverse role="navigation"
+        .container
+          .navbar-header
+            button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="/landing/index"
+              = image_tag 'landing/logo-small.png'
+          .collapse.navbar-collapse.pull-right
+            ul.nav.navbar-nav
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown" href="#"
+                  | О компании
+                ul.dropdown-menu role="menu"
+                  li
+                    a href="/landing/samolov"  Samolov Group
+                  li
+                    a href="/landing/founders"  Основатели
+                  li
+                    a href="/landing/history"  История
+              li
+                a href="/landing/index#freecourse"  Открытые курсы
+              li
+                a href="/landing/index#profcourse" Профессиональные курсы
+              li
+                a href="/landing/index#pricing"  Директорский курс
+              li
+                a href="/landing/index#graduate"  Наши выпускники
+              li
+                a href="/landing/index#contact"  Контакты
+              li
+                a href="/users/sign_in"  Вход
+    /! /.nav-collapse
+
+    = yield
+
+    /! Start footer
+    footer
+      .social-network
+        a.social-link href="#"
+          span
+            i.fa.fa-facebook
+        a.social-link href="#"
+          span
+            i.fa.fa-twitter
+        a.social-link href="#"
+          span
+            i.fa.fa-vk
+        a.social-link href="#"
+          span
+            i.fa.fa-linkedin
+    /! End footer
+
+
+
+    = javascript_include_tag 'landing'
+    = yield :footer
+

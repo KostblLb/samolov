@@ -2,6 +2,7 @@
 
 Samolov.Course = DS.Model.extend
   name: DS.attr 'string'
+  cost: DS.attr 'number'
   description: DS.attr 'string'
   status: DS.attr 'string'
 
