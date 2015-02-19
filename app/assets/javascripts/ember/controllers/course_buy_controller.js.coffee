@@ -3,4 +3,5 @@
 Samolov.CourseBuyController = Ember.ObjectController.extend
   actions:
     create: ->
-      @model.save()
+      @model.save().then (order) =>
+        @transitionToRoute 'order', order.id

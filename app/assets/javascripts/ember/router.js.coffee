@@ -3,6 +3,8 @@
 Samolov.Router.map ()->
   @route 'free'
 
+  @resource 'order', path: 'order/:id'
+
   @resource 'users', ->
     @route 'show', path: ':id'
     @route 'edit'
