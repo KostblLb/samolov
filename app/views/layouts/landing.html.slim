@@ -94,52 +94,8 @@ html
             i.fa.fa-linkedin
     /! End footer
 
-    script type="text/javascript" src="//vk.com/js/api/openapi.js?116"
+
 
     = javascript_include_tag 'landing'
+    = yield :footer
 
-    javascript:
-      $(document).ready(function () {
-        $('.bxslider').bxSlider({
-          minSlides: 3,
-          maxSlides: 3,
-          slideMargin: 10,
-          slideWidth: 500,
-          controls: true,
-          pager: false,
-          auto: true,
-          autoHover: true
-        });
-      });
-
-      VK.Widgets.Group("vk_groups", {
-        mode: 0,
-        width: "220",
-        height: "400",
-        color1: '',
-        color2: '#303F52',
-        color3: '#5B738D'
-      }, 20003922);
-
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-      window.twttr = (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
-        if (d.getElementById(id))return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-        t._e = [];
-        t.ready = function (f) {
-          t._e.push(f);
-        };
-        return t;
-      }(document, "script", "twitter-wjs"));

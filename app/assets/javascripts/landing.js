@@ -38,10 +38,6 @@
 //= require landing/ticker/ticker
 //= require landing/ticker/setting
 
-//caroufredsel
-//= require landing/caroufredsel/jquery.carouFredSel-5.5.0
-//= require landing/caroufredsel/setting
-
 //= require landing/jquery.bxslider
 
 //totop
