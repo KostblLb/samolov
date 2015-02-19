@@ -6,10 +6,18 @@
             h3 Статистика
             span.heding-style
       .row.wow.zoomIn data-wow-delay="0.4s"
-        .col-md-4.col-md-offset-4
-          .content
-            svg#svg
-            svg#svg2
+        .col-md-12
+          table
+            thead
+              td
+                h5 Должность наших выпускников:
+              td
+                h5 Управленческий стаж наших выпускников
+            tr
+              td
+                svg#svg
+              td
+                svg#svg2
 
   section#pricing
   .container
@@ -110,56 +118,46 @@
   javascript:
     var programmingSkills = [
       {
-        value: 20,
-        label: 'jQuery',
-        color: '#3399FF'
+        value: 24,
+        label: 'Линейный менеджмент',
+        color: '#E5DEC2'
       },
       {
-        value: 23,
-        label: 'JavaScript',
-        color: '#FFC575'
+        value: 19,
+        label: 'Топ-менеджмент',
+        color: '#C6A36B'
       },
       {
-        value: 17,
-        label: 'Ruby',
-        color: '#99CC00'
+        value: 5,
+        label: 'Специалисты',
+        color: '#90ACBA'
       },
       {
-        value: 22,
-        label: 'Python',
-        color: '#FF3300'
-      },
-      {
-        value: 18,
-        label: 'CSS3',
-        color: '#944DDB'
+        value: 52,
+        label: 'Средний менеджмент',
+        color: '#5B738D'
       },
     ];
 
     var programmingSkills2 = [
       {
-        value: 10,
-        label: 'jQuery',
-        color: '#3399FF'
+        value: 23,
+        label: '11 лет и более',
+        color: '#E5DEC2'
       },
       {
-        value: 13,
-        label: 'JavaScript',
-        color: '#FFC575'
+        value: 21,
+        label: 'от 3 до 5 лет',
+        color: '#C6A36B'
       },
       {
-        value: 17,
-        label: 'Ruby',
-        color: '#99CC00'
+        value: 24,
+        label: 'Менее 3 лет',
+        color: '#90ACBA'
       },
       {
-        value: 12,
-        label: 'Python',
-        color: '#FF3300'
-      },
-      {
-        value: 18,
-        label: 'CSS3',
-        color: '#944DDB'
+        value: 32,
+        label: 'От 6 до 10 лет',
+        color: '#5B738D'
       },
     ];
