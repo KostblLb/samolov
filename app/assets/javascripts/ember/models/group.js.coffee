@@ -4,10 +4,11 @@ Samolov.Group = DS.Model.extend
   name: DS.attr 'string'
 
   teacher: DS.belongsTo 'user', async: true
-  course: DS.belongsTo 'course'
+  course:  DS.belongsTo 'course'
 
-  students: DS.hasMany 'user'
-  adverts: DS.hasMany 'advert'
+  students:         DS.hasMany 'user'
+  adverts:          DS.hasMany 'advert'
+  courseProgresses: DS.hasMany 'course_progress'
 
 
   canICreateAdvert: (->

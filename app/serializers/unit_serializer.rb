@@ -1,5 +1,5 @@
 class UnitSerializer < ActiveModel::Serializer
-  attributes :id, :name, :video_link, :summary, :part_id, :quiz_id, :case_id
+  attributes :id, :name, :video_link, :summary, :part_id, :quiz_id, :case_id, :user_id
 
   has_one :webinar
   has_one :my_progress
