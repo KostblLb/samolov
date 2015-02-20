@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe Homework::Progress do
   before(:each) {subject.save}
   describe 'create new object' do
-   # let(:meta_tasks){ build homework_meta.meta_tasks task_class: "TextField"}
-
     subject {FactoryGirl.create :progress}
 
     it 'creates homework' do

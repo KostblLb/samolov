@@ -3,6 +3,7 @@ module Homework
     include Mongoid::Document
     embeds_many :meta_tasks
     belongs_to :progress, :class_name => 'Homework::Progress'
+    belongs_to :unit, inverse_of: :homework
     accepts_nested_attributes_for :meta_tasks
 
     def tasks(progress)
