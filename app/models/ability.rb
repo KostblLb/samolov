@@ -9,5 +9,8 @@ class Ability
     can :manage_adverts, Group do |group|
       group.teacher == user
     end
+    can :manage, Group do |group|
+      group.teacher == user
+    end
   end
 end
