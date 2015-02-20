@@ -42,7 +42,7 @@ module Api
       end
 
       def scale_params
-        params.require(:scale).permit :name
+        params.require(:scale).permit :name, sections: [:from, :to, :points]
       end
     end
   end
