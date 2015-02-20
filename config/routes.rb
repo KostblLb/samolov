@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'landing/directors'
+
   get 'landing/history'
 
   get 'landing/founders'
 
   get 'landing/samolov'
-
-  get 'about/samolov'
-
-  get 'about/founders'
-
-  get 'about/history'
 
   get 'landing/index'
 
@@ -37,7 +33,7 @@ Rails.application.routes.draw do
       resources :unit_progresses,   only: [:show, :update]
       resources :orders,            only: [:show, :create]
       resources :homework_metas
-      resources :homework_meta_tasks
+      #resources :homework_meta_tasks
     end
   end
 
