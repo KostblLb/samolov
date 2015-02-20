@@ -15,11 +15,11 @@ describe QuizProgress do
     let(:quiz_progress) {create :quiz_progress}
     let(:quiz) {quiz_progress.quiz}
 
-    context 'user has answer on current question' do
+    context 'user has task on current question' do
       # this case test in user_answer#create spec
     end
 
-    context 'user has not answer on current question' do
+    context 'user has not task on current question' do
       it { expect(quiz_progress.next_question!).to be_falsey }
     end
   end

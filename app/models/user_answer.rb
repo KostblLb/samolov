@@ -24,12 +24,12 @@ class UserAnswer
 
   private
   def answer_only_current_question
-    errors[:question] << 'user can answer only current question' unless question == quiz_progress.current_question
+    errors[:question] << 'user can task only current question' unless question == quiz_progress.current_question
   end
 
   def answer_belongs_to_question
     answers.each do |answer|
-      errors[:answers] << 'answer does not belongs to question' unless question == answer.question
+      errors[:answers] << 'task does not belongs to question' unless question == answer.question
       return false
     end
     true

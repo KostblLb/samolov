@@ -5,11 +5,6 @@ module Api
       before_action :authenticate_user!
       respond_to :json
 
-      def index
-        @avaiable_progresses = Homework::Progress.all
-        respond_with(@avaiable_progresses)
-      end
-
       def show
         @progress = Homework::Progress.find params[:id]
         respond_with(@progress)
@@ -25,9 +20,14 @@ module Api
 
       private
         def homework_progress_params
-
+          def progress_params
+             if current_user.id=@progress.teacher.id
+               :is_correct, :comment
+             else
+             end
+          end
+          params.require(Homework::Progress).permit progress_params
         end
-
     end
   end
 end

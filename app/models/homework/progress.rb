@@ -6,10 +6,10 @@ module Homework
     belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
 
-    embeds_many :text_answers
-    embeds_many :table_answers
+    embeds_many :text_answers, class_name: 'Homework::Task::Text'
+    embeds_many :table_answers, class_name: 'Homework::Task::Table'
 
-    has_one :homework_meta, class_name: 'Homework::HomeworkMeta'
+    has_one :homework_meta, class_name: 'Homework::Meta::Base'
 
     accepts_nested_attributes_for :text_answers
     accepts_nested_attributes_for :table_answers
@@ -36,7 +36,7 @@ module Homework
 
     private
       def create_tasks
-        homework_meta.tasks(self)
+        homework_meta.create_tasks_by_meta(self)
       end
   end
 end

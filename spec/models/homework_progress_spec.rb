@@ -7,10 +7,10 @@ RSpec.describe Homework::Progress do
 
     it 'creates homework' do
       expect(subject.homework_meta)
-      expect(subject.homework_meta.meta_tasks.size).to eq(2)
+      expect(subject.homework_meta.tasks.size).to eq(2)
       expect(subject.text_answers.size).to eq(2)
     end
-  describe 'set answer as correct' do
+  describe 'set task as correct' do
     subject{FactoryGirl.create :progress}
     it 'points counters' do
       subject.text_answers.first.is_correct = true

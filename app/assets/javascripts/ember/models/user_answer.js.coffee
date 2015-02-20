@@ -5,5 +5,5 @@ Samolov.UserAnswer = DS.Model.extend
   isCorrect: DS.attr 'boolean'
   answerIds: DS.attr()
 
-#  answers:  DS.hasMany 'answer', async: true
+#  answers:  DS.hasMany 'task', async: true
   question: DS.belongsTo 'question'

@@ -6,7 +6,7 @@ class Unit
   field :summary
   has_many :unit_progresses
   embeds_one :webinar
-  has_one :homework, :class_name => 'Homework::HomeworkMeta'
+  has_one :homework, :class_name => 'Homework::Meta::Base'
 
 
   belongs_to :part

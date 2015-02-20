@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :task_base, :class => Homework::TaskBase do
+  factory :task_base, :class => Homework::Task::Base do
 
   end
 end

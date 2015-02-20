@@ -16,15 +16,15 @@ RSpec.describe UserAnswer do
       end
     end
 
-    describe 'answer belongs to question' do
-      describe 'answer belongs to question' do
+    describe 'task belongs to question' do
+      describe 'task belongs to question' do
         context 'question is current in progress' do
           let(:user_answer) { build :user_answer }
           it {is_expected.to be_truthy}
         end
 
-        context 'answer does not belongs to question' do
-          let(:user_answer) {build :user_answer, answers: [(create :answer)]}
+        context 'task does not belongs to question' do
+          let(:user_answer) {build :user_answer, answers: [(create :task)]}
           it {is_expected.to be_falsey}
         end
       end
@@ -34,9 +34,9 @@ RSpec.describe UserAnswer do
   describe '#correct?' do
     subject{user_answer.correct?}
     let (:quiz_progress) {create :quiz_progress, quiz: question.quiz}
-    context 'has only one answer' do
-      let(:question) {create :question, answers: [create(:answer, is_correct: true), create(:answer)]}
-      context 'answer is correct' do
+    context 'has only one task' do
+      let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task)]}
+      context 'task is correct' do
         let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
                                   question: question, answers: [question.answers.right.first]}
         it {is_expected.to be_truthy}
@@ -49,14 +49,14 @@ RSpec.describe UserAnswer do
     end
 
     context 'has many answers' do
-      let(:question) {create :question, answers: [create(:answer, is_correct: true), create(:answer, is_correct: true), create(:answer)]}
-      context "user's answer has all right answer" do
+      let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task, is_correct: true), create(:task)]}
+      context "user's task has all right task" do
         let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
                                   question: question, answers: question.answers.right}
         it {is_expected.to be_truthy}
       end
 
-      context "user's answer has at least one incorrect answer" do
+      context "user's task has at least one incorrect task" do
         let(:user_answer) {create :user_answer, question: question, quiz_progress: quiz_progress,
                                   answers: [question.answers.where(is_correct: false).first, question.answers.right.first]}
         it {is_expected.to be_falsey}
@@ -76,15 +76,15 @@ RSpec.describe UserAnswer do
 
   describe '#mistakes_count' do
     subject{user_answer.mistakes_count}
-    let(:question) {create :question, answers: [create(:answer, is_correct: true), create(:answer, is_correct: true), create(:answer)]}
+    let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task, is_correct: true), create(:task)]}
     let (:quiz_progress) {create :quiz_progress, quiz: question.quiz}
-    context "user's answer has all right answer" do
+    context "user's task has all right task" do
       let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
                                 question: question, answers: question.answers.right}
       it {is_expected.to eq(0)}
     end
 
-    context  "user's answer has a incorrect answer" do
+    context  "user's task has a incorrect task" do
       let(:user_answer) {create :user_answer, question: question, quiz_progress: quiz_progress,
                                 answers: [question.answers.where(is_correct: false).first, question.answers.right.first]}
       it {is_expected.to eq(1)}
