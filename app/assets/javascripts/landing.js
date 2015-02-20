@@ -39,6 +39,7 @@
 //= require landing/ticker/setting
 
 //= require landing/jquery.bxslider
+//= require landing/bxslider.config
 
 //totop
 //= require landing/totop/jquery.ui.totop
@@ -52,12 +53,6 @@
 //chart
 //= require landing/chart/snap.svg-min
 //= require landing/chart/svg-donut-chart-framework
-
-
-
-
-
-
 
 //= require landing/custom
 

@@ -1,169 +1,237 @@
-  #directors
-    section#statistic.color-bg.contain
-      .container
-        .row.wow.fadeInDown data-wow-delay="0.4s"
-          .col-md-4.col-md-offset-4
-            .heading.centered
-              h3 Статистика
-              span.heding-style
-        .row.wow.zoomIn data-wow-delay="0.4s"
-          .col-md-12
-            table
-              thead
-                td
-                  h5 Должность наших выпускников:
-                td
-                  h5 Управленческий стаж наших выпускников
-              tr
-                td
-                  svg#svg
-                td
-                  svg#svg2
+#directors
+  section#intro.contain
+    .container
+      .row.wow.fadeInDown data-wow-delay="0.4s"
+        .col-md-4.col-md-offset-4
+          .heading.centered
+            h3 Директорский курс
+            span.heding-style
+      .row.wow.zoomIn data-wow-delay="0.4s"
+        .col-md-12
+          p «Директорский курс» — это программа для руководителей высшего звена и собственников, которые желают <b>учиться в группе равных себе</b>
+          p Участники в полной мере развивают <b>навыки оперативного управления</b>: делегирования, мотивации и развития сотрудников, личной эффективности руководителя.
+          p У участников появляется возможность поделиться опытом работы друг с другом и узнать, <b>как повысить свою эффективность</b> за счет повышения эффективности своих подчиненных.
 
-    section#pricing.contain
-      .container
-        .row.wow.fadeInDown data-wow-delay="0.4s"
-          .col-md-4.col-md-offset-4
-            .heading.centered
-              h3 Директорский курс
-              span.heding-style
-        .row.text-center.marginbot20.wow.fadeInUp data-wow-delay="0.4s"
-          .col-md-8.col-md-offset-2
+      .row.wow.zoomIn data-wow-delay="0.4s"
+        .col-md-12
+          ul.bxslider-b-a
+            li
+              .before
+                h3 Было
+                = image_tag 'landing/avatar/avatar1.png'
+                p Руководитель работает больше подчиненных
+              .arrow
+                h1
+                  i.fa.fa-arrow-circle-o-right
+              .after
+                h3 Стало
+                = image_tag 'landing/avatar/avatar1.png'
+                p Руководитель освобожден от рутинных задач
+            li
+              .before
+                h3 Было
+                = image_tag 'landing/avatar/avatar1.png'
+                p Текучка и плохой подбор персонала
+              .arrow
+                h1
+                  i.fa.fa-arrow-circle-o-right
+              .after
+                h3 Стало
+                = image_tag 'landing/avatar/avatar1.png'
+                p Улучшено качество отбора персонала
+            li
+              .before
+                h3 Было
+                = image_tag 'landing/avatar/avatar1.png'
+                p Низкая мотивация сотрудников
+              .arrow
+                h1
+                  i.fa.fa-arrow-circle-o-right
+              .after
+                h3 Стало
+                = image_tag 'landing/avatar/avatar1.png'
+                p Сильная и эффективная команда сотрудников
+            li
+              .before
+                h3 Было
+                = image_tag 'landing/avatar/avatar1.png'
+                p Не достигаются цели
+              .arrow
+                h1
+                  i.fa.fa-arrow-circle-o-right
+              .after
+                h3 Стало
+                = image_tag 'landing/avatar/avatar1.png'
+                p Цели стали более достижимы
+
+
+  section#statistic.color-bg.contain
+    .container
+      .row.wow.fadeInDown data-wow-delay="0.4s"
+        .col-md-4.col-md-offset-4
+          .heading.centered
+            h3 Немного статистики
+            span.heding-style
+      .row.wow.zoomIn data-wow-delay="0.4s"
+        .col-md-12
+          table
+            thead
+              td
+                h5 Должность наших выпускников:
+              td
+                h5 Управленческий стаж наших выпускников
+            tr
+              td
+                svg#svg
+              td
+                svg#svg2
+
+  section#pricing.contain
+    .container
+      .row.wow.fadeInDown data-wow-delay="0.4s"
+        .col-md-4.col-md-offset-4
+          .heading.centered
+            h3 Структура курса
+            span.heding-style
+      .row.marginbot20.wow.fadeInUp data-wow-delay="0.4s"
+        .col-md-12.col-md-offset-1
+          h5 Курс состоит из 4 подкурсов, каждый из которых посвящен одному аспекту оперативного управления.
+          h5 Курс длится <u>4 месяца</u>, по одному месяцу на подкурс. В каждой группе не более 15 человек.
+          h5 Каждый следующий подкурс дополняет и усиляет полученные навыки.
+      .row style=("font-size: 12px;")
+        .col-md-3.wow.flipInY data-wow-delay="0.6s"
+          .pricing-box
+            .pricing-head
+              h4 Навыки эффективного делегирования
+            ul
+              li
+                strong Темы тренинга:
+              li Управленческие стили
+              li Технологии постановки задачи
+              li Закрепление ответственности
+              li Нематериальная мотивация
+              li Определение ближайших шагов
+              li Контроль выполнения и обратная связь
+              li
+              li
+                strong Результат:
+              li Основной груз переходит на подчиненных
+              li Повышается профессиональный уровень сотрудников
+              li Стиль управления становится более уравновешенным
+            a.btn.btn-blue.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
             p
-              | «Директорский курс. VIP» — это программа для опытных директоров и предпринимателей, которые желают улучшить свои профессиональные навыки. У участников появляется возможность поделиться опытом работы друг с другом и узнать, как повысить свою эффективность за счет повышения эффективности своих подчиненных.
-        .row style=("font-size: 12px;")
-          .col-md-3.wow.flipInY data-wow-delay="0.6s"
-            .pricing-box
-              .pricing-head
-                h4 Навыки эффективного делегирования
-              ul
-                li
-                  strong Темы тренинга:
-                li Управленческие стили
-                li Технологии постановки задачи
-                li Закрепление ответственности
-                li Нематериальная мотивация
-                li Определение ближайших шагов
-                li Контроль выполнения и обратная связь
-                li
-                li
-                  strong Результат:
-                li Основной груз переходит на подчиненных
-                li Повышается профессиональный уровень сотрудников
-                li Стиль управления становится более уравновешенным
-              a.btn.btn-blue.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
-              p
-          .col-md-3.wow.flipInY data-wow-delay="0.8s"
-            .pricing-box.odd
-              .pricing-head.odd
-                h4 Развивающее управление
-              ul
-                li
-                  strong Темы тренинга:
-                li Набор персонала
-                li Оценка потенциала сотрудника
-                li Кадровые изменения
-                li Адаптация сотрудника
-                li Модель выращивания соратника
-                li Фундаментальные компетенции
-                li
-                  br
-                li
-                  strong Результат:
-                li Улучшено качество отбора персонала
-                li Улучшено качество отбора персонала
-                li Ускорен процесс развития подчиненных
-                li Руководитель быстрее и точнее оценивает сотрудников
-              a.btn.btn-yellow.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
-          .col-md-3.wow.flipInY data-wow-delay="1s"
-            .pricing-box
-              .pricing-head
-                h4 Навыки эффективной мотивации
-              ul
-                li
-                  strong Темы тренинга:
-                li Пирамида мотивации
-                li Стили руководства
-                li Техники индивидуальной мотивации
-                li Четыре уровня демотивации
-                li Мотивационная сессия
-                li
-                  br
-                  br
-                  br
-                li
-                  strong Результат:
-                li Подчиненные более замотивированы выполнять свою работу
-                li Найден подход к сотрудникам, которые были доведены до демотивации
-              a.btn.btn-blue.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
-          .col-md-3.wow.flipInY data-wow-delay="1.2s"
-            .pricing-box.odd
-              .pricing-head.odd
-                h4 Личная эффективность руководителя
-              ul
-                li
-                  strong Темы тренинга:
-                li Принципы постановки целей
-                li Стратегия успеха
-                li Ключевые области руководителя
-                li Система планирования
-                li Работа с неуспехом
-                li
-                  br
-                  br
-                  br
-                li
-                  strong Результат:
-                li Руководитель сосредоточен на ключевых сферах деятельности
-                li Возобновлены старые деловые контакты
-                li Цели стали более достижимыми
-              a.btn.btn-yellow.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
-    /! End pricing
+        .col-md-3.wow.flipInY data-wow-delay="0.8s"
+          .pricing-box.odd
+            .pricing-head.odd
+              h4 Развивающее управление
+            ul
+              li
+                strong Темы тренинга:
+              li Набор персонала
+              li Оценка потенциала сотрудника
+              li Кадровые изменения
+              li Адаптация сотрудника
+              li Модель выращивания соратника
+              li Фундаментальные компетенции
+              li
+                br
+              li
+                strong Результат:
+              li Улучшено качество отбора персонала
+              li Улучшено качество отбора персонала
+              li Ускорен процесс развития подчиненных
+              li Руководитель быстрее и точнее оценивает сотрудников
+            a.btn.btn-yellow.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
+        .col-md-3.wow.flipInY data-wow-delay="1s"
+          .pricing-box
+            .pricing-head
+              h4 Навыки эффективной мотивации
+            ul
+              li
+                strong Темы тренинга:
+              li Пирамида мотивации
+              li Стили руководства
+              li Техники индивидуальной мотивации
+              li Четыре уровня демотивации
+              li Мотивационная сессия
+              li
+                br
+                br
+                br
+              li
+                strong Результат:
+              li Подчиненные более замотивированы выполнять свою работу
+              li Найден подход к сотрудникам, которые были доведены до демотивации
+            a.btn.btn-blue.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
+        .col-md-3.wow.flipInY data-wow-delay="1.2s"
+          .pricing-box.odd
+            .pricing-head.odd
+              h4 Личная эффективность руководителя
+            ul
+              li
+                strong Темы тренинга:
+              li Принципы постановки целей
+              li Стратегия успеха
+              li Ключевые области руководителя
+              li Система планирования
+              li Работа с неуспехом
+              li
+                br
+                br
+                br
+              li
+                strong Результат:
+              li Руководитель сосредоточен на ключевых сферах деятельности
+              li Возобновлены старые деловые контакты
+              li Цели стали более достижимыми
+            a.btn.btn-yellow.btn-bavel style='width:80%' href="#" Купить за 10 000 рублей
+  /! End pricing
 
 
-  javascript:
-    var programmingSkills = [
-      {
-        value: 24,
-        label: 'Линейный менеджмент',
-        color: '#E5DEC2'
-      },
-      {
-        value: 19,
-        label: 'Топ-менеджмент',
-        color: '#C6A36B'
-      },
-      {
-        value: 5,
-        label: 'Специалисты',
-        color: '#90ACBA'
-      },
-      {
-        value: 52,
-        label: 'Средний менеджмент',
-        color: '#5B738D'
-      },
-    ];
+javascript:
+  var programmingSkills = [
+    {
+      value: 19,
+      label: 'Топ-менеджмент',
+      color: '#C6A36B'
+    },
+    {
+      value: 52,
+      label: 'Средний менеджмент',
+      color: '#5B738D'
+    },
+    {
+      value: 24,
+      label: 'Линейный менеджмент',
+      color: '#E5DEC2'
+    },
+    {
+      value: 5,
+      label: 'Специалисты',
+      color: '#90ACBA'
+    },
+  ];
 
-    var programmingSkills2 = [
-      {
-        value: 23,
-        label: '11 лет и более',
-        color: '#E5DEC2'
-      },
-      {
-        value: 21,
-        label: 'от 3 до 5 лет',
-        color: '#C6A36B'
-      },
-      {
-        value: 24,
-        label: 'Менее 3 лет',
-        color: '#90ACBA'
-      },
-      {
-        value: 32,
-        label: 'От 6 до 10 лет',
-        color: '#5B738D'
-      },
-    ];
+  var programmingSkills2 = [
+    {
+      value: 23,
+      label: '11 лет и более',
+      color: '#E5DEC2'
+    },
+    {
+      value: 32,
+      label: 'От 6 до 10 лет',
+      color: '#5B738D'
+    },
+    {
+      value: 21,
+      label: 'от 3 до 5 лет',
+      color: '#C6A36B'
+    },
+    {
+      value: 24,
+      label: 'Менее 3 лет',
+      color: '#90ACBA'
+    },
+
+  ];
