@@ -49,6 +49,10 @@
 // Custom JavaScript
 //= require landing/custom
 
+//chart
+//= require landing/chart/snap.svg-min
+//= require landing/chart/svg-donut-chart-framework
+
 
 
 

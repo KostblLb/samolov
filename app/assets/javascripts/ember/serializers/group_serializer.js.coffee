@@ -3,3 +3,4 @@ Samolov.GroupSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixi
     adverts:  { embedded: 'always' }
     students: { embedded: 'always' }
     course:   { embedded: 'always' }
+    courseProgresses: { embedded: 'always' }
