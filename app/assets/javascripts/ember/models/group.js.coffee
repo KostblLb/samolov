@@ -5,6 +5,7 @@ Samolov.Group = DS.Model.extend
 
   teacher: DS.belongsTo 'user', async: true
   course:  DS.belongsTo 'course'
+  scale:   DS.belongsTo 'scale'
 
   students:         DS.hasMany 'user'
   adverts:          DS.hasMany 'advert'

@@ -29,6 +29,8 @@ module Api
         end
 
         def group_params
+          # Hot ember fix
+          params[:group][:scale_id] = params[:group][:scale] if params[:group][:scale_id].nil?
           params.require(:group).permit :scale_id
         end
 
