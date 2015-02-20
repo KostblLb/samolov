@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :users,             only: [:index, :show, :update]
       resources :messages,          only: [:index, :show, :create]
       resources :courses,           only: [:index, :show]
+      resources :scales,            only: [:index, :show, :create, :update]
       resources :groups,            only: [:index, :show, :update]
       resources :parts,             only: [:index, :show]
       resources :units,             only: [:index, :show]
