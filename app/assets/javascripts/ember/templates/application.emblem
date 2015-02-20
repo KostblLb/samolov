@@ -23,6 +23,9 @@
     = link-to 'groups.index' class='item'
       i.student.icon
       | Мои группы
+    = link-to 'scales.index' class='item'
+      i.tasks.icon
+      | Шкалы
   = link-to 'courses' class='item'
     i.suitcase.icon
     | Курсы

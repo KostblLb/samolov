@@ -40,6 +40,27 @@ h2.ui.header
         | Добавить объявление
 
   .ui.blue.ribbon.label
+    | Шкала оценок
+  = with scale
+    table.ui.celled.striped.table
+      thead
+        tr
+          = each sections
+            th.center.aligned
+              = name
+      tbody
+        tr
+          = each sections
+            th
+              = points
+  .ui.basic.segment
+    .ui.form
+      .field
+        Ember.Select selection=scale content=controller.scales.content optionLabelPath='content.name' optionValuePath='content.id'
+      button.ui.button{action 'update'}
+        | Обновить шкалу
+
+  .ui.blue.ribbon.label
     | Успеваемость
   = with course
     = each parts

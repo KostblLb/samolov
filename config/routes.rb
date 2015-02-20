@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       resources :users,             only: [:index, :show, :update]
       resources :messages,          only: [:index, :show, :create]
       resources :courses,           only: [:index, :show]
-      resources :groups,            only: [:index, :show]
+      resources :scales,            only: [:index, :show, :create, :update]
+      resources :groups,            only: [:index, :show, :update]
       resources :parts,             only: [:index, :show]
       resources :units,             only: [:index, :show]
       resources :adverts,           only: [:index, :show, :create, :destroy]
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
       resources :unit_progresses,   only: [:show, :update]
       resources :orders,            only: [:show, :create]
       resources :homework_metas
+      resources :homework_progresses
       #resources :homework_meta_tasks
     end
   end

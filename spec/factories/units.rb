@@ -6,5 +6,6 @@ FactoryGirl.define do
     association :part
     association :quiz, factory: :quiz
     association :case, factory: :quiz
+    homework{build :homework_meta}
   end
 end

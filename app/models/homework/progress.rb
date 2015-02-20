@@ -2,18 +2,21 @@ module Homework
   class Progress
     include Mongoid::Document
 
-    embeds_many :text_answers
-    embeds_many :table_answers
-    has_one :homework_meta, class_name: 'Homework::HomeworkMeta'
-    belongs_to :unit_progress
+    belongs_to :teacher, class_name: 'User', inverse_of: :students_homeworks
+    belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
+    belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
+
+    embeds_many :text_answers, class_name: 'Homework::Task::Text'
+    embeds_many :table_answers, class_name: 'Homework::Task::Table'
+
+    has_one :homework_meta, class_name: 'Homework::Meta::Base'
+
     accepts_nested_attributes_for :text_answers
     accepts_nested_attributes_for :table_answers
 
     after_create :create_tasks
 
-    def create_tasks
-      homework_meta.tasks(self)
-    end
+
 
     def max_points
       (text_answers.size + table_answers.size)*5
@@ -30,5 +33,10 @@ module Homework
     def points
       correct_answer_counter*5
     end
+
+    private
+      def create_tasks
+        homework_meta.create_tasks_by_meta(self)
+      end
   end
 end

@@ -37,4 +37,24 @@ RSpec.describe Api::V1::GroupsController, type: :controller do
       expect(assigns(:group)).to eq(group)
     end
   end
+
+  describe 'PUT update' do
+    let(:scale) {create :scale}
+    let(:attributes) {{scale_id: scale.id}}
+    before(:each) {sign_in user}
+
+    subject{put :update, id: group.to_param, group: attributes}
+
+    context 'signed in as teacher' do
+      let(:user) {group.teacher}
+      it 'updates scale for group' do
+        expect{subject}.to change{group.reload.scale}.to(scale)
+      end
+    end
+
+    context 'signed in as student' do
+      let(:user) {group.students.first}
+      it {expect{subject}.to raise_error(CanCan::AccessDenied)}
+    end
+  end
 end

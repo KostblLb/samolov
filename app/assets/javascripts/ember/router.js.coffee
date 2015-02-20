@@ -26,5 +26,10 @@ Samolov.Router.map ()->
       @resource 'adverts', ->
         @route 'new'
 
+  @resource 'scales', ->
+    @route 'new'
+    @resource 'scale', path: ':id', ->
+      @route 'edit'
+
 
 
