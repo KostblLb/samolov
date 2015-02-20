@@ -15,4 +15,4 @@ Samolov.Unit = DS.Model.extend
   part: DS.belongsTo 'part', async: true
   webinar: DS.belongsTo 'webinar'
 
-  unitProgresses: DS.hasMany 'unit_progresses'
+  unitProgresses: DS.hasMany 'unit_progresses', inverse: 'unit'
