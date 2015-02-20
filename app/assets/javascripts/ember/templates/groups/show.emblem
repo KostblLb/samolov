@@ -34,6 +34,89 @@ h2.ui.header
         .header
           = title
         = text
-  = if canICreateAdvert
-    link-to 'adverts.new' class='ui button'
-      | Добавить объявление
+  p
+    = if canICreateAdvert
+      link-to 'adverts.new' class='ui button'
+        | Добавить объявление
+
+  .ui.blue.ribbon.label
+    | Успеваемость
+  = with course
+    = each parts
+      .ui.secondary.segment
+        h3.ui.header
+          = name
+        = each units
+          table.ui.celled.striped.table
+            thead
+              tr
+                th colspan='11'
+                  = name
+              tr
+                th
+                  | Рейтинг
+                th
+                  | ФИО
+                th
+                  | Фото
+                th
+                  | Успех
+                th
+                  | Видео
+                th
+                  | Тест
+                th
+                  | Конспект
+                th
+                  | Кейс
+                th
+                  | Вебинар
+                th
+                  | Домашнее задание
+                th
+                  | Сообщение
+            tbody
+              = each unitProgresses
+                tr class=rowColor
+                  td
+                    = inc _view.contentIndex
+                  td
+                    link-to 'users.show' user.id
+                      = user.fullName
+                  td.center.aligned
+                    img.ui.avatar.image src=user.avatarUrl
+                  td.center.aligned
+                    = success
+                  td.center.aligned
+                    = if videoIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    = if quizIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    = if summaryIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    = if caseIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    = if webinarIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    = if homeworkIsComplete
+                      i.checkmark.icon
+                    = else
+                      i.remove.icon
+                  td.center.aligned
+                    link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+                      i.mail.icon
