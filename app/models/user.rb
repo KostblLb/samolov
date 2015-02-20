@@ -62,6 +62,8 @@ class User
   has_many :unit_progresses
   has_many :quiz_progresses
   has_many :user_answers
+  has_many :students_homeworks, class_name: 'Homework::Progress', inverse_of: :teacher
+  has_many :my_homeworks, class_name: 'Homework::Progress', inverse_of: :student
 
   has_many :trained_groups, class_name: 'Group', inverse_of: :teacher
   has_and_belongs_to_many :groups

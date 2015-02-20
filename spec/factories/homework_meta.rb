@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :homework_meta, :class => Homework::HomeworkMeta do
+  factory :homework_meta, :class => Homework::Meta::Base do
 
-    meta_tasks{[build(:meta_task),build(:meta_task)]}
+    tasks{[build(:meta_task),build(:meta_task)]}
   end
 end

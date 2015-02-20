@@ -4,7 +4,7 @@ Samolov.Question = DS.Model.extend
   text: DS.attr 'string'
   rightAnswersCount: DS.attr 'number'
 
-  answers: DS.hasMany 'answer'
+  answers: DS.hasMany 'task'
   myAnswer: DS.belongsTo 'user_answer'
 
   isSingleAnswer: ( ->

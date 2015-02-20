@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :meta_task, class: Homework::MetaTask do
-    task_class 'TextAnswer'
+  factory :meta_task, class: Homework::Meta::Task do
+    task_class 'Text'
   end
 
 end
