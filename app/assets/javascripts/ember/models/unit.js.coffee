@@ -18,5 +18,5 @@ Samolov.Unit = DS.Model.extend
   unitProgresses: DS.hasMany 'unit_progresses', inverse: 'unit'
 
   sortedProgresses: (->
-    @get('unitProgresses').sortBy 'points:desc'
+    @get('unitProgresses').sortBy('points').reverse()
   ).property('unitProgresses.@each.points')
