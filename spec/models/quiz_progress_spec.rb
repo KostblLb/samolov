@@ -11,6 +11,19 @@ describe QuizProgress do
     end
   end
 
+  describe 'finished?' do
+    subject{quiz_progress.finished?}
+    let(:quiz_progress) {create :quiz_progress}
+
+    context 'current_question is nil' do
+      before(:each) {quiz_progress.current_question = nil}
+      it{is_expected.to be_truthy}
+    end
+    context 'current_question is not nil' do
+      it{is_expected.to be_falsey}
+    end
+  end
+
   describe '#next_question!' do
     let(:quiz_progress) {create :quiz_progress}
     let(:quiz) {quiz_progress.quiz}
@@ -48,6 +61,14 @@ describe QuizProgress do
   describe '#points' do
     let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
     subject{quiz_progress.points}
-    it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
+
+    context 'quiz is finished' do
+      before(:each) {quiz_progress.current_question = nil}
+      it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
+    end
+
+    context 'quiz is not finished' do
+      it{is_expected.to eq(0)}
+    end
   end
 end
