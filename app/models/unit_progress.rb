@@ -34,16 +34,21 @@ class UnitProgress
   end
 
   def max_points
-    quiz_points = quiz_progress.try(:max_points) || 0
-    case_points = case_progress.try(:max_points) || 0
-    quiz_points + case_points
+    safe_get_points :max_points
   end
 
   def points
-    quiz_progress.points + case_progress.points
+    safe_get_points :points
   end
 
   private
+
+  def safe_get_points(method)
+    quiz_points = quiz_progress.try(method) || 0
+    case_points = case_progress.try(method) || 0
+    quiz_points + case_points
+  end
+
   def create_quiz_progress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
