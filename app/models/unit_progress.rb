@@ -34,7 +34,9 @@ class UnitProgress
   end
 
   def max_points
-    quiz_progress.max_points + case_progress.max_points
+    quiz_points = quiz_progress.try(:max_points) || 0
+    case_points = case_progress.try(:max_points) || 0
+    quiz_points + case_points
   end
 
   def points
