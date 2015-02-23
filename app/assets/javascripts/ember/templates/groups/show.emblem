@@ -23,7 +23,7 @@ h2.ui.header
             link-to 'users.show' id
               = fullName
           td
-            link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+            link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact' title='Отправить сообщение'
               i.mail.icon
 
   .ui.blue.ribbon.label
@@ -48,11 +48,16 @@ h2.ui.header
           = each sections
             th.center.aligned
               = name
+          th
+
       tbody
         tr
           = each sections
-            th
+            td.center.aligned
               = points
+          td.center.aligned
+            = link-to 'scale.edit' this title='Редактировать'
+              i.configure.icon
   .ui.basic.segment
     .ui.form
       .field
