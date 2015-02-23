@@ -102,7 +102,7 @@ h2.ui.header
                 th
                   | Сообщение
             tbody
-              = each unitProgresses
+              = each sortedProgresses
                 tr class=rowColor
                   td
                     = inc _view.contentIndex

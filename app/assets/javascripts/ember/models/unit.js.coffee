@@ -16,3 +16,7 @@ Samolov.Unit = DS.Model.extend
   webinar: DS.belongsTo 'webinar'
 
   unitProgresses: DS.hasMany 'unit_progresses', inverse: 'unit'
+
+  sortedProgresses: (->
+    @get('unitProgresses').sortBy 'points:desc'
+  ).property('unitProgresses.@each.points')
