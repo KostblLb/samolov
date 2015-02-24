@@ -32,7 +32,11 @@ class QuizProgress
   end
 
   def points
-    scale.points_for mistakes_count
+    if finished?
+      scale.points_for mistakes_count
+    else
+      0
+    end
   end
 
   def max_points
@@ -41,6 +45,10 @@ class QuizProgress
 
   def mistakes_count
     user_answers.inject(0) {|sum, item| sum + item.mistakes_count}
+  end
+
+  def finished?
+    current_question.nil?
   end
 
   private

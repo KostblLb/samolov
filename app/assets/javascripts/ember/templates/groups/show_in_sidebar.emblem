@@ -8,16 +8,18 @@
       .ui.header
         | Однокурсники
       .ui.ordered.divided.list
-        = each students
-          = unless itsMe
+        = each sortedCourseProgresses
+          = unless user.itsMe
             .item
-              link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+              link-to 'messages.new' (query-params recipient_id=user.id) class='right floated compact'
                 i.mail.icon
-              img.ui.avatar.image src=avatarUrl
+              img.ui.avatar.image src=user.avatarUrl
               .content
                 .header
-                  = fullName
-                | 50 баллов
+                  = user.fullName
+                | Кол-во баллов -&nbsp
+                = points
+
 
     .ui.segment
       .header
