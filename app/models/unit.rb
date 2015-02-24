@@ -5,8 +5,9 @@ class Unit
   field :video_link
   field :summary
   has_many :unit_progresses
+  has_many :homework_metas, :class_name => 'Homework::Meta::Base'
   embeds_one :webinar
-  has_one :homework, :class_name => 'Homework::Meta::Base'
+
 
 
   belongs_to :part

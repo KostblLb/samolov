@@ -19,15 +19,9 @@ module Api
       end
 
       private
-       #def homework_progress_params
-       #  def progress_params
-       #     if current_user.id=@progress.teacher.id
-       #       :is_correct, :comment
-       #     else
-       #     end
-       #  end
-       #  params.require(Homework::Progress).permit progress_params
-       #end
+       def homework_progress_params
+         params.require(Homework::Progress).permit progress_params [text_answers: :is_correct, text_answers: :comment,table_answers: :is_correct, table_answers: :comment,text_answers: :answer, table_answers: {rows:{row: []}}]
+       end
     end
   end
 end

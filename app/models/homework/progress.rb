@@ -9,7 +9,7 @@ module Homework
     embeds_many :text_answers, class_name: 'Homework::Task::Text'
     embeds_many :table_answers, class_name: 'Homework::Task::Table'
 
-    has_one :homework_meta, class_name: 'Homework::Meta::Base'
+    has_many :homework_metas, class_name: 'Homework::Meta::Base'
 
     accepts_nested_attributes_for :text_answers
     accepts_nested_attributes_for :table_answers
@@ -36,7 +36,9 @@ module Homework
 
     private
       def create_tasks
-        homework_meta.create_tasks_by_meta(self)
+        homework_metas.each do |meta|
+          meta.create_tasks_by_meta(self, meta)
+        end
       end
   end
 end

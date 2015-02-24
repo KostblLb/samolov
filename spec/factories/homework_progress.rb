@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :progress, :class => Homework::Progress do
-    homework_meta {build :homework_meta}
-
+    homework_metas{build_list(:homework_meta, 2)}
   end
 end

@@ -3,10 +3,13 @@ class UnitProgress
 
   belongs_to :course_part_progress
   belongs_to :user
+
   has_one :quiz_progress, class_name: 'QuizProgress', inverse_of: :quiz_progress_socket, dependent: :destroy
   has_one :case_progress, class_name: 'QuizProgress', inverse_of: :case_progress_socket, dependent: :destroy
-  belongs_to :unit
   has_one :homework_progress, class_name: 'Homework::Progress', dependent: :destroy
+
+  belongs_to :unit
+
   after_create :create_quiz_progress
   after_create :create_homework_prog
 
@@ -47,6 +50,6 @@ class UnitProgress
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
   end
   def create_homework_prog
-    create_homework_progress homework_meta: unit.homework
+    create_homework_progress homework_metas: unit.homework_metas, student: user, teacher: course_part_progress.course_progress.group.teacher
   end
 end
