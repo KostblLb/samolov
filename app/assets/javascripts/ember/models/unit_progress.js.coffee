@@ -3,6 +3,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   state: DS.attr 'string'
   unit: DS.belongsTo 'unit'#, async: true
   user: DS.belongsTo 'user'
+  homeworkProgress: DS.belongsTo 'homeworkProgress'
 
   stepIsComplite: (step) ->
     @states.indexOf(step) < @states.indexOf(@get 'state')
