@@ -1,5 +1,5 @@
 Samolov.QuestionSerializer =  DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     answers:        { embedded: 'always' }
-    myAnswers:      { embedded: 'always' }
+    myAnswer:       { embedded: 'always' }
     correctAnswers: { embedded: 'always' }

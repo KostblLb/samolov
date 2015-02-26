@@ -3,14 +3,15 @@ class QuestionSerializer < ActiveModel::Serializer
 
   has_many :answers
   has_many :correct_answers
-  has_many :my_answers, serializer: UserAnswerSerializer
 
-  def my_answers
+  has_one :my_answer, serializer: UserAnswerSerializer
+
+  def my_answer
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
     if my_progress.finished?
-      UserAnswer.where(quiz_progress: my_progress.id, question_id: @object.id)
+      UserAnswer.where(quiz_progress: my_progress.id, question_id: @object.id).first
     else
-      []
+      nil
     end
   end
 
