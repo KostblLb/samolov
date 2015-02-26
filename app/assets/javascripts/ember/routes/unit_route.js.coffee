@@ -6,7 +6,7 @@ Samolov.UnitRoute = Ember.Route.extend
 
   afterModel: (model, params) ->
     uId= model.get('id')
-    scope = params.scope #model.get('myProgress.state')
+    scope = model.get('myProgress.state')
 
     qId = model.get('quiz.id')
     cId = model.get('case.id')
