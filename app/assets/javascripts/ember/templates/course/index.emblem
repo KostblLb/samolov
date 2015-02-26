@@ -1,14 +1,1 @@
-= view 'progress_header' label='Успех курса'
-
-.ui.segment
-  = description
-.ui.segment
-  h3.ui.header
-    .content
-      | Разделы
-  .ui.cards
-    = each parts
-      .blue.card
-        .content
-          link-to 'part' id class='header'
-            = name
+= description
