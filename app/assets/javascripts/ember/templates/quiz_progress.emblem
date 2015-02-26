@@ -1,45 +1,40 @@
-h2.ui.header
+h3.ui.header
   | Результаты теста
-
-.ui.segment
-  .ui.segments
-    = each quiz.questions
-      .ui.segment.secondary class=myAnswer.isCorrect:green:red
-        h3.ui.header
-          = text
-        .ui.two.column.grid
-          .column
-            | Мои ответы:
-            table.ui.table
-              tbody
-                = each myAnswer.answers
-                  tr class=isCorrect:positive:negative
-                    td
-                      = text
+.ui.segments
+  = each quiz.questions
+    .ui.segment.tertiary class=myAnswer.isCorrect:green:red
+      h4.ui.header
+        = text
+      .ui.two.column.grid
+        .column
+          | Мои ответы:
+          table.ui.table
+            tbody
+              = each myAnswer.answers
+                tr class=isCorrect:positive:negative
+                  td
+                    = text
 
 
-          .column
-            | Правильные ответы:
-            table.ui.table
-              tbody
-                = each correctAnswers
-                  tr.positive
-                    td
-                      = text
+        .column
+          | Правильные ответы:
+          table.ui.table
+            tbody
+              = each correctAnswers
+                tr.positive
+                  td
+                    = text
 
-  .ui.horizontal.divider
-    i.bar.chart.icon
-    | Итог
-  p
-    | Правильных ответов -&nbsp
-    = correctAnswersCount
-    | &nbspиз&nbsp
-    = quiz.questions.length
-  p
-    | Баллы -&nbsp
-    = points
-
-.next_button{action 'backToUnit'}
-  .ui.right.labeled.icon.button
-    | Next
-    i.right.arrow.icon
+.ui.horizontal.divider
+  i.bar.chart.icon
+  | Итог
+p
+  | Правильных ответов -&nbsp
+  = correctAnswersCount
+  | &nbspиз&nbsp
+  = quiz.questions.length
+p
+  | Баллы -&nbsp
+  = points
+= if canNext
+  = partial 'unit/next_button'

@@ -1,14 +1,7 @@
 # for more details see: http://emberjs.com/guides/controllers/
 
 Samolov.UnitController = Ember.ObjectController.extend
-  queryParams: ['scope']
-  scope: 'video'
-
   states:['video', 'quiz', 'summary', 'case', 'webinar', 'homework']
-
-  tpl: (->
-    "unit/#{@get 'scope'}"
-  ).property('scope')
 
   actions:
     nextStep: ->
@@ -23,4 +16,4 @@ Samolov.UnitController = Ember.ObjectController.extend
           if @states[nextState]=='case'
             @transitionToRoute('quiz', @model.get('case.id'))
           else
-            @transitionToRoute('unit', @model.get('id'),{queryParams: {scope: @states[nextState]}})
+            @transitionToRoute('unit.index', @model.get('id'),{queryParams: {scope: @states[nextState]}})
