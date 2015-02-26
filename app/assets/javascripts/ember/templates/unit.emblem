@@ -16,5 +16,5 @@
       link-to (query-params scope='homework') class="step"
         | Домашнее задание
   .ui.secondary.segment
-    = outlet
+    = partial tpl
   = partial 'unit/next_button'

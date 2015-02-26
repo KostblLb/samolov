@@ -5,6 +5,11 @@ Samolov.UnitController = Ember.ObjectController.extend
   scope: 'video'
 
   states:['video', 'quiz', 'summary', 'case', 'webinar', 'homework']
+
+  tpl: (->
+    "unit/#{@get 'scope'}"
+  ).property('scope')
+
   actions:
     nextStep: ->
       progress = @model.get('myProgress')
