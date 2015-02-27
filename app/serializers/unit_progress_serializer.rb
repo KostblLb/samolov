@@ -6,6 +6,9 @@ class UnitProgressSerializer < ActiveModel::Serializer
   end
 
   def homework_progress_id
-    @object.homework_progress.id.to_s
+    @object.homework_progress.try(:id)
   end
+
+
+
 end

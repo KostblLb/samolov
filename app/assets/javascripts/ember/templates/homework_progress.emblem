@@ -1,0 +1,48 @@
+.ui.segment
+  .content
+      =each tasks
+        =description
+        br
+        =if table_head
+          table.ui.celled.striped.table
+            thead
+              tr
+                =each table_head
+                  th
+                    =this
+            tbody
+              =each rows
+                tr
+                  =if name
+                    =if colspan
+                      td colspan=colspan
+                        =name
+                    =else
+                      td
+                        =name
+                      =each cells
+                        td
+                          .ui.input
+                            input valueBinding=cells.this
+                  =else
+                    =each cells
+                      td
+                        .ui.input
+                          input valueBinding='this.index_of'
+
+        =else
+          .ui.fluid.icon.input
+            input valueBinding=this.answer
+        =if is_verified
+          =if is_correct
+            .ui.success.message
+              p
+                =comment
+          =else
+            .ui.negative.message
+              p
+                =comment
+/.ui.primary.button{action 'sendHmework'}
+/ |Сохранить
+
+

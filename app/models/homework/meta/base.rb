@@ -12,10 +12,11 @@ module Homework
 
       def create_tasks_by_meta(progress, meta)
         cname = ('Homework::Task::'+meta.meta_task.task_class).constantize
-        t = cname.create progress: progress, description: meta.meta_task.description
+        t = cname.create progress: progress, description: meta.meta_task.description, order: meta.meta_task.order, type:meta.meta_task.task_class
         if cname == Homework::Task::Table
+          t.table_head = meta.meta_task.table_head
           meta.meta_task.meta_rows.each do |row|
-           t.rows.create row: row.meta_row
+           t.rows.create cells: row.meta_cells, name: row.name, colspan: row.colspan
           end
         end
       end

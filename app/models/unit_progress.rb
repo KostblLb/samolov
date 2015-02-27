@@ -43,7 +43,9 @@ class UnitProgress
   def points
     safe_get_points :points
   end
-
+  def hpid
+    homework_progress.id
+  end
   private
 
   def safe_get_points(method)
@@ -56,6 +58,8 @@ class UnitProgress
     unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
     unit.case.quiz_progresses.create user: user, case_progress_socket: self
   end
+
+
   def create_homework_prog
     create_homework_progress homework_metas: unit.homework_metas, student: user, teacher: course_part_progress.course_progress.group.teacher
   end

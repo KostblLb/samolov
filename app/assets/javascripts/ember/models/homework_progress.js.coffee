@@ -1,7 +1,10 @@
-Samolov.HomeworkProgress = Ember.model.extend
+Samolov.HomeworkProgress = DS.Model.extend
 
-  order: DS.attr 'number'
-  max_points: DS.attr 'number'
+  points: DS.attr 'number'
+  mistakes_counter: DS.attr 'number'
+  correct_answer_counter: DS.attr 'number'
+  textAnswers: DS.hasMany 'text_answer'
+  tableAnswers: DS.hasMany 'table_answer'
+  totalTasks: DS.attr 'number'
+  tasks: DS.attr()
 
-  textAnswers: DS.hasMany 'textAnswer'
-  tableAnswers: DS.hasMany 'tableAnswer'

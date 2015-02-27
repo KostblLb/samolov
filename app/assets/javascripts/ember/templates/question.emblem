@@ -20,7 +20,7 @@
 
     .ui.horizontal.divider
     = if canAnswer
-      button.ui.button{action 'task'}
+      button.ui.button{action 'answer'}
         | Дальше
         i.arrow.right.icon
 

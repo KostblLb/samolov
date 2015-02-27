@@ -2,7 +2,9 @@ module Homework
   module Task
     class Row
       include Mongoid::Document
-      field :row, type: Array
+      field :cells, type: Array
+      field :name
+      field :colspan
       embedded_in :table, class_name: 'Homework::Task::Table'
     end
   end

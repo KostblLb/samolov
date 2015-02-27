@@ -20,7 +20,7 @@ Samolov.Router.map ()->
     @resource 'quiz', path: 'quize/:quiz_id'
     @resource 'quiz_progress', path: 'quiz_progress/:quiz_progress_id'
     @resource 'question', path: 'question/:question_id'
-    @resource 'homework_progress', path: 'unit/:unit_id/homework/:homework_id'
+    @resource 'homework_progress', path: 'homework_progress/:homework_progress_id'
 
   @resource 'groups', ->
     @route 'show', path: ':id', ->

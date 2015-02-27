@@ -6,21 +6,21 @@ module Api
       respond_to :json
 
       def show
-        @progress = Homework::Progress.find params[:id]
-        respond_with(@progress)
+        @homework_progress = Homework::Progress.find params[:id]
+        respond_with @homework_progress, root: 'homework_progress'
       end
 
       def update
-        if @progress.update homework_progress_params
-          respond_with @progress, status: :updated
+        if @homework_progress.update homework_progress_params
+          respond_with @homework_progress, status: :updated, root: 'homework_progress'
         else
-          respond_with @progress, status: :some_error
+          respond_with @homework_progress, status: :some_error, root: 'homework_progress'
         end
       end
 
       private
        def homework_progress_params
-         params.require(Homework::Progress).permit progress_params [text_answers: :is_correct, text_answers: :comment,table_answers: :is_correct, table_answers: :comment,text_answers: :answer, table_answers: {rows:{row: []}}]
+         params.require(:homework_progress).permit progress_params [text_answers: :is_correct, text_answers: :comment,table_answers: :is_correct, table_answers: :comment,text_answers: :answer, table_answers: {rows:{row: []}}]
        end
     end
   end

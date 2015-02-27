@@ -10,7 +10,7 @@ Samolov.UnitRoute = Ember.Route.extend
   afterModel: (model, params) ->
     uId= model.get('id')
     scope= model.get('myProgress.state')
-
+    hId = model.get('myProgress.homeworkProgress.id')
     qId = model.get('quiz.id')
     cId = model.get('case.id')
     if scope == 'quiz'
@@ -19,7 +19,10 @@ Samolov.UnitRoute = Ember.Route.extend
       if scope == 'case'
         @transitionTo('quiz', cId)
       else
-        @transitionTo('unit', uId, {queryParams: {scope: scope}})
+        if scope == 'homework'
+          @transitionTo('homework_progress', hId)
+        else
+          @transitionTo('unit', uId, {queryParams: {scope: scope}})
 
   actions:
     queryParamsDidChange: (paramsChanged, params)->
