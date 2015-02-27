@@ -2,7 +2,7 @@
 .ui.segment
   h3.ui.header
     .content
-      | Разделы
+      | Части
   .ui.cards
     = each parts
       .blue.card
