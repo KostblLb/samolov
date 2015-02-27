@@ -6,19 +6,19 @@
     = teacher.fullName
     .ui.segment
       .ui.header
-        | Однокурсники
+        | Моя группа
       .ui.ordered.divided.list
         = each sortedCourseProgresses
-          = unless user.itsMe
-            .item
+          .item
+            unless user.itsMe
               link-to 'messages.new' (query-params recipient_id=user.id) class='right floated compact'
                 i.mail.icon
-              img.ui.avatar.image src=user.avatarUrl
-              .content
-                .header
-                  = user.fullName
-                | Кол-во баллов -&nbsp
-                = points
+            img.ui.avatar.image src=user.avatarUrl
+            .content
+              .header
+                = user.fullName
+              | Кол-во баллов -&nbsp
+              = points
 
 
     .ui.segment

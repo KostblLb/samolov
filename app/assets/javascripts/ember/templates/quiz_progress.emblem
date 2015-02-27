@@ -1,42 +1,42 @@
-h2.ui.header
+h3.ui.header
   | Результаты теста
-.ui.segment
-  = with quiz
-    table.ui.table
-      thead
-        tr
-          th
-            | №
-          th
-            | Вопрос
-          th
-            | Результат
-      tbody
-        = each questions
-          tr class=myAnswer.isCorrect:positive:negative
-            td
-              = inc _view.contentIndex
-            td
-              = text
-            td
-              = if myAnswer.isCorrect
-                i.check.square.icon
-              = else
-                i.minus.square.icon
+.ui.segments
+  = each quiz.questions
+    .ui.segment.tertiary class=myAnswer.isCorrect:green:red
+      h4.ui.header
+        = inc _view.contentIndex
+        | .&nbsp
+        = text
+      .ui.two.column.grid
+        .column
+          | Мои ответы:
+          table.ui.table
+            tbody
+              = each myAnswer.answers
+                tr class=isCorrect:positive:negative
+                  td
+                    = text
 
-  .ui.horizontal.divider
-    i.bar.chart.icon
-    | Итог
-  p
-    | Правильных ответов -&nbsp
-    = correctAnswersCount
-    | &nbspиз&nbsp
-    = quiz.questions.length
-  p
-    | Баллы -&nbsp
-    = points
 
-.next_button{action 'backToUnit'}
-  .ui.right.labeled.icon.button
-    | Next
-    i.right.arrow.icon
+        .column
+          | Правильные ответы:
+          table.ui.table
+            tbody
+              = each correctAnswers
+                tr.positive
+                  td
+                    = text
+
+.ui.horizontal.divider
+  i.bar.chart.icon
+  | Итог
+p
+  | Правильных ответов -&nbsp
+  = correctAnswersCount
+  | &nbspиз&nbsp
+  = quiz.questions.length
+p
+  | Баллы -&nbsp
+  = points
+= if canNext
+  = partial 'unit/next_button'

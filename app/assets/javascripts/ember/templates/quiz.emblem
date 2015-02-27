@@ -1,11 +1,10 @@
-.ui.segment
-  .content
-    | Правила прохождения теста
-    br
-    | И Другая информация
+.content
+  | Правила прохождения теста
+  br
+  | И Другая информация
 
-  .ui.horizontal.divider
+.ui.horizontal.divider
 
-  link-to 'quiz_progress' myProgress.id class='ui green button'
-    i.play.icon
-    | Начать тест
+link-to 'quiz_progress' myProgress.id class='ui green button'
+  i.play.icon
+  | Начать тест

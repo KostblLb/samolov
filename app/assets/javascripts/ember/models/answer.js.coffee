@@ -2,3 +2,4 @@
 
 Samolov.Answer = DS.Model.extend
   text: DS.attr 'string'
+  isCorrect: DS.attr 'boolean'
