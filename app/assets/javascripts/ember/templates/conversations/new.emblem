@@ -1,0 +1,5 @@
+form.ui.form
+  = input value=subject
+
+  button.ui.button{action 'create'}
+    | Создать
