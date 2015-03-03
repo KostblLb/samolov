@@ -13,7 +13,7 @@
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
-  = link-to 'messages' class='item'
+  = link-to 'conversations' class='item'
     i.mail.icon
     | Сообщения
   = link-to 'users.index' class='item'
