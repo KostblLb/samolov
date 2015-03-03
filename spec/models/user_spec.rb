@@ -30,4 +30,10 @@ RSpec.describe User, :type => :model do
       it {is_expected.to be_truthy}
     end
   end
+
+  describe '#unreads_messages_count' do
+    let(:conversations) {create :conversations}
+    subject { conversation.users.last.unreads_messages_count }
+    it {is_expected.to eq(1)}
+  end
 end

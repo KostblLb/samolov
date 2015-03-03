@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+  namespace :v1 do
+    get 'conversation/view'
+    end
+  end
+
   get 'landing/directors'
 
   get 'landing/history'
@@ -18,7 +24,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users,             only: [:index, :show, :update]
-      resources :messages,          only: [:index, :show, :create]
+      resources :conversations,     only: [:index, :show, :create, :update, :destroy] do
+        member do
+          get 'view'
+        end
+      end
       resources :courses,           only: [:index, :show]
       resources :scales,            only: [:index, :show, :create, :update]
       resources :groups,            only: [:index, :show, :update]
@@ -35,11 +45,19 @@ Rails.application.routes.draw do
       resources :orders,            only: [:show, :create]
       resources :homework_metas
       resources :homework_progresses
+
+
+      # Should be subresources of profile. but emberjs not suppored it.
+      resources :messages,          only: [:destroy, :show, :create]
+      # end subresource of profile
+
     end
   end
 
   get 'cabinet' => 'cabinet#index'
   get 'temporary/index'
+
+
 
   root 'cabinet#index'
 
