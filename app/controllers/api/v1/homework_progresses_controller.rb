@@ -11,7 +11,8 @@ module Api
       end
 
       def update
-        if @homework_progress.update homework_progress_params
+        @homework_progress = Homework::Progress.find params[:id]
+        if @homework_progress.update progress_params
           respond_with @homework_progress, status: :updated, root: 'homework_progress'
         else
           respond_with @homework_progress, status: :some_error, root: 'homework_progress'
@@ -19,8 +20,8 @@ module Api
       end
 
       private
-       def homework_progress_params
-         params.require(:homework_progress).permit progress_params [text_answers: :is_correct, text_answers: :comment,table_answers: :is_correct, table_answers: :comment,text_answers: :answer, table_answers: {rows:{row: []}}]
+       def progress_params
+         params.require(:homework_progress).permit  tasks:[:id, :description, :is_verified, :order, :is_correct, :_type, :answer, rows:[:id, :name, :colspan, cells:[]]]
        end
     end
   end

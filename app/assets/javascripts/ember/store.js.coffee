@@ -6,3 +6,14 @@
 #  headers:
 #    "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content')
 #)
+Samolov.Store = DS.Store.extend
+  adapter: '-active-model'
+  push: (type, data, _partial) ->
+    oldType = type
+    dataType = data.type
+    modelType = oldType
+    if dataType and (@modelFor(oldType) != @modelFor(dataType))
+      modelType = dataType
+      if oldRecord = @getById(oldType, data.id) #get rid of the empty supertype
+        @dematerializeRecord(oldRecord)
+    @_super @modelFor(modelType), data, _partial

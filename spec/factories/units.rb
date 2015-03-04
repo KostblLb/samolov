@@ -6,6 +6,6 @@ FactoryGirl.define do
     association :part
     association :quiz, factory: :quiz
     association :case, factory: :quiz
-    homework_metas{build_list(:homework_meta, 1)}
+    association :homework_meta, factory: :homework_meta_progress
   end
 end

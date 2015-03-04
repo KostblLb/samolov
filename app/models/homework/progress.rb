@@ -9,14 +9,9 @@ module Homework
     # embeds_many :text_answers, class_name: 'Homework::Task::Text'
     # embeds_many :table_answers, class_name: 'Homework::Task::Table'
     embeds_many :tasks, class_name: 'Homework::Task::Base', inverse_of: :progress
-    has_many :homework_metas, class_name: 'Homework::Meta::Base'
 
     accepts_nested_attributes_for :tasks
   #  accepts_nested_attributes_for :table_answers
-
-    after_create :create_tasks
-
-
 
     def total_tasks
       tasks.size

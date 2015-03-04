@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::V1::UserAnswersController, type: :controller do
   describe 'POST create' do
     let(:quiz_progress) {create :quiz_progress}
-    let(:task) {quiz_progress.current_question.answers.first}
+    let(:tasks) {quiz_progress.current_question.answers.first}
     let(:user) {quiz_progress.user}
     let(:attributes) {{question_id: quiz_progress.current_question, answer_ids: [answer.id] }}
 

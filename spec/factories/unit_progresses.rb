@@ -5,6 +5,5 @@ FactoryGirl.define do
     association :user
     association :quiz_progress
     association :case_progress, factory: :quiz_progress
-    association :homework_progress, factory: :progress
   end
 end

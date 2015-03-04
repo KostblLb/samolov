@@ -24,7 +24,7 @@ RSpec.describe UserAnswer do
         end
 
         context 'task does not belongs to question' do
-          let(:user_answer) {build :user_answer, answers: [(create :task)]}
+          let(:user_answer) {build :user_answer, answers: [(create :tasks)]}
           it {is_expected.to be_falsey}
         end
       end
@@ -35,7 +35,7 @@ RSpec.describe UserAnswer do
     subject{user_answer.correct?}
     let (:quiz_progress) {create :quiz_progress, quiz: question.quiz}
     context 'has only one task' do
-      let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task)]}
+      let(:question) {create :question, answers: [create(:tasks, is_correct: true), create(:tasks)]}
       context 'task is correct' do
         let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
                                   question: question, answers: [question.answers.right.first]}
@@ -49,7 +49,7 @@ RSpec.describe UserAnswer do
     end
 
     context 'has many answers' do
-      let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task, is_correct: true), create(:task)]}
+      let(:question) {create :question, answers: [create(:tasks, is_correct: true), create(:tasks, is_correct: true), create(:tasks)]}
       context "user's task has all right task" do
         let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,
                                   question: question, answers: question.answers.right}
@@ -76,7 +76,7 @@ RSpec.describe UserAnswer do
 
   describe '#mistakes_count' do
     subject{user_answer.mistakes_count}
-    let(:question) {create :question, answers: [create(:task, is_correct: true), create(:task, is_correct: true), create(:task)]}
+    let(:question) {create :question, answers: [create(:tasks, is_correct: true), create(:tasks, is_correct: true), create(:tasks)]}
     let (:quiz_progress) {create :quiz_progress, quiz: question.quiz}
     context "user's task has all right task" do
       let(:user_answer) {create :user_answer, quiz_progress: quiz_progress,

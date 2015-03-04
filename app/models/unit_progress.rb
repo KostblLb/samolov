@@ -61,6 +61,6 @@ class UnitProgress
 
 
   def create_homework_prog
-    create_homework_progress homework_metas: unit.homework_metas, student: user, teacher: course_part_progress.course_progress.group.teacher
+    unit.homework_meta.build_homework_prog(self)
   end
 end

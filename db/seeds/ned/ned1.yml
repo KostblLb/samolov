@@ -1,7 +1,7 @@
 -
   unit: unit 1
   task_class: Table
-  table_head:
+  col_names:
    - Впишите дела
    - А или В
    - D
@@ -116,7 +116,7 @@
 -
   unit: unit 1
   task_class: Table
-  table_head:
+  col_names:
    - Критерии
    - Сотрудник 1
    - Сотрудник 2
@@ -278,7 +278,7 @@
 -
   unit: unit 1
   task_class: Table
-  table_head:
+  col_names:
    - Критерии
    - Сотрудник 1
    - Сотрудник 2
@@ -440,7 +440,7 @@
 -
   unit: unit 1
   task_class: Table
-  table_head:
+  col_names:
    - Критерии
    - Сотрудник 1
    - Сотрудник 2
