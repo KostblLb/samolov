@@ -1,4 +1,22 @@
-p
-  = fake
-= each
-  = subject
+.field
+  = link-to 'conversations.new'
+    i.plus.icon
+    | Создать диалог
+br
+div
+  = each
+    = link-to 'conversation' this.id
+      .ui.grid
+        .five.wide.column
+          .item
+            img.ui.avatar.image src=currentUser.avatarUrl
+            | Список
+        .eight.wide.column
+          b = messages.lastObject.body
+        .two.wide.column
+          | Дата
+        .one.wide.column
+          = link-to ''
+            i.delete.icon{action 'delete' this}
+
+

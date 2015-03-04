@@ -1,6 +1,6 @@
 class Conversation
   include Mongoid::Document
-  include Mongoid::Timestamps::Created
+  include Mongoid::Timestamps
 
   field :subject
 

@@ -1,0 +1,29 @@
+= link-to 'conversations'
+  i.reply.icon
+  | Вернуться к диалогам
+
+.field
+  = each user in users
+    = user.fullName
+.field
+  | Тема диалога:
+  = subject
+.field
+  | Сообщения:
+  .field
+  = each message in messages
+    div
+      = unless message.isNew
+        span
+          = message.sender.fullName
+        span
+          = message.body
+        = link-to ''
+          i.delete.icon{action 'removeMessage' message}
+form.ui.form
+  .field
+    label Сообщение
+    = textarea value=messages.lastObject.body
+
+    button.ui.button{action 'addMessage'}
+      | Создать

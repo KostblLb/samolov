@@ -14,9 +14,9 @@ module Api
         @conversation.messages.create(message_params)
         @message = @conversation.messages.last
         if @conversation.save
-          respond_with @conversation, status: :created, location: false
+          respond_with @message, status: :created, location: false
         else
-          respond_with @conversation, status: :unprocessable_entity
+          respond_with @message, status: :unprocessable_entity
         end
       end
 
@@ -27,7 +27,9 @@ module Api
 
       private
       def message_params
-        params.require(:message).permit :body, :sender, :conversation_id
+        for_current = params.require(:message).permit :body
+        for_current[:sender] = current_user.id
+        for_current
       end
 
       def set_msg

@@ -15,7 +15,7 @@
     | Профиль
   = link-to 'conversations' class='item'
     i.mail.icon
-    | Сообщения
+    | Диалоги
   = link-to 'users.index' class='item'
     i.users.icon
     | Пользователи
