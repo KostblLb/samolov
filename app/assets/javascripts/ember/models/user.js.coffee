@@ -31,3 +31,7 @@ Samolov.User = DS.Model.extend
     @id == window.myId
   ).property('id')
 
+  hasUnread: (->
+    @get('unreads_messages_count') > 0
+  ).property('unreads_messages_count')
+

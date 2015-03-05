@@ -3,8 +3,7 @@
     i.plus.icon
     | Создать диалог
 h2.header.h2
-  | Ваши диалоги (Непрочитанных сообщений:
-  = currentUser.unreads_messages_count
+  | Ваши диалоги (Непрочитанных сообщений: #{currentUser.unreads_messages_count} )
 .ui.segment
   .ui.comments
     = each
@@ -13,18 +12,16 @@ h2.header.h2
           img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
         .content
           a.author
-            label Тема диалога:
-            = subject
+            label Тема диалога: "#{subject}"
           .metadata
             .date
-              | Последнее сообщение:
-              = formattedUpdatedAt
+              | Последнее сообщение: #{formattedUpdatedAt}
           .text
             = messages.lastObject.body
           .actions
             | Участники диалога:
             = each users
-              this.fullName
+                | #{this.fullName}
       .ui.divider
 
 
