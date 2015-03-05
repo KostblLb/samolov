@@ -1,5 +1,4 @@
 -
- unit: unit 1
  meta_bases:
   -
     task_class: Table
