@@ -1,0 +1,25 @@
+table.ui.celled.striped.table
+  thead
+    tr
+      =each col_names
+        th
+          =this
+  tbody
+    =each rows
+      tr
+        =if name
+          =if colspan
+            td colspan=colspan
+              =name
+          =else
+            td
+              =name
+            =each cell in cells
+              td
+                .ui.input
+                  view Samolov.TableField object=this index=_view.contentIndex
+        =else
+          =each cell in cells
+            td
+              .ui.input
+                view Samolov.TableField object=this index=_view.contentIndex

@@ -3,36 +3,8 @@
     =each tasks
       == description
       br
-      =if col_names
-        table.ui.celled.striped.table
-          thead
-            tr
-              =each col_names
-                th
-                  =this
-          tbody
-            =each rows
-              tr
-                =if name
-                  =if colspan
-                    td colspan=colspan
-                      =name
-                  =else
-                    td
-                      =name
-                    =each cell in cells
-                      td
-                        .ui.input
-                          view Samolov.TableField object=this index=_view.contentIndex
-                =else
-                  =each cell in cells
-                    td
-                      .ui.input
-                        view Samolov.TableField object=this index=_view.contentIndex
+      =partial partialName
 
-      =else
-        .ui.fluid.icon.input
-          input valueBinding=this.answer
       =if is_verified
         =if is_correct
           .ui.success.message
