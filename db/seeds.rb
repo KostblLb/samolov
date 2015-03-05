@@ -13,8 +13,7 @@ config = YAML::load_file(seed_file)
 ordr = 0
 config.each do |meta_progress|
   ordr +=1
-  unt = Unit.find_or_create_by(name: meta_progress['unit'])
-  meta = Homework::Meta::Progress.create unit: unt
+  meta = Homework::Meta::Progress.create name: 'НЭД 1'
   meta_progress['meta_bases'].each do |mtask|
     if mtask['task_class']=='Table'
       meta_task = Homework::Meta::Table.create(task_class: mtask['task_class'], meta: meta, description: mtask['description'], order: ordr, col_names: mtask['col_names'])
