@@ -7,8 +7,8 @@ module Homework
       field :colspan
       embedded_in :meta_task, class_name: 'Homework::Meta::Table'
 
-      def build_row(table)
-        table.rows.create name: name, cells:meta_cells
+      def build_row
+       Homework::Task::Row.new name: name, cells:meta_cells
       end
     end
   end

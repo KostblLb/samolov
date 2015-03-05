@@ -3,6 +3,7 @@ module Api
     class HomeworkProgressesController < ApplicationController
 
       before_action :authenticate_user!
+
       respond_to :json
 
       def show
@@ -21,7 +22,13 @@ module Api
 
       private
        def progress_params
-         params.require(:homework_progress).permit  tasks:[:id, :description, :is_verified, :order, :is_correct, :_type, :answer, rows:[:id, :name, :colspan, cells:[]]]
+         if @homework_progress.teacher == current_user
+          result = params.require(:homework_progress).permit tasks: [:id, :is_correct, :comment, :_type]
+         else
+           result = params.require(:homework_progress).permit tasks: [:id, :_type, :answer, rows:[:id, :name, :colspan, cells:[]]]
+         end
+         result[:tasks_attributes] = result.delete(:tasks)
+         result
        end
     end
   end

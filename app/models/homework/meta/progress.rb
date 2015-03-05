@@ -10,8 +10,12 @@ module Homework
       def build_homework_prog(unit_progress)
         progress = Homework::Progress.new unit_progress: unit_progress
         meta_bases.each do |meta_task|
-          meta_task.build_t(progress)
+          progress.tasks << meta_task.build_t
         end
+        progress
+      end
+      def create_homework_prog(unit_progress)
+        build_homework_prog(unit_progress).save
       end
     end
   end

@@ -1,7 +1,4 @@
 Samolov.TableField = Ember.TextField.extend
-  classNames: ['ui', 'input']
-
-
 
   bindAttrs: (->
     cells   = @get('object.cells')

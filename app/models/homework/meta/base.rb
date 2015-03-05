@@ -8,10 +8,8 @@ module Homework
 
       embedded_in :meta, class_name: 'Homework::Meta::Progress'
 
-      def build_t(progress)
-        def cname
-         ('Homework::Task::'+task_class).constantize
-        end
+      def build_t
+
       end
     end
   end

@@ -61,6 +61,6 @@ class UnitProgress
 
 
   def create_homework_prog
-    unit.homework_meta.build_homework_prog(self)
+    unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil?
   end
 end

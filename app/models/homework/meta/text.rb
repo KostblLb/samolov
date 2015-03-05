@@ -1,9 +1,10 @@
 module Homework
   module Meta
     class Text < Base
-      def build_t(progress)
+      include Mongoid::Document
+      def build_t
         super
-        cname.create progress: progress, description: description, order: order
+        Homework::Task::Text.new description: description, order: order
       end
     end
 

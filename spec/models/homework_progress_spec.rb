@@ -3,15 +3,7 @@ require 'rails_helper'
 RSpec.describe Homework::Progress do
   before(:each) {subject.save}
   describe 'create new object' do
-    subject {FactoryGirl.create :progress}
-
-    it 'creates homework' do
-      expect(subject.homework_metas)
-      expect(subject.homework_metas.first.meta_task)
-      expect(subject.tasks.size).to eq(2)
-    end
-  describe 'set task as correct' do
-    subject{FactoryGirl.create :progress}
+    subject {FactoryGirl.create :homework_progress}
     it 'points counters' do
       subject.tasks.first.is_correct = true
       expect(subject.max_points).to eq(10)
@@ -19,8 +11,5 @@ RSpec.describe Homework::Progress do
       expect(subject.mistakes_counter).to eq(1)
       expect(subject.points).to eq(5)
     end
-
-  end
-
   end
 end

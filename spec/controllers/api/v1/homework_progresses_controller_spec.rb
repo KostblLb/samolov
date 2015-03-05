@@ -17,8 +17,8 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       end
 
       context 'homework has text task' do
-        let(:homework_progress) {create :progress, student: student, teacher: teacher}
-        let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', answer: "some_answer"}]}}
+        let(:homework_progress) {create :homework_progress, student: student, teacher: teacher}
+        let(:attributes) {{tasks_attributes: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', answer: "some_answer"}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.tasks.first.reload.answer}.to("some_answer")
@@ -26,13 +26,15 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       end
 
       context 'homework has table task' do
-        let(:homework_progress) {create :progress, student: student, teacher: teacher}
-        let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', answer: "some_answer"},{id:homework_progress.tasks.second.id, _type: 'Homework::Task::Table', rows:[{id:homework_progress.tasks.second.rows.first.id, cells:['4','5','6']}]}]}}
+        let(:homework_progress) {create :homework_progress, student: student, teacher: teacher}
+        let(:attributes) {{tasks_attributes: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', answer: "some_answer"},
+                                   {id:homework_progress.tasks.second.id, _type: 'Homework::Task::Table', rows:[{id:homework_progress.tasks.second.rows.first.id, cells:['4','5','6']}]}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
-          homework_progress.tasks.second.rows = build_list(:row, 1)
           expect{subject}.to change{homework_progress.reload.tasks.second.rows.first.cells}.to(['4','5','6'])
-          expect(homework_progress.reload.tasks.second.coll_names).to eq(['ta', 'ble', 'head'])
+        end
+        it 'not updates col_names' do
+          expect{subject}.not_to change{homework_progress.reload.tasks.second.col_names}
         end
       end
 

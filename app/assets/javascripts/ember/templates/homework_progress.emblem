@@ -1,13 +1,13 @@
 .ui.segment
   .content
     =each tasks
-      =description
+      == description
       br
-      =if table_head
+      =if col_names
         table.ui.celled.striped.table
           thead
             tr
-              =each table_head
+              =each col_names
                 th
                   =this
           tbody
@@ -22,11 +22,13 @@
                       =name
                     =each cell in cells
                       td
-                        view Samolov.TableField object=this index=_view.contentIndex
+                        .ui.input
+                          view Samolov.TableField object=this index=_view.contentIndex
                 =else
                   =each cell in cells
                     td
-                      view Samolov.TableField object=this index=_view.contentIndex
+                      .ui.input
+                        view Samolov.TableField object=this index=_view.contentIndex
 
       =else
         .ui.fluid.icon.input

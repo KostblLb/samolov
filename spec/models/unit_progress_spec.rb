@@ -45,9 +45,4 @@ RSpec.describe UnitProgress do
     end
   end
 
-  describe 'creates correct homework_progress' do
-    subject{FactoryGirl.create :unit_progress}
-    expect(subject.tasks.first.description).to eq('this is meta for simple task')
-  end
-
 end
