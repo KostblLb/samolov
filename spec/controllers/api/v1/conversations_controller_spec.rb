@@ -12,7 +12,7 @@ RSpec.describe Api::V1::ConversationsController, :type => :controller do
   describe "POST create" do
     let(:recipient) {create :user}
     context 'with valid params' do
-      let(:valid_attributes) { {subject: 'New', user_ids:[sender.id, recipient.id], messages_attributes: [sender: sender, body: 'New message']} }
+      let(:valid_attributes) { {subject: 'New', users:[sender.id, recipient.id], messages: [sender: sender, body: 'New message']} }
       subject{post :create, {conversation: valid_attributes}}
       it 'creates a new Conversation' do
         expect {

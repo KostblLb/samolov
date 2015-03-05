@@ -9,6 +9,6 @@ class Conversation
   embeds_many :messages, cascade_callbacks: true
   accepts_nested_attributes_for :messages
 
-
+  default_scope -> {desc(:updated_at)}
 
 end

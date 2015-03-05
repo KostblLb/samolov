@@ -13,5 +13,17 @@
  *= require form_fix
  *= require semantic_overrides
  *= require global
+ *= require select2.min
+ *= require jquery.tagit
  *= require_self
  */
+
+.ui.comments {
+    max-width: 100% !important;
+}
+
+.unread-message {
+    background-color: #afd9ee;
+    padding: 5px;
+    border-radius: 0.3em;
+}

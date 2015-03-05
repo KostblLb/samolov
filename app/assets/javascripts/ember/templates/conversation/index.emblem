@@ -2,28 +2,35 @@
   i.reply.icon
   | Вернуться к диалогам
 
-.field
+h4.header.h4
+  |Участники диалога:
   = each user in users
     = user.fullName
-.field
+h3.header.h3
   | Тема диалога:
   = subject
-.field
-  | Сообщения:
-  .field
-  = each message in messages
-    div
-      = unless message.isNew
-        span
-          = message.sender.fullName
-        span
-          = message.body
-        = link-to ''
-          i.delete.icon{action 'removeMessage' message}
+
+.ui.segment
+  .ui.comments
+    = each messages
+      = unless this.isNew
+        .comment
+          .avatar
+            img.ui.avatar.image src=this.sender.avatarUrl
+          .content
+            a.author
+              = this.sender.fullName
+            .metadata
+              .date
+                = this.formattedCreatedAt
+            .text
+              = this.body
+        .ui.divider
+
 form.ui.form
   .field
-    label Сообщение
-    = textarea value=messages.lastObject.body
+    label Новое сообщение:
+    = textarea value=messages.lastObject.body rows='3'
 
     button.ui.button{action 'addMessage'}
       | Создать

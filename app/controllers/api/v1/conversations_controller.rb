@@ -26,7 +26,7 @@ module Api
       end
 
       def index
-        @conversation = Conversation.all
+        @conversation = current_user.conversations
         respond_with @conversation
       end
 
@@ -41,13 +41,9 @@ module Api
 
       private
       def conversation_params
-        for_current = params.require(:conversation).permit :subject, user_ids: [], messages: [:sender, :body]
-        if for_current[:users].nil?
-          for_current[:user_ids] = []
-        else
-          for_current[:user_ids] = for_current[:users]
-        end
-        for_current[:user_ids].push(current_user.id) unless for_current[:user_ids].include?(current_user.id)
+        for_current = params.require(:conversation).permit :subject, users: [], messages: [:sender, :body]
+        for_current[:users].push(current_user.id) unless for_current[:users].include?(current_user.id)
+        for_current[:user_ids] = for_current.delete(:users)
         for_current[:messages][0][:sender_id] = current_user.id
         for_current
       end

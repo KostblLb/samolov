@@ -3,5 +3,5 @@ h2.ui.header
   .content
     | Диалоги
 
-  .ui.segment
-    = outlet
+.ui.segment
+  = outlet

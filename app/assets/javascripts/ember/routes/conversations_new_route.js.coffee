@@ -12,9 +12,9 @@ Samolov.ConversationsNewRoute = Ember.Route.extend
 
   setupController: (controller, model) ->
     controller.set('model', model)
-    controller.set('availableUsers', @store.all('user'))
+    controller.set('availableUsers', @store.all('user').filterBy('itsMe', false))
 
 
   actions:
     willTransition: (transition)->
-      @currentModel.deleteRecord()
+      @currentModel.deleteRecord() if @currentModel.get('isNew')

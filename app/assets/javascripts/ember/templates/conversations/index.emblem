@@ -2,21 +2,29 @@
   = link-to 'conversations.new'
     i.plus.icon
     | Создать диалог
-br
-div
-  = each
-    = link-to 'conversation' this.id
-      .ui.grid
-        .five.wide.column
-          .item
-            img.ui.avatar.image src=currentUser.avatarUrl
-            | Список
-        .eight.wide.column
-          b = messages.lastObject.body
-        .two.wide.column
-          | Дата
-        .one.wide.column
-          = link-to ''
-            i.delete.icon{action 'delete' this}
+h2.header.h2
+  | Ваши диалоги (Непрочитанных сообщений:
+  = currentUser.unreads_messages_count
+.ui.segment
+  .ui.comments
+    = each
+      = link-to 'conversation' this.id class='comment'
+        .avatar
+          img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
+        .content
+          a.author
+            label Тема диалога:
+            = subject
+          .metadata
+            .date
+              | Последнее сообщение:
+              = formattedUpdatedAt
+          .text
+            = messages.lastObject.body
+          .actions
+            | Участники диалога:
+            = each users
+              this.fullName
+      .ui.divider
 
 

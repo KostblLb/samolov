@@ -19,6 +19,7 @@ Samolov.User = DS.Model.extend
   gplusLink: DS.attr 'string'
   lnLink:    DS.attr 'string'
   twLink:    DS.attr 'string'
+  unreads_messages_count: DS.attr 'number'
 
   fullName: (->
     firstName = @get('firstName') || 'No name'
@@ -29,3 +30,4 @@ Samolov.User = DS.Model.extend
   itsMe: (->
     @id == window.myId
   ).property('id')
+

@@ -1,16 +1,19 @@
 = link-to 'conversations'
   i.reply.icon
   | Вернуться к диалогам
-form.ui.form
-  .field
-    label Получатели
-    = view 'select' content=availableUsers optionValuePath='content.id' optionLabelPath='content.fullName'
-  .field
-    label Тема
-    = input value=subject
-  .field
-    label Сообщение
-    = textarea value=messages.firstObject.body
+h2.header.h2
+  | Новый диалог
+.ui.segment
+  form.ui.form
+    .field
+      label Получатели
+      user-select content=availableUsers value=users
+    .field
+      label Тема
+      = input value=subject
+    .field
+      label Сообщение
+      = textarea value=messages.firstObject.body cols='1'
 
-  button.ui.button{action 'create'}
-    | Создать
+    button.ui.button{action 'create'}
+      | Создать
