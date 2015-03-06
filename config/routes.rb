@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
   get 'landing/directors'
-
   get 'landing/history'
-
   get 'landing/founders'
-
   get 'landing/samolov'
-
   get 'landing/index'
+  get 'landing/blog'
+
 
   devise_for :users
   devise_for :admins
