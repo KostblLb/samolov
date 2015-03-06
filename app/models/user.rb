@@ -96,6 +96,7 @@ class User
     msg_count
   end
 
+
   private
   def set_avatar_extension
     if self.avatar_content_type.nil? || self.avatar_file_name != 'data'

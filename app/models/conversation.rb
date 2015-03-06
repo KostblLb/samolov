@@ -11,4 +11,12 @@ class Conversation
 
   default_scope -> {desc(:updated_at)}
 
+  def has_unread_for?(user)
+    msg_count = 0
+    messages.each do |msg|
+      msg_count += msg.receipts.where(recipient_id: user.id, is_read: false).count
+    end
+    msg_count > 0
+  end
+
 end

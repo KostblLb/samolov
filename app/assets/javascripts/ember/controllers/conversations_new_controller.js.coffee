@@ -1,6 +1,8 @@
 # for more details see: http://emberjs.com/guides/controllers/
 
 Samolov.ConversationsNewController = Ember.ObjectController.extend
+  queryParams: ['sender_id']
+  sender_id: null
 
   actions:
     create: ->

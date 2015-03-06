@@ -3,29 +3,49 @@
   | Вернуться к диалогам
 
 h4.header.h4
-  |Участники диалога:
-  = each user in users
-    = user.fullName
+  | Участники диалога:
+  '
+  = each users
+    unlessFirstItem
+      |,
+      '
+      = link-to 'users.show' this.id |#{this.fullName}
+    else
+      = link-to 'users.show' this.id |#{this.fullName}
+
 h3.header.h3
-  | Тема диалога:
-  = subject
+    | Тема диалога:
+    = subject
 
 .ui.segment
-  .ui.comments
+  .ui.divided.list
     = each messages
       = unless this.isNew
-        .comment
-          .avatar
-            img.ui.avatar.image src=this.sender.avatarUrl
+        .item.item_message
+          .right.floated.compact.ui.date
+            = this.formattedCreatedAt
+          img.ui.avatar.image src=this.sender.avatarUrl
           .content
-            a.author
+            = link-to 'users.show' this.sender.id classNames='header'
               = this.sender.fullName
-            .metadata
-              .date
-                = this.formattedCreatedAt
-            .text
+            .description
               = this.body
-        .ui.divider
+
+/.ui.segment
+/  .ui.comments
+/    = each messages
+/      = unless this.isNew
+/        .comment
+/          .avatar
+/            img.ui.avatar.image src=this.sender.avatarUrl
+/          .content
+/            a.author
+/              = this.sender.fullName
+/            .metadata
+/              .date
+/                = this.formattedCreatedAt
+/            .text
+/              = this.body
 
 form.ui.form
   .field

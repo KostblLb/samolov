@@ -22,8 +22,42 @@
     max-width: 100% !important;
 }
 
+.comment {
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+.comment:hover {
+    background-color: #edf1f5 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
+.date {
+    font-size: 0.7em;
+}
+
+.item_message {
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+    cursor: default;
+}
+
+.item_message:hover {
+    background-color: #edf1f5 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
 .unread-message {
-    background-color: #afd9ee;
-    padding: 5px;
-    border-radius: 0.3em;
+    background-color: #c4e3f3 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
+.ui.divider {
+    margin: 5px 0;
+}
+
+.description {
+    max-width: 700px;
 }

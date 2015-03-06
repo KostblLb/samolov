@@ -3,25 +3,37 @@
     i.plus.icon
     | Создать диалог
 h2.header.h2
-  | Ваши диалоги (Непрочитанных сообщений: #{currentUser.unreads_messages_count} )
+  | Ваши диалоги
+  if currentUser.hasUnread
+    | (Непрочитанных сообщений: #{currentUser.unreads_messages_count} )
 .ui.segment
   .ui.comments
     = each
-      = link-to 'conversation' this.id class='comment'
-        .avatar
-          img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
-        .content
-          a.author
-            label Тема диалога: "#{subject}"
-          .metadata
-            .date
-              | Последнее сообщение: #{formattedUpdatedAt}
-          .text
-            = messages.lastObject.body
-          .actions
-            | Участники диалога:
-            = each users
-                | #{this.fullName}
-      .ui.divider
+      unlessFirstItem
+        .ui.divider
+      = link-to 'conversation' this.id
+        .comment class=hasUnread:unread-message
+          .avatar
+            img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
+          .content
+            a.author
+              if subject
+                label Тема диалога: "#{subject}"
+              else
+                label Без темы
+            .metadata
+              .date
+                | Последнее сообщение: #{formattedUpdatedAt}
+            .text
+              = messages.lastObject.body
+            .actions
+              | Участники диалога:
+              '
+              = each users
+                unlessFirstItem
+                  '
+                  = link-to 'users.show' this.id |#{this.fullName}
+                else
+                  = link-to 'users.show' this.id |#{this.fullName}
 
 
