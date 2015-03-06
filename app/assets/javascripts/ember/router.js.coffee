@@ -22,6 +22,9 @@ Samolov.Router.map ()->
       @resource 'question', path: 'question/:question_id'
       @resource 'homework_progress', path: 'homework_progress/:homework_progress_id'
 
+  @resource 'homework_progress', path: 'homework/:homework_progress_id', ->
+    @route 'review'
+
   @resource 'groups', ->
     @route 'show', path: ':id', ->
       @resource 'adverts', ->

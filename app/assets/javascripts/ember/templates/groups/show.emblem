@@ -139,10 +139,11 @@ h2.ui.header
                     = else
                       i.remove.icon
                   td.center.aligned
-                    = if homeworkIsComplete
-                      i.checkmark.icon
-                    = else
-                      i.remove.icon
+                    = link-to 'homework_progress.review' homeworkProgress.id
+                      = if homeworkIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
                   td.center.aligned
                     link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
                       i.mail.icon
