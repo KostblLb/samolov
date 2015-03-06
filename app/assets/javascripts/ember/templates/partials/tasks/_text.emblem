@@ -1,2 +1,2 @@
 .ui.fluid.icon.input
-  Ember.TextField value=answer
+  Ember.TextField value=answer class=isComplete:enabled:disabled
