@@ -33,7 +33,6 @@ Rails.application.routes.draw do
       resources :orders,            only: [:show, :create]
       resources :homework_metas
       resources :homework_progresses
-      #resources :homework_meta_tasks
     end
   end
 

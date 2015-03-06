@@ -1,0 +1,13 @@
+= view 'progress_header' label='Успех курса'
+.ui.segment
+  h3.ui.header
+    .content
+      | Части
+  .ui.cards
+    = each parts
+      .blue.card
+        .content
+          link-to 'part' id class='header'
+            = name
+.ui.segment
+  = outlet

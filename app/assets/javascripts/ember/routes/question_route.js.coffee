@@ -6,4 +6,4 @@ Samolov.QuestionRoute = Ember.Route.extend
 
   setupController: (controller, model) ->
     controller.set 'model', model
-#    controller.set 'userAnswer', @store.createRecord('user_answer', question: model, answer_ids: [])
+    controller.set 'userAnswer', @store.createRecord('user_answer', question: model)

@@ -5,7 +5,7 @@ module Api
       
       def show
         @quiz = Quiz.find params[:id]
-        respond_with(@quiz)
+        respond_with @quiz
       end
     end
   end

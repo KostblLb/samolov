@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require form_fix
- *= require global
  *= require semantic_overrides
+ *= require global
  *= require_self
  */

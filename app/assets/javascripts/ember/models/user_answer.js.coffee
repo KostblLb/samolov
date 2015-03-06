@@ -3,7 +3,6 @@
 Samolov.UserAnswer = DS.Model.extend
   quizProgressId: DS.attr 'string'
   isCorrect: DS.attr 'boolean'
-  answerIds: DS.attr()
 
-#  answers:  DS.hasMany 'task', async: true
   question: DS.belongsTo 'question'
+  answers:  DS.hasMany 'answer'

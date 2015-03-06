@@ -16,3 +16,7 @@ Samolov.Group = DS.Model.extend
     return false unless @get('teacher').content?
     @get('teacher').content.id == window.myId
   ).property('teacher')
+
+  sortedCourseProgresses: (->
+    @get('courseProgresses').sortBy('points').reverse()
+  ).property('courseProgresses.@each.points')

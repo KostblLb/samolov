@@ -46,7 +46,5 @@ RailsAdmin.config do |config|
     include_all_fields
   end
 
-  config.model Homework::Meta::Task do
 
-  end
 end

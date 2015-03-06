@@ -10,7 +10,7 @@ set :rails_env, 'production'
 set :domain, 'mkonin@185.4.75.151'
 set :deploy_to, "/var/www/#{application}"
 set :use_sudo, false
-set :normalize_asset_timessamolovmps, false
+set :normalize_asset_times, false
 set :keep_releases, 5
 
 set :rvm_ruby_string, 'ruby-2.1.1'

@@ -11,6 +11,7 @@ class CourseSerializer < ActiveModel::Serializer
     @object.group_for(@scope).try(:id)
   end
 
+
   def my_progress
     CourseProgress.where(course: @object, user: @scope).first
   end

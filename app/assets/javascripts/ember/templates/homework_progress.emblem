@@ -1,0 +1,20 @@
+.ui.segment
+  .content
+    =each tasks
+      == description
+      br
+      =partial partialName
+
+      =if is_verified
+        =if is_correct
+          .ui.success.message
+            p
+              =comment
+        =else
+          .ui.negative.message
+            p
+              =comment
+.ui.primary.button{action 'sendHomework'}
+ |Сохранить
+
+

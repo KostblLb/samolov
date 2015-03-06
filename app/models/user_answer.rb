@@ -11,6 +11,7 @@ class UserAnswer
   validate :answer_only_current_question, if: :new_record?
   validate :answer_belongs_to_question
 
+  before_save :set_user, if: -> {user.nil?}
   after_create :set_next_question
 
   def correct?
@@ -37,5 +38,9 @@ class UserAnswer
 
   def set_next_question
     quiz_progress.next_question!
+  end
+
+  def set_user
+    self.user = quiz_progress.user
   end
 end
