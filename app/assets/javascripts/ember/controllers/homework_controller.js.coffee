@@ -6,6 +6,7 @@ Samolov.HomeworkProgressController = Ember.ObjectController.extend
       @set(@model.isComplete, true)
       @model.save()
     saveHomework:->
+      @set(@model.state, 'review')
       @model.save()
 
 
