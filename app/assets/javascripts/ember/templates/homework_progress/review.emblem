@@ -1,0 +1,26 @@
+h2.ui.header
+  | Проверка домашнего задания
+.ui.segment
+  = each tasks
+    .ui.secondary.segment class=isCorrect:green:red
+      h3.ui.header
+        | Задание № #{inc _view.contentIndex}
+      .ui.grid
+        .twelve.wide.column
+          == description
+          br
+          = partial partialName
+        .four.wide.column
+          form.ui.form
+            .field
+              label
+                | Комментарий
+              = input value=comment
+            .field
+              label
+                | Правильно!
+              = input checked=isCorrect type="checkbox" class="ui checkbox"
+
+
+  .ui.primary.button{action 'submit'}
+    |Сохранить
