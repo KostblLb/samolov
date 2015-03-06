@@ -1,6 +1,8 @@
 .ui.segment
-  .content
-    =each tasks
+  = each tasks
+    .ui.secondary.segment
+      .ui.header
+        | Задание № #{inc _view.contentIndex}
       == description
       br
       =partial partialName
@@ -15,6 +17,6 @@
             p
               =comment
 .ui.primary.button{action 'sendHomework'}
- |Сохранить
+  |Сохранить
 
 
