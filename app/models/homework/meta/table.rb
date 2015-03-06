@@ -3,8 +3,8 @@ module Homework
     class Table < Base
       include Mongoid::Document
       field :col_names, type: Array
-      embeds_many :meta_rows, class_name: 'Homework::Meta::Row'
-      accepts_nested_attributes_for :meta_rows
+      has_many :meta_rows, class_name: 'Homework::Meta::Row'
+      #accepts_nested_attributes_for :meta_rows
 
       def build_t
         super

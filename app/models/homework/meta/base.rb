@@ -6,7 +6,7 @@ module Homework
       field :description
       field :order, type: Integer
 
-      embedded_in :meta, class_name: 'Homework::Meta::Progress'
+      belongs_to :meta, class_name: 'Homework::Meta::Progress'
 
       def build_t
 

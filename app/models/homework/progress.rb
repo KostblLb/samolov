@@ -2,6 +2,8 @@ module Homework
   class Progress
     include Mongoid::Document
 
+    field :name
+
     belongs_to :teacher, class_name: 'User', inverse_of: :students_homeworks
     belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress

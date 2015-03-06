@@ -94,7 +94,7 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'capistrano'
-  gem 'rvm-capistrano'
+  gem 'rvm-capistrano', :require => false
   gem 'net-ssh', '~> 2.7.0'
   gem 'capistrano-unicorn', :require => false
   gem 'capistrano-sidekiq'

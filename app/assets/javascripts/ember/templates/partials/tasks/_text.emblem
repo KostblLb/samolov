@@ -1,0 +1,2 @@
+.ui.fluid.icon.input
+  Ember.TextField value=answer

@@ -18,7 +18,6 @@ RSpec.describe Homework::Meta::Progress do
     subject{homework_meta_progress.create_homework_prog(unit_progress)}
     before(:each) {unit; homework_meta_progress; unit_progress}
 
-    it {is_expected.to be_truthy}
     it {expect{subject}.to change{Homework::Progress.count}.by(1)}
   end
 end
