@@ -52,8 +52,7 @@ class User
   field :ln_link
   field :tw_link
 
-  has_many :inbox,  class_name: 'Message', inverse_of: :recipient
-  has_many :outbox, class_name: 'Message', inverse_of: :sender
+  has_and_belongs_to_many :conversations
 
   has_many :orders, dependent: :destroy
 
@@ -86,6 +85,29 @@ class User
     trained_groups.any?
   end
   alias :is_teacher :teacher?
+
+  def unreads_messages_count
+    msg_count = 0
+    conversations.each do |conv|
+      conv.messages.each do |msg|
+        msg_count += msg.receipts.where(recipient_id: id, is_read: false).count
+      end
+    end
+    msg_count
+  end
+
+  def friends
+    friend_ids = []
+    trained_groups.each do |group|
+      friend_ids += group.student_ids
+    end
+    groups.each do |group|
+      friend_ids += group.student_ids
+      friend_ids << group.teacher_id
+    end
+    User.where(:id.in => friend_ids).to_a
+  end
+
 
   private
   def set_avatar_extension

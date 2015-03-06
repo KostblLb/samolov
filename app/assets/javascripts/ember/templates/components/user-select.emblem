@@ -1,0 +1,1 @@
+= view 'select' content=content optionValuePath='content.id' optionLabelPath='content.fullName' class="js-example-basic-multiple" multiple="multiple" selection=value

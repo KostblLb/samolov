@@ -1,10 +1,14 @@
 #= require jquery
+#= require jquery-ui
 #= require semantic-ui
 #= require moment
 #= require moment/ru.js
+#= require tag-it
+#= require select2.min
 #= require handlebars
 #= require ember
 #= require ember-data
+#= require ember-validations
 #= require_self
 #= require ./samolov
 
@@ -13,7 +17,7 @@ window.Samolov = Ember.Application.create
   rootElement: '#cabinet_app'
 
 Ember.Application.initializer
-  name: 'curretUser',
+  name: 'currentUser',
   after: 'store'
 
   initialize: (container, application) ->
@@ -22,7 +26,6 @@ Ember.Application.initializer
     if window.myId?
       container.lookup('store:main').find('user', window.myId).then (user)->
         container.register 'user:current', user, {instantiate: false, singleton: true}
-        container.register 'user:not_current', user, {instantiate: false, singleton: true}
 
         # Inject the namespace into controllers and routes
         container.injection 'route', 'currentUser', 'user:current'

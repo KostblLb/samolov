@@ -50,6 +50,7 @@ gem 'ember-source', '1.8'
 gem 'emblem-rails'
 gem 'emblem-source', '~> 0.3.0'
 gem 'momentjs-rails'
+gem 'ember-validations-rails'
 
 gem 'semantic-ui-sass', github: 'max-konin/semantic-ui-sass', branch: 'global_variables', ref: '98552c7989f36a26faec398c696fd8dbfe419a82'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
