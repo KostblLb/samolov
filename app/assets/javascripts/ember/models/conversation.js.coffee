@@ -1,4 +1,4 @@
-Samolov.Conversation = DS.Model.extend Samolov.FormattedTimestampMixin,
+Samolov.Conversation = DS.Model.extend Samolov.FormattedTimestampMixin, Ember.Validations.Mixin,
   subject: DS.attr 'string'
   created_at: DS.attr 'string'
   updated_at: DS.attr 'string'
@@ -6,3 +6,7 @@ Samolov.Conversation = DS.Model.extend Samolov.FormattedTimestampMixin,
 
   users: DS.hasMany 'user'
   messages: DS.hasMany 'message'
+
+  validations:
+    users:
+      presence: true

@@ -151,6 +151,8 @@ GEM
       railties (>= 3.1)
     ember-source (1.8.0)
       handlebars-source (~> 1.0)
+    ember-validations-rails (1.0.0)
+      railties
     emblem-rails (0.2.2)
       barber-emblem (~> 0.1.1)
       ember-rails (>= 0.14.0)
@@ -421,6 +423,7 @@ DEPENDENCIES
   email_spec
   ember-rails
   ember-source (= 1.8)
+  ember-validations-rails
   emblem-rails
   factory_girl_rails
   font-awesome-rails

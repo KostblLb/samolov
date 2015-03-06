@@ -25,7 +25,7 @@ h2.header.h2
               .date
                 | Последнее сообщение: #{formattedUpdatedAt}
             .text
-              = messages.lastObject.body
+              = messages.lastObject.previewMessage
             .actions
               | Участники диалога:
               '

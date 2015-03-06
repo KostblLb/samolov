@@ -47,7 +47,7 @@ RSpec.describe Api::V1::ConversationsController, :type => :controller do
     let(:conversation) {create :conversation}
     let(:new_user) {create :user}
     before(:each) { conversation.save }
-      subject{put :update, id: conversation.id, conversation: {subject: 'Subj', user_ids: [new_user.id] }}
+      subject{put :update, id: conversation.id, conversation: {subject: 'Subj', users: [new_user.id] }}
       it 'change the subject of conversation' do
         subject
         expect(assigns(:conversation).subject).to eq('Subj')

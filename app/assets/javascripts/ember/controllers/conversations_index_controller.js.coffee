@@ -2,6 +2,9 @@
 
 Samolov.ConversationsIndexController = Ember.ArrayController.extend
 
+  sortProperties: ['updated_at'],
+  sortAscending: false
+
   actions:
     delete: (conversation)->
       conversation.destroyRecord().then =>
