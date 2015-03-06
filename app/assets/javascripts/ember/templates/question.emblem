@@ -12,10 +12,9 @@
     | Варианты ответа
     i.pointing.down.icon
   form.ui.form
-
     = each answers
       .field
-        radio-button name='user_answer' selection=controller.userAnswers value=id label=text single=controller.model.isSingleAnswer
+        radio-button name='user_answer' selection=controller.userAnswer.answers value=this label=text single=controller.model.isSingleAnswer
 
 
     .ui.horizontal.divider
