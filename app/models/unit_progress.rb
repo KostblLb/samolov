@@ -14,6 +14,7 @@ class UnitProgress
   after_create :create_homework_prog
 
   delegate :scale, to: :course_part_progress
+  delegate :teacher, to: :course_part_progress
   
 
 

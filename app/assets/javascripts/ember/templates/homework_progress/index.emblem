@@ -8,7 +8,7 @@
       =partial partialName
 
       =if is_verified
-        =if is_correct
+        =if isCorrect
           .ui.success.message
             p
               =comment

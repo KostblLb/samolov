@@ -12,5 +12,8 @@ class Ability
     can :manage, Group do |group|
       group.teacher == user
     end
+    can :update, Homework::Progress  do |progress|
+       progress.state == :in_progress &&  progress.student == user || progress.state == :review && progress.teacher == user
+    end
   end
 end

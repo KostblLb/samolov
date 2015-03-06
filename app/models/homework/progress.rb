@@ -4,7 +4,6 @@ module Homework
 
     field :name
 
-    belongs_to :teacher, class_name: 'User', inverse_of: :students_homeworks
     belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
 
@@ -14,6 +13,8 @@ module Homework
 
     accepts_nested_attributes_for :tasks#, update_only: true
   #  accepts_nested_attributes_for :table_answers
+
+    delegate :teacher, to: :unit_progress
 
     def total_tasks
       tasks.size
@@ -33,7 +34,18 @@ module Homework
     def points
       correct_answer_counter*5
     end
+    state_machine :initial => :in_progress do
 
+      state :in_progress
+
+      state :review
+
+      state :verified
+
+      event :next_step do
+        transition :in_progress => :review, :review => :verified
+      end
+    end
     private
       def create_tasks
         homework_metas.each do |meta|

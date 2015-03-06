@@ -8,7 +8,7 @@ class CourseProgress
   has_many :course_part_progresses, dependent: :destroy
 
   delegate :scale, to: :group
-
+  delegate :teacher, to: :group
   after_create :create_part_progresses
 
   def max_points

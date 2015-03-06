@@ -9,6 +9,7 @@ class CoursePartProgress
   after_create :create_ut_progresses
 
   delegate :scale, to: :course_progress
+  delegate :teacher, to: :course_progress
 
   def max_points
     unit_progresses.inject(0) {|sum, u| sum + u.max_points}
