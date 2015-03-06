@@ -96,6 +96,18 @@ class User
     msg_count
   end
 
+  def friends
+    friend_ids = []
+    trained_groups.each do |group|
+      friend_ids += group.student_ids
+    end
+    groups.each do |group|
+      friend_ids += group.student_ids
+      friend_ids << group.teacher_id
+    end
+    User.where(:id.in => friend_ids).to_a
+  end
+
 
   private
   def set_avatar_extension

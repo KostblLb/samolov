@@ -5,8 +5,6 @@ Samolov.ConversationsNewRoute = Ember.Route.extend
     sender_id:
       refreshModel: true
 
-  beforeModel: ->
-    @store.find 'user'
 
   model: (params) ->
     conversation = @store.createRecord 'conversation'
@@ -19,7 +17,7 @@ Samolov.ConversationsNewRoute = Ember.Route.extend
 
   setupController: (controller, model) ->
     controller.set('model', model)
-    controller.set('availableUsers', @store.all('user').filterBy('itsMe', false))
+    controller.set('availableUsers', @currentUser.get('friends'))
 
 
   actions:

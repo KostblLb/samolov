@@ -36,4 +36,25 @@ RSpec.describe User, :type => :model do
     subject { conversation.users.last.unreads_messages_count }
     it {is_expected.to eq(1)}
   end
+
+  describe '#friends' do
+    let(:left_user) {create :user}
+    let(:user) {create :user}
+    let(:student1) {create :user}
+    let(:group) {create :group, students: [user, student1]}
+    subject{user.friends}
+    before(:each) {group.save}
+
+    it 'user has teacher in friends' do
+      is_expected.to include(group.teacher)
+    end
+
+    it 'user has student in friends' do
+      is_expected.to include(student1)
+    end
+
+    it 'user has not left_user in friends' do
+      is_expected.not_to include(left_user)
+    end
+  end
 end

@@ -21,6 +21,8 @@ Samolov.User = DS.Model.extend
   twLink:    DS.attr 'string'
   unreads_messages_count: DS.attr 'number'
 
+  friends:   DS.hasMany 'user'
+
   fullName: (->
     firstName = @get('firstName') || 'No name'
     lastName  = @get('lastName')  || ''
