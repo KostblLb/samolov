@@ -1,11 +1,14 @@
-Samolov.MessageAdapter = Samolov.ApplicationAdapter.extend
-  _resourceUrl: ->
-    @_super().replace 'messages', 'conversaions/messages'
-
-Samolov.Message = DS.Model.extend
+Samolov.Message = DS.Model.extend Samolov.FormattedTimestampMixin,
   body: DS.attr 'string'
+  created_at: DS.attr 'string'
 
+  conversation: DS.belongsTo 'conversation'
+  receipts: DS.hasMany 'receipt'
   sender:    DS.belongsTo 'user', async: true
-  recipient: DS.belongsTo 'user', async: true
-  _resourceUrl: ->
-    @_super().replace 'messages', 'conversaions/messages'
+
+  previewMessage: (->
+    if @get('body').length > 10
+      return @get('body').substring(0,235) + '...'
+    else
+      return @get('body')
+  ).property('body')

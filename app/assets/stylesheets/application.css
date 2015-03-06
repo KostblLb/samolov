@@ -13,5 +13,62 @@
  *= require form_fix
  *= require semantic_overrides
  *= require global
+ *= require select2.min
+ *= require jquery.tagit
  *= require_self
  */
+
+.ui.comments {
+    max-width: 100% !important;
+}
+
+.comment {
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+.comment:hover {
+    background-color: #edf1f5 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
+.date {
+    font-size: 0.9em;
+}
+.created_date {
+    font-size: 0.7em;
+}
+.ui.form textarea {
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.item_message {
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+    cursor: default;
+}
+
+.item_message:hover {
+    background-color: #edf1f5 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
+.unread-message {
+    background-color: #c4e3f3 !important;
+    padding: 5px!important;
+    border-radius: 0.2857rem !important;
+}
+
+.ui.divider {
+    margin: 5px 0;
+}
+
+.description {
+    max-width: 700px;
+}
+
+.hide_error {
+    display: none !important;
+}

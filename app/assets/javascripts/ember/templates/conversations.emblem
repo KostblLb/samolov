@@ -1,0 +1,7 @@
+h2.ui.header
+  i.mail.outline.icon
+  .content
+    | Диалоги
+
+.ui.segment
+  = outlet

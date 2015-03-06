@@ -3,6 +3,5 @@ FactoryGirl.define do
     body "MyText"
 
     association :sender, factory: :user
-    association :recipient, factory: :user
   end
 end

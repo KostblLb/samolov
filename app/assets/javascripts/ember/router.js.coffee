@@ -35,5 +35,9 @@ Samolov.Router.map ()->
     @resource 'scale', path: ':id', ->
       @route 'edit'
 
+  @resource 'conversations', ->
+    @route 'new'
+    @resource 'conversation', path: ':id', ->
+      @route 'show'
 
 

@@ -1,4 +1,4 @@
-module Api@homework_progress
+module Api
   module V1
     class CoursesController < ApplicationController
       respond_to :json
