@@ -5,12 +5,11 @@ class Unit
   field :video_link
   field :summary
   has_many :unit_progresses
-  has_one :homework_meta, :class_name => 'Homework::Meta::Progress'
+
   embeds_one :webinar
 
-
-
   belongs_to :part
+  belongs_to :homework_meta, class_name: 'Homework::Meta::Progress'
   
   has_one :quiz, class_name: 'Quiz', inverse_of: :quiz_socket, dependent: :destroy
   has_one :case, class_name: 'Quiz', inverse_of: :case_socket, dependent: :destroy
