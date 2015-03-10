@@ -9,9 +9,6 @@ Samolov.Router.map ()->
     @route 'show', path: ':id'
     @route 'edit'
 
-  @resource 'messages', ->
-    @route 'new'
-
   @resource 'courses'
   @resource 'course', path: 'courses/:id', ->
     @route 'buy'

@@ -11,7 +11,7 @@
         = each sortedCourseProgresses
           .item
             unless user.itsMe
-              link-to 'messages.new' (query-params recipient_id=user.id) class='right floated compact'
+              link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
                 i.mail.icon
             img.ui.avatar.image src=user.avatarUrl
             .content
