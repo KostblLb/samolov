@@ -1,0 +1,375 @@
+-
+  unit: ЛЭР 1
+  meta_bases:
+  -
+    task_class: Multilane
+    description:  '<strong>Задание №1</strong>. Опишите ваши ключевые области, не менее 10.'
+    lines:
+      -
+      -
+      -
+      -
+      -
+      -
+      -
+      -
+      -
+      -
+  -
+    task_class:  Table
+    description: '<strong>Задение №2</strong>. Напишите по одной SMART – цели в каждой ключевой области из задания №1 на период в один год.'
+    col_names:
+     - Ключевые области
+     - SMART-цели на год.
+    rows:
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+     -
+      name:
+      colspan: 0
+      cells:
+       -
+       -
+  -
+    task_class: Text
+    description: '<strong>Задание №3.</strong> Выберите одну приоритетную цель на ближайшее время. Распишите её на задачи (не менее 5), при формулировке задач используйте критерии SMART.<br>
+                  Цель:'
+  -
+    task_class: Text
+    description: 'Задачи:.<br>
+                  1:'
+  -
+    task_class: Text
+    description: 'Задачи:.<br>
+                  2:'
+  -
+    task_class: Text
+    description: 'Задачи:.<br>
+                  3:'
+  -
+    task_class: Text
+    description: 'Задачи:.<br>
+                  4:'
+  -
+    task_class: Text
+    description: 'Задачи:.<br>
+                  5:'
+  -
+    task_class: Text
+    description: '<strong>Задание №4.</strong> Перепоручите одну из задач, которую вы сейчас выполняете сами, вашему подчинённому.<br>
+                  ФИО подчиненного:'
+  -
+    task_class: Text
+    description: 'Задача:'
+  -
+    task_class: Text
+    description: '<strong>Задание №5.</strong> Соблюдая правила техники «Умное желание», сформулируйте цель, которую вы поставите для себя в сфере «Хобби».<br>
+                  1. Желание:'
+  -
+    task_class: Text
+    description: '2. SMART-цель:'
+  -
+    task_class: Text
+    description: '3. Образ ожидаемого результата:'
+  -
+    task_class: Text
+    description: '<strong>Задание №6.</strong> Соблюдая правила техники «Умное желание», сформулируйте цель, которую вы поставите для себя в сфере «Личностное развитие».<br>
+                  1. Желание:'
+  -
+    task_class: Text
+    description: '2. SMART-цель:'
+  -
+    task_class: Text
+    description: '3. Образ ожидаемого результата:'
