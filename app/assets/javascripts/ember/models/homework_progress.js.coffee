@@ -6,5 +6,6 @@ Samolov.HomeworkProgress = DS.Model.extend
   totalTasks: DS.attr 'number'
   status: DS.attr 'string'
   tasks: DS.hasMany 'tasks', polymorphic: true
+  isComplete:  DS.attr 'boolean'
 
 
