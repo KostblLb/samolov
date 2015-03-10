@@ -28,11 +28,16 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
             meta_subtask['rows'].each do |row|
               Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'])
             end
-          else
-            Homework::Meta::Subtask::Text.create(task: task, task_class: meta_subtask['task_class'], description: meta_subtask['description'], order: suborder)
+          end
+          if meta_subtask['task_class']=='Text'
+            Homework::Meta::Subtask::Text.create(task: task, task_class: meta_subtask['task_class'],
+                                                 description: meta_subtask['description'], order: suborder)
+          end
+          if meta_subtask['task_class']=='Multiline'
+              Homework::Meta::Subtask::Multiline.create(task: task, task_class: meta_subtask['task_class'],
+                                                   description: meta_subtask['description'], order: suborder, lines: meta_subtask['lines'])
           end
         end
-
       end
     end
   end

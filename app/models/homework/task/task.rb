@@ -8,12 +8,11 @@ module Homework
       field :description
       field :order, type: Integer
 
-      embeds_many :subtask, class_name: 'Homework::Task::Subtask::Base'
+      embeds_many :subtasks, class_name: 'Homework::Task::Subtask::Base'
 
       embedded_in :progress, class_name: 'Homework::Progress', inverse_of: :tasks
-      def build_t
 
-      end
+      accepts_nested_attributes_for :subtasks
     end
   end
 end

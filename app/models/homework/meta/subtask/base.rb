@@ -9,7 +9,7 @@ module Homework
 
         belongs_to :task, class_name: 'Homework::Meta::Task'
 
-        def build_t
+        def build_subtsk
 
         end
       end

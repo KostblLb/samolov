@@ -7,7 +7,7 @@ module Homework
         field :is_complete, type: Boolean, default: false
         field :order, type: Integer
 
-        embedded_in :task, class_name: 'Homework::Task::Task', inverse_of: :tasks
+        embedded_in :task, class_name: 'Homework::Task::Task', inverse_of: :subtasks
       end
     end
   end

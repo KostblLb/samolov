@@ -1,11 +1,14 @@
 module Homework
   module Meta
     module Subtask
-      class Text < Base
+      class Multiline < Base
         include Mongoid::Document
+
+        field :lines, type: Array
+
         def build_subtsk
           super
-          Homework::Task::Subtask::Text.new description: description, order: order
+          Homework::Task::Subtask::Multiline.new description: description, order: order
         end
       end
     end

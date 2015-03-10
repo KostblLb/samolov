@@ -1,3 +1,3 @@
-class Homework::Task::Subtask::RowSerializer < ActiveModel::Subtask::Serializer
+class Homework::Task::Subtask::RowSerializer < ActiveModel::Serializer
   attributes :id, :cells, :name, :colspan
 end
