@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :homework_meta_progress, class: Homework::Meta::Progress do
-    meta_bases{[build(:homework_meta_text), build(:homework_meta_table)]}
+    tasks{[build(:homework_meta_task)]}
   end
 end
