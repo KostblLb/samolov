@@ -23,7 +23,7 @@ h2.ui.header
             link-to 'users.show' id
               = fullName
           td
-            link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact' title='Отправить сообщение'
+            link-to 'conversations.new' (query-params sender_id=this.id) class='right floated compact' title='Отправить сообщение'
               i.mail.icon
 
   .ui.blue.ribbon.label
@@ -145,5 +145,5 @@ h2.ui.header
                       = else
                         i.remove.icon
                   td.center.aligned
-                    link-to 'messages.new' (query-params recipient_id=this.id) class='right floated compact'
+                    link-to 'conversations.new' (query-params sender_id=this.id) class='right floated compact'
                       i.mail.icon

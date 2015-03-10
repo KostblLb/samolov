@@ -7,7 +7,6 @@ module Homework
       field :comment
       field :description
       field :order, type: Integer
-      field :is_complete, type: Boolean, default: false
 
       embeds_many :subtask, class_name: 'Homework::Task::Subtask::Base'
 

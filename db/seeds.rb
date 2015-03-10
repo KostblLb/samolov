@@ -8,23 +8,31 @@
 
 Admin.create email: 'admin@example.com', password: 'password'
 
-ordr = 0
+
 
 Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
   config = YAML::load_file(file)
   if config
+    order = 0
     config.each do |meta_progress|
-      ordr +=1
+      order +=1
       meta = Homework::Meta::Progress.create name: meta_progress['unit']
-      meta_progress['meta_bases'].each do |mtask|
-        if mtask['task_class']=='Table'
-          meta_task = Homework::Meta::Table.create(task_class: mtask['task_class'], meta: meta, description: mtask['description'], order: ordr, col_names: mtask['col_names'])
-          mtask['rows'].each do |row|
-            Homework::Meta::Row.create(meta_task: meta_task, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'])
+      meta_progress['meta_tasks'].each do |meta_task|
+        task = Homework::Meta::Task.create(meta: meta, description: meta_task['description'], order: order)
+        suborder = 0
+        meta_task['subtasks'].each do |meta_subtask|
+          suborder +=1
+          if meta_subtask['task_class']=='Table'
+            subtask = Homework::Meta::Subtask::Table.create(task: task, task_class: meta_subtask['task_class'],
+                                                   description: meta_subtask['description'], order: suborder, col_names: meta_subtask['col_names'])
+            meta_subtask['rows'].each do |row|
+              Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'])
+            end
+          else
+            Homework::Meta::Subtask::Text.create(task: task, task_class: meta_subtask['task_class'], description: meta_subtask['description'], order: suborder)
           end
-        else
-          Homework::Meta::Text.create(task_class: mtask['task_class'], meta: meta, description: mtask['description'], order: ordr)
         end
+
       end
     end
   end
