@@ -6,7 +6,7 @@ module Homework
       field :name
 
       has_many :meta_bases, class_name: 'Homework::Meta::Base'
-      belongs_to :unit, inverse_of: :homework_meta
+      has_many :units, inverse_of: :homework_meta
 
       #accepts_nested_attributes_for :meta_bases
 

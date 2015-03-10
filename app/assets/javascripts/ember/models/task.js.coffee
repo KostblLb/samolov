@@ -8,11 +8,12 @@ Samolov.Task = DS.Model.extend
   type:        DS.attr 'string'
   description: DS.attr 'string'
   order:       DS.attr 'number'
-  is_verified: DS.attr 'boolean'
+  isComplete: DS.attr 'boolean'
   isCorrect:   DS.attr 'boolean'
   comment:     DS.attr 'string'
 
   partialName: 'task'
+
 
   reviewPartialName: (->
     "#{@get 'partialName'}_review"
