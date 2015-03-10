@@ -5,7 +5,7 @@
         | Задание № #{inc _view.contentIndex}
       == description
       br
-      =partial partialName
+      = partial partialName
 
       =if is_verified
         =if isCorrect
