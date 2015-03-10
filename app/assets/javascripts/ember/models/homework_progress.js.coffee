@@ -4,5 +4,7 @@ Samolov.HomeworkProgress = DS.Model.extend
   mistakes_counter: DS.attr 'number'
   correct_answer_counter: DS.attr 'number'
   totalTasks: DS.attr 'number'
+  status: DS.attr 'string'
   tasks: DS.hasMany 'tasks', polymorphic: true
+
 
