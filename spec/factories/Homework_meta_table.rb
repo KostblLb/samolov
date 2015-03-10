@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :homework_meta_table, class: Homework::Meta::Table do
+  factory :homework_meta_table, class: Homework::Meta::Subtask::Table do
     description 'this is meta for task with table'
     task_class 'Table'
     col_names ['col 1', 'col 2']
