@@ -1,0 +1,67 @@
+.ui.segment
+  = view 'progress_header' label='Успех раздела'
+
+  table.ui.celled.table
+    thead
+      tr
+        th
+          | Модуль
+        th
+          | Видио
+        th
+          | Тест
+        th
+          | Конспект
+        th
+          | Кейс
+        th
+          | Вебинар
+        th
+          | ДЗ
+    tbody
+      = each units
+        = with myProgress
+          link-to 'unit' unit.id tagName='tr'
+            td
+              = unit.name
+            = if videoIsComplete
+              td.positive
+                i.checkmark.icon
+            = else
+              td.negative
+                i.wait.icon
+
+            = if quizIsComplete
+              td.positive
+                = quizProgress.points
+            = else
+              td.negative
+                i.wait.icon
+
+            = if summaryIsComplete
+              td.positive
+                i.checkmark.icon
+            = else
+              td.negative
+                i.wait.icon
+
+            = if caseIsComplete
+              td.positive
+                = caseProgress.points
+            = else
+              td.negative
+                i.wait.icon
+
+            = if webinarIsComplete
+              td.positive
+                i.checkmark.icon
+            = else
+              td.negative
+                i.wait.icon
+
+            = if homeworkIsComplete
+              td.positive
+                i.checkmark.icon
+            = else
+              td.negative
+                i.wait.icon

@@ -4,6 +4,8 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   unit: DS.belongsTo 'unit'#, async: true
   user: DS.belongsTo 'user'
   homeworkProgress: DS.belongsTo 'homework_progress', async: true
+  quizProgress: DS.belongsTo 'quiz_progress', async: true
+  caseProgress: DS.belongsTo 'quiz_progress', async: true
   hpid: DS.attr 'string'
 
   stepIsComplite: (step) ->

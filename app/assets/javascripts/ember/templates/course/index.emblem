@@ -1,1 +1,2 @@
-= description
+= each parts
+ = partial 'course/part'
