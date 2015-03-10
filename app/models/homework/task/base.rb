@@ -7,6 +7,7 @@ module Homework
       field :description
       field :order, type: Integer
       field :is_complete, type: Boolean, default: false
+      field :is_verified, type: Boolean, default: false
 
 
 

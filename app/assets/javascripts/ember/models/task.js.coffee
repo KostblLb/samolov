@@ -11,6 +11,7 @@ Samolov.Task = DS.Model.extend
   isComplete:  DS.attr 'boolean'
   isCorrect:   DS.attr 'boolean'
   comment:     DS.attr 'string'
+  is_verified: DS.attr 'boolean'
 
   partialName: 'task'
 
