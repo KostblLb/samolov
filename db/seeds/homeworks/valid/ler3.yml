@@ -1,0 +1,202 @@
+-
+  unit: ЛЭР 3
+  meta_tasks:
+    -
+      subtasks:
+        -
+          task_class: Multiline
+          description: 'Спланируйте ваш первый рабочий день после прохождения этого тренинга. Вспомните все дела, которые вам
+                        необходимо успеть выполнить, не забудьте указать и обязанности. Учтите также то, на что обычно ежедневно
+                        вы тратите своё рабочее время – совещания, перемещения, личные дела.<br>Выпишите все ваши дела на день
+                        (желательно не менее 10):'
+          order: 1
+          lines:
+            -
+            -
+            -
+            -
+            -
+            -
+            -
+            -
+            -
+            -
+    -
+      description: 'Проанализируйте все дела, которые вам предстоит выполнить в свой первый рабочий день.'
+      subtasks:
+        -
+          task_class: Text
+          description: '1) Выпишите дела категории А.'
+          order: 1
+        -
+          task_class: Text
+          description: '2) Выпишите дела категории Ас.'
+          order: 2
+        -
+          task_class: Text
+          description: '3) Выпишите дела категории В.'
+          order: 3
+        -
+          task_class: Text
+          description: '4) Выпишите дела категории Вс.'
+          order: 4
+    -
+      subtasks:
+        -
+          task_class: Table
+          description: 'Составьте план на день, начиная с 8.00.'
+          col_names:
+            - Время
+            - Дела
+          order: 1
+          rows:
+            -
+              name: 8.00 - 8.30
+              cells:
+                -
+            -
+              name: 8.30 - 9.00
+              cells:
+                -
+            -
+              name: 9.00 - 9.30
+              cells:
+                -
+            -
+              name: 9.30 - 10.00
+              cells:
+                -
+            -
+              name: 10.00 - 10.30
+              cells:
+                -
+            -
+              name: 10.30 - 11.00
+              cells:
+                -
+            -
+              name: 11.00 - 11.30
+              cells:
+                -
+            -
+              name: 11.30 - 12.00
+              cells:
+                -
+            -
+              name: 12.00 - 12.30
+              cells:
+                -
+            -
+              name: 12.30 - 13.00
+              cells:
+                -
+            -
+              name: 13.00 - 13.30
+              cells:
+                -
+            -
+              name: 13.30 - 14.00
+              cells:
+                -
+            -
+              name: 14.00 - 14.30
+              cells:
+                -
+            -
+              name: 14.30 - 15.00
+              cells:
+                -
+            -
+              name: 15.00 - 15.30
+              cells:
+                -
+            -
+              name: 15.30 - 16.00
+              cells:
+                -
+            -
+              name: 16.00 - 16.30
+              cells:
+                -
+            -
+              name: 16.30 - 17.00
+              cells:
+                -
+            -
+              name: 17.00 - 17.30
+              cells:
+                -
+            -
+              name: 17.30 - 18.00
+              cells:
+                -
+            -
+              name: 18.00 - 18.30
+              cells:
+                -
+            -
+              name: 18.30 - 19.00
+              cells:
+                -
+            -
+              name: 19.00 - 19.30
+              cells:
+                -
+            -
+              name: 19.30 - 20.00
+              cells:
+                -
+            -
+              name: 20.00 - 20.30
+              cells:
+                -
+            -
+              name: 20.30 - 21.00
+              cells:
+                -
+            -
+              name: 21.00 - 21.30
+              cells:
+                -
+            -
+              name: 21.30 - 22.00
+              cells:
+                -
+    -
+      description: 'Выпишите две задачи из вашего плана работ. Запланируйте не менее 3-х мероприятий по каждой задаче.'
+      subtasks:
+        -
+          task_class: Text
+          description: 'Задача 1:'
+          order: 1
+        -
+          task_class: Multiline
+          description: 'Мероприятия:'
+          order: 2
+          lines:
+            -
+            -
+            -
+        -
+          task_class: Text
+          description: 'Задача 2:'
+          order: 3
+        -
+          task_class: Multiline
+          description: 'Мероприятия:'
+          order: 4
+          lines:
+            -
+            -
+            -
+    -
+      description: 'Смоделируйте не менее 2-х возможных кайросов в своём плане работ из задания 3:'
+      subtasks:
+        -
+          task_class: Text
+          description: 'Кайрос 1:'
+          order: 1
+        -
+          task_class: Text
+          description: 'Кайрос 2:'
+          order: 2
