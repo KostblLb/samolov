@@ -1,5 +1,5 @@
 class UnitProgressSerializer < ActiveModel::Serializer
-  attributes :id, :state, :points, :max_points, :user_id, :unit_id, :homework_progress_id
+  attributes :id, :state, :points, :max_points, :user_id, :unit_id, :homework_progress_id, :quiz_progress_id, :case_progress_id
 
   def state
     @object.state.to_s
@@ -9,6 +9,11 @@ class UnitProgressSerializer < ActiveModel::Serializer
     @object.homework_progress.try(:id)
   end
 
+  def quiz_progress_id
+    @object.quiz_progress.try(:id)
+  end
 
-
+  def case_progress_id
+    @object.case_progress.try(:id)
+  end
 end

@@ -1,6 +1,0 @@
-= view 'progress_header' label='Успех раздела'
-= each units
-  .ui.segment
-    link-to 'unit' id (query-params scope=myProgress.state)  class="ui header"
-      = name
-    /progress-bar percent=80
