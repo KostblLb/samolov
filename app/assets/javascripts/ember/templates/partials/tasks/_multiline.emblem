@@ -1,4 +1,4 @@
 .ui.labeled.input
-  .ui.label
+  .ui.label class=isComplete:enabled:disabled
   =inc._view.contentIndex
-  Samolov.TableField object=this index=_view.contentIndex class=isComplete:enabled:disabled
+  Ember.TableField object=this index=_view.contentIndex

@@ -8,7 +8,7 @@ Samolov.Task = DS.Model.extend
   type:        DS.attr 'string'
   description: DS.attr 'string'
   order:       DS.attr 'number'
-  isComplete: DS.attr 'boolean'
+  isComplete:  DS.attr 'boolean'
   isCorrect:   DS.attr 'boolean'
   comment:     DS.attr 'string'
 

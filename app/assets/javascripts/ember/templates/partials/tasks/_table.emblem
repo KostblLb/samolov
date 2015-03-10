@@ -16,10 +16,10 @@ table.ui.celled.striped.table
               =name
             =each cell in cells
               td
-                .ui.input
-                  view Samolov.TableField object=this index=_view.contentIndex class=isComplete:enabled:disabled
+                .ui.input class=isComplete:enabled:disabled
+                  view Samolov.TableField object=this index=_view.contentIndex
         =else
           =each cell in cells
             td
-              .ui.input
-                view Samolov.TableField object=this index=_view.contentIndex class=isComplete:enabled:disabled
+              .ui.input class=isComplete:enabled:disabled
+                view Samolov.TableField object=this index=_view.contentIndex
