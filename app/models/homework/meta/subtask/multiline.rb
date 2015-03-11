@@ -8,7 +8,7 @@ module Homework
 
         def build_subtsk
           super
-          Homework::Subtask::Multiline.new description: description, order: order
+          Homework::Subtask::Multiline.new description: description, order: order, lines: lines
         end
       end
     end
