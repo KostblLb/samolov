@@ -31,6 +31,7 @@
            -
             name:
             colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -39,10 +40,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -51,10 +67,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -63,10 +94,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -75,10 +121,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -87,10 +148,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -99,10 +175,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -111,10 +202,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -123,10 +229,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -135,10 +256,25 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            cells:
+             -
+           -
+            name:
+            colspan: 0
+            rowspan: 5
             cells:
              -
              -
@@ -147,186 +283,20 @@
             colspan: 0
             cells:
              -
+           -
+            name:
+            colspan: 0
+            cells:
              -
            -
             name:
             colspan: 0
             cells:
              -
-             -
            -
             name:
             colspan: 0
             cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
-             -
-           -
-            name:
-            colspan: 0
-            cells:
-             -
              -
     -
       description: 'Выберите одну приоритетную цель на ближайшее время. Распишите её на задачи (не менее 5), при формулировке задач используйте критерии SMART.<br>'

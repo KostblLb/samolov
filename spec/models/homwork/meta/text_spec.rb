@@ -4,8 +4,8 @@ RSpec.describe Homework::Meta::Subtask::Text do
   describe '#build_t' do
     let(:homework_meta_text) {build :homework_meta_text}
 
-    subject{homework_meta_text.build_t}
+    subject{homework_meta_text.build_subtsk}
 
-    it {is_expected.to be_a(Homework::Task::Subtask::Text)}
+    it {is_expected.to be_a(Homework::Subtask::Text)}
   end
 end
