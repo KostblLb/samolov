@@ -1,5 +1,3 @@
-=if description
-  =description
 table.ui.celled.striped.table
   thead
     tr
