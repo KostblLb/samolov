@@ -10,7 +10,7 @@ Admin.create email: 'admin@example.com', password: 'password'
 
 
 
-Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
+Dir.glob('db/seeds/homeworks/*.yml') do |file|
   config = YAML::load_file(file)
   if config
     order = 0
