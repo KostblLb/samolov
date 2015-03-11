@@ -1,5 +1,5 @@
-Samolov.MultilineAdapter = Samolov.TaskAdapter.extend()
+Samolov.MultilineAdapter = Samolov.SubtaskAdapter.extend()
 
-Samolov.Multiline = Samolov.Task.extend
+Samolov.Multiline = Samolov.Subtask.extend
   lines: DS.attr()
   partialName: 'partials/tasks/multiline'

@@ -11,7 +11,7 @@ module Homework
       belongs_to :meta, class_name: 'Homework::Meta::Progress'
 
       def build_tsk
-        task = Homework::Task::Task.new(description: description, order: order)
+        task = Homework::Task.new(description: description, order: order)
         subtasks.each do |subtask|
           task.subtasks << subtask.build_subtsk
         end

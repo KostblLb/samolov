@@ -1,12 +1,13 @@
 module Homework
   module Meta
     module Subtask
-      class Text < Base
-        include Mongoid::Document
+      class Fish < Base
+        field :fish_body
+        field :fish_head
         
         def build_t
           super
-          Homework::Task::Subtask::Text.new description: description, order: order
+          Homework::Subtask::Fish.new description: description, order: order
         end
       end
     end

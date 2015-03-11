@@ -9,7 +9,7 @@ module Homework
 
         def build_subtsk
           super
-          table = Homework::Task::Subtask::Table.new description: description, order: order, col_names: col_names
+          table = Homework::Subtask::Table.new description: description, order: order, col_names: col_names
           meta_rows.each do |row|
             table.rows << row.build_row
           end

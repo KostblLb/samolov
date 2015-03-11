@@ -1,0 +1,4 @@
+.ui.fluid.icon.input class=isComplete:enabled:disabled
+  Ember.TextField value=fish_body
+.ui.fluid.icon.input class=isComplete:enabled:disabled
+  Ember.TextField value=fish_head

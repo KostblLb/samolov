@@ -5,7 +5,7 @@ module Homework
         include Mongoid::Document
         def build_subtsk
           super
-          Homework::Task::Subtask::Text.new description: description, order: order
+          Homework::Subtask::Text.new description: description, order: order
         end
       end
     end

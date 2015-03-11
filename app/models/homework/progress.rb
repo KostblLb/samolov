@@ -9,7 +9,7 @@ module Homework
 
     # embeds_many :text_answers, class_name: 'Homework::Task::Text'
     # embeds_many :table_answers, class_name: 'Homework::Task::Table'
-    embeds_many :tasks, class_name: 'Homework::Task::Task', inverse_of: :progress
+    embeds_many :tasks, class_name: 'Homework::Task', inverse_of: :progress
 
     accepts_nested_attributes_for :tasks#, update_only: true
   #  accepts_nested_attributes_for :table_answers

@@ -1,6 +1,6 @@
-Samolov.TableAdapter = Samolov.TaskAdapter.extend()
+Samolov.TableAdapter = Samolov.SubtaskAdapter.extend()
 
-Samolov.Table = Samolov.Task.extend
+Samolov.Table = Samolov.Subtask.extend
   rows: DS.hasMany 'row'
   col_names: DS.attr()
 
