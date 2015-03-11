@@ -26,7 +26,7 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
             subtask = Homework::Meta::Subtask::Table.create(task: task, task_class: meta_subtask['task_class'],
                                                    description: meta_subtask['description'], order: suborder, col_names: meta_subtask['col_names'])
             meta_subtask['rows'].each do |row|
-              Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'])
+              Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'], rowspan: row['rowspan'])
             end
           end
           if meta_subtask['task_class']=='Text'

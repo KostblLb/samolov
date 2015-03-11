@@ -4,8 +4,8 @@ RSpec.describe Homework::Meta::Subtask::Table do
   describe '#build_t' do
     let(:homework_meta_table) {build :homework_meta_table}
 
-    subject{homework_meta_table.build_t}
-    it {is_expected.to be_a(Homework::Task::Subtask::Table)}
+    subject{homework_meta_table.build_subtsk}
+    it {is_expected.to be_a(Homework::Subtask::Table)}
 
     it 'has column names' do
       expect(subject.col_names).to eq(['col 1', 'col 2'])

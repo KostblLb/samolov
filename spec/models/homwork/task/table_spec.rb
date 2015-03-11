@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Homework::Task::Subtask::Table do
+RSpec.describe Homework::Subtask::Table do
   before(:each) {subject.save}
   describe 'create table' do
     let(:homework_progress){create :homework_progress}
