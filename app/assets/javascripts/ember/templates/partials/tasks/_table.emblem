@@ -9,7 +9,6 @@ table.ui.celled.striped.table
   tbody
     =each rows
       tr
-
         =if name
           =if colspan
             td colspan=colspan

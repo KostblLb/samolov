@@ -3,9 +3,12 @@
     .ui.secondary.segment
       .ui.header
         | Задание № #{inc _view.contentIndex}
-      == description
+      if description
+        == description
       br
       = each subtasks
+        if description
+          == description
         = partial partialName
 
       =if is_verified
