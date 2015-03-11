@@ -12,5 +12,11 @@ module Homework
       embedded_in :progress, class_name: 'Homework::Progress', inverse_of: :tasks
 
       accepts_nested_attributes_for :subtasks
+
+      after_create :sort_subtasks
+
+      def sort_subtasks
+        subtasks.sort_by{|subtask| subtask.order}
+      end
     end
 end

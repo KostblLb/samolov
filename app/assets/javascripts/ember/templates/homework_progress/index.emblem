@@ -7,6 +7,8 @@
         == description
       br
       = each subtasks
+        if description
+          == description
         = partial partialName
 
 .ui.primary.button{action 'saveHomework'}
