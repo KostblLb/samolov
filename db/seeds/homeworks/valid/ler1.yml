@@ -22,130 +22,86 @@
       subtasks:
         -
           task_class:  Table
-          description: '<strong>Задение №2</strong>. Напишите по одной SMART – цели в каждой ключевой области из задания №1 на период в один год.'
+          description: 'Напишите по одной SMART – цели в каждой ключевой области из задания №1 на период в один год.'
           order: 1
           col_names:
            - Ключевые области
            - SMART-цели на год.
           rows:
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
@@ -154,148 +110,94 @@
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             rowspan: 5
             cells:
              -
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
            -
-            name:
-            colspan: 0
             cells:
              -
     -
@@ -304,11 +206,9 @@
         -
           task_class: Text
           description: 'Цель:'
-          order: 1
         -
           task_class: Multiline
           description:  'Задачи.'
-          order: 2
           lines:
             -
             -
@@ -321,11 +221,9 @@
         -
           task_class: Text
           description: 'ФИО подчиненного:'
-          order: 1
         -
           task_class: Text
           description: 'Задача:'
-          order: 2
     -
       description: 'Соблюдая правила техники «Умное желание», сформулируйте цель, которую вы поставите для себя в сфере «Хобби».<br>'
       subtasks:

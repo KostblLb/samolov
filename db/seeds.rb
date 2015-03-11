@@ -33,6 +33,10 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
             Homework::Meta::Subtask::Text.create(task: task, task_class: meta_subtask['task_class'],
                                                  description: meta_subtask['description'], order: suborder)
           end
+          if meta_subtask['task_class']=='Fish'
+            Homework::Meta::Subtask::Fish.create(task: task, task_class: meta_subtask['task_class'],
+                                                 description: meta_subtask['description'], order: suborder)
+          end
           if meta_subtask['task_class']=='Multiline'
               Homework::Meta::Subtask::Multiline.create(task: task, task_class: meta_subtask['task_class'],
                                                    description: meta_subtask['description'], order: suborder, lines: meta_subtask['lines'])
