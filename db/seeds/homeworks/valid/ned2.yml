@@ -107,7 +107,7 @@
             - Сотрудник №3
           rows:
             -
-             name:
+             name: Потребность
              colspan: 0
              cells:
               -

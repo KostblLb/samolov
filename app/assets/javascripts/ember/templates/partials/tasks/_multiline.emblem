@@ -1,4 +1,7 @@
-.ui.fluid.labeled.input
-  .ui.label class=isComplete:enabled:disabled
-  =inc._view.contentIndex
-  view Samolov.MultilineField object=this index=_view.contentIndex
+== description
+= each lines
+
+  .ui.fluid.labeled.input
+    .ui.label class=isComplete:enabled:disabled
+      = inc _view.contentIndex
+    view Samolov.MultilineField object=this index=_view.contentIndex
