@@ -49,7 +49,7 @@
             -
             -
         -
-          task_class: Multilane
+          task_class: Multiline
           description: '<strong>Правила</strong>'
           lines:
             -
