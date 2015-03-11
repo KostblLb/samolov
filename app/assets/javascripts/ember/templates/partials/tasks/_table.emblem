@@ -3,24 +3,24 @@ table.ui.celled.striped.table
     tr
       =each col_names
         th
-          =this
+          ==this
   tbody
     =each rows
       tr
         =if name
           =if colspan
             td colspan=colspan
-              =name
+              ==name
           =else
             td
-              =name
+              ==name
             =each cell in cells
               td
                 .ui.input.fluid class=isComplete:enabled:disabled
                   view Samolov.TableField object=this index=_view.contentIndex
         =else
           =if rowspan
-            td rowspan=rowspan
+            td.rowspan_cell rowspan=rowspan
               .ui.input.fluid class=isComplete:enabled:disabled
                 view Samolov.TableField object=this index=_view.contentIndex
           =else

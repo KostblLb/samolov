@@ -7,8 +7,6 @@
         == description
       br
       = each subtasks
-        if description
-          == description
         = partial partialName
 
       =if is_verified
