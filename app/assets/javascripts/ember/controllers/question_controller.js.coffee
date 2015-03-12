@@ -9,7 +9,6 @@ Samolov.QuestionController = Ember.ObjectController.extend
   actions:
     answer: ->
       @get('userAnswer').save().then (userAnswer) =>
-        @get('model').reload()
         @store.find('quiz_progress', userAnswer.get('quizProgressId')).then (progress) =>
           progress.reload().then =>
             @set 'userAnswers', []

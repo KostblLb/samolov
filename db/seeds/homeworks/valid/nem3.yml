@@ -1,0 +1,118 @@
+-
+  unit: НЭМ-3
+  meta_tasks:
+    -
+      description: 'Вспомните одну из последних задач, которую вы поручали вашему подчинённому.'
+      subtasks:
+        -
+          task_class: Text
+          description: 'ФИО подчинённого'
+        -
+          task_class: Text
+          description: 'Задача'
+        -
+          task_class: Text
+          description: 'Определите, верно ли вами был выбран стиль управления по данной задаче.<br><br>1. Определите уровень мотивации сотрудника'
+        -
+          task_class: Text
+          description: '2. Определите уровень компетенции сотрудника'
+        -
+          task_class: Text
+          description: '3. Рекомендуемый стиль управления'
+        -
+          task_class: Text
+          description: '4. Поставьте задачу сотруднику в стиле управления, который соответствует мотивации и компетентности сотрудника'
+    -
+      subtasks:
+        -
+          task_class: Multiline
+          description: 'Выпишите три дела, которые вам необходимо делегировать в ближайшее время.'
+          line_names:
+            - Задача
+            - Задача
+            - Задача
+          lines:
+            -
+            -
+            -
+    -
+      description: 'Поручите первую задачу из задания 2 одному из своих подчинённых. Следуйте алгоритму.'
+      subtasks:
+        -
+          task_class: Text
+          description: '1. Определите уровень мотивации сотрудника'
+        -
+          task_class: Text
+          description: '2. Определите уровень компетенции сотрудника'
+        -
+          task_class: Text
+          description: '3. Рекомендуемый стиль управления'
+        -
+          task_class: Text
+          description: '4. Поставьте задачу сотруднику в стиле управления, который соответствует мотивации и компетентности сотрудника. <br><br>Постановка задачи по результату:'
+        -
+          task_class: Text
+          description: 'Требование:'
+        -
+          task_class: Text
+          description: 'Убеждение (мотивация):'
+        -
+          task_class: Text
+          description: 'Ближайшие шаги:'
+        -
+          task_class: Text
+          description: 'Мотивация на достижение (мотивация на реализацию решения):'
+    -
+      description: 'Поручите первую задачу из задания 2 одному из своих подчинённых. Следуйте алгоритму.'
+      subtasks:
+        -
+          task_class: Text
+          description: '1. Определите уровень мотивации сотрудника'
+        -
+          task_class: Text
+          description: '2. Определите уровень компетенции сотрудника'
+        -
+          task_class: Text
+          description: '3. Рекомендуемый стиль управления'
+        -
+          task_class: Text
+          description: '4. Поставьте задачу сотруднику в стиле управления, который соответствует мотивации и компетентности сотрудника. <br><br>Постановка задачи по результату:'
+        -
+          task_class: Text
+          description: 'Требование:'
+        -
+          task_class: Text
+          description: 'Убеждение (мотивация):'
+        -
+          task_class: Text
+          description: 'Ближайшие шаги:'
+        -
+          task_class: Text
+          description: 'Мотивация на достижение (мотивация на реализацию решения):'
+    -
+      description: 'Поручите первую задачу из задания 2 одному из своих подчинённых. Следуйте алгоритму.'
+      subtasks:
+        -
+          task_class: Text
+          description: '1. Определите уровень мотивации сотрудника'
+        -
+          task_class: Text
+          description: '2. Определите уровень компетенции сотрудника'
+        -
+          task_class: Text
+          description: '3. Рекомендуемый стиль управления'
+        -
+          task_class: Text
+          description: '4. Поставьте задачу сотруднику в стиле управления, который соответствует мотивации и компетентности сотрудника. <br><br>Постановка задачи по результату:'
+        -
+          task_class: Text
+          description: 'Требование:'
+        -
+          task_class: Text
+          description: 'Убеждение (мотивация):'
+        -
+          task_class: Text
+          description: 'Ближайшие шаги:'
+        -
+          task_class: Text
+          description: 'Мотивация на достижение (мотивация на реализацию решения):'
