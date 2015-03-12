@@ -8,4 +8,5 @@ Samolov.QuizProgressRoute = Ember.Route.extend
     if currentQuestion?
       @transitionTo 'question', currentQuestion
     else
+     progress.get('quiz').content.reload()
      @_super

@@ -38,5 +38,9 @@ p
 p
   | Баллы -&nbsp
   = points
+
 = if canNext
-  = partial 'unit/next_button'
+  link-to 'unit' unit.id
+    .ui.right.labeled.green.icon.button
+      | Далее
+      i.right.arrow.icon
