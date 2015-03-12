@@ -7,17 +7,10 @@
         == description
       br
       = each subtasks
+        if description
+          == description
         = partial partialName
 
-      =if is_verified
-        =if isCorrect
-          .ui.success.message
-            p
-              =comment
-        =else
-          .ui.negative.message
-            p
-              =comment
 .ui.primary.button{action 'saveHomework'}
   |Сохранить
 .ui.primary.button{action 'sendHomework'}

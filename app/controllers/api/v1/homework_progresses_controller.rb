@@ -12,7 +12,7 @@ module Api
       end
 
       def update
-        #@homework_progress = Homework::Progress.find params[:id]
+        @homework_progress = Homework::Progress.find params[:id]
         authorize! :update, @homework_progress
         if @homework_progress.update progress_params
           respond_with @homework_progress, status: :updated, root: 'homework_progress'
@@ -24,9 +24,9 @@ module Api
       private
        def progress_params
          if @homework_progress.teacher == current_user
-          result = params.require(:homework_progress).permit :state, tasks: [:id, :is_correct, :comment]
+          result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :is_correct, :comment]]
          else
-           result = params.require(:homework_progress).permit :state, :is_complete, tasks: [:id, :answer, rows:[:id, :name, :colspan, cells:[]]]
+           result = params.require(:homework_progress).permit :state, :is_complete, tasks: [:id, subtasks: [:id, :answer, rows:[cells:[]], lines:[]]]
          end
          result[:tasks_attributes] = result.delete(:tasks)
          result
