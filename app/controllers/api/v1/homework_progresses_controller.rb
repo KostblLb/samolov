@@ -26,7 +26,7 @@ module Api
          if @homework_progress.teacher == current_user
           result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :is_correct, :comment]]
          else
-           result = params.require(:homework_progress).permit :state, :is_complete, tasks: [:id, subtasks: [:id, :answer, rows:[cells:[]], lines:[]]]
+           result = params.require(:homework_progress).permit :state, :is_complete, tasks: [:id, subtasks: [:id, :answer,  rows:[cells:[]], lines:[]]]
          end
          result[:tasks_attributes] = result.delete(:tasks)
          result

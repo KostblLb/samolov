@@ -12,7 +12,7 @@ table.ui.celled.striped.table
             td colspan=colspan
               ==name
           =else
-            td
+            td.collapsing
               ==name
             =each cell in cells
               td

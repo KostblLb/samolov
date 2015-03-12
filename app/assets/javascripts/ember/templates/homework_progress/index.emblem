@@ -5,8 +5,9 @@
         | Задание № #{inc _view.contentIndex}
       if description
         == description
-      br
+        br
       = each subtasks
+        br
         if description
           == description
         = partial partialName
