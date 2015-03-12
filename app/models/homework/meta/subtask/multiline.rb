@@ -7,8 +7,9 @@ module Homework
         field :lines, type: Array
 
         def build_instance
-          super
-          Homework::Subtask::Multiline.new description: description, order: order, lines: lines, line_names: line_names
+          instance = super
+          instance.lines = lines
+          instance
         end
       end
     end

@@ -7,6 +7,7 @@ module Homework
       field :colspan
       field :rowspan
       embedded_in :table, class_name: 'Homework::Subtask::Table'
+
     end
   end
 end

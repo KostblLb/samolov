@@ -8,8 +8,7 @@ module Homework
         #accepts_nested_attributes_for :meta_rows
 
         def build_instance
-          super
-          table = Homework::Subtask::Table.new col_names: col_names
+          table = super
           meta_rows.each do |row|
             table.rows << row.build_instance
           end
