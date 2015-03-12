@@ -1,0 +1,183 @@
+table.ui.celled.striped.table
+  thead
+    tr
+      td rowspan='2'
+        b Пункты профиля
+      td colspan='4'
+        b Требуемые качества
+    tr
+      td colspan='2'
+        u Обязательные
+      td colspan='2'
+        u Желательные
+  tbody
+    tr
+      td rowspan='4'
+        | 1. Физический облик
+      td.border_top colspan='2'
+        | 1. Пол:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td.border_top colspan='2'
+        | 1. Пол:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 2. Возраст:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 2. Возраст:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 3. Внешние данные:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 3. Внешние данные:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 4. Другие физические характеристики:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 4. Другие физические характеристики:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td rowspan='6'
+        | 2. Образование, квалификация, опыт
+      td colspan='2'
+        | 1. Уровень образования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 1. Уровень образования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 2. Специализация по образованию:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 2. Специализация по образованию:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 3. Дополнительное профессиональное обучение:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 3. Дополнительное профессиональное обучение:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 4. Знание языков:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 4. Знание языков:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td colspan='2'
+        |6. Дополнительные обязательные требования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+      td colspan='2'
+        |6. Дополнительные обязательные требования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          Ember.TextField value=answer
+    tr
+      td rowspan='2'
+        | Пункты профиля
+      td colspan='4'
+        | Требуемые качества
+    tr
+      td colspan='2'
+        | Обязательные (напишите "от" или "к" напротив подходящего определения)
+      td colspan='2'
+        | Желательные (напишите "от" или "к" напротив подходящего определения)
+    tr
+      td rowspan='6'
+        | 3. Мотиваторы
+      td
+        | Деньги
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Деньги
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | Имидж
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Имидж
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | Безопасность
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Безопасность
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | Удобство физ.
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Удобство физ.
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | Удобство психол.
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Удобство психол.
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | Самосовершенствование
+      td
+        | ТУТ-ИНПУТ
+      td
+        | Самосовершенствование
+      td
+        | ТУТ-ИНПУТ
+    tr
+      td
+        | 4. Дополнительные требования компании
+      td colspan='2'
+        | obyazat
+      td colspan='2'
+        | zhelat
+
+
+

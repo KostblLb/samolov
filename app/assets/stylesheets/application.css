@@ -91,3 +91,15 @@
 .rowspan_cell {
     border-right: 1px solid #d4d4d5;
 }
+.border-left {
+    border-left: 1px solid #d4d4d5;
+}
+.border-right {
+    border-right: 1px solid #d4d4d5;
+}
+.border-bottom {
+    border-bottom: 1px solid #d4d4d5;
+}
+.border-top {
+    border-top: 1px solid #d4d4d5;
+}
