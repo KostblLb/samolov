@@ -1,17 +1,34 @@
 .ui.segment
-  = each tasks
-    .ui.secondary.segment
-      .ui.header
-        | Задание № #{inc _view.contentIndex}
-      if description
-        == description
-        br
-      = each subtasks
-        br
+  =if isComplete
+
+    = each tasks
+        .ui.secondary.segment
+          div class=isCorrect:ui.positive.message:ui.negative.message
+            .ui.header
+              | Задание № #{inc _view.contentIndex}
+            if description
+              == description
+            = each subtasks
+              p
+                if description
+                  == description
+                = partial isCompletePartialName
+  =else
+    = each tasks
+      .ui.secondary.segment
+        .ui.header
+          | Задание № #{inc _view.contentIndex}
         if description
           == description
-        = partial partialName
+          br
+        = each subtasks
+          br
+          if description
+            == description
+          = partial partialName
 
+.ui.negative.message
+  |хуй
 .ui.primary.button{action 'saveHomework'}
   |Сохранить
 .ui.primary.button{action 'sendHomework'}

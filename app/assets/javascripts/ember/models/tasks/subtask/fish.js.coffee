@@ -4,3 +4,4 @@ Samolov.Fish = Samolov.Subtask.extend
   fishBody: DS.attr 'string'
   fishHead: DS.attr 'string'
   partialName: 'partials/tasks/fish'
+  isCompletePartialName: 'partials/tasks_complete/fish'
