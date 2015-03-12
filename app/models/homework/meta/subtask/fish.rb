@@ -5,7 +5,7 @@ module Homework
         field :fish_body
         field :fish_head
         
-        def build_subtsk
+        def build_instance
           super
           Homework::Subtask::Fish.new description: description, order: order
         end

@@ -9,7 +9,7 @@ module Homework
         field :rowspan
         belongs_to :meta_task, class_name: 'Homework::Meta::Subtask::Table'
 
-        def build_row
+        def build_instance
          Homework::Subtask::Row.new name: name, cells:meta_cells, colspan: colspan, rowspan: rowspan
         end
       end

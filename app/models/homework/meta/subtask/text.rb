@@ -3,9 +3,9 @@ module Homework
     module Subtask
       class Text < Base
         include Mongoid::Document
-        def build_subtsk
+        def build_instance
           super
-          Homework::Subtask::Text.new description: description, order: order
+          Homework::Subtask::Text.new
         end
       end
     end
