@@ -1,6 +1,5 @@
 .ui.segment
   =if isComplete
-
     = each tasks
         .ui.secondary.segment
           .ui.message class=isCorrect:positive:negative
@@ -27,8 +26,6 @@
             == description
           = partial partialName
 
-.ui.negative.message
-  |хуй
 .ui.primary.button{action 'saveHomework'}
   |Сохранить
 .ui.primary.button{action 'sendHomework'}

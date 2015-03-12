@@ -8,7 +8,6 @@ Samolov.Subtask = DS.Model.extend
   type:        DS.attr 'string'
   description: DS.attr 'string'
   order:       DS.attr 'number'
-  isComplete:  DS.attr 'boolean'
 
   task: DS.belongsTo 'task'
 

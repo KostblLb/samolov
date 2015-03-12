@@ -5,10 +5,10 @@ module Homework
 
       field :cells, type: Array
 
-      belongs_to :meta_row, class_name: 'Homework::Meta::Subtask::Row'
+      belongs_to :meta, class_name: 'Homework::Meta::Subtask::Row'
       embedded_in :table, class_name: 'Homework::Subtask::Table'
 
-      delegate :name, :cplspan, :rowspan, to: :meta_row
+      delegate :name, :colspan, :rowspan, to: :meta
     end
   end
 end
