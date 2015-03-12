@@ -1,15 +1,16 @@
 Samolov.TableField = Ember.TextField.extend
 
+
   bindAttrs: (->
     cells   = @get('object.cells')
     indx = @get('index')
-    if @value
-    else
-      cells[indx] = @value
+
+    cells[indx] = @value unless @value
   ).on('didInsertElement')
 
-
-  change: ->
+  change:->
     cells   = @get('object.cells')
     indx = @get('index')
     cells[indx] = @value
+
+

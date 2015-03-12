@@ -16,15 +16,15 @@ table.ui.celled.striped.table
               ==name
             =each cell in cells
               td
-                .ui.input.fluid class=isComplete:enabled:disabled
-                  view Samolov.TableField object=this index=_view.contentIndex
+                .ui.input.fluid
+                  Samolov.TableField object=this index=_view.contentIndex
         =else
           =if rowspan
             td.rowspan_cell rowspan=rowspan
               .ui.input.fluid class=isComplete:enabled:disabled
-                view Samolov.TableField object=this index=_view.contentIndex
+                Samolov.TableField object=this index=_view.contentIndex
           =else
             =each cell in cells
               td
-                .ui.input.fluid class=isComplete:enabled:disabled
-                  view Samolov.TableField object=this index=_view.contentIndex
+                .ui.input.fluid
+                  Samolov.TableField object=this index=_view.contentIndex
