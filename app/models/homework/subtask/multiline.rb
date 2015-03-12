@@ -4,7 +4,7 @@ module Homework
       include Mongoid::Document
       field :lines, type: Array
 
-      belongs_to :meta, class_name: 'Homework::Meta::Subtask::Multiline'
+     # belongs_to :meta, class_name: 'Homework::Meta::Subtask::Multiline'
 
       delegate :line_names, to: :meta
     end
