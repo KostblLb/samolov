@@ -7,7 +7,6 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
   end
   describe 'PUT update' do
     let(:student){create :user}
-    let(:teacher){create :user}
     let(:unit_progress) {create :unit_progress}
 
 
@@ -19,10 +18,9 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
 
       context 'homework has text task' do
         let(:homework_progress) {create :homework_progress, student: student, unit_progress: unit_progress}
-        let(:attributes) {{tasks_attributes:
-                               [id: homework_progress.tasks.first.id, subtasks_attributes:
-                                                                        [{id:homework_progress.tasks.first.subtasks.first.id,
-                                                                          _type: 'Homework::Subtask::Text', answer: "some_answer"}]]}}
+        let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:[
+                        id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text',
+                        answer: "some_answer"]]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.answer}.to("some_answer")
@@ -31,11 +29,11 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
 
       context 'homework has table task' do
         let(:homework_progress) {create :homework_progress, student: student, unit_progress: unit_progress}
-        let(:attributes) {{tasks_attributes:
-                               [{id:homework_progress.tasks.first.id, subtasks_attributes:
-                                    [{id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text', answer: "some_answer"},
-                                   {id:homework_progress.tasks.first.subtasks.second.id, _type: 'Homework::Subtask::Table', rows:
-                                       [{id:homework_progress.tasks.second.rows.first.id, cells:['4','5','6']}]}]}]}}
+        let(:attributes) {{tasks:[{id:homework_progress.tasks.first.id, subtasks:[
+                         {id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text',
+                          answer: "some_answer"},
+                         {id:homework_progress.tasks.first.subtasks.second.id, _type: 'Homework::Subtask::Table', rows:[
+                         {id:homework_progress.tasks.second.rows.first.id, cells:['4','5','6']}]}]}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.second.rows.first.cells}.to(['4','5','6'])
@@ -47,12 +45,12 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
     end
     context 'teacher' do
       before :each do
-        sign_in teacher
+        sign_in unit_progress.teacher
       end
 
       context 'homework has text task' do
         let(:homework_progress) {create :homework_progress, student: student, state: 'review', unit_progress: unit_progress}
-        let(:attributes) {{tasks_attributes: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', is_correct: true}]}}
+        let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', is_correct: true}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.tasks.first.reload.is_correct}.to be_truthy

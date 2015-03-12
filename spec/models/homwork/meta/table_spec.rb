@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Homework::Meta::Subtask::Table do
-  describe '#build_t' do
+  describe '#build_instance' do
     let(:homework_meta_table) {build :homework_meta_table}
 
-    subject{homework_meta_table.build_subtsk}
+    subject{homework_meta_table.build_instance}
     it {is_expected.to be_a(Homework::Subtask::Table)}
 
     it 'has column names' do

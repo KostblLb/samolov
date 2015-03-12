@@ -13,7 +13,7 @@ module Homework
       def build_homework_prog(unit_progress)
         progress = Homework::Progress.new unit_progress: unit_progress, name: name
         tasks.each do |meta_task|
-          progress.tasks << meta_task.build_tsk
+          progress.tasks << meta_task.build_instance
         end
         progress
       end
