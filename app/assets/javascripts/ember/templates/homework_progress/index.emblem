@@ -3,7 +3,7 @@
 
     = each tasks
         .ui.secondary.segment
-          div class=isCorrect:ui.positive.message:ui.negative.message
+          .ui.message class=isCorrect:positive:negative
             .ui.header
               | Задание № #{inc _view.contentIndex}
             if description

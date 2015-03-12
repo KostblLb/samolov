@@ -10,7 +10,7 @@ module Homework
         belongs_to :meta_task, class_name: 'Homework::Meta::Subtask::Table'
 
         def build_instance
-         Homework::Subtask::Row.new name: name, cells:meta_cells, colspan: colspan, rowspan: rowspan
+         Homework::Subtask::Row.new cells:meta_cells
         end
       end
     end
