@@ -1,6 +1,6 @@
 # for more details see: http://emberjs.com/guides/controllers/
 
-Samolov.UnitIndexController = Ember.ObjectController.extend
+Samolov.UnitIndexController = Ember.ObjectController.extend Samolov.UnitNextStepMixin,
   queryParams: ['scope']
   scope: 'video'
   tpl: (->
