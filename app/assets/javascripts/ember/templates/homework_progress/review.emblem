@@ -22,5 +22,7 @@ h2.ui.header
               = input checked=isCorrect type="checkbox" class="ui checkbox"
 
 
-  .ui.primary.button{action 'submit'}
+  .ui.primary.button{action 'saveHomework'}
     |Сохранить
+  .ui.primary.button{action 'endChecking'}
+    |Закончить проверку
