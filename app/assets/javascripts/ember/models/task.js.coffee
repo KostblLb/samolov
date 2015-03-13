@@ -6,3 +6,4 @@ Samolov.Task = DS.Model.extend
   comment:     DS.attr 'string'
 
   subtasks: DS.hasMany 'subtask', polymorphic: true
+

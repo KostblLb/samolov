@@ -5,3 +5,4 @@ Samolov.Table = Samolov.Subtask.extend
   col_names: DS.attr()
 
   partialName: 'partials/tasks/table'
+  isCompletePartialName: 'partials/tasks_complete/table'

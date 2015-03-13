@@ -4,7 +4,7 @@ module Homework
 
     field :name
 
-    belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
+    #belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
 
     # embeds_many :text_answers, class_name: 'Homework::Task::Text'

@@ -27,21 +27,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         end
       end
 
-      context 'homework has table task' do
-        let(:homework_progress) {create :homework_progress, student: student, unit_progress: unit_progress}
-        let(:attributes) {{tasks:[{id:homework_progress.tasks.first.id, subtasks:[
-                         {id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text',
-                          answer: "some_answer"},
-                         {id:homework_progress.tasks.first.subtasks.second.id, _type: 'Homework::Subtask::Table', rows:[
-                         {id:homework_progress.tasks.second.rows.first.id, cells:['4','5','6']}]}]}]}}
-        subject{put :update, id: homework_progress.id, homework_progress: attributes}
-        it 'updates answer fields' do
-          expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.second.rows.first.cells}.to(['4','5','6'])
-        end
-        it 'not updates col_names' do
-          expect{subject}.not_to change{homework_progress.reload.tasks.first.sutasks.second.col_names}
-        end
-      end
+
     end
     context 'teacher' do
       before :each do
