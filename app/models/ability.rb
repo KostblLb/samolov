@@ -13,7 +13,7 @@ class Ability
       group.teacher == user
     end
     can :update, Homework::Progress  do |progress|
-      progress.in_progress? &&  progress.student == user || progress.review? && progress.teacher == user
+      progress.in_progress? &&  progress.unit_progress.user == user || progress.review? && progress.teacher == user
     end
   end
 end

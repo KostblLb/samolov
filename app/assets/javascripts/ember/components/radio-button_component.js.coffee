@@ -1,9 +1,11 @@
 # for more details see: http://emberjs.com/guides/components/
 
 Samolov.RadioButtonComponent = Ember.Component.extend
+  classNames: ['ui', 'toggle', 'checkbox']
+
   didInsertElement: ->
     @_super()
-    @$('.ui.checkbox').checkbox()
+    @$().checkbox()
 
   click : ->
     needAdd = @get("selection").indexOf(@get("value")) == -1
@@ -14,4 +16,4 @@ Samolov.RadioButtonComponent = Ember.Component.extend
       @get('selection').removeObject @get('value')
   checked: (->
     return @get("selection").indexOf(@get("value")) != -1
-  ).property()
+  ).property('selection')

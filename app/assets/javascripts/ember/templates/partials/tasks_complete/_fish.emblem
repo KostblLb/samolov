@@ -1,0 +1,6 @@
+.fish_body
+  .ui.fluid.icon.input
+    =fish_body
+.fish_head
+  .ui.fluid.icon.input
+    =fish_head
