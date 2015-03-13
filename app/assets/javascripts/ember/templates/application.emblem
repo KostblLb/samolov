@@ -16,9 +16,6 @@
   = link-to 'conversations' class='item'
     i.mail.icon
     | Диалоги
-  = link-to 'users.index' class='item'
-    i.users.icon
-    | Пользователи
   = if currentUser.isTeacher
     = link-to 'groups.index' class='item'
       i.student.icon
