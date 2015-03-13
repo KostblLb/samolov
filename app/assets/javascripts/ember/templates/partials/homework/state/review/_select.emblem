@@ -1,0 +1,3 @@
+.ui.stacked.segment
+  = each option in options
+    =option.answer

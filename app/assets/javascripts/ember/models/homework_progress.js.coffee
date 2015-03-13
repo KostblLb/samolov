@@ -7,6 +7,9 @@ Samolov.HomeworkProgress = DS.Model.extend
   state: DS.attr 'string'
   tasks: DS.hasMany 'task'
   isComplete:  DS.attr 'boolean'
+  isAvailable: DS.attr 'boolean'
+  unitId: DS.attr 'string'
+  unitState: DS.attr 'string'
 
   hpn:(->
     "partials/homework/#{@get 'state'}"

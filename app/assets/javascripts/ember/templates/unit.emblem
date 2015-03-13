@@ -13,7 +13,8 @@
         | Кейс
       link-to 'unit.index' id (query-params scope='webinar') class="step"
         | Вебинар
-      link-to 'unit.index' id (query-params scope='homework') class="step"
-        | Домашнее задание
+      link-to 'homework_progress' myProgress.homeworkProgress.id class="step"
+          | Домашнее задание
+
   .ui.secondary.segment
     = outlet
