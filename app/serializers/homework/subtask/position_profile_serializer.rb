@@ -1,3 +1,5 @@
 class Homework::Subtask::PositionProfileSerializer < Homework::Subtask::BaseSerializer
-  attributes :id, :description, :sex, :age, :appearance, :other_physical, :order, :type, :_type
+
+  has_one :profile_compulsory, serializer: Homework::Subtask::ProfileSerializer
+  has_one :profile_desirable, serializer: Homework::Subtask::ProfileSerializer
 end

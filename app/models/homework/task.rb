@@ -13,7 +13,7 @@ module Homework
 
       accepts_nested_attributes_for :subtasks
 
-      delegate :description, :order, to: :meta_task
+      delegate :description, :order, to: :meta
 
       after_create :sort_subtasks
 

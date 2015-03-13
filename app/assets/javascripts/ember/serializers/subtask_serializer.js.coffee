@@ -8,3 +8,8 @@ Samolov.TableSerializer = Samolov.SubtaskSerializer.extend
   attrs:
     rows: {embedded: 'always'}
 
+Samolov.PositionProfileSerializer = Samolov.SubtaskSerializer.extend
+  attrs:
+    profileCompulsory: {embedded: 'always'}
+    profileDesirable: {embedded: 'always'}
+
