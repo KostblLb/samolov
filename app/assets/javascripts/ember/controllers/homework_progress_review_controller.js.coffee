@@ -4,7 +4,7 @@ Samolov.HomeworkProgressReviewController = Ember.ObjectController.extend
   actions:
     endChecking:->
       progress = @model
-      progress.set 'status', 'verified'
+      progress.set 'state', 'verified'
       progress.save()
     saveHomework: ->
       @model.save()
