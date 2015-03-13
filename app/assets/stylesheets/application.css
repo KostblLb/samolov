@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require form_fix
- *= require semantic_overrides
+ *= require semantic-ui/semantic
  *= require global
  *= require select2.min
  *= require jquery.tagit

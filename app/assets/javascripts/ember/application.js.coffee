@@ -1,6 +1,6 @@
 #= require jquery
 #= require jquery-ui
-#= require semantic-ui
+#= require semantic-ui/all
 #= require moment
 #= require moment/ru.js
 #= require tag-it
