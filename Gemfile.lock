@@ -10,6 +10,15 @@ GIT
       i18n
       polyamorous (~> 1.1)
 
+GIT
+  remote: git://github.com/max-konin/semantic-ui-rails.git
+  revision: 37da38407b8584bab1a845a93995f0336549f4be
+  branch: v1.x
+  specs:
+    semantic-ui-rails (1.11.4)
+      autoprefixer-rails
+      less-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -455,6 +464,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  semantic-ui-rails!
   sidekiq
   sidekiq-client-cli
   simplecov
