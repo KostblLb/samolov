@@ -7,8 +7,9 @@ RSpec.describe Homework::Subtask::PositionProfile do
     let(:homework_progress){create :homework_progress}
 
     it 'creates two profile' do
-      expect(homework_progress.tasks[0].subtasks[1].profile_compulsory).to be_persisted
-      expect(homework_progress.tasks[0].subtasks[1].profile_desirable).to be_persisted
+      expect(homework_progress.tasks[0].subtasks[1].profile_compulsory).not_to be_nil
+      expect(homework_progress.tasks[0].subtasks[1].profile_desirable).not_to be_nil
+      expect(homework_progress.reload.tasks[0].subtasks[1].profile_compulsory).not_to be_nil
     end
   end
 end

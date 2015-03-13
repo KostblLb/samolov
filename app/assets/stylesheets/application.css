@@ -95,3 +95,7 @@
     border-left: 1px solid #d4d4d5 !important;
     border-top: 1px solid #d4d4d5 !important;
 }
+
+.with_indent {
+    margin: 10px 0;
+}

@@ -13,3 +13,8 @@ Samolov.PositionProfileSerializer = Samolov.SubtaskSerializer.extend
     profileCompulsory: {embedded: 'always'}
     profileDesirable: {embedded: 'always'}
 
+Samolov.SelectSerializer = Samolov.SubtaskSerializer.extend
+  attrs:
+    options: {embedded: 'always'}
+    answers: {embedded: 'always'}
+
