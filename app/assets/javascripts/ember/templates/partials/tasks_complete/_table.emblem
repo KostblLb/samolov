@@ -17,14 +17,14 @@ table.ui.celled.striped.table
             =each cell in cells
               td
                 .ui.input.fluid
-                  =this
+                  =cell
         =else
           =if rowspan
             td.rowspan_cell rowspan=rowspan
               .ui.input.fluid
-                =this
+                =cell
           =else
             =each cell in cells
               td
                 .ui.input.fluid
-                  =this
+                  =cell

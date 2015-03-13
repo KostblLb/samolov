@@ -4,7 +4,7 @@ Samolov.HomeworkProgressIndexController = Ember.ObjectController.extend
   actions:
     sendHomework:->
       progress = @model
-      progress.set 'status', 'review'
+      progress.set 'state', 'review'
       progress.save()
 
     saveHomework:->
