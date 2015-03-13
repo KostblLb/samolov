@@ -45,6 +45,13 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
               Homework::Meta::Subtask::Multiline.create(task: task, task_class: meta_subtask['task_class'],
                                                    description: meta_subtask['description'], order: suborder, lines: meta_subtask['lines'], line_names: meta_subtask['line_names'])
           end
+          if meta_subtask['task_class']=='Select'
+            subtask = Homework::Meta::Subtask::Select.create(task: task, task_class: meta_subtask['task_class'],
+                                                      description: meta_subtask['description'], order: suborder, single: meta_subtask['single'])
+            meta_subtask['options'].each do |option|
+              Homework::Meta::Subtask::Option.create(select: subtask, answer: option)
+            end
+          end
 
         end
       end

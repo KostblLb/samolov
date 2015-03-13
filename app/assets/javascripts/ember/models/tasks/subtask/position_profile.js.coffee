@@ -1,8 +1,8 @@
 Samolov.PositionProfileAdapter = Samolov.SubtaskAdapter.extend()
 
 Samolov.PositionProfile = Samolov.Subtask.extend
-  sex:              DS.attr 'string'
-  age:              DS.attr 'string'
-  appearance:       DS.attr 'string'
-  otherPhysical:    DS.attr 'string'
+
+  profileCompulsory: DS.belongsTo 'profile'
+  profileDesirable:  DS.belongsTo 'profile'
+
   partialName: 'partials/tasks/position_profile'
