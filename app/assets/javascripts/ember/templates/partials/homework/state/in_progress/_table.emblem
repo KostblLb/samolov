@@ -17,14 +17,14 @@ table.ui.celled.striped.table
             =each cell in cells
               td
                 .ui.input.fluid
-                  =this
+                  Samolov.TableField object=this index=_view.contentIndex value=cell
         =else
           =if rowspan
             td.rowspan_cell rowspan=rowspan
-              .ui.input.fluid
-                =this
+              .ui.input.fluid class=isComplete:enabled:disabled
+                Samolov.TableField object=this index=_view.contentIndex value=cell
           =else
             =each cell in cells
               td
                 .ui.input.fluid
-                  =this
+                  Ember.TextField object=this index=_view.contentIndex value=cell

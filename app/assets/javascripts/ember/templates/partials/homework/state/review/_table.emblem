@@ -17,14 +17,14 @@ table.ui.celled.striped.table
             =each cell in cells
               td
                 .ui.input.fluid
-                  Samolov.TableField object=this index=_view.contentIndex
+                  =cell
         =else
           =if rowspan
             td.rowspan_cell rowspan=rowspan
-              .ui.input.fluid class=isComplete:enabled:disabled
-                Samolov.TableField object=this index=_view.contentIndex
+              .ui.input.fluid
+                =cell
           =else
             =each cell in cells
               td
                 .ui.input.fluid
-                  Samolov.TableField object=this index=_view.contentIndex
+                  =cell

@@ -26,7 +26,28 @@ module Api
          if @homework_progress.teacher == current_user
           result = params.require(:homework_progress).permit :state, tasks: [:id, :is_correct, :comment]
          else
-           result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :_type, :answer, rows:[cells:[]], lines:[]]]
+           result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :_type, :answer, :fish_body, :fish_body,
+                                  profile_compulsory: [:id, :sex, :age, :appearance, :other_physical, :education_level, :specialization, :additional_training,
+                                                       :languages, :work_experience, :additional_requirements, :money, :image, :security, :physical_ease,
+                                                       :psychological_ease, :self_cultivation, :additional_requirements_company],
+                                  profile_desirable: [:id, :sex, :age, :appearance, :other_physical, :education_level, :specialization, :additional_training,
+                                                      :languages, :work_experience, :additional_requirements, :money, :image, :security, :physical_ease,
+                                                      :psychological_ease, :self_cultivation, :additional_requirements_company],
+                                  answers: [:id, :answer],
+                                  rows:[ :id , cells:[]], lines:[]]]
+         end
+         result[:tasks].each do |task|
+           if  task.has_key?(:subtasks)
+             task[:subtasks].each do |subtask|
+                if subtask.has_key?(:rows)
+                  subtask[:rows_attributes]=subtask.delete(:rows)
+                end
+                if subtask.has_key?(:answers)
+                  subtask[:answer_ids]=subtask.delete(:answers)
+                end
+             end
+             task[:subtasks_attributes] = task.delete(:subtasks)
+           end
          end
          result[:tasks_attributes] = result.delete(:tasks)
          result

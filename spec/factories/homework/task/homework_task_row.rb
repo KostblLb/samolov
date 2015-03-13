@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :homework_subtask_row, class: Homework::Subtask::Row do
-    name 'row'
-    cells [nil,nil,nil]
-    colspan 3
-    rowspan 5
+    association :meta, factory: :homework_meta_row
+    cells [nil,nil]
+
   end
 end

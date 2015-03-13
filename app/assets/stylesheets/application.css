@@ -91,15 +91,11 @@
 .rowspan_cell {
     border-right: 1px solid #d4d4d5;
 }
-.border-left {
-    border-left: 1px solid #d4d4d5;
+.profile_table tr td, .profile_table tr th {
+    border-left: 1px solid #d4d4d5 !important;
+    border-top: 1px solid #d4d4d5 !important;
 }
-.border-right {
-    border-right: 1px solid #d4d4d5;
-}
-.border-bottom {
-    border-bottom: 1px solid #d4d4d5;
-}
-.border-top {
-    border-top: 1px solid #d4d4d5;
+
+.with_indent {
+    margin: 10px 0;
 }

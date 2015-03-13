@@ -1,0 +1,20 @@
+.ui.segment
+  = each tasks
+    .ui.secondary.segment
+      .ui.message class=isCorrect:positive:negative
+        .ui.header
+          | Задание № #{inc _view.contentIndex}
+        if description
+          == description
+          br
+        = each subtasks
+          br
+          if description
+            == description
+          = partial isCompletePartialName
+        .four.wide.column
+          .ui.compact.message
+            .header
+              | Комментарий
+            p
+              =comment

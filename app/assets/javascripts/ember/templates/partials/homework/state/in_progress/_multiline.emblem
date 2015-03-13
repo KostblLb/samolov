@@ -5,4 +5,4 @@
       = inc _view.contentIndex
       '
       array-item array=lineNames index=_view.contentIndex tagName='label'
-      =this
+    view Samolov.MultilineField object=this index=_view.contentIndex value=line
