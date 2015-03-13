@@ -4,5 +4,5 @@ Samolov.Table = Samolov.Subtask.extend
   rows: DS.hasMany 'row'
   col_names: DS.attr()
 
-  partialName: 'partials/tasks/table'
-  isCompletePartialName: 'partials/tasks_complete/table'
+  partialName: 'partials/homework/state/in_progress/table'
+  isCompletePartialName: 'partials/homework/state/review/table'

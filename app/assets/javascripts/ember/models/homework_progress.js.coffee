@@ -8,4 +8,6 @@ Samolov.HomeworkProgress = DS.Model.extend
   tasks: DS.hasMany 'task'
   isComplete:  DS.attr 'boolean'
 
-
+  hpn:(->
+    "partials/homework/#{@get 'state'}"
+  ).property('state')

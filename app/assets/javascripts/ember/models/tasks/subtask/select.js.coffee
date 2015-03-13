@@ -6,4 +6,4 @@ Samolov.Select = Samolov.Subtask.extend
   options: DS.hasMany 'option'
   answers: DS.hasMany 'option'
 
-  partialName: 'partials/tasks/select'
+  partialName: 'partials/homework/state/in_progress/select'

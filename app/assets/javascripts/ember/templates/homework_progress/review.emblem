@@ -7,9 +7,14 @@ h2.ui.header
         | Задание № #{inc _view.contentIndex}
       .ui.grid
         .twelve.wide.column
-          == description
-          br
-          = partial partialName
+          if description
+            == description
+            br
+          = each subtasks
+            br
+            if description
+              == description
+            = partial isCompletePartialName
         .four.wide.column
           form.ui.form
             .field

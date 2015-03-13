@@ -1,0 +1,18 @@
+.ui.segment
+  = each tasks
+    .ui.secondary.segment
+      .ui.header
+        | Задание № #{inc _view.contentIndex}
+      if description
+        == description
+        br
+      = each subtasks
+        br
+        if description
+          == description
+        = partial partialName
+
+.ui.primary.button{action 'saveHomework'}
+  |Сохранить
+.ui.primary.button{action 'sendHomework'}
+  |Отправить

@@ -3,6 +3,6 @@
   .ui.fluid.labeled.input
     .ui.label class=isComplete:enabled:disabled
       = inc _view.contentIndex
-      '
+      |.
       array-item array=lineNames index=_view.contentIndex tagName='label'
-      =this
+      =line
