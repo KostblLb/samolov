@@ -139,7 +139,7 @@ h2.ui.header
                     = else
                       i.remove.icon
                   td.center.aligned
-                    = link-to 'homework_progress.review' homeworkProgress.id
+                    = link-to 'homework_review' homeworkProgress.id
                       = if homeworkIsComplete
                         i.checkmark.icon
                       = else

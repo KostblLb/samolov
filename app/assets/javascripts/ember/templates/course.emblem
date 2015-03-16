@@ -1,3 +1,5 @@
-= view 'progress_header' label='Успех курса' link='course.index'
-
+.ui.basic.segment
+  h2.ui.left.floated.header
+    link-to 'course.index'
+      = name
 = outlet
