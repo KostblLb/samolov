@@ -5,10 +5,14 @@ Samolov.HomeworkProgressIndexController = Ember.ObjectController.extend
     sendHomework:->
       progress = @model
       progress.set 'state', 'review'
-      progress.save()
+      progress.save().then ->
+        @transitionToRoute('homework_progress', progress.id)
 
     saveHomework:->
-      @model.save()
+      progress = @model
+      progress.save().then ->
+      progress.set 'isSaved', true
+      window.scrollTo 0, 0
 
 
 
