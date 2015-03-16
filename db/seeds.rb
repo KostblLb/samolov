@@ -24,9 +24,11 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
           suborder +=1
           if meta_subtask['task_class']=='Table'
             subtask = Homework::Meta::Subtask::Table.create(task: task, task_class: meta_subtask['task_class'],
-                                                   description: meta_subtask['description'], order: suborder, col_names: meta_subtask['col_names'])
+                                                   description: meta_subtask['description'], order: suborder,
+                                                   col_names: meta_subtask['col_names'])
             meta_subtask['rows'].each do |row|
-              Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'], colspan: row['colspan'], rowspan: row['rowspan'])
+              Homework::Meta::Subtask::Row.create(meta_task: subtask, meta_cells: row['cells'], name:row['name'],
+                                                  colspan: row['colspan'], rowspan: row['rowspan'])
             end
           end
           if meta_subtask['task_class']=='Text'
@@ -43,11 +45,13 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
           end
           if meta_subtask['task_class']=='Multiline'
               Homework::Meta::Subtask::Multiline.create(task: task, task_class: meta_subtask['task_class'],
-                                                   description: meta_subtask['description'], order: suborder, lines: meta_subtask['lines'], line_names: meta_subtask['line_names'])
+                                                   description: meta_subtask['description'], order: suborder,
+                                                   lines: meta_subtask['lines'], line_names: meta_subtask['line_names'])
           end
           if meta_subtask['task_class']=='Select'
             subtask = Homework::Meta::Subtask::Select.create(task: task, task_class: meta_subtask['task_class'],
-                                                      description: meta_subtask['description'], order: suborder, single: meta_subtask['single'])
+                                                      description: meta_subtask['description'], order: suborder,
+                                                      single: meta_subtask['single'], name: meta_subtask['name'])
             meta_subtask['options'].each do |option|
               Homework::Meta::Subtask::Option.create(select: subtask, answer: option)
             end

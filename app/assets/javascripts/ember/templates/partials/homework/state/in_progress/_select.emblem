@@ -1,4 +1,4 @@
 .ui.stacked.segment
   = each option in options
     .field.with_indent
-      radio-button name='user_answer' selection=answers value=option label=option.answer single=single
+      radio-button name=name selection=answers value=option label=option.answer single=single
