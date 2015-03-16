@@ -2,9 +2,10 @@ Samolov.QuizProgressController = Ember.ObjectController.extend Samolov.UnitNextS
   needs: ['unit']
   unit: Ember.computed.alias('controllers.unit.model')
   canNext: (->
+    true
     state = @get('unit.myProgress.state')
     if @model.get('isQuiz')
-      return state == 'summary'
+      return state == 'quiz'
     else
-      return state == 'webinar'
+      return state == 'case'
   ).property('model')

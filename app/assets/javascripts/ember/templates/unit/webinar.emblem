@@ -15,5 +15,5 @@
 
   = if video
     .ui.blue.ribbon.label
-      | Видио из архива
+      | Видео из архива
     ui-video data_url=video

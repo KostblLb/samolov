@@ -39,8 +39,10 @@ p
   | Баллы -&nbsp
   = points
 
+
+
 = if canNext
-  link-to 'unit' unit.id
+  .next_button{action 'nextStep'}
     .ui.right.labeled.green.icon.button
       | Далее
       i.right.arrow.icon
