@@ -11,6 +11,8 @@ Samolov.HomeworkProgress = DS.Model.extend
   unitId: DS.attr 'string'
   unitState: DS.attr 'string'
 
+  isSaved: false
+
   hpn:(->
     "partials/homework/#{@get 'state'}"
   ).property('state')

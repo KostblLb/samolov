@@ -10,16 +10,16 @@
           br
           = f.email_field :email, autofocus: true
         .field
-          = f.label :password
+          = f.label :password, 'Пароль'
           - if @validatable
             em
               | (
               = @minimum_password_length
-              |  characters minimum)
+              |  символов минимум)
           br
           = f.password_field :password, autocomplete: "off"
         .field
-          = f.label :password_confirmation
+          = f.label :password_confirmation, 'Подтверждение'
           br
           = f.password_field :password_confirmation, autocomplete: "off"
         .actions

@@ -1,4 +1,10 @@
 .ui.segment
+  =if isSaved
+    .ui.info.message
+      .header
+        |Домашнее задание сохранено
+      p
+        |Вы можете продолжить выполнение позже
   = each tasks
     .ui.secondary.segment
       .ui.header
