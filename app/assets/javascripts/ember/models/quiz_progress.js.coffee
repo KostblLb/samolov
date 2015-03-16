@@ -9,3 +9,4 @@ Samolov.QuizProgress = DS.Model.extend Samolov.ProgressMixin,
 
   unitId: DS.attr 'string'
   isQuiz: DS.attr 'boolean'
+  isCase: DS.attr 'boolean'
