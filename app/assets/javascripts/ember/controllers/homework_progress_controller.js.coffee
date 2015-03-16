@@ -1,4 +1,4 @@
-Samolov.HomeworkProgressIndexController = Ember.ObjectController.extend
+Samolov.HomeworkProgressController = Ember.ObjectController.extend
 
 
   actions:
