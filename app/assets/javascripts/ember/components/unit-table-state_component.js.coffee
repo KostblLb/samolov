@@ -16,7 +16,7 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
 
 
   stepSupported: (->
-    !(@get('progress').get('isExam') && @get('step') not in @get('examSatets'))
+    !(@get('progress').get('isExam') && @get('examSatets').indexOf(@get('step')) == -1)
   ).property('progress', 'step')
 
   stepIsCompleted: (->
