@@ -8,6 +8,7 @@ class Question
   has_many :user_answers, dependent: :destroy
 
   accepts_nested_attributes_for :answers
+  delegate :preview_image, to: :quiz
 
   alias :name :text
 

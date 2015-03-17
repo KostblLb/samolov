@@ -10,6 +10,7 @@ class UnitProgress
 
   belongs_to :unit
 
+  before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, :teacher, to: :course_part_progress
@@ -47,6 +48,11 @@ class UnitProgress
     homework_progress.id
   end
   private
+
+  def set_init_state_for_exam
+    self.state = 'case' if is_exam
+  end
+
   def safe_get_points(method)
     quiz_points = quiz_progress.try(method) || 0
     case_points = case_progress.try(method) || 0
