@@ -1,1 +1,4 @@
-== summary
+=if summaryIsAvailable
+  == summary
+=else
+  =partial 'unit/is_not_available'

@@ -12,7 +12,7 @@
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           .content
             .title Видео
-        link-to 'quiz' quiz.id classNameBindings=':step myProgress.quizIsComplete:completed'
+        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':step myProgress.quizIsComplete:completed'
           .content
             .title Тест
         link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'

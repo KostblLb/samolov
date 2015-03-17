@@ -19,6 +19,7 @@ module Homework
     def total_tasks
       tasks.size
     end
+
     def max_points
       total_tasks*5
     end
