@@ -10,12 +10,10 @@ class UnitProgress
 
   belongs_to :unit
 
-  after_create :create_quiz_progress
-  after_create :create_homework_prog
+  after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, to: :course_part_progress
   delegate :teacher, to: :course_part_progress
-  
 
 
   state_machine :initial => :video do
@@ -56,12 +54,11 @@ class UnitProgress
   end
 
   def create_quiz_progress
-    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
-    unit.case.quiz_progresses.create user: user, case_progress_socket: self
+    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self if unit.quiz.present?
+    unit.case.quiz_progresses.create user: user, case_progress_socket: self if unit.case.present?
   end
 
-
   def create_homework_prog
-    unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil?
+    unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil? if unit.homework_meta.present?
   end
 end
