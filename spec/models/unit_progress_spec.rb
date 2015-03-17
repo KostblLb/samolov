@@ -9,6 +9,13 @@ RSpec.describe UnitProgress do
       expect(subject.quiz_progress)
       expect(subject.case_progress)
     end
+
+    context 'create exam' do
+      subject{create :unit_progress, unit: create(:exam)}
+      it 'has state equals case' do
+        expect(subject.case?).to be_truthy
+      end
+    end
   end
 
   describe 'next step' do
