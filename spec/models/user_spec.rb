@@ -32,9 +32,9 @@ RSpec.describe User, :type => :model do
   end
 
   describe '#unreads_messages_count' do
-    let(:conversations) {create :conversations}
+    let(:conversation) {create :conversation}
     subject { conversation.users.last.unreads_messages_count }
-    it {is_expected.to eq(1)}
+    it {is_expected.to eq(2)}
   end
 
   describe '#friends' do
