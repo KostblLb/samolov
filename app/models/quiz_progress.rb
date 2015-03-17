@@ -51,6 +51,16 @@ class QuizProgress
     current_question.nil?
   end
 
+  def quiz?
+    self.quiz_progress_socket.present?
+  end
+  alias :is_quiz :quiz?
+
+  def case?
+    self.case_progress_socket.present?
+  end
+  alias :is_case :case?
+
   private
   def set_current_question
     self.current_question = quiz.questions.first

@@ -71,4 +71,32 @@ describe QuizProgress do
       it{is_expected.to eq(0)}
     end
   end
+
+  describe '#is_quiz' do
+
+    subject{quiz_progress.quiz?}
+    context 'quiz progress socket' do
+      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+      it { is_expected.to be_truthy }
+    end
+
+    context 'case progress socket' do
+      let(:quiz_progress) {create :quiz_progress, case_progress_socket: (create :unit_progress)}
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe '#is_case' do
+
+    subject{quiz_progress.case?}
+    context 'case progress socket' do
+      let(:quiz_progress) {create :quiz_progress, case_progress_socket: (create :unit_progress)}
+      it { is_expected.to be_truthy }
+    end
+
+    context 'quiz progress socket' do
+      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+      it { is_expected.to be_falsey }
+    end
+  end
 end
