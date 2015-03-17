@@ -21,7 +21,7 @@
     tbody
       = each units
         = with myProgress
-          link-to 'unit' unit.id tagName='tr'
+          link-to 'unit' unit.id tagName='tr' class='unitRow'
             td
               = unit.name
             unit-table-state progress=this step='video'
