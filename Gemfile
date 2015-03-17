@@ -53,7 +53,7 @@ gem 'momentjs-rails'
 gem 'ember-validations-rails'
 
 gem 'semantic-ui-rails', github: 'max-konin/semantic-ui-rails', branch: 'v1.x'
-gem 'therubyracer', platforms: :ruby # or any other runtime
+gem 'therubyracer', '0.12.0', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'autoprefixer-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
