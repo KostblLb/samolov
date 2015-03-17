@@ -3,18 +3,25 @@
 .ui.segment
   .ui.header
     .ui.steps
-      link-to 'unit.index' id (query-params scope='video') class="step"
-        | Видео
-      link-to 'quiz' quiz.id class="step"
-        | Тест
-      link-to 'unit.index' id (query-params scope='summary') class="step"
-        | Конспект
-      link-to 'quiz' case.id class="step"
-        | Кейс
-      link-to 'unit.index' id (query-params scope='webinar') class="step"
-        | Вебинар
-      link-to 'homework_progress' myProgress.homeworkProgress.id class="step"
-        | Домашнее задание
+      = if isExam
+        link-to 'quiz' case.id class="step"
+          | Тест
+        link-to 'unit.index' id (query-params scope='webinar') class="step"
+          | Скайп игра
+      = else
+        link-to 'unit.index' id (query-params scope='video') class="step"
+          | Видео
+        link-to 'quiz' quiz.id class="step"
+          | Тест
+        link-to 'unit.index' id (query-params scope='summary') class="step"
+          | Конспект
+        link-to 'quiz' case.id class="step"
+          | Кейс
+        link-to 'unit.index' id (query-params scope='webinar') class="step"
+          | Вебинар
+        link-to 'homework_progress' myProgress.homeworkProgress.id class="step"
+          | Домашнее задание
+
 
   .ui.secondary.segment
     = outlet
