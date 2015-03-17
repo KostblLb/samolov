@@ -2,26 +2,30 @@
 
 .ui.segment
   .ui.header
-    .ui.steps
+    .ui.ordered.steps
       = if isExam
         link-to 'quiz' case.id class="step"
           | Тест
         link-to 'unit.index' id (query-params scope='webinar') class="step"
           | Скайп игра
-      = else
-        link-to 'unit.index' id (query-params scope='video') class="step"
-          | Видео
-        link-to 'quiz' quiz.id class="step"
-          | Тест
-        link-to 'unit.index' id (query-params scope='summary') class="step"
-          | Конспект
-        link-to 'quiz' case.id class="step"
-          | Кейс
-        link-to 'unit.index' id (query-params scope='webinar') class="step"
-          | Вебинар
-        link-to 'homework_progress' myProgress.homeworkProgress.id class="step"
-          | Домашнее задание
-
-
+      = else     
+        link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
+          .content
+            .title Видео
+        link-to 'quiz' quiz.id classNameBindings=':step myProgress.quizIsComplete:completed'
+          .content
+            .title Тест
+        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
+          .content
+            .title Конспект
+        link-to 'quiz' case.id classNameBindings=':step myProgress.caseIsComplete:completed'
+          .content
+            .title Кейс
+        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed'
+          .content
+            .title Вебинар
+        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkIsComplete:completed'
+          .content
+            .title Домашнее задание
   .ui.secondary.segment
     = outlet

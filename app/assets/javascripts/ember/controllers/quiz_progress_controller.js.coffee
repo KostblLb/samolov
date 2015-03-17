@@ -23,5 +23,3 @@ Samolov.QuizProgressController = Ember.ObjectController.extend Samolov.UnitNextS
           false
 
   ).property('model')
-
-#  states: ['video', 'quiz', 'summary', 'case', 'webinar', 'homework']
