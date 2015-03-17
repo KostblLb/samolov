@@ -15,6 +15,7 @@
         | Вебинар
       link-to 'homework_progress' myProgress.homeworkProgress.id class="step"
         | Домашнее задание
-
   .ui.secondary.segment
     = outlet
+
+
