@@ -8,12 +8,12 @@ RSpec.describe Homework::Meta::Subtask::Table do
     it {is_expected.to be_a(Homework::Subtask::Table)}
 
     it 'has column names' do
-      expect(subject.col_names).to eq(['col 1', 'col 2'])
+      expect(subject.col_names).to eq(['a', 'b', 'c'])
     end
 
     it 'has correct rows' do
       expect(subject.rows.size).to eq(2)
-      expect(subject.rows.first.name).to eq('this is row')
+      expect(subject.rows.first.name).to eq('row')
       expect(subject.rows.first.cells.size).to eq(2)
     end
   end

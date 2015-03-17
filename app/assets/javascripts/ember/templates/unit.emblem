@@ -8,7 +8,7 @@
           | Тест
         link-to 'unit.index' id (query-params scope='webinar') class="step"
           | Скайп игра
-      = else     
+      = else
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           .content
             .title Видео

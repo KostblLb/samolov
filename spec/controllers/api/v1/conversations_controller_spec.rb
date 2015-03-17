@@ -54,7 +54,7 @@ RSpec.describe Api::V1::ConversationsController, :type => :controller do
       end
       it 'add new_user in conversation' do
         subject
-        expect(assigns(:conversation).users.count).to eq(1)
+        expect(assigns(:conversation).users.count).to eq(2)
       end
   end
 

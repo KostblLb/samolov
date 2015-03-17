@@ -84,7 +84,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       end
 
       context 'homework has text task' do
-        let(:homework_progress) {create :homework_progress, student: student, state: 'review', unit_progress: unit_progress}
+        let(:homework_progress) {create :homework_progress, state: 'review', unit_progress: unit_progress}
         let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', is_correct: true}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
