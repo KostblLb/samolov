@@ -9,6 +9,13 @@ FactoryGirl.define do
     association :homework_meta, factory: :homework_meta_progress
   end
 
+  factory :exam, class: Unit do
+    name "MyString"
+    association :part
+    association :quiz, factory: :quiz
+    is_exam true
+  end
+
   factory :unit_without_part, class: Unit do
     name "MyString"
     video_link "MyString"
