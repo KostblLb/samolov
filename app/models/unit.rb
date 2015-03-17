@@ -4,6 +4,8 @@ class Unit
   field :name
   field :video_link
   field :summary
+  field :is_exam, type: Mongoid::Boolean, default: false
+
   has_many :unit_progresses
 
   embeds_one :webinar
@@ -30,5 +32,5 @@ class Unit
 
   accepts_nested_attributes_for :webinar
 
-  validates_presence_of :name, :summary, :part
+  validates_presence_of :name, :part
 end

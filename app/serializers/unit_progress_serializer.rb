@@ -1,5 +1,6 @@
 class UnitProgressSerializer < ActiveModel::Serializer
-  attributes :id, :state, :points, :max_points, :user_id, :unit_id, :homework_progress_id, :quiz_progress_id, :case_progress_id
+  attributes :id, :state, :points, :max_points, :user_id, :unit_id, :homework_progress_id, :quiz_progress_id,
+             :case_progress_id, :is_exam
 
   def state
     @object.state.to_s
