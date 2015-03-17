@@ -11,6 +11,9 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   stepIsComplite: (step) ->
     @states.indexOf(step) < @states.indexOf(@get 'state')
 
+  stepIsActive: (step) ->
+    @states.indexOf(step) == @states.indexOf(@get 'state')
+
   videoIsComplete: (->
     @stepIsComplite 'video'
   ).property('state')
@@ -33,6 +36,10 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
 
   homeworkIsComplete: (->
     @stepIsComplite 'homework'
+  ).property('state')
+
+  quizIsActive: (->
+    @stepIsActive 'quiz'
   ).property('state')
 
 
