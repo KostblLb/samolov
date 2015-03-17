@@ -7,4 +7,4 @@ Samolov.HomeworkProgressRoute = Ember.Route.extend
     if model.get('isAvailable')
       @transitionTo('homework_progress', model.get('id'))
     else
-      @transitionTo('unit.index', uId, {queryParams: {scope: 'homework'}})
+      @transitionTo('unit.index', uId, {queryParams: {scope: 'is_not_available'}})
