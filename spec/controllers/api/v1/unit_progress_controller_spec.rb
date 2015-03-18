@@ -7,10 +7,20 @@ RSpec.describe Api::V1::UnitProgressesController, :type => :controller do
   end
 
   describe 'PUT update' do
-    subject{put :update, id: unit_progress.id, unit_progress: {state: "quiz"}}
+    subject{put :update, id: unit_progress.id, unit_progress: {state_event: 'next_step'}}
 
     it 'updates state' do
-      expect{subject}.to change{unit_progress.reload.state}.to("quiz")
+      expect{subject}.to change{unit_progress.reload.state}
+    end
+
+    it 'assigns unit_progress has a new state' do
+      subject
+      expect((assigns :unit_progress).state).to eq('quiz')
+    end
+
+    it 'returns updated unit_progress as JSON' do
+      subject
+      expect(response.body).to eq(UnitProgressSerializer.new(assigns :unit_progress).to_json)
     end
   end
 end

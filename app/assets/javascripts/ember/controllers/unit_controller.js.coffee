@@ -6,19 +6,7 @@ Samolov.UnitController = Ember.ObjectController.extend
   actions:
     nextStep: ->
       progress = @model.get('myProgress')
-      homework = @model.get('myProgress.homeworkProgress')
-      currentStateName = progress.get('state')
-      nextState = @states.indexOf(currentStateName) + 1
-      progress.set 'state', @states[nextState]
-      progress.save().then =>
-        if @states[nextState]=='quiz'
-          @transitionToRoute('quiz', @model.get('quiz.id'))
-        else
-          if @states[nextState]=='case'
-            @transitionToRoute('quiz', @model.get('case.id'))
-          else
-            if @states[nextState]=='homework'
-              homework.set 'isAvailable', true
-              @transitionToRoute('homework_progress')
-            else
-            @transitionToRoute('unit.index', @model.get('id'),{queryParams: {scope: @states[nextState]}})
+      progress.set 'stateEvent', 'next_step'
+      progress.save().then (newProgress)=>
+        newProgress.set 'stateEvent', null
+        @transitionToRoute('unit.index', @model.id, {queryParams: {scope: newProgress.get('state')}})
