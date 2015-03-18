@@ -10,7 +10,7 @@ RSpec.describe Homework::Progress do
 
   describe '#max_points' do
     subject {homework_progress.max_points}
-    it {is_expected.to eq(5)}
+    it {is_expected.to eq(10)}
   end
 
   describe '#correct_answer_counter' do

@@ -1,6 +1,7 @@
 module Homework
   class Progress
     include Mongoid::Document
+    include PointsCounter
 
     field :name
     field :is_complete
@@ -20,23 +21,11 @@ module Homework
       tasks.count
     end
 
-    def max_points
-      scale.points_for 0
-    end
-
-    def points
-      if state == 'verified'
-        scale.points_for mistakes_counter
-      else
-        0
-      end
-    end
-
     def correct_answer_counter
       tasks.where(is_correct: true).size
     end
 
-    def mistakes_counter
+    def mistakes_count
       total_tasks - correct_answer_counter
     end
 
@@ -60,6 +49,14 @@ module Homework
     end
 
     private
+      def finished?
+        verified?
+      end
+
+      def double_if_necessary(points)
+        points * 2
+      end
+
       def create_tasks
         homework_metas.each do |meta|
           meta.create_tasks_by_meta(self, meta)

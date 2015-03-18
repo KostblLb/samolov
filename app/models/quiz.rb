@@ -16,6 +16,10 @@ class Quiz
 
   accepts_nested_attributes_for :questions
 
+  def unit
+    quiz_socket || case_socket
+  end
+
   protected
   def only_one_socket_present
     errors[:case_socket] << 'only one socket can be presented' if quiz_socket.present? && case_socket.present?
