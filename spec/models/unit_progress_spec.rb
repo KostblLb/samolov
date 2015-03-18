@@ -51,15 +51,4 @@ RSpec.describe UnitProgress do
       it {is_expected.to eq(2 * (progress.quiz_progress.points + progress.case_progress.points + progress.webinar_score))}
     end
   end
-
-  describe 'step after last question' do
-    subject{FactoryGirl.create :unit_progress, state: 'quiz', quiz_progress:(create :quiz_progress, current_question: nil)}
-
-    it 'does step after last question' do
-      FactoryGirl.create :user_answer, quiz_progress: subject.quiz_progress
-      FactoryGirl.create :user_answer, quiz_progress: subject.quiz_progress
-      expect(subject.state).to eq("summary")
-    end
-  end
-
 end

@@ -9,15 +9,21 @@ module Api
       end
 
       def update
-         @unit_progress.update unit_progress_params
-         respond_with @unit_progress
+         if @unit_progress.update unit_progress_params
+           @unit_progress.reload
+           respond_to do |format|
+             format.json {render json: @unit_progress, status: :ok, location: false}
+           end
+         else
+           respond_with @unit_progress, status: :unprocessable_entity, location: false
+         end
       end
       private
         def unit_progress_params
           if @unit_progress.teacher == current_user
             params.require(:unit_progress).permit :webinar_score
           else
-            params.require(:unit_progress).permit :state
+            params.require(:unit_progress).permit :state_event
           end
         end
 
