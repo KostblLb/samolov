@@ -27,15 +27,28 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       context 'has table task' do
         let(:homework_progress) {create :homework_progress_with_table, unit_progress: unit_progress}
         let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:
-                         [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Table', rows: [id:homework_progress.tasks.first.subtasks.first.rows.first.id, cells:['1','2']]]]}}
+                                                                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Table',
+                                                                           rows: [id:homework_progress.tasks.first.subtasks.first.rows.first.id, cells: cells]]]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
-        it 'updates table' do
-          expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.rows.first.cells}.to(["1","2"])
-        end
-        it 'doesnt touch meta' do
-          expect{subject}.to_not change{homework_progress.reload.tasks.first.subtasks.first.meta}
-          expect{subject}.to_not change{homework_progress.reload.tasks.first.subtasks.first.rows.first.meta}
 
+        RSpec.shared_examples 'update data' do
+          it 'updates table' do
+            expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.rows.first.cells}.to(cells)
+          end
+          it 'doesnt touch meta' do
+            expect{subject}.to_not change{homework_progress.reload.tasks.first.subtasks.first.meta}
+            expect{subject}.to_not change{homework_progress.reload.tasks.first.subtasks.first.rows.first.meta}
+          end
+        end
+
+        context 'cells have not null elements' do
+          let(:cells) {['1', '2']}
+          include_examples 'update data'
+        end
+        context 'cells have  null elements' do
+          let(:cells) {['1', nil]}
+          include_examples 'update data'
+          it {expect{subject}.not_to change{homework_progress.tasks.first.subtasks.first.rows.first.cells.count}}
         end
       end
 

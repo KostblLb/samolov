@@ -16,4 +16,3 @@ Samolov.HomeworkProgress = DS.Model.extend
   hpn:(->
     "partials/homework/#{@get 'state'}"
   ).property('state')
-
