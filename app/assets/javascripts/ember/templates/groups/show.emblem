@@ -141,7 +141,7 @@ h2.ui.header
                       i.remove.icon
                   td.center.aligned
                     = link-to 'homework_review' homeworkProgress.id
-                      = if homeworkIsComplete
+                      = if homeworkProgress.isComplete
                         i.checkmark.icon
                       = else
                         i.remove.icon

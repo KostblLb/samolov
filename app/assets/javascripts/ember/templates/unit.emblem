@@ -24,7 +24,7 @@
         link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed'
           .content
             .title Вебинар
-        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkIsComplete:completed'
+        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed'
           .content
             .title Домашнее задание
   .ui.secondary.segment
