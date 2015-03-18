@@ -26,6 +26,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    nestable
 
     ## With an audit adapter, you can add:
     # history_index
@@ -46,5 +47,7 @@ RailsAdmin.config do |config|
     include_all_fields
   end
 
-
+  config.model Unit do
+    nestable_list true
+  end
 end

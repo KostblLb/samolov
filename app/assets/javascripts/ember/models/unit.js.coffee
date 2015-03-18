@@ -4,6 +4,7 @@ Samolov.Unit = DS.Model.extend
   name: DS.attr 'string'
   summary: DS.attr 'string'
   videoLink: DS.attr 'string'
+  position: DS.attr 'number'
   quiz: DS.belongsTo 'quiz', async: true
   case: DS.belongsTo 'quiz', async: true
 #
@@ -14,6 +15,8 @@ Samolov.Unit = DS.Model.extend
   myProgress: DS.belongsTo 'unit_progress'
   part: DS.belongsTo 'part', async: true
   webinar: DS.belongsTo 'webinar'
+
+
 
   unitProgresses: DS.hasMany 'unit_progresses', inverse: 'unit'
 

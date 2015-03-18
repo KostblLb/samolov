@@ -1,6 +1,7 @@
 class CourseProgress
   include Mongoid::Document
 
+  field :is_complete, default: false
   # TODO: should be deprecated. Course should be delegated to group
   belongs_to :course
   belongs_to :user
