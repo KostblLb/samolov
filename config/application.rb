@@ -28,6 +28,7 @@ module Samolov
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.action_dispatch.cookies_serializer = :json
+    config.action_dispatch.perform_deep_munge = false
 
     config.ember.ember_path = "#{Rails.root}/app/assets/javascripts/ember"
     config.handlebars.templates_root = "ember/templates"

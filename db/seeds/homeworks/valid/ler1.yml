@@ -19,186 +19,118 @@
             -
             -
     -
+      description: 'Напишите по одной SMART – цели в каждой ключевой области из задания №1 на период в один год.'
       subtasks:
         -
           task_class:  Table
-          description: 'Напишите по одной SMART – цели в каждой ключевой области из задания №1 на период в один год.'
-          order: 1
-          col_names:
-           - Ключевые области
-           - SMART-цели на год.
           rows:
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            name:
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            rowspan: 5
-            cells:
-             -
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
-           -
-            cells:
-             -
+            -
+              name: Ключевая область №1
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №2
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №3
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №4
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №5
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №6
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №7
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №8
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №9
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
+        -
+          task_class:  Table
+          rows:
+            -
+              name: Ключевая область №10
+              cells:
+                -
+            -
+              name: SMART-цель на год
+              cells:
+                -
     -
       description: 'Выберите одну приоритетную цель на ближайшее время. Распишите её на задачи (не менее 5), при формулировке задач используйте критерии SMART.<br>'
       subtasks:

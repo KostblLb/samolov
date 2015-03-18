@@ -19,12 +19,7 @@ table.ui.celled.striped.table
                 .ui.input.fluid
                   =cell
         =else
-          =if rowspan
-            td.rowspan_cell rowspan=rowspan
+          =each cell in cells
+            td
               .ui.input.fluid
                 =cell
-          =else
-            =each cell in cells
-              td
-                .ui.input.fluid
-                  =cell
