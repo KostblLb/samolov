@@ -9,6 +9,13 @@ RSpec.describe UnitProgress do
       expect(subject.quiz_progress)
       expect(subject.case_progress)
     end
+
+    context 'create exam' do
+      subject{create :unit_progress, unit: create(:exam)}
+      it 'has state equals case' do
+        expect(subject.case?).to be_truthy
+      end
+    end
   end
 
   describe 'next step' do
@@ -21,18 +28,28 @@ RSpec.describe UnitProgress do
     end
   end
   describe '#max_points' do
-    let(:progress) {FactoryGirl.create :unit_progress}
+    subject {progress.max_points}
+    context 'unit is not exam' do
+      let(:progress) {create :unit_progress}
+      it {is_expected.to eq(progress.quiz_progress.max_points + progress.case_progress.max_points)}
+    end
 
-    it 'returns sum of max points quiz and case' do
-      expect(progress.max_points).to eq(progress.quiz_progress.max_points + progress.case_progress.max_points)
+    context 'unit is exam' do
+      let(:progress) {create :unit_progress, unit: create(:exam)}
+      it {is_expected.to eq(2 * (progress.quiz_progress.max_points + progress.case_progress.max_points))}
     end
   end
 
   describe '#points' do
-    let(:progress) {FactoryGirl.create :unit_progress}
     subject {progress.points}
-
-    it {is_expected.to eq(progress.quiz_progress.points + progress.case_progress.points)}
+    context 'unit is not exam' do
+      let(:progress) {create :unit_progress}
+      it {is_expected.to eq(progress.quiz_progress.points + progress.case_progress.points)}
+    end
+    context 'unit is exam' do
+      let(:progress) {create :unit_progress, unit: create(:exam)}
+      it {is_expected.to eq(2 * (progress.quiz_progress.points + progress.case_progress.points))}
+    end
   end
 
   describe 'step after last question' do

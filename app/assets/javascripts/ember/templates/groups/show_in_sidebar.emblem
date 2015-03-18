@@ -16,7 +16,8 @@
             img.ui.avatar.image src=user.avatarUrl
             .content
               .header
-                = user.fullName
+                link-to 'users.show' user.id
+                  = user.fullName
               | Кол-во баллов -&nbsp
               = points
 

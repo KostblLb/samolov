@@ -3,6 +3,9 @@ module Homework
     class Profile
       include Mongoid::Document
 
+      embedded_in :position_profile, class_name: 'Homework::Subtask::PositionProfile', inverse_of: :profile_compulsory
+      embedded_in :position_profile, class_name: 'Homework::Subtask::PositionProfile', inverse_of: :profile_desirable
+
       field :sex
       field :age
       field :appearance

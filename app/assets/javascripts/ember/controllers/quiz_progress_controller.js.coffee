@@ -4,7 +4,22 @@ Samolov.QuizProgressController = Ember.ObjectController.extend Samolov.UnitNextS
   canNext: (->
     state = @get('unit.myProgress.state')
     if @model.get('isQuiz')
-      return state == 'summary'
+      return state == 'quiz'
     else
-      return state == 'webinar'
+      return state == 'case'
+  ).property('model')
+
+  isNotAvailable: (->
+    state = @get('unit.myProgress.state')
+    if state == 'video'
+      true
+    else
+      if @model.get('isQuiz')
+        return state == 'video'
+      else
+        if @model.get('isCase')
+          return state == 'video' || state == 'quiz' || state == 'summary'
+        else
+          false
+
   ).property('model')

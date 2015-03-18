@@ -1,19 +1,22 @@
-= with webinar
-  .ui.blue.ribbon.label
-    | Ссылка
-  p
-    a href=link target='_blank'
-      | Перейти к вебинару
-  .ui.blue.ribbon.label
-    | Начало
-  p
-    = formattedStart
-  .ui.blue.ribbon.label
-    | Закончится
-  p
-    = formattedEnd
-
-  = if video
+=if myProgress.webinarIsAvailable
+  = with webinar
     .ui.blue.ribbon.label
-      | Видио из архива
-    ui-video data_url=video
+      | Ссылка
+    p
+      a href=link target='_blank'
+        | Перейти к вебинару
+    .ui.blue.ribbon.label
+      | Начало
+    p
+      = formattedStart
+    .ui.blue.ribbon.label
+      | Закончится
+    p
+      = formattedEnd
+
+    = if video
+      .ui.blue.ribbon.label
+        | Видео из архива
+      ui-video data_url=video
+=else
+  =partial 'unit/is_not_available'

@@ -99,3 +99,7 @@
 .with_indent {
     margin: 10px 0;
 }
+
+.unitRow {
+    cursor: pointer;
+}

@@ -4,7 +4,7 @@ module Homework
 
       has_and_belongs_to_many :answers, class_name: 'Homework::Meta::Subtask::Option'
 
-      delegate :options, :single, to: :meta
+      delegate :options, :single, :name, to: :meta
 
     end
   end

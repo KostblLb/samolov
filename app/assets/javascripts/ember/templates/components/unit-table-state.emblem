@@ -1,0 +1,11 @@
+
+= if stepSupported
+  = if stepIsCompleted
+    = if template
+      = yield
+    = else
+      i.checkmark.icon
+  = else
+    i.wait.icon
+= else
+  i.ban.icon

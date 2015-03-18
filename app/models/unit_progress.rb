@@ -10,13 +10,12 @@ class UnitProgress
 
   belongs_to :unit
 
-  after_create :create_quiz_progress
-  after_create :create_homework_prog
+  before_create :set_init_state_for_exam
+  after_create :create_quiz_progress, :create_homework_prog
   after_save :resolve_state
 
-  delegate :scale, to: :course_part_progress
-  delegate :teacher, to: :course_part_progress
-  
+  delegate :scale, :teacher, to: :course_part_progress
+  delegate :is_exam, to: :unit
 
 
   state_machine :initial => :video do
@@ -49,6 +48,7 @@ class UnitProgress
   def points
     safe_get_points :points
   end
+
   def hpid
     homework_progress.id
   end
@@ -57,27 +57,32 @@ class UnitProgress
     if state == 'done'
       next_unit = course_part_progress.units.find_by(unit.position+1)
       if next_unit
-        next_unit.state='video'
+        next_unit.state = 'video'
       else
         course_part_progress.is_complete = true
       end
     end
   end
+  
   private
+
+  def set_init_state_for_exam
+    self.state = 'case' if is_exam
+  end
 
   def safe_get_points(method)
     quiz_points = quiz_progress.try(method) || 0
     case_points = case_progress.try(method) || 0
-    quiz_points + case_points
+    result = quiz_points + case_points
+    is_exam ? result * 2 : result
   end
 
   def create_quiz_progress
-    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self
-    unit.case.quiz_progresses.create user: user, case_progress_socket: self
+    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self if unit.quiz.present?
+    unit.case.quiz_progresses.create user: user, case_progress_socket: self if unit.case.present?
   end
 
-
   def create_homework_prog
-    unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil?
+    unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil? if unit.homework_meta.present?
   end
 end

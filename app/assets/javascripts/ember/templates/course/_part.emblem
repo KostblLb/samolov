@@ -21,47 +21,19 @@
     tbody
       = each units
         = with myProgress
-          link-to 'unit' unit.id tagName='tr'
+          link-to 'unit' unit.id tagName='tr' class='unitRow'
             td
               = unit.name
-            = if videoIsComplete
-              td.positive
-                i.checkmark.icon
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='video'
 
-            = if quizIsComplete
-              td.positive
-                = quizProgress.points
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='quiz'
+              = quizProgress.points
 
-            = if summaryIsComplete
-              td.positive
-                i.checkmark.icon
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='summary'
 
-            = if caseIsComplete
-              td.positive
-                = caseProgress.points
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='case'
+              = caseProgress.points
 
-            = if webinarIsComplete
-              td.positive
-                i.checkmark.icon
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='webinar'
 
-            = if homeworkIsComplete
-              td.positive
-                i.checkmark.icon
-            = else
-              td.negative
-                i.wait.icon
+            unit-table-state progress=this step='homework'

@@ -1,6 +1,6 @@
 # for more details see: http://emberjs.com/guides/controllers/
 
-Samolov.HomeworkProgressReviewController = Ember.ObjectController.extend
+Samolov.HomeworkReviewController = Ember.ObjectController.extend
   actions:
     endChecking:->
       progress = @model

@@ -1,10 +1,13 @@
-.content
-  | Правила прохождения теста
-  br
-  | И Другая информация
+= if isNotAvailable
+  =partial 'unit/is_not_available'
+else
+  .content
+    | Правила прохождения теста
+    br
+    | И Другая информация
 
-.ui.horizontal.divider
+  .ui.horizontal.divider
 
-link-to 'quiz_progress' myProgress.id class='ui green button'
-  i.play.icon
-  | Начать тест
+  link-to 'quiz_progress' myProgress.id class='ui green button'
+    i.play.icon
+    | Начать тест

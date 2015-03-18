@@ -15,6 +15,7 @@ Samolov.PositionProfileSerializer = Samolov.SubtaskSerializer.extend
 
 Samolov.SelectSerializer = Samolov.SubtaskSerializer.extend
   attrs:
-    options: {embedded: 'always'}
-    answers: {embedded: 'always'}
+    options:  {embedded: 'always'}
+#    answers: {embedded: 'always'}
+    answers: { serialize: 'ids',  deserialize: 'records' }
 

@@ -4,4 +4,5 @@ Samolov.UsersEditController = Ember.ObjectController.extend
   actions:
     save: ->
       @model.save().then =>
-        @transitionToRoute 'users.show', @model
+        @model.reload().then =>
+            @transitionToRoute 'users.show', @model

@@ -26,14 +26,14 @@ module Api
          if @homework_progress.teacher == current_user
           result = params.require(:homework_progress).permit :state, tasks: [:id, :is_correct, :comment]
          else
-           result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :_type, :answer, :fish_body, :fish_body,
+           result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :_type, :answer, :fish_body, :fish_head,
                                   profile_compulsory: [:id, :sex, :age, :appearance, :other_physical, :education_level, :specialization, :additional_training,
                                                        :languages, :work_experience, :additional_requirements, :money, :image, :security, :physical_ease,
                                                        :psychological_ease, :self_cultivation, :additional_requirements_company],
                                   profile_desirable: [:id, :sex, :age, :appearance, :other_physical, :education_level, :specialization, :additional_training,
                                                       :languages, :work_experience, :additional_requirements, :money, :image, :security, :physical_ease,
                                                       :psychological_ease, :self_cultivation, :additional_requirements_company],
-                                  answers: [:id, :answer],
+                                  answers: [],
                                   rows:[ :id , cells:[]], lines:[]]]
          end
          result[:tasks].each do |task|

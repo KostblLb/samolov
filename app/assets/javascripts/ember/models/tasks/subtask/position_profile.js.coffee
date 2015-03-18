@@ -6,3 +6,4 @@ Samolov.PositionProfile = Samolov.Subtask.extend
   profileDesirable:  DS.belongsTo 'profile'
 
   partialName: 'partials/homework/state/in_progress/position_profile'
+  isCompletePartialName: 'partials/homework/state/review/position_profile'
