@@ -1,4 +1,4 @@
-=if webinarIsAvailable
+=if myProgress.webinarIsAvailable
   = with webinar
     .ui.blue.ribbon.label
       | Ссылка

@@ -1,4 +1,4 @@
-=if summaryIsAvailable
+if myProgress.summaryIsAvailable
   == summary
-=else
+else
   =partial 'unit/is_not_available'

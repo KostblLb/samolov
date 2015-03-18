@@ -48,11 +48,11 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   ).property('state')
 
   summaryIsAvailable: (->
-    @stepIsActive 'summary'
+    @stepIsAvailable 'summary'
   ).property('state')
 
   webinarIsAvailable: (->
-    @stepIsActive 'webinar'
+    @stepIsAvailable 'webinar'
   ).property('state')
 
 
