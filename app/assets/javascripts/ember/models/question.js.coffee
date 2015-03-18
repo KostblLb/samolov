@@ -4,6 +4,7 @@ Samolov.Question = DS.Model.extend
   text:              DS.attr 'string'
   preview_image_url: DS.attr 'string'
   rightAnswersCount: DS.attr 'number'
+  number:            DS.attr 'number'
 
   answers:        DS.hasMany 'answer'
   correctAnswers: DS.hasMany 'answer'
