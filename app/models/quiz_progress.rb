@@ -1,5 +1,6 @@
 class QuizProgress
   include Mongoid::Document
+  include PointsCounter
 
   belongs_to :quiz
   belongs_to :user
@@ -8,6 +9,8 @@ class QuizProgress
   belongs_to :current_question, class_name: 'Question'
 
   has_many :user_answers, dependent: :destroy
+
+  delegate :unit, to: :quiz
 
   before_create :set_current_question
 
@@ -25,18 +28,6 @@ class QuizProgress
   def correct_answers_count
     return 0 if current_question.present?
     user_answers.inject(0) {|sum, item| item.correct? ? sum + 1 : sum}
-  end
-
-  def points
-    if finished?
-      scale.points_for mistakes_count
-    else
-      0
-    end
-  end
-
-  def max_points
-    scale.points_for 0 
   end
 
   def mistakes_count

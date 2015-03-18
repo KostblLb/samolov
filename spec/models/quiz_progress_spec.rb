@@ -58,16 +58,44 @@ describe QuizProgress do
     end
   end
 
+  describe '#max_points' do
+    let(:unit_progress) {create :unit_progress, unit: unit}
+    let(:quiz_progress) {create :quiz_progress, quiz: unit.quiz, quiz_progress_socket: (create :unit_progress)}
+
+    subject{quiz_progress.max_points}
+
+    context 'unit is exam' do
+      let(:unit){create :exam}
+      it{is_expected.to eq(2 * (quiz_progress.scale.points_for 0))}
+    end
+    context 'unit is not exam' do
+      let(:unit){create :unit}
+      it{is_expected.to eq(quiz_progress.scale.points_for 0)}
+    end
+
+  end
+
   describe '#points' do
-    let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+    let(:unit_progress) {create :unit_progress, unit: unit}
+    let(:quiz_progress) {create :quiz_progress, quiz: unit.quiz, quiz_progress_socket: (create :unit_progress)}
+
     subject{quiz_progress.points}
 
     context 'quiz is finished' do
       before(:each) {quiz_progress.current_question = nil}
-      it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
+
+      context 'unit is exam' do
+        let(:unit){create :exam}
+        it{is_expected.to eq(2 * (quiz_progress.scale.points_for quiz_progress.mistakes_count))}
+      end
+      context 'unit is not exam' do
+        let(:unit){create :unit}
+        it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
+      end
     end
 
     context 'quiz is not finished' do
+      let(:unit) {create :unit}
       it{is_expected.to eq(0)}
     end
   end
