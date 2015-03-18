@@ -33,13 +33,9 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model Unit do
-    field :summary, :ck_editor
+  config.model Answer do
+    field :text, :text
     include_all_fields
-#    edit do
-#      field :quiz, :belongs_to_association
-#      field :case, :belongs_to_association
-#    end
   end
 
   config.model Question do
@@ -48,6 +44,10 @@ RailsAdmin.config do |config|
   end
 
   config.model Unit do
+    field :summary, :ck_editor
+    include_all_fields
     nestable_list true
   end
+
+
 end
