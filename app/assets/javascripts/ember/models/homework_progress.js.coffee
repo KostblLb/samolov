@@ -12,7 +12,12 @@ Samolov.HomeworkProgress = DS.Model.extend
   unitState: DS.attr 'string'
 
   isSaved: false
+  isReviewSaved: false
 
   hpn:(->
     "partials/homework/#{@get 'state'}"
+  ).property('state')
+
+  isNotVerified:(->
+    @get('state') != 'verified'
   ).property('state')

@@ -38,3 +38,4 @@
               = webinarScore
 
             unit-table-state progress=this step='homework'
+              = homeworkProgress.point

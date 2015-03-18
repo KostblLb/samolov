@@ -74,12 +74,13 @@ class UnitProgress
   def safe_get_points(method)
     quiz_points = quiz_progress.try(method) || 0
     case_points = case_progress.try(method) || 0
+    homework_points = homework_progress.try(method) || 0
     if method == :max_points
       webinar_points = 5
     else
       webinar_points = webinar_score || 0
     end
-    result = quiz_points + case_points + webinar_points
+    result = quiz_points + case_points + homework_points + webinar_points
     is_exam ? result * 2 : result
   end
 

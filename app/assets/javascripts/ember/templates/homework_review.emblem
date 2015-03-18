@@ -1,6 +1,12 @@
 h2.ui.header
   | Проверка домашнего задания
 .ui.segment
+  =if isReviewSaved
+    .ui.info.message
+      .header
+        |Текущие отметки сохранены
+      p
+        |Вы можете продолжить проверку позже
   = each tasks
     .ui.secondary.segment class=isCorrect:green:red
       h3.ui.header
@@ -26,8 +32,8 @@ h2.ui.header
                 | Правильно!
               = input checked=isCorrect type="checkbox" class="ui checkbox"
 
-
-  .ui.primary.button{action 'saveHomework'}
-    |Сохранить
-  .ui.primary.button{action 'endChecking'}
-    |Закончить проверку
+  =if isNotVerified
+    .ui.primary.button{action 'saveHomework'}
+      |Сохранить
+    .ui.primary.button{action 'endChecking'}
+      |Закончить проверку

@@ -5,26 +5,31 @@ module Homework
     field :name
     field :is_complete
 
-    #belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
+
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
 
-    # embeds_many :text_answers, class_name: 'Homework::Task::Text'
-    # embeds_many :table_answers, class_name: 'Homework::Task::Table'
     embeds_many :tasks, class_name: 'Homework::Task', inverse_of: :progress, cascade_callbacks: true
 
-    accepts_nested_attributes_for :tasks#, update_only: true
-  #  accepts_nested_attributes_for :table_answers
+    accepts_nested_attributes_for :tasks
 
-    delegate :teacher, to: :unit_progress
+    delegate :teacher, :scale, to: :unit_progress
 
     after_save :resolve_state
 
     def total_tasks
-      tasks.size
+      tasks.count
     end
 
     def max_points
-      total_tasks*5
+      scale.points_for 0
+    end
+
+    def points
+      if state == 'verified'
+        scale.points_for mistakes_counter
+      else
+        0
+      end
     end
 
     def correct_answer_counter
@@ -32,12 +37,9 @@ module Homework
     end
 
     def mistakes_counter
-      max_points/5 - correct_answer_counter
+      total_tasks - correct_answer_counter
     end
 
-    def points
-      correct_answer_counter*5
-    end
     state_machine :initial => :in_progress do
 
       state :in_progress
