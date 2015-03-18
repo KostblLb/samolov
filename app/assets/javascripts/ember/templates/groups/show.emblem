@@ -135,7 +135,8 @@ h2.ui.header
                       i.remove.icon
                   td.center.aligned
                     = if webinarIsComplete
-                      i.checkmark.icon
+                      .ui.input{action 'saveWebinarScore' this on='focusOut'}
+                        =input class='webinarScore' value=webinarScore maxlength=1
                     = else
                       i.remove.icon
                   td.center.aligned
@@ -145,5 +146,5 @@ h2.ui.header
                       = else
                         i.remove.icon
                   td.center.aligned
-                    link-to 'conversations.new' (query-params sender_id=this.id) class='right floated compact'
+                    link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
                       i.mail.icon

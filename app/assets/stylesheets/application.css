@@ -103,3 +103,15 @@
 .unitRow {
     cursor: pointer;
 }
+
+.webinarScore {
+    width: 40px !important;
+}
+
+.itemGroupList {
+    cursor: pointer;
+}
+
+.itemGroupList:hover {
+    background-color: #edf1f5;
+}

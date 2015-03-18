@@ -1,9 +1,10 @@
 Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   states: ['video', 'quiz', 'summary', 'case', 'webinar', 'homework']
-  state:      DS.attr 'string'
-  stateEvent: DS.attr 'string'
-  isExam:     DS.attr 'boolean'
-  hpid:       DS.attr 'string'
+  state:        DS.attr 'string'
+  stateEvent:   DS.attr 'string'
+  isExam:       DS.attr 'boolean'
+  hpid:         DS.attr 'string'
+  webinarScore: DS.attr 'number'
 
   unit:             DS.belongsTo 'unit'#, async: true
   user:             DS.belongsTo 'user'

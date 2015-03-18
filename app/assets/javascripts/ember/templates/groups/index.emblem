@@ -12,7 +12,7 @@ h2.ui.header
           | Название курса
     tbody
       = each
-        link-to 'groups.show' id tagName='tr'
+        link-to 'groups.show' id tagName='tr' class='itemGroupList'
           td
             = name
           td

@@ -23,4 +23,4 @@ Samolov.ProgressMixin = Ember.Mixin.create
       when @get('points') < step                                then 'negative'
       when @get('points') < (2 * step) && @get('points') > step then 'warning'
       when @get('points') > step                                then 'positive'
-).property('points', 'maxPoints')
+  ).property('points', 'maxPoints')
