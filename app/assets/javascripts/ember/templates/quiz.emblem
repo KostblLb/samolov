@@ -1,6 +1,6 @@
 = if isNotAvailable
   =partial 'unit/is_not_available'
-else
+= else
   .content
     | Правила прохождения теста
     br

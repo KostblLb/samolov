@@ -9,17 +9,3 @@ Samolov.QuizProgressController = Ember.ObjectController.extend Samolov.UnitNextS
       return state == 'case'
   ).property('model')
 
-  isNotAvailable: (->
-    state = @get('unit.myProgress.state')
-    if state == 'video'
-      true
-    else
-      if @model.get('isQuiz')
-        return state == 'video'
-      else
-        if @model.get('isCase')
-          return state == 'video' || state == 'quiz' || state == 'summary'
-        else
-          false
-
-  ).property('model')
