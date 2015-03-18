@@ -20,7 +20,11 @@ module Api
       end
       private
         def unit_progress_params
-          params.require(:unit_progress).permit :state_event
+          if @unit_progress.teacher == current_user
+            params.require(:unit_progress).permit :webinar_score
+          else
+            params.require(:unit_progress).permit :state_event
+          end
         end
 
         def set_unit_progress
