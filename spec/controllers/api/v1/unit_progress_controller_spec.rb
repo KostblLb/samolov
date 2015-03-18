@@ -7,10 +7,14 @@ RSpec.describe Api::V1::UnitProgressesController, :type => :controller do
   end
 
   describe 'PUT update' do
-    subject{put :update, id: unit_progress.id, unit_progress: {state: "quiz"}}
+    subject{put :update, id: unit_progress.id, unit_progress: {state: "quiz", webinar_score: 2}}
 
     it 'updates state' do
       expect{subject}.to change{unit_progress.reload.state}.to("quiz")
+    end
+
+    it 'updates webinar_score' do
+      expect{subject}.to change{unit_progress.reload.webinar_score}.to(2)
     end
   end
 end

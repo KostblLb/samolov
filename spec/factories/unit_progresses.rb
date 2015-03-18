@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :unit_progress do
+    webinar_score 4
     association :course_part_progress
     association :unit
     association :user

@@ -35,5 +35,6 @@
               = caseProgress.points
 
             unit-table-state progress=this step='webinar'
+              = webinarScore
 
             unit-table-state progress=this step='homework'

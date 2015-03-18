@@ -14,7 +14,7 @@ module Api
       end
       private
         def unit_progress_params
-          params.require(:unit_progress).permit :state
+          params.require(:unit_progress).permit :state, :webinar_score
         end
 
         def set_unit_progress

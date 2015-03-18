@@ -103,3 +103,7 @@
 .unitRow {
     cursor: pointer;
 }
+
+.webinarScore {
+    width: 40px !important;
+}
