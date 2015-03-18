@@ -2,6 +2,7 @@ class Part
   include Mongoid::Document
   field :name
 
+  field :position
   belongs_to :course
 
   has_many :units, dependent: :destroy

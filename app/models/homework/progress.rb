@@ -3,6 +3,7 @@ module Homework
     include Mongoid::Document
 
     field :name
+    field :is_complete
 
     #belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
@@ -15,6 +16,8 @@ module Homework
   #  accepts_nested_attributes_for :table_answers
 
     delegate :teacher, to: :unit_progress
+
+    after_save :resolve_state
 
     def total_tasks
       tasks.size
@@ -47,6 +50,13 @@ module Homework
         transition :in_progress => :review, :review => :verified
       end
     end
+
+    def resolve_state
+      if is_complete
+        unit_progress.state = 'done'
+      end
+    end
+
     private
       def create_tasks
         homework_metas.each do |meta|

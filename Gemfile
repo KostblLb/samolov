@@ -23,6 +23,7 @@ gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
 # Admin tool
 gem 'rails_admin'
 gem 'ckeditor'
+gem 'rails_admin_nestable'
 
 # Authentication & Authorization
 gem 'devise'

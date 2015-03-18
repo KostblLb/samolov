@@ -5,7 +5,8 @@ Samolov.Unit = DS.Model.extend
   summary:   DS.attr 'string'
   videoLink: DS.attr 'string'
   isExam:    DS.attr 'boolean'
-
+  position:  DS.attr 'number'
+  
   myProgress: DS.belongsTo 'unit_progress'
   part:       DS.belongsTo 'part', async: true
   webinar:    DS.belongsTo 'webinar'

@@ -7,6 +7,7 @@ class CoursePartProgress
   has_many :unit_progresses, dependent: :destroy
 
   after_create :create_ut_progresses
+  after_save :resolve_state
 
   delegate :scale, to: :course_progress
   delegate :teacher, to: :course_progress
@@ -19,6 +20,24 @@ class CoursePartProgress
     unit_progresses.inject(0) {|sum, u| sum + u.points}
   end
 
+  state_machine :initial => :disabled do
+    state :disabled
+
+    state :in_progress
+
+    state :done
+  end
+
+  def resolve_state
+    if state=='done'
+      next_part=course_progress.course_part_progresses.find_by(part.position+1)
+      if next_part
+        next_part.state = 'in_progress'
+      else
+        course_progress.is_complete = true
+      end
+    end
+  end
 
   private
   def create_ut_progresses

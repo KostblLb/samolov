@@ -13,12 +13,17 @@ class UnitProgress
 
   before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
+  # after_save :resolve_state
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, to: :unit
 
 
   state_machine :initial => :video do
+
+    state :disabled
+
+    state :done
 
     state :video
 
@@ -48,6 +53,18 @@ class UnitProgress
   def hpid
     homework_progress.id
   end
+
+  def resolve_state
+    if state == 'done'
+      next_unit = course_part_progress.units.find_by(unit.position+1)
+      if next_unit
+        next_unit.state = 'video'
+      else
+        course_part_progress.is_complete = true
+      end
+    end
+  end
+  
   private
 
   def set_init_state_for_exam
