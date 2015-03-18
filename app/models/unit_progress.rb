@@ -12,7 +12,7 @@ class UnitProgress
 
   before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
-  after_save :resolve_state
+  # after_save :resolve_state
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, to: :unit
