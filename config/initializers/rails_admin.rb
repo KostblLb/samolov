@@ -46,6 +46,10 @@ RailsAdmin.config do |config|
     field :text, :text
     include_all_fields
   end
+  config.model Answer do
+    field :text, :text
+    include_all_fields
+  end
 
   config.model Unit do
     nestable_list true
