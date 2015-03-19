@@ -98,10 +98,10 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
 
       context 'homework has text task' do
         let(:homework_progress) {create :homework_progress, state: 'review', unit_progress: unit_progress}
-        let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', is_correct: true}]}}
+        let(:attributes) {{tasks: [{id:homework_progress.tasks.first.id, _type: 'Homework::Task::Text', is_correct: false}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
-          expect{subject}.to change{homework_progress.tasks.first.reload.is_correct}.to be_truthy
+          expect{subject}.to change{homework_progress.tasks.first.reload.is_correct}.to be_falsey
         end
       end
     end
