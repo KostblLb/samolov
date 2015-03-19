@@ -36,7 +36,21 @@ RSpec.describe UnitProgress do
 
     context 'unit is exam' do
       let(:progress) {create :unit_progress, unit: create(:exam)}
-      it {is_expected.to eq(2 * (progress.quiz_progress.max_points + progress.case_progress.max_points + progress.homework_progress.max_points + 5))}
+      it {is_expected.to eq(progress.quiz_progress.max_points + progress.case_progress.max_points + progress.homework_progress.max_points + 15)}
+    end
+  end
+
+  describe '#max_webinar_points' do
+    subject{progress.max_webinar_points}
+
+    context 'unit is exam' do
+      let(:progress) {create :unit_progress, unit: (create :exam)}
+      it{is_expected.to eq 15}
+    end
+
+    context 'unit is not exam' do
+      let(:progress) {create :unit_progress, unit: (create :unit)}
+      it{is_expected.to eq 5}
     end
   end
 
@@ -48,7 +62,7 @@ RSpec.describe UnitProgress do
     end
     context 'unit is exam' do
       let(:progress) {create :unit_progress, unit: create(:exam)}
-      it {is_expected.to eq(2 * (progress.quiz_progress.points + progress.case_progress.points + progress.webinar_score))}
+      it {is_expected.to eq(progress.quiz_progress.points + progress.case_progress.points + progress.webinar_score)}
     end
   end
 end
