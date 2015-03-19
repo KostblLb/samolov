@@ -9,24 +9,6 @@ h2.ui.header
     = course.name
 
   .ui.blue.ribbon.label
-    | Студенты
-  table.ui.celled.striped.table
-    thead
-      tr
-        th
-          | Студент
-        th
-    tbody
-      = each students
-        tr
-          td
-            link-to 'users.show' id
-              = fullName
-          td
-            link-to 'conversations.new' (query-params sender_id=this.id) class='right floated compact' title='Отправить сообщение'
-              i.mail.icon
-
-  .ui.blue.ribbon.label
     | Объявления
   .ui.divided.list
     = each adverts
@@ -73,78 +55,76 @@ h2.ui.header
         h3.ui.header
           = name
         = each units
-          table.ui.celled.striped.table
-            thead
-              tr
-                th colspan='11'
-                  = name
-              tr
-                th
-                  | Рейтинг
-                th
-                  | ФИО
-                th
-                  | Фото
-                th
-                  | Успех
-                th
-                  | Видео
-                th
-                  | Тест
-                th
-                  | Конспект
-                th
-                  | Кейс
-                th
-                  | Вебинар
-                th
-                  | Домашнее задание
-                th
-                  | Сообщение
-            tbody
-              = each sortedProgresses
-                tr class=rowColor
-                  td
-                    = inc _view.contentIndex
-                  td
-                    link-to 'users.show' user.id
-                      = user.fullName
-                  td.center.aligned
-                    img.ui.avatar.image src=user.avatarUrl
-                  td.center.aligned
-                    = success
-                  td.center.aligned
-                    = if videoIsComplete
-                      i.checkmark.icon
-                    = else
-                      i.remove.icon
-                  td.center.aligned
-                    = if quizIsComplete
-                      i.checkmark.icon
-                    = else
-                      i.remove.icon
-                  td.center.aligned
-                    = if summaryIsComplete
-                      i.checkmark.icon
-                    = else
-                      i.remove.icon
-                  td.center.aligned
-                    = if caseIsComplete
-                      i.checkmark.icon
-                    = else
-                      i.remove.icon
-                  td.center.aligned
-                    = if webinarIsComplete
-                      .ui.input{action 'saveWebinarScore' this on='focusOut'}
-                        =input class='webinarScore' value=webinarScore maxlength=1
-                    = else
-                      i.remove.icon
-                  td.center.aligned
-                    = link-to 'homework_review' homeworkProgress.id
-                      = if homeworkProgress.isComplete
+          module-accordion name=name
+            table.ui.celled.striped.table
+              thead
+                tr
+                  th
+                    | Рейтинг
+                  th
+                    | ФИО
+                  th
+                    | Фото
+                  th
+                    | Успех
+                  th
+                    | Видео
+                  th
+                    | Тест
+                  th
+                    | Конспект
+                  th
+                    | Кейс
+                  th
+                    | Вебинар
+                  th
+                    | Домашнее задание
+                  th
+                    | Сообщение
+              tbody
+                = each sortedProgresses
+                  tr class=rowColor
+                    td
+                      = inc _view.contentIndex
+                    td
+                      link-to 'users.show' user.id
+                        = user.fullName
+                    td.center.aligned
+                      img.ui.avatar.image src=user.avatarUrl
+                    td.center.aligned
+                      = success
+                    td.center.aligned
+                      = if videoIsComplete
                         i.checkmark.icon
                       = else
                         i.remove.icon
-                  td.center.aligned
-                    link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
-                      i.mail.icon
+                    td.center.aligned
+                      = if quizIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if summaryIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if caseIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if webinarIsComplete
+                        .ui.input{action 'saveWebinarScore' this on='focusOut'}
+                          =input class='webinarScore' value=webinarScore maxlength=1
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = link-to 'homework_review' homeworkProgress.id
+                        = if homeworkProgress.isComplete
+                          i.checkmark.icon
+                        = else
+                          i.remove.icon
+                    td.center.aligned
+                      link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
+                        i.mail.icon

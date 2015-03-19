@@ -119,3 +119,8 @@
 .quizImage {
     margin-bottom: 30px;
 }
+
+module-accordion {
+    margin-top: 15px;
+    cursor: pointer;
+}
