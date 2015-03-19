@@ -16,7 +16,10 @@ module Api
 
       def update
         if @user.update user_params
-          respond_with @user, status: :updated, location: false
+          @user.reload
+          respond_to do |format|
+            format.json {render json: @user, status: :ok, location: false}
+          end
         else
           respond_with @user, status: :unprocessable_entity, location: false
         end
