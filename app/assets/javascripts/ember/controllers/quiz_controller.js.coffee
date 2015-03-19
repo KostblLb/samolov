@@ -14,5 +14,4 @@ Samolov.QuizController = Ember.ObjectController.extend Samolov.UnitNextStepMixin
           return state == 'video' || state == 'quiz' || state == 'summary'
         else
           false
-
   ).property('model')

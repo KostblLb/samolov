@@ -1,1 +1,4 @@
-=partial hpn
+= if isAvailable
+  =partial hpn
+=else
+  =partial 'unit/is_not_available'

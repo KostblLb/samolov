@@ -1,6 +1,5 @@
 Samolov.HomeworkProgressController = Ember.ObjectController.extend
 
-
   actions:
     sendHomework:->
       progress = @model
