@@ -4,5 +4,7 @@ Samolov.Quiz = DS.Model.extend
   text: DS.attr 'string'
   questions: DS.hasMany 'questions'
   myProgress: DS.belongsTo 'quiz_progress'
+  isQuiz: DS.attr 'boolean'
+  isCase: DS.attr 'boolean'
 
 

@@ -1,5 +1,5 @@
 class QuizSerializer < ActiveModel::Serializer
-  attributes :id, :name, :question_ids, :my_progress_id
+  attributes :id, :name, :question_ids, :my_progress_id, :is_quiz, :is_case
 
   has_many :questions
   has_one :my_progress

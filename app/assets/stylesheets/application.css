@@ -115,3 +115,7 @@
 .itemGroupList:hover {
     background-color: #edf1f5;
 }
+
+.quizImage {
+    margin-bottom: 30px;
+}

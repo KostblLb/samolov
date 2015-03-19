@@ -20,6 +20,16 @@ class Quiz
     quiz_socket || case_socket
   end
 
+  def quiz?
+    self.quiz_socket.present?
+  end
+  alias :is_quiz :quiz?
+
+  def case?
+    self.case_socket.present?
+  end
+  alias :is_case :case?
+
   protected
   def only_one_socket_present
     errors[:case_socket] << 'only one socket can be presented' if quiz_socket.present? && case_socket.present?

@@ -3,4 +3,7 @@
 = else
   link-to 'quiz_progress' myProgress.id class='ui green button'
     i.play.icon
-    | Начать тест
+    = if isQuiz
+      | Начать тест
+    = else
+      | Решить кейс

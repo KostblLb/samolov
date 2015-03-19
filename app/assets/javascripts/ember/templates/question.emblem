@@ -4,7 +4,7 @@
     = number
   .content
     = if preview_image_url
-      img.ui.centered.image src=preview_image_url
+      img.ui.centered.image.quizImage src=preview_image_url
     = text
     p
       = unless isSingleAnswer
