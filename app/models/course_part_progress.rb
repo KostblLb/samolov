@@ -7,7 +7,6 @@ class CoursePartProgress
   has_many :unit_progresses, dependent: :destroy
 
   after_create :create_ut_progresses
-  after_save :resolve_state
 
   delegate :scale, to: :course_progress
   delegate :teacher, to: :course_progress
@@ -26,16 +25,36 @@ class CoursePartProgress
     state :in_progress
 
     state :done
+
+    event :activate do
+      transition :disabled => :in_progress
+    end
+
+    event :complete do
+      transition :in_progress => :done
+    end
+
+    before_transition on: :complete do |course_part_progress|
+      course_part_progress.course_progress.resolve_state(course_part_progress.part.position)
+    end
   end
 
-  def resolve_state
-    if state=='done'
-      next_part=course_progress.course_part_progresses.find_by(part.position+1)
-      if next_part
-        next_part.state = 'in_progress'
-      else
-        course_progress.is_complete = true
-      end
+  def resolve_state(position)
+    next_unit = next_unit_progress(position)
+    if next_unit
+      next_unit.next_step
+    else
+      complete
+    end
+    next_unit
+  end
+
+  def next_unit_progress(position)
+    next_unit = part.units.where(:position.gte => position).first
+    if next_unit
+      UnitProgress.where(unit: next_unit, user: user, state: 'disabled').first
+    else
+      nil
     end
   end
 

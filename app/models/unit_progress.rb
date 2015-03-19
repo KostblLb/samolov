@@ -13,17 +13,14 @@ class UnitProgress
 
   before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
-  # after_save :resolve_state
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, to: :unit
 
 
-  state_machine :initial => :video do
+  state_machine :initial => :disabled do
 
     state :disabled
-
-    state :done
 
     state :video
 
@@ -37,9 +34,16 @@ class UnitProgress
 
     state :homework
 
+    state :done
+
     event :next_step do
-      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar, :webinar => :homework
+      transition :disabled => :video, :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+                 :webinar => :homework, :homework => :done
     end
+    before_transition :homework => :done do |homework_progress|
+      homework_progress.course_part_progress.resolve_state(homework_progress.unit.position)
+    end
+
   end
 
   def max_points
@@ -52,17 +56,6 @@ class UnitProgress
 
   def hpid
     homework_progress.id
-  end
-
-  def resolve_state
-    if state == 'done'
-      next_unit = course_part_progress.units.find_by(unit.position+1)
-      if next_unit
-        next_unit.state = 'video'
-      else
-        course_part_progress.is_complete = true
-      end
-    end
   end
 
   def max_webinar_points
