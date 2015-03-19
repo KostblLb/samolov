@@ -1,5 +1,6 @@
 class Unit
   include Mongoid::Document
+  include Mongoid::Paperclip
 
   field :name
   field :video_link
@@ -17,6 +18,8 @@ class Unit
   has_one :quiz, class_name: 'Quiz', inverse_of: :quiz_socket, dependent: :destroy
   has_one :case, class_name: 'Quiz', inverse_of: :case_socket, dependent: :destroy
 
+  has_mongoid_attached_file :attachment
+  do_not_validate_attachment_file_type :attachment
 
 #  def quiz_socket_id
 #    self.quiz :q_id

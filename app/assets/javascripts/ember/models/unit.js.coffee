@@ -6,6 +6,7 @@ Samolov.Unit = DS.Model.extend
   videoLink: DS.attr 'string'
   isExam:    DS.attr 'boolean'
   position:  DS.attr 'number'
+  attachmentUrl: DS.attr 'string'
   
   myProgress: DS.belongsTo 'unit_progress'
   part:       DS.belongsTo 'part', async: true

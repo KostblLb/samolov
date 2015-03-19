@@ -1,4 +1,6 @@
 if myProgress.summaryIsAvailable
   == summary
+  a href=attachmentUrl
+    |Скачать конспект
 else
   =partial 'unit/is_not_available'
