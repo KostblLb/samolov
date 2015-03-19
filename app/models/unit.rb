@@ -21,20 +21,9 @@ class Unit
   has_mongoid_attached_file :attachment
   do_not_validate_attachment_file_type :attachment
 
-#  def quiz_socket_id
-#    self.quiz :q_id
-#  end
-#  def quiz_socket_id=(q_id)
-#    self.quiz = Quiz.find(q_id)
-#  end
-#  def case_socket_id
-#    self.case :c_id
-#  end
-#  def case_socket_id=(c_id)
-#    self.case = Quiz.find(c_id)
-#  end
-
   accepts_nested_attributes_for :webinar
 
   validates_presence_of :name, :part
+
+  default_scope -> {asc :position}
 end
