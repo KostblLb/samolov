@@ -26,7 +26,8 @@ h2.ui.header
             .field
               label
                 | Комментарий
-              = input value=comment
+              = textarea value=comment rows='8' class='commentText'
+              /= input value=comment
             .field
               label
                 | Правильно!

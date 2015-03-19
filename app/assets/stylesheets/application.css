@@ -38,10 +38,10 @@
 .created_date {
     font-size: 0.7em;
 }
-.ui.form textarea {
-    min-height: 80px;
-    max-height: 80px;
-}
+/*.ui.form textarea {*/
+    /*min-height: 80px;*/
+    /*max-height: 80px;*/
+/*}*/
 
 .item_message {
     padding: 5px!important;
