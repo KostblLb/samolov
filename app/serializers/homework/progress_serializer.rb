@@ -1,5 +1,5 @@
 class Homework::ProgressSerializer < ActiveModel::Serializer
-  attributes :id,:max_points, :points, :mistakes_counter, :correct_answer_counter, :total_tasks, :state, :is_complete, :is_available, :unit_id, :unit_state
+  attributes :id,:max_points, :points, :mistakes_count, :correct_answer_counter, :total_tasks, :state, :is_complete, :is_available, :unit_id, :unit_state
   has_many :tasks
 
   def is_complete

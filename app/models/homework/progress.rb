@@ -13,7 +13,7 @@ module Homework
 
     accepts_nested_attributes_for :tasks
 
-    delegate :teacher, :scale, to: :unit_progress
+    delegate :teacher, :scale, :unit, to: :unit_progress
 
     after_save :resolve_state
 
@@ -51,10 +51,6 @@ module Homework
     private
       def finished?
         verified?
-      end
-
-      def double_if_necessary(points)
-        points * 2
       end
 
       def create_tasks
