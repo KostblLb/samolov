@@ -34,6 +34,5 @@ RSpec.describe Homework::Progress do
       before(:each) {homework_progress.state = :verified}
       it {is_expected.to eq(10)}
     end
-
   end
 end
