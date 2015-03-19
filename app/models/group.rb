@@ -14,7 +14,8 @@ class Group
 
   after_initialize :set_default_scale
   after_save :resolve_students
-  validates_presence_of :course, :teacher, :scale
+  validates_presence_of :course, :scale, :teacher
+  validate :cannot_be_a_student
 
   accepts_nested_attributes_for :adverts
 
@@ -24,6 +25,10 @@ class Group
     else
       'Новая группа'
     end
+  end
+
+  def cannot_be_a_student
+    errors.add(:teacher, "can not be a student") if students.include?(teacher)
   end
 
   private
