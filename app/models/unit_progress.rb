@@ -64,24 +64,22 @@ class UnitProgress
       end
     end
   end
+
+  def max_webinar_points
+    is_exam ? 15 : 5
+  end
   
   private
-
   def set_init_state_for_exam
     self.state = 'case' if is_exam
   end
 
   def safe_get_points(method)
-    quiz_points = quiz_progress.try(method) || 0
-    case_points = case_progress.try(method) || 0
+    quiz_points     = quiz_progress.try(method) || 0
+    case_points     = case_progress.try(method) || 0
     homework_points = homework_progress.try(method) || 0
-    if method == :max_points
-      webinar_points = 5
-    else
-      webinar_points = webinar_score || 0
-    end
-    result = quiz_points + case_points + homework_points + webinar_points
-    is_exam ? result * 2 : result
+    webinar_points = method.to_s == 'max_points' ? max_webinar_points : (webinar_score || 0)
+    quiz_points + case_points + homework_points + webinar_points
   end
 
   def create_quiz_progress
