@@ -19,7 +19,7 @@ RSpec.describe Homework::Progress do
   end
 
   describe '#mistakes_counter' do
-    subject {homework_progress.mistakes_counter}
+    subject {homework_progress.mistakes_count}
     it {is_expected.to eq(0)}
   end
 
@@ -30,9 +30,9 @@ RSpec.describe Homework::Progress do
       it {is_expected.to eq(0)}
     end
 
-    context 'homework is not complete' do
+    context 'homework is complete' do
       before(:each) {homework_progress.state = :verified}
-      it {is_expected.to eq(5)}
+      it {is_expected.to eq(10)}
     end
 
   end
