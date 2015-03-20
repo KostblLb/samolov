@@ -22,9 +22,9 @@ RSpec.describe UnitProgress do
     subject{FactoryGirl.create :unit_progress}
     before(:each) {subject.save}
     it 'does step' do
-      expect(subject.state).to eq("video")
+      expect(subject.state).to eq("disabled")
       subject.next_step
-      expect(subject.state).to eq("quiz")
+      expect(subject.state).to eq("video")
     end
   end
   describe '#max_points' do

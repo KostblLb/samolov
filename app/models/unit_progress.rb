@@ -19,11 +19,9 @@ class UnitProgress
   delegate :is_exam, to: :unit
 
 
-  state_machine :initial => :video do
+  state_machine :initial => :disabled do
 
     state :disabled
-
-    state :done
 
     state :video
 
@@ -37,9 +35,21 @@ class UnitProgress
 
     state :homework
 
-    event :next_step do
-      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar, :webinar => :homework
+    state :done
+
+    event :activate do
+      transition :disabled => :video
     end
+
+    event :next_step do
+      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+                 :webinar => :homework, :homework => :done
+    end
+
+    before_transition :homework => :done do |unit_progress|
+        unit_progress.course_part_progress.resolve_state(unit.position)
+    end
+
   end
 
   def max_points
@@ -52,17 +62,6 @@ class UnitProgress
 
   def hpid
     homework_progress.id
-  end
-
-  def resolve_state
-    if state == 'done'
-      next_unit = course_part_progress.units.find_by(unit.position+1)
-      if next_unit
-        next_unit.state = 'video'
-      else
-        course_part_progress.is_complete = true
-      end
-    end
   end
 
   def max_webinar_points

@@ -50,4 +50,14 @@ RSpec.describe Homework::Progress do
       end
     end
   end
+
+  describe '#verify' do
+    before(:each) do
+      homework_progress.state = :review
+      homework_progress.verify
+    end
+    it { expect(homework_progress.state).to eq('verified') }
+    it { expect(homework_progress.unit_progress.state).to eq('video') }
+  end
+
 end

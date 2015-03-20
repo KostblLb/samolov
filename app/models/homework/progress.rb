@@ -15,7 +15,7 @@ module Homework
 
     delegate :teacher, :scale, :unit, to: :unit_progress
 
-    after_save :resolve_state
+    # after_save :resolve_state
 
     def total_tasks
       tasks.count
@@ -37,14 +37,16 @@ module Homework
 
       state :verified
 
-      event :next_step do
-        transition :in_progress => :review, :review => :verified
+      event :verify do
+        transition :review => :verified
       end
-    end
 
-    def resolve_state
-      if is_complete
-        unit_progress.state = 'done'
+      event :complete do
+        transition :in_progress => :review
+      end
+
+      before_transition on: :verify do |homework_progress|
+        homework_progress.unit_progress.next_step
       end
     end
 
