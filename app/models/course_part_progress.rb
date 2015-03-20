@@ -30,39 +30,31 @@ class CoursePartProgress
       transition :disabled => :in_progress
     end
 
-    event :close do
+    event :complete do
       transition :in_progress => :done
     end
 
-    before_transition on: :close do |course_part_progress|
-
+    before_transition on: :complete do |course_part_progress|
+      course_part_progress.course_progress.resolve_state(course_part_progress.part.position)
     end
   end
 
   def resolve_state(position)
-    next_unit_progress = next_unit_progress(position)
-    if next_unit_progress
-      next_unit_progress.activate
+    next_unit = next_unit_progress(position)
+    if next_unit
+      next_unit.next_step
     else
-      close
+      complete
     end
-
-    if done?
-      next_part = course_progress.course_part_progresses.find_by(part.position + 1)
-      if next_part
-        next_part.next_step
-      else
-        course_progress.is_complete = true
-      end
-    end
+    next_unit
   end
 
   def next_unit_progress(position)
-    unit = part.units.where(:position.gte => position).first
-    if unit.nil?
-      progress = UnitProgress.where(unit: next_unit, user: user).first
+    next_unit = part.units.where(:position.gte => position).first
+    if next_unit
+      UnitProgress.where(unit: next_unit, user: user, state: 'disabled').first
     else
-      progress = nil
+      nil
     end
   end
 

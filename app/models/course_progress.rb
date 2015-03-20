@@ -20,6 +20,25 @@ class CourseProgress
     course_part_progresses.inject(0) {|sum, p| sum + p.points}
   end
 
+  def resolve_state(position)
+    next_part = next_part_progress(position)
+    if next_part
+      next_part.activate
+    else
+      self.is_complete = true
+    end
+    next_part
+  end
+
+  def next_part_progress(position)
+    next_part = course.parts.where(:position.gte => position).first
+    if next_part
+      CoursePartProgress.where(part: next_part, user: user, state: 'disabled').first
+    else
+      nil
+    end
+  end
+
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }

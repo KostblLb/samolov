@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :part do
     name "MyString"
+    position 1
     association :course
     transient do
       units_count 2

@@ -7,6 +7,7 @@ FactoryGirl.define do
     association :quiz, factory: :quiz
     association :case, factory: :quiz
     association :homework_meta, factory: :homework_meta_progress
+    position 1
   end
 
   factory :exam, class: Unit do

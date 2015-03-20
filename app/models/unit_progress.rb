@@ -13,7 +13,6 @@ class UnitProgress
 
   before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
-  # after_save :resolve_state
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, to: :unit
@@ -37,12 +36,8 @@ class UnitProgress
 
     state :done
 
-    event :activate do
-      transition :disabled => :video
-    end
-
     event :next_step do
-      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+      transition :disabled => :video, :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
                  :webinar => :homework, :homework => :done
     end
 
