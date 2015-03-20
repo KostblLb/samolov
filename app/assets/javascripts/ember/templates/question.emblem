@@ -6,6 +6,8 @@
   .ui.header
     | Вопрос №&nbsp
     = number
+    |  из &nbsp
+    = quiz.questions.length
   .content
 
     = text
