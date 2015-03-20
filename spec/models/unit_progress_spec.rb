@@ -19,14 +19,12 @@ RSpec.describe UnitProgress do
   end
 
   describe 'next step' do
-    subject{FactoryGirl.create :unit_progress}
-    before(:each) {subject.save}
-    it 'does step' do
-      expect(subject.state).to eq("disabled")
-      subject.next_step
-      expect(subject.state).to eq("video")
-    end
+    let(:unit_progress) {create :unit_progress, state: :disabled}
+    subject{unit_progress.next_step}
+
+    it {expect{subject}.to change{unit_progress.reload.state}.from('disabled').to('video')}
   end
+
   describe '#max_points' do
     subject {progress.max_points}
     context 'unit is not exam' do
