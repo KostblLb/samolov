@@ -2,3 +2,4 @@
 
 Samolov.CoursePartProgress = DS.Model.extend Samolov.ProgressMixin,
   unitProgresses: DS.hasMany 'unit_progress'
+  state: DS.attr 'string'

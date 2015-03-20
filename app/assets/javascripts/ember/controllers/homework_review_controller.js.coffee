@@ -4,9 +4,11 @@ Samolov.HomeworkReviewController = Ember.ObjectController.extend
   actions:
     endChecking:->
       progress = @model
-      progress.set 'state', 'verified'
-      progress.save() ->
-        transitionTo()
+      progress.set 'stateEvent', 'verify'
+      progress.save().then (newProgress)=>
+        newProgress.set 'stateEvent', null
+      window.scrollTo 0, 0
+
     saveHomework: ->
       progress = @model
       progress.save().then ->

@@ -20,7 +20,7 @@ Samolov.UnitIndexRoute = Ember.Route.extend
       if scope == 'case'
         @transitionTo('quiz', cId)
       else
-        if scope == 'homework'
+        if scope == 'homework' || scope == 'done'
           @transitionTo('homework_progress', hId)
         else
           @transitionTo('unit.index', uId, {queryParams: {scope: scope}})

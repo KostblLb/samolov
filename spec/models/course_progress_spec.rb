@@ -23,25 +23,35 @@ RSpec.describe CourseProgress do
     it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
   end
 
-  describe '#next_unit_progress(position)' do
-    let(:course_progress) {create :course_progress}
-    context 'next unit progress exist' do
-      it { expect(course_progress.next_part_progress(1)).to eq(course_progress.course_part_progresses.first) }
+  let(:course) {create :empty_course, parts: [build(:empty_part, units: [build(:empty_unit, position: 1),
+                                                                         build(:empty_unit, position: 2)], position: 1),
+                                              build(:empty_part, units: [build(:empty_unit, position: 1),
+                                                                         build(:empty_unit, position: 2)], position: 2)]}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:course_progress) {group.course_progresses.first}
+  let(:course_part_progress_first) {course_progress.course_part_progresses.first}
+  let(:course_part_progress_last) {course_progress.course_part_progresses.last}
+
+  describe '#next_part_progress(course_part_progress)' do
+    context ' next part progress exist' do
+      it { expect(course_progress.next_part_progress(course_part_progress_first)).to eq(course_part_progress_last) }
     end
-    context 'next unit progress not exist' do
-      it { expect(course_progress.next_part_progress(2)).to be_nil }
+
+    context 'next part progress not exist' do
+      it { expect(course_progress.next_part_progress(course_part_progress_last)).to be_nil }
     end
   end
 
-
-  describe '#resolve_state(position)' do
-    let(:course_progress) {create :course_progress}
-    context 'next unit progress exist' do
-      it { expect(course_progress.resolve_state(1).state).to eq('in_progress') }
+  describe '#resolve_state(course_part_progress)' do
+    context 'next part progress exist' do
+      subject{course_progress.resolve_state(course_part_progress_first)}
+      it {expect{subject}.to change{course_part_progress_last.reload.state}.from('disabled').to('in_progress')}
     end
-    context 'next unit progress not exist' do
-      before(:each) {course_progress.resolve_state(2)}
-      it { expect(course_progress.is_complete).to be_truthy }
+    context 'next part progress not exist' do
+      subject{course_progress.resolve_state(course_part_progress_last)}
+      it {expect{subject}.to change{course_progress.is_complete}.from(false).to(true)}
     end
   end
 end

@@ -5,7 +5,7 @@ class Unit
   field :name
   field :video_link
   field :summary
-  field :position
+  field :position, type: Integer
   field :is_exam, type: Mongoid::Boolean, default: false
 
   has_many :unit_progresses

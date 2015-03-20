@@ -9,4 +9,10 @@ FactoryGirl.define do
       create_list(:part, evaluator.parts_count, course: course)
     end
   end
+
+  factory :empty_course, class: Course do
+    sequence(:name) {|n| "course#{n}"}
+    description "MyString"
+  end
+
 end

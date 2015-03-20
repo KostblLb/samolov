@@ -10,26 +10,37 @@ RSpec.describe CoursePartProgress do
     end
   end
 
-  describe '#next_unit_progress(position)' do
-    let(:course_part_progress) {create :course_part_progress}
-    context 'next unit progress exist' do
-      it { expect(course_part_progress.next_unit_progress(1)).to eq(course_part_progress.unit_progresses.first) }
+  let(:course) {create :empty_course, parts: [build(:empty_part, units: [build(:empty_unit, position: 1),
+                                                                         build(:empty_unit, position: 2)], position: 1),
+                                              build(:empty_part, units: [build(:empty_unit, position: 1),
+                                                                         build(:empty_unit, position: 2)], position: 2)]}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:course_progress) {group.course_progresses.first}
+  let(:course_part_progress_first) {course_progress.course_part_progresses.first}
+  let(:unit_progress_first) {course_part_progress_first.unit_progresses.first}
+  let(:unit_progress_last) {course_part_progress_first.unit_progresses.last}
+
+  describe '#next_unit_progress(unit_progress)' do
+    context ' next unit progress exist' do
+      it { expect(course_part_progress_first.next_unit_progress(unit_progress_first)).to eq(unit_progress_last) }
     end
+
     context 'next unit progress not exist' do
-      it { expect(course_part_progress.next_unit_progress(2)).to be_nil }
+      it { expect(course_part_progress_first.next_unit_progress(unit_progress_last)).to be_nil }
     end
   end
 
-
-  describe '#resolve_state(position)' do
-    let(:course_part_progress) {create :course_part_progress}
-    before(:each) {course_part_progress.state = 'in_progress'}
+  describe '#resolve_state(unit_progress)' do
     context 'next unit progress exist' do
-      it { expect(course_part_progress.resolve_state(1).state).to eq('video') }
+      subject{course_part_progress_first.resolve_state(unit_progress_first)}
+      it {expect{subject}.to change{unit_progress_last.reload.state}.from('disabled').to('video')}
     end
     context 'next unit progress not exist' do
-      before(:each) {course_part_progress.resolve_state(2)}
-      it { expect(course_part_progress.state).to eq('done') }
+      before(:each) {course_part_progress_first.state = 'in_progress'}
+      subject{course_part_progress_first.resolve_state(unit_progress_last)}
+      it {expect{subject}.to change{course_part_progress_first.state}.from('in_progress').to('done')}
     end
   end
 end

@@ -41,7 +41,7 @@ module Homework
       event :verify do
         transition :review => :verified
       end
-      before_transition on: :verify do |homework_progress|
+      before_transition :on => :verify do |homework_progress|
         homework_progress.unit_progress.next_step
       end
     end
