@@ -20,18 +20,17 @@ class CourseProgress
     course_part_progresses.inject(0) {|sum, p| sum + p.points}
   end
 
-  def resolve_state(position)
-    next_part = next_part_progress(position)
+  def resolve_state(course_part_progress)
+    next_part = next_part_progress(course_part_progress)
     if next_part
       next_part.activate
     else
       self.is_complete = true
     end
-    next_part
   end
 
-  def next_part_progress(position)
-    next_part = course.parts.where(:position.gte => position).first
+  def next_part_progress(course_part_progress)
+    next_part = course.parts.where(:position.gte => course_part_progress.part.position, :id.ne => course_part_progress.part).first
     if next_part
       CoursePartProgress.where(part: next_part, user: user, state: 'disabled').first
     else
@@ -42,6 +41,9 @@ class CourseProgress
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }
+    first_part = course_part_progresses.where(part: course.parts.first).first
+    first_part.activate
+    first_part.unit_progresses.where(unit: first_part.part.units.first).first.next_step
   end
   def create_course_part_progress(part)
     course_part_progresses.create  part: part, user: user

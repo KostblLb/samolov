@@ -1,5 +1,5 @@
 class PartSerializer < ActiveModel::Serializer
-  attributes :id, :name, :course_id, :unit_ids
+  attributes :id, :name, :course_id, :unit_ids, :position
 
   has_one :my_progress
 

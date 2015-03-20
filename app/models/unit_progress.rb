@@ -17,6 +17,7 @@ class UnitProgress
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, to: :unit
 
+  scope :disabled, -> {where state: 'disabled'}
 
   state_machine :initial => :disabled do
 
@@ -42,7 +43,7 @@ class UnitProgress
     end
 
     before_transition :homework => :done do |unit_progress|
-        unit_progress.course_part_progress.resolve_state(unit.position)
+        unit_progress.course_part_progress.resolve_state(unit_progress)
     end
 
   end

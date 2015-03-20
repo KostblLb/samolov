@@ -1,15 +1,18 @@
 Samolov.HomeworkProgress = DS.Model.extend
 
-  points: DS.attr 'number'
-  mistakesCounter: DS.attr 'number'
+  states: ['in_progress', 'review', 'verified']
+  state:                DS.attr 'string'
+  stateEvent:           DS.attr 'string'
+  points:               DS.attr 'number'
+  mistakesCounter:      DS.attr 'number'
   correctAnswerCounter: DS.attr 'number'
-  totalTasks: DS.attr 'number'
-  state: DS.attr 'string'
-  tasks: DS.hasMany 'task'
-  isComplete:  DS.attr 'boolean'
+  totalTasks:           DS.attr 'number'
+
+  tasks:                DS.hasMany 'task'
+  isComplete:           DS.attr 'boolean'
 #  isAvailable: DS.attr 'boolean'
-  unitId: DS.attr 'string'
-  unitState: DS.attr 'string'
+  unitId:               DS.attr 'string'
+  unitState:            DS.attr 'string'
 
   isSaved: false
   isReviewSaved: false
@@ -23,5 +26,5 @@ Samolov.HomeworkProgress = DS.Model.extend
   ).property('state')
 
   isAvailable: (->
-    @get('unitState') == 'homework'
+    @get('unitState') == 'homework' || @get('unitState') == 'done'
   ).property('unitState')

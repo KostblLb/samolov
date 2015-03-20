@@ -24,7 +24,7 @@ module Api
       private
        def progress_params
          if @homework_progress.teacher == current_user
-          result = params.require(:homework_progress).permit :state, tasks: [:id, :is_correct, :comment]
+          result = params.require(:homework_progress).permit :state_event, tasks: [:id, :is_correct, :comment]
          else
            result = params.require(:homework_progress).permit :state, tasks: [:id, subtasks: [:id, :_type, :answer, :fish_body, :fish_head,
                                   profile_compulsory: [:id, :sex, :age, :appearance, :other_physical, :education_level, :specialization, :additional_training,

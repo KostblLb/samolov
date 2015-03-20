@@ -35,24 +35,23 @@ class CoursePartProgress
     end
 
     before_transition on: :complete do |course_part_progress|
-      course_part_progress.course_progress.resolve_state(course_part_progress.part.position)
+      course_part_progress.course_progress.resolve_state(course_part_progress)
     end
   end
 
-  def resolve_state(position)
-    next_unit = next_unit_progress(position)
+  def resolve_state(unit_progress)
+    next_unit = next_unit_progress(unit_progress)
     if next_unit
       next_unit.next_step
     else
       complete
     end
-    next_unit
   end
 
-  def next_unit_progress(position)
-    next_unit = part.units.where(:position.gte => position).first
+  def next_unit_progress(unit_progress)
+    next_unit = part.units.where(:position.gte => unit_progress.unit.position, :id.ne => unit_progress.unit).first
     if next_unit
-      UnitProgress.where(unit: next_unit, user: user, state: 'disabled').first
+      UnitProgress.disabled.where(unit: next_unit, user: user, state: 'disabled').first
     else
       nil
     end

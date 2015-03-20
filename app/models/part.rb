@@ -2,7 +2,7 @@ class Part
   include Mongoid::Document
   field :name
 
-  field :position
+  field :position, type: Integer
   belongs_to :course
 
   has_many :units, dependent: :destroy
@@ -11,4 +11,6 @@ class Part
   accepts_nested_attributes_for :units
 
   validates_presence_of :name, :course
+
+  default_scope -> {asc :position}
 end
