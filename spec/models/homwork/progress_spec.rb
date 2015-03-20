@@ -17,7 +17,7 @@ RSpec.describe Homework::Progress do
     end
     context 'unit is not exam' do
       let(:unit){create :unit}
-      it{is_expected.to eq(5)}
+      it{is_expected.to eq(10)}
     end
   end
 
