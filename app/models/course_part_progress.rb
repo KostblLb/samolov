@@ -62,7 +62,7 @@ class CoursePartProgress
       unless user.has_unit?(unit)
         user.unit_progresses.create unit: unit, course_part_progress: self, user: user
       end
-      unit_progress_by(unit).rebuild!
+      user.unit_progress_by(unit).rebuild!
     end
   end
 

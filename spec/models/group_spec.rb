@@ -17,4 +17,20 @@ RSpec.describe Group, :type => :model do
     end
   end
 
+  describe '#rebuild!' do
+    let(:course) {create :empty_course}
+    let(:teacher) {create :user}
+    let(:student) {create :user}
+    let(:new_student) {create :user}
+    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+
+    before(:each) {group.students << new_student}
+    subject {group.rebuild!}
+
+    it 'add course progress for new_student' do
+      # expect{subject}.to change{new_student.course_progresses.count}.from(0).to(1)
+    end
+
+  end
+
 end

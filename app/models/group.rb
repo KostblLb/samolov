@@ -36,7 +36,7 @@ class Group
       unless student.has_course?(course)
         student.course_progresses.create course: course, group: self, user: student
       end
-      course_progress_by(course).rebuild!
+      student.course_progress_by(course).rebuild!
     end
   end
 

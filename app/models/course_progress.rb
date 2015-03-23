@@ -43,7 +43,7 @@ class CourseProgress
       unless user.has_part?(part)
         user.course_part_progresses.create part: part, course_progress: self, user: user
       end
-      course_part_progress_by(part).rebuild!
+      user.course_part_progress_by(part).rebuild!
     end
   end
 
