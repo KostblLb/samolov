@@ -81,6 +81,30 @@ class User
     course_progresses.where(course: course).exists?
   end
 
+  def course_progress_by(course)
+    course_progresses.where(course: course).first
+  end
+
+  def has_part?(part)
+    course_part_progresses.where(part: part).exists?
+  end
+
+  def course_part_progress_by(part)
+    course_part_progresses.where(part: part).first
+  end
+
+  def unit_progress_by(unit)
+    unit_progresses.where(unit: unit).first
+  end
+
+  def has_unit?(unit)
+    unit_progresses.where(unit: unit).exists?
+  end
+
+  def has_quiz?(quiz)
+    quiz_progresses.where(quiz: quiz).exists?
+  end
+
   def teacher?
     trained_groups.any?
   end

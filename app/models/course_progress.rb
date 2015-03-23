@@ -38,6 +38,15 @@ class CourseProgress
     end
   end
 
+  def rebuild!
+    course.parts.each do |part|
+      unless user.has_part?(part)
+        user.course_part_progresses.create part: part, course_progress: self, user: user
+      end
+      course_part_progress_by(part).rebuild!
+    end
+  end
+
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }

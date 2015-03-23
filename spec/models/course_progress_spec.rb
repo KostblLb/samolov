@@ -23,10 +23,7 @@ RSpec.describe CourseProgress do
     it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
   end
 
-  let(:course) {create :empty_course, parts: [build(:empty_part, units: [build(:empty_unit, position: 1),
-                                                                         build(:empty_unit, position: 2)], position: 1),
-                                              build(:empty_part, units: [build(:empty_unit, position: 1),
-                                                                         build(:empty_unit, position: 2)], position: 2)]}
+  let(:course) {create :empty_course}
   let(:teacher) {create :user}
   let(:student) {create :user}
   let(:group) {create :group, teacher: teacher, students: [student], course: course}
@@ -35,7 +32,7 @@ RSpec.describe CourseProgress do
   let(:course_part_progress_last) {course_progress.course_part_progresses.last}
 
   describe '#next_part_progress(course_part_progress)' do
-    context ' next part progress exist' do
+    context 'next part progress exist' do
       it { expect(course_progress.next_part_progress(course_part_progress_first)).to eq(course_part_progress_last) }
     end
 

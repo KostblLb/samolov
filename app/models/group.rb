@@ -31,6 +31,15 @@ class Group
     errors.add(:teacher, "can not be a student") if students.include?(teacher)
   end
 
+  def rebuild!
+    students.each do |student|
+      unless student.has_course?(course)
+        student.course_progresses.create course: course, group: self, user: student
+      end
+      course_progress_by(course).rebuild!
+    end
+  end
+
   private
   def set_default_scale
     self.scale ||= Scale.default

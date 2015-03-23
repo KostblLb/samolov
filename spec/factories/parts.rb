@@ -13,6 +13,6 @@ FactoryGirl.define do
 
   factory :empty_part, class: Part do
     name "MyString"
-    position 1
+    units {[build(:empty_unit, position:1), build(:empty_unit, position:2)]}
   end
 end

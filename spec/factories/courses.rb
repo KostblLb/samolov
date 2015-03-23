@@ -13,6 +13,7 @@ FactoryGirl.define do
   factory :empty_course, class: Course do
     sequence(:name) {|n| "course#{n}"}
     description "MyString"
+    parts {[build(:empty_part, position:1), build(:empty_part, position:2)]}
   end
 
 end

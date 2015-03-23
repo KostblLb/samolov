@@ -85,4 +85,12 @@ class UnitProgress
   def create_homework_prog
     unit.homework_meta.create_homework_prog(self) unless unit.homework_meta.nil? if unit.homework_meta.present?
   end
+
+  def rebuild!
+    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self unless user.has_quiz?(unit.quiz)
+    unit.quiz.quiz_progresses.create user: user, case_progress_socket: self unless user.has_quiz?(unit.case)
+    if homework_progress.exists? && !homework? && !homework_progress.in_progress?
+      unit.homework_meta.create_homework_prog(self)
+    end
+  end
 end
