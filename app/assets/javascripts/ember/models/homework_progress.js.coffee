@@ -28,3 +28,7 @@ Samolov.HomeworkProgress = DS.Model.extend
   isAvailable: (->
     @get('unitState') == 'homework' || @get('unitState') == 'done'
   ).property('unitState')
+
+  isComplete: (->
+    @get('state') != 'in_progress'
+  ).property('state')
