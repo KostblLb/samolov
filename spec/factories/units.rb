@@ -14,6 +14,7 @@ FactoryGirl.define do
     name "MyString"
     association :part
     association :quiz, factory: :quiz
+    association :case, factory: :quiz
     is_exam true
   end
 

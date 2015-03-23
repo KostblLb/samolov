@@ -40,7 +40,7 @@
                   = webinarScore
 
                 unit-table-state progress=this step='homework'
-                  = homeworkProgress.point
+                  = homeworkProgress.points
           =else
             tr.unitRow
               td

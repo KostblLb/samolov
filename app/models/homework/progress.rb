@@ -51,6 +51,10 @@ module Homework
         verified?
       end
 
+      def double_if_necessary(points)
+        points * 2
+      end
+
       def create_tasks
         homework_metas.each do |meta|
           meta.create_tasks_by_meta(self, meta)
