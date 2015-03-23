@@ -14,7 +14,7 @@
     p
       = unless isSingleAnswer
         i.asterisk.icon
-        | Количиство правильных ответов -&nbsp
+        | Количество правильных ответов -&nbsp
         = rightAnswersCount
   .ui.horizontal.divider
     | Варианты ответа
