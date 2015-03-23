@@ -53,12 +53,24 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
     @get('state') != 'disabled'
   ).property('state')
 
+  quizIsAvailable: (->
+    @stepIsAvailable 'quiz'
+  ).property('state')
+
   summaryIsAvailable: (->
     @stepIsAvailable 'summary'
   ).property('state')
 
+  caseIsAvailable: (->
+    @stepIsAvailable 'case'
+  ).property('state')
+
   webinarIsAvailable: (->
     @stepIsAvailable 'webinar'
+  ).property('state')
+
+  homeworkIsAvailable: (->
+    @stepIsAvailable 'homework'
   ).property('state')
 
 

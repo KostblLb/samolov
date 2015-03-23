@@ -12,19 +12,19 @@
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           .content
             .title Видео
-        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
+        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed myProgress.quizIsAvailable:enabled:disabled'
           .content
             .title Тест
-        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
+        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed myProgress.summaryIsAvailable:enabled:disabled'
           .content
             .title Конспект
-        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed'
+        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed myProgress.caseIsAvailable:enabled:disabled'
           .content
             .title Кейс
-        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed'
+        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed myProgress.webinarIsAvailable:enabled:disabled'
           .content
             .title Вебинар
-        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed'
+        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed myProgress.homeworkIsAvailable:enabled:disabled'
           .content
             .title Домашнее задание
   .ui.secondary.segment
