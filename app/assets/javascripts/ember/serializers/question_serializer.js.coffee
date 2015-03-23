@@ -3,3 +3,4 @@ Samolov.QuestionSerializer =  DS.ActiveModelSerializer.extend DS.EmbeddedRecords
     answers:        { embedded: 'always' }
     myAnswer:       { embedded: 'always' }
     correctAnswers: { embedded: 'always' }
+    correctAnswersReview: { embedded: 'always' }

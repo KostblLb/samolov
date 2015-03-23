@@ -1,9 +1,10 @@
 .ui.segment
   h3.ui.header
     | Результаты теста
+    br
     .ui.segments
       = each question in quiz.questions
-        .ui.segment.tertiary class=isCorrect:green:red
+        .ui.segment.tertiary
           h4.ui.header
             = inc _view.contentIndex
             | .&nbsp
@@ -11,20 +12,12 @@
           .ui.two.column.grid
             .column
               | Мои ответы:
-              table.ui.table
-                tbody
-                  = each userAnswers
-                    =each answer in answers
-                      tr class=isCorrect:positive:negative
-                        td
-                            = answer.text
-
-
+              user-answer userAnswers=userAnswers id=question.id
             .column
               | Правильные ответы:
               table.ui.table
                 tbody
-                  = each question.correctAnswers
+                  = each question.correctAnswersReview
                     tr.positive
                       td
                         = text

@@ -18,6 +18,10 @@
  *= require_self
  */
 
+.container {
+    width: 65%;
+}
+
 .ui.comments {
     max-width: 100% !important;
 }

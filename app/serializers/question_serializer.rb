@@ -3,6 +3,7 @@ class QuestionSerializer < ActiveModel::Serializer
 
   has_many :answers
   has_many :correct_answers
+  has_many :correct_answers_review
 
   has_one :my_answer, serializer: UserAnswerSerializer
 
@@ -12,7 +13,7 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def my_answer
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
-    if my_progress.finished?
+    if my_progress && my_progress.finished?
       UserAnswer.where(quiz_progress: my_progress.id, question_id: @object.id).first
     else
       nil
@@ -21,10 +22,14 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def correct_answers
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
-    if my_progress.finished?
+    if my_progress && my_progress.finished?
       answers.right
     else
       []
     end
+  end
+
+  def correct_answers_review
+    answers.right
   end
 end

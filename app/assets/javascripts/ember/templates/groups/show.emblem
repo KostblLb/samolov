@@ -100,7 +100,8 @@ h2.ui.header
                         i.remove.icon
                     td.center.aligned
                       = if quizIsComplete
-                        i.checkmark.icon
+                        = link-to 'quiz_review' quizProgress.id
+                          i.checkmark.icon
                       = else
                         i.remove.icon
                     td.center.aligned
@@ -110,7 +111,8 @@ h2.ui.header
                         i.remove.icon
                     td.center.aligned
                       = if caseIsComplete
-                        i.checkmark.icon
+                        = link-to 'quiz_review' caseProgress.id
+                          i.checkmark.icon
                       = else
                         i.remove.icon
                     td.center.aligned

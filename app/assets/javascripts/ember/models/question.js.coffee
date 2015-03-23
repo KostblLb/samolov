@@ -8,6 +8,7 @@ Samolov.Question = DS.Model.extend
 
   answers:        DS.hasMany 'answer'
   correctAnswers: DS.hasMany 'answer'
+  correctAnswersReview: DS.hasMany 'answer'
   myAnswer:       DS.belongsTo 'user_answer'
   quiz:           DS.belongsTo 'quiz', asych: true
 
