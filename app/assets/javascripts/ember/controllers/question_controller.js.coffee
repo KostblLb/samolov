@@ -6,6 +6,10 @@ Samolov.QuestionController = Ember.ObjectController.extend
     @get('userAnswer.answers').get('length') == @get('model').get('rightAnswersCount')
   ).property('userAnswer.answers')
 
+  hasAnswer: (->
+    @model.get('myAnswer.isNew')
+  ).property('model.myAnswer')
+
   actions:
     answer: ->
       @get('userAnswer').save().then (userAnswer) =>
