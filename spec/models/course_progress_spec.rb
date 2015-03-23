@@ -51,4 +51,18 @@ RSpec.describe CourseProgress do
       it {expect{subject}.to change{course_progress.is_complete}.from(false).to(true)}
     end
   end
+
+  describe '#rebuild!' do
+    let(:course) {create :empty_course}
+    let(:teacher) {create :user}
+    let(:student) {create :user}
+    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+    before(:each) {group.course.parts << build(:empty_part)}
+    subject {student.course_progresses.first.rebuild!}
+
+    it { expect{subject}.to change{student.course_part_progresses.count}.from(2).to(3) }
+    it { expect{subject}.to change{student.unit_progresses.count}.from(4).to(6) }
+    it { expect{subject}.not_to change{student.course_part_progresses.first}}
+    it { expect{subject}.not_to change{student.unit_progresses.first}}
+  end
 end
