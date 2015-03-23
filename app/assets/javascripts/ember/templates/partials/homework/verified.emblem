@@ -17,6 +17,24 @@
           .four.wide.column
             .ui.compact.message
               .header
-                | Комментарий
-              p
-                =comment
+                = if isCorrect
+                  | Правильно!
+                =else
+                  | Не правильно!
+            = if comment
+              .ui.compact.message
+                .header
+                  | Комментарий
+                p
+                  =comment
+  .ui.horizontal.divider
+    i.bar.chart.icon
+    | Итог
+    p
+      | Правильно выполненных заданий -&nbsp
+      = correctAnswerCounter
+      | &nbspиз&nbsp
+      = totalTasks
+    p
+      | Баллы -&nbsp
+      = points
