@@ -1,0 +1,42 @@
+.ui.segment
+  h3.ui.header
+    | Результаты теста
+    .ui.segments
+      = each question in quiz.questions
+        .ui.segment.tertiary class=isCorrect:green:red
+          h4.ui.header
+            = inc _view.contentIndex
+            | .&nbsp
+            = question.text
+          .ui.two.column.grid
+            .column
+              | Мои ответы:
+              table.ui.table
+                tbody
+                  = each userAnswers
+                    =each answer in answers
+                      tr class=isCorrect:positive:negative
+                        td
+                            = answer.text
+
+
+            .column
+              | Правильные ответы:
+              table.ui.table
+                tbody
+                  = each question.correctAnswers
+                    tr.positive
+                      td
+                        = text
+
+    .ui.horizontal.divider
+      i.bar.chart.icon
+      | Итог
+    p
+      | Правильных ответов -&nbsp
+      = correctAnswersCount
+      | &nbspиз&nbsp
+      = quiz.questions.length
+    p
+      | Баллы -&nbsp
+      = points

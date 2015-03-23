@@ -3,10 +3,21 @@
 Samolov.QuizProgressRoute = Ember.Route.extend
   model: (params) ->
     @store.find 'quiz_progress', params.quiz_progress_id
+
   afterModel: (progress, transition) ->
+    if progress.get('isQuiz')
+      $('.case_tab').removeClass('active')
+      $('.quiz_tab').addClass('active')
+    else
+      $('.quiz_tab').removeClass('active')
+      $('.case_tab').addClass('active')
     currentQuestion = progress.get 'currentQuestionId'
     if currentQuestion?
       @transitionTo 'question', currentQuestion
     else
-     progress.get('quiz').content.reload()
-     @_super
+      progress.get('quiz').content.reload()
+      @_super
+
+  deactivate: ->
+    $('.quiz_tab').removeClass('active')
+    $('.case_tab').removeClass('active')
