@@ -19,10 +19,34 @@
         th
           | ДЗ
     tbody
-      = each units
-        = with myProgress
-          =if isAvailable
-            link-to 'unit' unit.id tagName='tr' class='unitRow'
+      =if isLoading
+        tr
+          td colspan=7
+            .spinner
+      =else
+        = each units
+          = with myProgress
+            =if isAvailable
+              link-to 'unit' unit.id tagName='tr' class='unitRow'
+                tr.unitRow
+                  td
+                    = unit.name
+                  unit-table-state progress=this step='video'
+
+                  unit-table-state progress=this step='quiz'
+                    = quizProgress.points
+
+                  unit-table-state progress=this step='summary'
+
+                  unit-table-state progress=this step='case'
+                    = caseProgress.points
+
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
+
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgress.points
+            =else
               tr.unitRow
                 td
                   = unit.name
@@ -40,23 +64,4 @@
                   = webinarScore
 
                 unit-table-state progress=this step='homework'
-                  = homeworkProgress.points
-          =else
-            tr.unitRow
-              td
-                = unit.name
-              unit-table-state progress=this step='video'
-
-              unit-table-state progress=this step='quiz'
-                = quizProgress.points
-
-              unit-table-state progress=this step='summary'
-
-              unit-table-state progress=this step='case'
-                = caseProgress.points
-
-              unit-table-state progress=this step='webinar'
-                = webinarScore
-
-              unit-table-state progress=this step='homework'
-                = homeworkProgress.point
+                  = homeworkProgress.point

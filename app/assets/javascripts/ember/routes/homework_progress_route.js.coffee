@@ -6,3 +6,4 @@ Samolov.HomeworkProgressRoute = Ember.Route.extend
     model.reload()
     uId = model.get('unitId')
     @transitionTo('homework_progress', model.get('id'))
+
