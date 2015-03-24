@@ -10,10 +10,7 @@ RSpec.describe CoursePartProgress do
     end
   end
 
-  let(:course) {create :empty_course, parts: [build(:empty_part, units: [build(:empty_unit, position: 1),
-                                                                         build(:empty_unit, position: 2)], position: 1),
-                                              build(:empty_part, units: [build(:empty_unit, position: 1),
-                                                                         build(:empty_unit, position: 2)], position: 2)]}
+  let(:course) {create :empty_course}
   let(:teacher) {create :user}
   let(:student) {create :user}
   let(:group) {create :group, teacher: teacher, students: [student], course: course}
@@ -45,16 +42,12 @@ RSpec.describe CoursePartProgress do
   end
 
   describe '#rebuild!' do
-    let(:course) {create :empty_course}
-    let(:teacher) {create :user}
-    let(:student) {create :user}
-    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+
     before(:each) {group.course.parts.first.units << build(:empty_unit)}
     subject {student.course_part_progresses.first.rebuild!}
 
     it { expect{subject}.to change{student.unit_progresses.count}.from(4).to(5) }
     it { expect{subject}.to change{student.quiz_progresses.count}.from(8).to(10) }
-    # it { expect{subject}.to change{student.my_homeworks.count}.from(4).to(5) }
-    it { expect{subject}.not_to change{student.unit_progresses.first}}
+    it { expect{subject}.not_to change{student.course_part_progresses}}
   end
 end

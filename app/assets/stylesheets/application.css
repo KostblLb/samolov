@@ -17,9 +17,60 @@
  *= require jquery.tagit
  *= require_self
  */
-
-.container {
-    width: 68%;
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 980px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 700px;
+        margin-left: 120px;
+    }
+    .ui.steps {
+        overflow: visible;
+    }
+    .ui.steps .step {
+        display: block;
+        border-radius: 0em;
+        padding: 0.9285em 1.5em;
+    }
+    .ui.steps .step:first-child {
+        padding: 0.9285em 1.5em;
+        border-radius: 0.2857rem 0.2857rem 0em 0em;
+    }
+    .ui.steps .step:last-child {
+        border-radius: 0em 0em 0.2857rem 0.2857rem;
+    }
+    /* Arrow */
+    .ui.steps .step:after {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    .container {
+        width: 500px;
+        margin-left: 120px;
+    }
+    .ui.steps {
+        overflow: visible;
+    }
+    .ui.steps .step {
+        display: block;
+        border-radius: 0em;
+        padding: 0.9285em 1.5em;
+    }
+    .ui.steps .step:first-child {
+        padding: 0.9285em 1.5em;
+        border-radius: 0.2857rem 0.2857rem 0em 0em;
+    }
+    .ui.steps .step:last-child {
+        border-radius: 0em 0em 0.2857rem 0.2857rem;
+    }
+    /* Arrow */
+    .ui.steps .step:after {
+        display: none;
+    }
 }
 
 .ui.comments {
