@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  admin:
+    actions:
+      rebuild_group:
+        menu: 'Rebuild Group'
+        title: 'Rebuild Group'
+        breadcrumb: 'Rebuild Group'
+

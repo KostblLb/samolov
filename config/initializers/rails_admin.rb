@@ -1,3 +1,6 @@
+require 'rails_admin_rebuild_group'
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::RebuildGroup)
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -26,6 +29,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    rebuild_group
     nestable
 
     ## With an audit adapter, you can add:

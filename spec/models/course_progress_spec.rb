@@ -1,12 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe CourseProgress do
-  describe 'create new object' do
-    before(:each) {subject.save}
-    subject{create :course_progress}
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:course_progress) {group.course_progresses.first}
+  let(:course_part_progress_first) {course_progress.course_part_progresses.first}
+  let(:course_part_progress_last) {course_progress.course_part_progresses.last}
 
+  describe 'create new object' do
     it 'creates parts progresses' do
-      expect(subject.course_part_progresses.count).to eq(2)
+      expect(course_progress.course_part_progresses.count).to eq(2)
     end
   end
 
@@ -22,14 +27,6 @@ RSpec.describe CourseProgress do
 
     it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
   end
-
-  let(:course) {create :empty_course}
-  let(:teacher) {create :user}
-  let(:student) {create :user}
-  let(:group) {create :group, teacher: teacher, students: [student], course: course}
-  let(:course_progress) {group.course_progresses.first}
-  let(:course_part_progress_first) {course_progress.course_part_progresses.first}
-  let(:course_part_progress_last) {course_progress.course_part_progresses.last}
 
   describe '#next_part_progress(course_part_progress)' do
     context 'next part progress exist' do
@@ -53,10 +50,6 @@ RSpec.describe CourseProgress do
   end
 
   describe '#rebuild!' do
-    let(:course) {create :empty_course}
-    let(:teacher) {create :user}
-    let(:student) {create :user}
-    let(:group) {create :group, teacher: teacher, students: [student], course: course}
     before(:each) {group.course.parts << build(:empty_part)}
     subject {student.course_progresses.first.rebuild!}
 

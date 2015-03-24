@@ -69,4 +69,39 @@ RSpec.describe UnitProgress do
       it {is_expected.to eq(progress.quiz_progress.points + progress.case_progress.points + progress.webinar_score)}
     end
   end
+
+  describe '#rebuild!' do
+    let(:course) {create :empty_course}
+    let(:teacher) {create :user}
+    let(:student) {create :user}
+    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+
+    subject {student.unit_progresses.first.rebuild!}
+
+    context 'add quiz'do
+      before(:each) {group.course.parts.first.units.first.quiz = create(:quiz)}
+      it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
+      it {expect{subject}.to change{student.my_homeworks.count}.from(4).to(5)}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+
+    context 'add case'do
+      before(:each) {group.course.parts.first.units.first.case = create(:quiz)}
+      it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
+      it {expect{subject}.to change{student.my_homeworks.count}.from(4).to(5)}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+
+    context 'homework state review'do
+      before(:each) do
+        group.save
+        student.unit_progresses.first.homework_progress.complete
+      end
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.not_to change{student.quiz_progresses.count}}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+
+
+  end
 end
