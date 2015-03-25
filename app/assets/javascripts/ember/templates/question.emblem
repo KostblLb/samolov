@@ -1,25 +1,24 @@
-=unless hasAnswer
-  .ui.success.message
-    .header
-      |Ответ на данный вопрос уже принят
-    p
-      |Перейдите по ссылке чтобы продолжить выполнение задания
-  link-to 'quiz_progress' myAnswer.quizProgressId class='ui green button'
-    i.play.icon
-    |Продолжить
-=else
-  = if preview_image_url
+=if content.isLoaded
+  =unless hasAnswer
+    .ui.success.message
+      .header
+        |Ответ на данный вопрос уже принят
+      p
+        |Перейдите по ссылке чтобы продолжить выполнение задания
+    link-to 'quiz_progress' myAnswer.quizProgressId class='ui green button'
+      i.play.icon
+      |Продолжить
+  =else
+    = if preview_image_url
+      .ui.segment
+        .content
+          img.ui.centered.image.quizImage src=preview_image_url
     .ui.segment
-      .content
-        img.ui.centered.image.quizImage src=preview_image_url
-  .ui.segment
-    .ui.header
       | Вопрос №&nbsp
       = number
       |  из &nbsp
       = quiz.questions.length
     .content
-
       = text
       p
         = unless isSingleAnswer
@@ -40,4 +39,5 @@
         button.ui.button{action 'answer'}
           | Дальше
           i.arrow.right.icon
-
+=else
+  .spinner

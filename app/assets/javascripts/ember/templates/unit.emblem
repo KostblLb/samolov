@@ -29,7 +29,9 @@
             .title Домашнее задание
   .ui.secondary.segment
 
-    =if isLoading
-      .spinner
-    =else
+    =if isLoaded
       = outlet
+    =else
+      =isLoaded
+
+
