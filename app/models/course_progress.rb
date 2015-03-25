@@ -49,7 +49,7 @@ class CourseProgress
   end
 
   def deadline
-    course_part_progresses.where(part: course.parts.last, user: user).first.deadline
+    course_part_progresses.where(part: course.parts.last, user: user).first.try(:deadline)
   end
 
   private
