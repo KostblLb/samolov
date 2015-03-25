@@ -34,4 +34,10 @@
             .title Домашнее задание
             step-description progress=myProgress step='homework'
   .ui.secondary.segment
-    = outlet
+
+    =if isLoaded
+      = outlet
+    =else
+      =isLoaded
+
+

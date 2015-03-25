@@ -19,44 +19,49 @@
         th
           | ДЗ
     tbody
-      = each units
-        = with myProgress
-          =if isAvailable
-            link-to 'unit' unit.id tagName='tr' class='unitRow'
-              tr.unitRow
-                td.collapsing
-                  | #{unit.name} (Завершить до: #{formattedDeadline})
-                unit-table-state progress=this step='video'
+        = each units
+          =if isLoaded
+            = with myProgress
+              =if isAvailable
+                link-to 'unit' unit.id tagName='tr' class='unitRow'
+                  tr.unitRow
+                    td.collapsing
+                      | #{unit.name} (Завершить до: #{formattedDeadline})
+                    unit-table-state progress=this step='video'
 
-                unit-table-state progress=this step='quiz'
-                  = quizProgress.points
+                    unit-table-state progress=this step='quiz'
+                      = quizProgress.points
 
-                unit-table-state progress=this step='summary'
+                    unit-table-state progress=this step='summary'
 
-                unit-table-state progress=this step='case'
-                  = caseProgress.points
+                    unit-table-state progress=this step='case'
+                      = caseProgress.points
 
-                unit-table-state progress=this step='webinar'
-                  = webinarScore
+                    unit-table-state progress=this step='webinar'
+                      = webinarScore
 
-                unit-table-state progress=this step='homework'
-                  = homeworkProgress.points
+                    unit-table-state progress=this step='homework'
+                      = homeworkProgress.points
+              =else
+                tr.unitRow
+                  td.collapsing
+                    | #{unit.name} (Завершить до: #{formattedDeadline})
+                  unit-table-state progress=this step='video'
+
+                  unit-table-state progress=this step='quiz'
+                    = quizProgress.points
+
+                  unit-table-state progress=this step='summary'
+
+                  unit-table-state progress=this step='case'
+                    = caseProgress.points
+
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
+
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgress.point
           =else
-            tr.unitRow
-              td.collapsing
-                | #{unit.name} (Завершить до: #{formattedDeadline})
-              unit-table-state progress=this step='video'
-
-              unit-table-state progress=this step='quiz'
-                = quizProgress.points
-
-              unit-table-state progress=this step='summary'
-
-              unit-table-state progress=this step='case'
-                = caseProgress.points
-
-              unit-table-state progress=this step='webinar'
-                = webinarScore
-
-              unit-table-state progress=this step='homework'
-                = homeworkProgress.point
+            tr
+              td colspan="7"
+                .smallSpinner

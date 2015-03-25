@@ -1,4 +1,7 @@
-= if isAvailable
-  =partial hpn
+=if isLoading
+  .spinner
 =else
-  =partial 'unit/is_not_available'
+  = if isAvailable
+    =partial hpn
+  =else
+    =partial 'unit/is_not_available'
