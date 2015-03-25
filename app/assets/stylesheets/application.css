@@ -185,9 +185,16 @@ module-accordion {
     widt: 100%;
     height: 100%;
     min-height: 50px;
-    background: url('small spinner.GIF') center no-repeat;
+    background: url('spinner.GIF') center no-repeat;
 }
 .blank{
     padding-top: 25%;
     vertical-align: middle;
+}
+.smallSpinner{
+    margin: auto;
+    widt: 100%;
+    height: 100%;
+    min-height: 22px;
+    background: url('small spinner.GIF') center no-repeat;
 }

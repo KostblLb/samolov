@@ -1,7 +1,4 @@
-
-=if isLoading
-  .spinner
-=else
+=if content.isLoaded
   .ui.segment
     =if isSaved
       .ui.info.message
@@ -26,3 +23,5 @@
     |Сохранить
   .ui.primary.button{action 'sendHomework'}
     |Отправить
+=else
+  .spinner
