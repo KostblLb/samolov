@@ -1,4 +1,3 @@
-
 = if stepSupported
   = if stepIsCompleted
     = if template
@@ -6,6 +5,9 @@
     = else
       i.checkmark.icon
   = else
-    i.wait.icon
+    = if stepIsTimeOut
+      i.warning.sign.icon
+    = else
+      i.wait.icon
 = else
   i.ban.icon

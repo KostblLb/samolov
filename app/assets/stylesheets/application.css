@@ -73,6 +73,9 @@
     }
 }
 
+.clear {
+    clear: both;
+}
 .ui.comments {
     max-width: 100% !important;
 }

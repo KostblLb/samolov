@@ -12,20 +12,26 @@
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           .content
             .title Видео
+            step-description progress=myProgress step='video'
         link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed myProgress.quizIsAvailable:enabled:disabled'
           .content
             .title Тест
+            step-description progress=myProgress step='quiz'
         link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed myProgress.summaryIsAvailable:enabled:disabled'
           .content
             .title Конспект
+            step-description progress=myProgress step='summary'
         link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed myProgress.caseIsAvailable:enabled:disabled'
           .content
             .title Кейс
+            step-description progress=myProgress step='case'
         link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed myProgress.webinarIsAvailable:enabled:disabled'
           .content
             .title Вебинар
+            step-description progress=myProgress step='webinar'
         link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed myProgress.homeworkIsAvailable:enabled:disabled'
           .content
             .title Домашнее задание
+            step-description progress=myProgress step='homework'
   .ui.secondary.segment
     = outlet

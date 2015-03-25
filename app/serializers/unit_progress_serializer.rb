@@ -1,6 +1,6 @@
 class UnitProgressSerializer < ActiveModel::Serializer
   attributes :id, :state, :points, :max_points, :user_id, :unit_id, :homework_progress_id, :quiz_progress_id,
-             :case_progress_id, :is_exam, :webinar_score, :deadline, :video_deadline, :test_deadline,
+             :case_progress_id, :is_exam, :webinar_score, :deadline, :video_deadline, :quiz_deadline,
              :summary_deadline, :case_deadline, :homework_deadline
 
   def state

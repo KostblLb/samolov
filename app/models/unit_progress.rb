@@ -96,12 +96,12 @@ class UnitProgress
     unit_beginning + unit.estimate.video
   end
 
-  def test_deadline
+  def quiz_deadline
     video_deadline + unit.estimate.test
   end
 
   def summary_deadline
-    test_deadline + unit.estimate.summary
+    quiz_deadline + unit.estimate.summary
   end
 
   def case_deadline
@@ -109,7 +109,11 @@ class UnitProgress
   end
 
   def homework_deadline
-    unit.webinar.end.to_date + unit.estimate.homework
+    unless unit.webinar.nil?
+      unit.webinar.end.to_date + unit.estimate.homework
+    else
+      case_deadline + unit.estimate.homework
+    end
   end
   alias :deadline :homework_deadline
   

@@ -1,6 +1,6 @@
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
-Samolov.Webinar = DS.Model.extend
+Samolov.Webinar = DS.Model.extend Samolov.FormattedTimestampMixin,
   link: DS.attr 'string'
   start: DS.attr 'date'
   end:   DS.attr 'date'
