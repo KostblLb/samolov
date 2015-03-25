@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UnitProgressesController, :type => :controller do
-  let(:unit_progress){create :unit_progress}
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course, education_beginning: Date.new(2015,1,1) }
+  let(:unit_progress){ group.course_progresses.first.course_part_progresses.first.unit_progresses.last }
   before :each do
     request.accept = 'application/json'
   end
@@ -12,7 +16,6 @@ RSpec.describe Api::V1::UnitProgressesController, :type => :controller do
     it 'updates state' do
       expect{subject}.to change{unit_progress.reload.state}
     end
-
 
     it 'assigns unit_progress has a new state' do
       subject

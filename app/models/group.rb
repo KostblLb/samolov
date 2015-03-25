@@ -2,6 +2,7 @@ class Group
   include Mongoid::Document
 
   field :name
+  field :education_beginning, type: Date
 
   belongs_to :course
   belongs_to :teacher, class_name: 'User', inverse_of: :trained_groups

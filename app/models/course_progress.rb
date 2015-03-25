@@ -2,6 +2,7 @@ class CourseProgress
   include Mongoid::Document
 
   field :is_complete, default: false
+
   # TODO: should be deprecated. Course should be delegated to group
   belongs_to :course
   belongs_to :user
@@ -45,6 +46,10 @@ class CourseProgress
       end
       user.course_part_progress_by(part).rebuild!
     end
+  end
+
+  def deadline
+    course_part_progresses.where(part: course.parts.last, user: user).first.deadline
   end
 
   private

@@ -32,6 +32,16 @@ FactoryGirl.define do
     association :quiz, factory: :quiz
     association :case, factory: :quiz
     association :homework_meta, factory: :homework_meta_progress
+    webinar { build(:webinar) }
     position 1
+  end
+
+  factory :empty_unit2, class: Unit do
+    name "MyString"
+    association :quiz, factory: :quiz
+    association :case, factory: :quiz
+    association :homework_meta, factory: :homework_meta_progress
+    webinar { build(:webinar2) }
+    position 2
   end
 end

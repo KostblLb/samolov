@@ -3,3 +3,4 @@
 Samolov.CourseProgress = DS.Model.extend Samolov.ProgressMixin,
   coursePartProgresses: DS.hasMany 'coursePartProgress'
   isComplete: DS.attr 'boolean'
+  deadline:   DS.attr 'string'

@@ -70,11 +70,12 @@ RSpec.describe UnitProgress do
     end
   end
 
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course, education_beginning: Date.new(2015,1,1)}
+
   describe '#rebuild!' do
-    let(:course) {create :empty_course}
-    let(:teacher) {create :user}
-    let(:student) {create :user}
-    let(:group) {create :group, teacher: teacher, students: [student], course: course}
 
     subject {student.unit_progresses.first.rebuild!}
 
@@ -101,7 +102,10 @@ RSpec.describe UnitProgress do
       it {expect{subject}.not_to change{student.quiz_progresses.count}}
       it {expect{subject}.not_to change{student.unit_progresses}}
     end
+  end
 
-
+  describe 'unit_beginning' do
+    it {expect(group.course_progresses.first.course_part_progresses.first.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,1))}
+    it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
   end
 end

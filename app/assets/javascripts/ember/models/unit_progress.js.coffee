@@ -1,16 +1,24 @@
 Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   states: ['disabled', 'video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
-  state:        DS.attr 'string'
-  stateEvent:   DS.attr 'string'
-  isExam:       DS.attr 'boolean'
-  hpid:         DS.attr 'string'
-  webinarScore: DS.attr 'number'
 
-  unit:             DS.belongsTo 'unit'#, async: true
-  user:             DS.belongsTo 'user'
-  homeworkProgress: DS.belongsTo 'homework_progress', async: true
-  quizProgress:     DS.belongsTo 'quiz_progress',     async: true
-  caseProgress:     DS.belongsTo 'quiz_progress',     async: true
+  state:               DS.attr 'string'
+  stateEvent:          DS.attr 'string'
+  isExam:              DS.attr 'boolean'
+  hpid:                DS.attr 'string'
+  webinarScore:        DS.attr 'number'
+  deadline:            DS.attr 'string'
+  videoDeadline:       DS.attr 'string'
+  testDeadline:        DS.attr 'string'
+  summaryDeadline:     DS.attr 'string'
+  caseDeadline:        DS.attr 'string'
+  homeworkDeadline:    DS.attr 'string'
+
+
+  unit:                DS.belongsTo 'unit'#, async: true
+  user:                DS.belongsTo 'user'
+  homeworkProgress:    DS.belongsTo 'homework_progress', async: true
+  quizProgress:        DS.belongsTo 'quiz_progress',     async: true
+  caseProgress:        DS.belongsTo 'quiz_progress',     async: true
 
   stepIsComplite: (step) ->
     @states.indexOf(step) < @states.indexOf(@get 'state')
