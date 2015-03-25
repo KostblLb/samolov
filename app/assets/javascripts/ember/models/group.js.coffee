@@ -1,7 +1,8 @@
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
 Samolov.Group = DS.Model.extend
-  name: DS.attr 'string'
+  name:               DS.attr 'string'
+  educationBeginning: DS.attr 'string'
 
   teacher: DS.belongsTo 'user', async: true
   course:  DS.belongsTo 'course'
@@ -10,6 +11,7 @@ Samolov.Group = DS.Model.extend
   students:         DS.hasMany 'user'
   adverts:          DS.hasMany 'advert'
   courseProgresses: DS.hasMany 'course_progress'
+
 
 
   canICreateAdvert: (->

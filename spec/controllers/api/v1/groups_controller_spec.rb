@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::GroupsController, type: :controller do
 
-  let(:group) {create :group}
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course, education_beginning: Date.new(2015,1,1) }
 
   before :each do
     request.accept = 'application/json'

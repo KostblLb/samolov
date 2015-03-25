@@ -2,7 +2,7 @@ class Part
   include Mongoid::Document
   field :name
 
-  field :position, type: Integer
+  field :position, type: Integer, default: 1
   belongs_to :course
 
   has_many :units, dependent: :destroy

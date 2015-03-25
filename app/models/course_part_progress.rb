@@ -66,6 +66,10 @@ class CoursePartProgress
     end
   end
 
+  def deadline
+    unit_progresses.where(unit: part.units.last, user: user).first.deadline
+  end
+
   private
   def create_ut_progresses
     part.units.each {|u| create_unit_progress(u) }

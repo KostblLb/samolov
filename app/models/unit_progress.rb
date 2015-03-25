@@ -2,6 +2,7 @@ class UnitProgress
   include Mongoid::Document
 
   field :webinar_score, type: Integer
+
   belongs_to :course_part_progress
   belongs_to :user
 
@@ -75,6 +76,42 @@ class UnitProgress
       unit.homework_meta.create_homework_prog(self, user)
     end
   end
+
+  def unit_beginning
+    prev_unit = course_part_progress.part.units.where(:position.lte => unit.position, :id.ne => unit).last
+    if prev_unit
+      UnitProgress.where(unit: prev_unit, user: user).first.deadline
+    else
+      prev_part = course_part_progress.course_progress.course.parts.where(:position.lte => course_part_progress.part.position,
+                                                                   :id.ne => course_part_progress.part).last
+      if prev_part
+        CoursePartProgress.where(part: prev_part, user: user).first.deadline
+      else
+        course_part_progress.course_progress.group.education_beginning
+      end
+    end
+  end
+
+  def video_deadline
+    unit_beginning + unit.estimate.video
+  end
+
+  def test_deadline
+    video_deadline + unit.estimate.test
+  end
+
+  def summary_deadline
+    test_deadline + unit.estimate.summary
+  end
+
+  def case_deadline
+    summary_deadline + unit.estimate.case
+  end
+
+  def homework_deadline
+    unit.webinar.end.to_date + unit.estimate.homework
+  end
+  alias :deadline :homework_deadline
   
   private
   def set_init_state_for_exam
