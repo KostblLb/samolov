@@ -10,4 +10,4 @@
           |Начало курса: #{myGroup.formattedEducationBeginnning}
         .header
           |Окончание курса: #{myProgress.formattedDeadline}
-= outlet= outlet
+= outlet
