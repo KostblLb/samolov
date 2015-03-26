@@ -138,13 +138,6 @@
     margin: 15px 0;
     border: 2px solid #a7c6e0;
 }
-.fish_head {
-    margin-top: 20px;
-    width: 49%;
-    display: inline-block;
-    background: url('triangle.png') 0 0 no-repeat;
-    padding: 105px 90px 120px 10px;
-}
 
 .rowspan_cell {
     border-right: 1px solid #d4d4d5;
@@ -183,21 +176,4 @@ module-accordion {
     cursor: pointer;
 }
 
-.spinner {
-    margin: auto;
-    widt: 100%;
-    height: 100%;
-    min-height: 50px;
-    background: url('spinner.GIF') center no-repeat;
-}
-.blank{
-    padding-top: 25%;
-    vertical-align: middle;
-}
-.smallSpinner{
-    margin: auto;
-    widt: 100%;
-    height: 100%;
-    min-height: 22px;
-    background: url('small spinner.GIF') center no-repeat;
-}
+
