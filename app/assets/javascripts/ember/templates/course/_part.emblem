@@ -25,8 +25,8 @@
               =if isAvailable
                 link-to 'unit' unit.id tagName='tr' class='unitRow'
                   tr.unitRow
-                    td
-                      = unit.name
+                    td.collapsing
+                      | #{unit.name} (Завершить до: #{formattedDeadline})
                     unit-table-state progress=this step='video'
 
                     unit-table-state progress=this step='quiz'
@@ -44,8 +44,8 @@
                       = homeworkProgress.points
               =else
                 tr.unitRow
-                  td
-                    = unit.name
+                  td.collapsing
+                    | #{unit.name} (Завершить до: #{formattedDeadline})
                   unit-table-state progress=this step='video'
 
                   unit-table-state progress=this step='quiz'

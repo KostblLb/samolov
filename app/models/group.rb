@@ -15,7 +15,7 @@ class Group
 
   after_initialize :set_default_scale
   after_save :resolve_students
-  validates_presence_of :course, :scale, :teacher
+  validates_presence_of :course, :scale, :teacher, :education_beginning
   validate :cannot_be_a_student
 
   accepts_nested_attributes_for :adverts

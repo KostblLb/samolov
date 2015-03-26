@@ -8,10 +8,10 @@ Samolov.Group = DS.Model.extend
   course:  DS.belongsTo 'course'
   scale:   DS.belongsTo 'scale'
 
-  students:         DS.hasMany 'user'
+  students:         DS.hasMany 'user', async:true
   adverts:          DS.hasMany 'advert'
-  courseProgresses: DS.hasMany 'course_progress'
-
+  courseProgresses: DS.hasMany 'course_progress', async:true
+  format: 'DD.MM.YYYY'
 
 
   canICreateAdvert: (->
@@ -22,3 +22,9 @@ Samolov.Group = DS.Model.extend
   sortedCourseProgresses: (->
     @get('courseProgresses').sortBy('points').reverse()
   ).property('courseProgresses.@each.points')
+
+  formattedEducationBeginnning: (->
+    date = @.get 'educationBeginning'
+    format = @.get 'format'
+    moment(date).format format
+  ).property('educationBeginning', 'format')

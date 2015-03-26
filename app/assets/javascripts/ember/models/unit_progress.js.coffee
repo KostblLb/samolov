@@ -1,4 +1,4 @@
-Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
+Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.ProgressMixin,
   states: ['disabled', 'video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
 
   state:               DS.attr 'string'
@@ -8,17 +8,23 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   webinarScore:        DS.attr 'number'
   deadline:            DS.attr 'string'
   videoDeadline:       DS.attr 'string'
-  testDeadline:        DS.attr 'string'
+  quizDeadline:        DS.attr 'string'
   summaryDeadline:     DS.attr 'string'
   caseDeadline:        DS.attr 'string'
   homeworkDeadline:    DS.attr 'string'
 
 
   unit:                DS.belongsTo 'unit'#, async: true
-  user:                DS.belongsTo 'user'
+  user:                DS.belongsTo 'user', async: true
   homeworkProgress:    DS.belongsTo 'homework_progress', async: true
   quizProgress:        DS.belongsTo 'quiz_progress',     async: true
   caseProgress:        DS.belongsTo 'quiz_progress',     async: true
+
+  format: 'DD.MM.YYYY'
+
+  webinarDeadline: ( ->
+    @get('unit.webinar.end')
+  ).property('unit.webinar.end')
 
   stepIsComplite: (step) ->
     @states.indexOf(step) < @states.indexOf(@get 'state')
@@ -80,6 +86,35 @@ Samolov.UnitProgress = DS.Model.extend Samolov.ProgressMixin,
   homeworkIsAvailable: (->
     @stepIsAvailable 'homework'
   ).property('state')
+
+  convertDate: (field) ->
+    date = @.get field
+    format = @.get 'format'
+    moment(date).format format
+
+  formattedVideoDeadline: (->
+    @convertDate 'videoDeadline'
+  ).property('videoDeadline', 'format')
+
+  formattedQuizDeadline: (->
+    @convertDate 'quizDeadline'
+  ).property('quizDeadline', 'format')
+
+  formattedSummaryDeadline: (->
+    @convertDate 'summaryDeadline'
+  ).property('summaryDeadline', 'format')
+
+  formattedCaseDeadline: (->
+    @convertDate 'caseDeadline'
+  ).property('caseDeadline', 'format')
+
+  formattedWebinarDeadline: (->
+    @convertDate 'webinarDeadline'
+  ).property('webinarDeadline', 'format')
+
+  formattedHomeworkDeadline: (->
+    @convertDate 'homeworkDeadline'
+  ).property('homeworkDeadline', 'format')
 
 
 

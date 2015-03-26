@@ -77,15 +77,35 @@ class UnitProgress
     end
   end
 
-  def unit_beginning
-    prev_unit = course_part_progress.part.units.where(:position.lte => unit.position, :id.ne => unit).last
+  def prev_unit_progress
+    unit_ids = course_part_progress.unit_progresses.map &:unit_id
+    unit_ids.delete(unit.id)
+    prev_unit = course_part_progress.part.units.where(:position.lte => unit.position, :id.in => unit_ids).last
     if prev_unit
-      UnitProgress.where(unit: prev_unit, user: user).first.deadline
+      UnitProgress.where(unit: prev_unit, user: user).first
     else
-      prev_part = course_part_progress.course_progress.course.parts.where(:position.lte => course_part_progress.part.position,
-                                                                   :id.ne => course_part_progress.part).last
-      if prev_part
-        CoursePartProgress.where(part: prev_part, user: user).first.deadline
+      nil
+    end
+  end
+
+  def prev_part_progress
+    course_part_ids = course_part_progress.course_progress.course_part_progresses.map &:part_id
+    course_part_ids.delete(course_part_progress.part.id)
+    prev_part = course_part_progress.course_progress.course.parts.where(:position.lte => course_part_progress.part.position,
+                                                                        :id.in => course_part_ids).last
+    if prev_part
+      CoursePartProgress.where(part: prev_part, user: user).first
+    else
+      nil
+    end
+  end
+
+  def unit_beginning
+    if prev_unit_progress
+      prev_unit_progress.deadline
+    else
+      if prev_part_progress
+        prev_part_progress.deadline
       else
         course_part_progress.course_progress.group.education_beginning
       end
@@ -96,12 +116,12 @@ class UnitProgress
     unit_beginning + unit.estimate.video
   end
 
-  def test_deadline
+  def quiz_deadline
     video_deadline + unit.estimate.test
   end
 
   def summary_deadline
-    test_deadline + unit.estimate.summary
+    quiz_deadline + unit.estimate.summary
   end
 
   def case_deadline
@@ -109,7 +129,11 @@ class UnitProgress
   end
 
   def homework_deadline
-    unit.webinar.end.to_date + unit.estimate.homework
+    unless unit.webinar.nil?
+      unit.webinar.end.to_date + unit.estimate.homework
+    else
+      case_deadline + unit.estimate.homework
+    end
   end
   alias :deadline :homework_deadline
   
