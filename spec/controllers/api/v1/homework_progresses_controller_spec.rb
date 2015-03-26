@@ -8,8 +8,6 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
   describe 'PUT update' do
     let(:unit_progress) {create :unit_progress}
 
-
-
     context 'student' do
       before :each do
         sign_in unit_progress.user
@@ -17,7 +15,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       context 'has text task' do
         let(:homework_progress) {create :homework_progress, unit_progress: unit_progress}
         let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:
-                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text', answer: "some_answer"]]}}
+                                                                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Text', answer: "some_answer"]]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.answer}.to("some_answer")
@@ -55,8 +53,8 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
       context 'has profile task' do
         let(:homework_progress) {create :homework_progress_with_profile, unit_progress: unit_progress}
         let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:
-                        [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::PositionProfile',
-                         profile_compulsory: { id: homework_progress.tasks.first.subtasks.first.profile_compulsory.id, sex: 'male', age: '20'} ]]}}
+                                                                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::PositionProfile',
+                                                                           profile_compulsory: { id: homework_progress.tasks.first.subtasks.first.profile_compulsory.id, sex: 'male', age: '20'} ]]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates profile_compulsory' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.profile_compulsory.sex}.to('male')
@@ -67,8 +65,8 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         let(:homework_progress) {create :homework_progress_with_select, unit_progress: unit_progress}
         let(:homework_meta_option) {create :homework_meta_option }
         let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:
-                        [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Select',
-                         answers: [homework_meta_option.id] ]]}}
+                                                                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Select',
+                                                                           answers: [homework_meta_option.id] ]]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates select answers' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.answers}.to([homework_meta_option])
@@ -79,8 +77,8 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         let(:homework_progress) {create :homework_progress_with_fish, unit_progress: unit_progress}
         let(:homework_meta_option) {create :homework_meta_option}
         let(:attributes) {{tasks:[id: homework_progress.tasks.first.id, subtasks:
-                            [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Fish',
-                             fish_body: 'q', fish_head: 'qq']]}}
+                                                                          [id:homework_progress.tasks.first.subtasks.first.id, _type: 'Homework::Subtask::Fish',
+                                                                           fish_body: 'q', fish_head: 'qq']]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates fish body' do
           expect{subject}.to change{homework_progress.reload.tasks.first.subtasks.first.fish_body}.to('q')
@@ -102,6 +100,19 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
         it 'updates answer fields' do
           expect{subject}.to change{homework_progress.tasks.first.reload.is_correct}.to be_falsey
+        end
+      end
+
+      context 'finish checking' do
+        let(:homework_progress) {create :homework_progress, state: 'review', unit_progress: unit_progress}
+        let(:attributes) {{state_event: 'verify', tasks: [{id:homework_progress.tasks.first.id, is_correct: false, comment: '123123'}]}}
+        subject{put :update, id: homework_progress.id, homework_progress: attributes}
+        it 'updates homework progress state' do
+          expect{subject}.to change{homework_progress.reload.state}.from('review').to('verified')
+        end
+
+        it 'updates comment to first task' do
+          expect{subject}.to change{homework_progress.tasks.first.reload.comment}.from(nil).to('123123')
         end
       end
     end
