@@ -80,7 +80,7 @@ class UnitProgress
   def unit_beginning
     course_part_progress.part_beginning + course_part_progress.part
                                            .units
-                                           .where(:position.lte => unit.position, :id.ne => unit.id)
+                                           .where(:position.lte => unit.position, :id.lt => unit.id)
                                            .map(&:duration).inject(0) {|sum,x| sum + x }
   end
 

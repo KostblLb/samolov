@@ -69,7 +69,7 @@ class CoursePartProgress
   def part_beginning
     course_progress.course_beginning + course_progress.course
                                            .parts
-                                           .where(:position.lte => part.position, :id.ne => part.id)
+                                           .where(:position.lte => part.position, :id.lt => part.id)
                                            .map(&:duration).inject(0) {|sum,x| sum + x }
   end
 
