@@ -114,7 +114,7 @@ RSpec.describe UnitProgress do
     context 'previous unit_progress is not exist' do
       before(:each) do
         group.save
-        group.course_progresses.first.course_part_progresses.first.unit_progresses.first.delete
+        group.course_progresses.first.course_part_progresses.first.unit_progresses = nil
       end
       it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
       it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,12))}
@@ -125,10 +125,8 @@ RSpec.describe UnitProgress do
         group.save
         group.course_progresses.first.course_part_progresses.first.delete
       end
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,1))}
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,2))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,12))}
     end
   end
-
-
 end

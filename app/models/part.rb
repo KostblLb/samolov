@@ -13,4 +13,8 @@ class Part
   validates_presence_of :name, :course
 
   default_scope -> {asc :position}
+
+  def duration
+    units.map(&:duration).inject(0) {|sum,x| sum + x }
+  end
 end

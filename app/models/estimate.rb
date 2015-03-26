@@ -7,4 +7,8 @@ class Estimate
   field :homework, type: Integer, default: 1
 
   embedded_in :unit
+
+  def duration
+    video + test + summary + self.case + homework
+  end
 end

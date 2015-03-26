@@ -13,9 +13,10 @@ RSpec.describe CoursePartProgress do
   let(:course) {create :empty_course}
   let(:teacher) {create :user}
   let(:student) {create :user}
-  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course, education_beginning: Date.new(2015,1,1)}
   let(:course_progress) {group.course_progresses.first}
   let(:course_part_progress_first) {course_progress.course_part_progresses.first}
+  let(:course_part_progress_last) {course_progress.course_part_progresses.last}
   let(:unit_progress_first) {course_part_progress_first.unit_progresses.first}
   let(:unit_progress_last) {course_part_progress_first.unit_progresses.last}
 
@@ -49,5 +50,15 @@ RSpec.describe CoursePartProgress do
     it { expect{subject}.to change{student.unit_progresses.count}.from(4).to(5) }
     it { expect{subject}.to change{student.quiz_progresses.count}.from(8).to(10) }
     it { expect{subject}.not_to change{student.course_part_progresses}}
+  end
+
+  describe '#part_beginning' do
+    it {expect(course_part_progress_first.part_beginning).to eq(Date.new(2015, 1, 1))}
+    it {expect(course_part_progress_last.part_beginning).to eq(Date.new(2015, 1, 11))}
+  end
+
+  describe '#deadline' do
+    it {expect(course_part_progress_first.deadline).to eq(Date.new(2015, 1, 11))}
+    it {expect(course_part_progress_last.deadline).to eq(Date.new(2015, 1, 21))}
   end
 end

@@ -20,4 +20,8 @@ class Course
     return :in_progress if user && user.has_course?(self)
     :new
   end
+
+  def duration
+    parts.map(&:duration).inject(0) {|sum,x| sum + x }
+  end
 end

@@ -66,8 +66,15 @@ class CoursePartProgress
     end
   end
 
+  def part_beginning
+    course_progress.course_beginning + course_progress.course
+                                           .parts
+                                           .where(:position.lte => part.position, :id.ne => part.id)
+                                           .map(&:duration).inject(0) {|sum,x| sum + x }
+  end
+
   def deadline
-    unit_progresses.where(unit: part.units.last, user: user).first.try(:deadline)
+    part_beginning + part.duration
   end
 
   private

@@ -27,4 +27,8 @@ class Unit
   validates_presence_of :name, :part
 
   default_scope -> {asc :position}
+
+  def duration
+    estimate.duration
+  end
 end

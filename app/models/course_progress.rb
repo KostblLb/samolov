@@ -48,8 +48,12 @@ class CourseProgress
     end
   end
 
+  def course_beginning
+    group.education_beginning
+  end
+
   def deadline
-    course_part_progresses.where(part: course.parts.last, user: user).first.try(:deadline)
+    course_beginning + course.duration
   end
 
   private
