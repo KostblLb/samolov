@@ -15,9 +15,12 @@
       tbody
         = each parts
           tr
-            td
-              = name
-            td
-              = myProgress.points
-            td
-              = myProgress.maxPoints
+            =if this.isLoaded
+              td
+                = name
+              td
+                = myProgress.points
+              td
+                = myProgress.maxPoints
+            =else
+              = partial 'partials/preloader'
