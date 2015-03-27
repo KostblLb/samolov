@@ -11,10 +11,11 @@ h2.ui.header
         th
           | Название курса
     tbody
-      = each
-        link-to 'groups.show' id tagName='tr' class='itemGroupList'
-          td
-            = name
-          td
-            = course.name
+      group
+        = each model
+          link-to 'groups.show' id tagName='tr' class='itemGroupList'
+            td
+              = name
+            td
+              = course.name
 

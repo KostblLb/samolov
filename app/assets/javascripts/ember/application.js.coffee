@@ -11,6 +11,7 @@
 #= require ember-validations
 #= require_self
 #= require ./samolov
+#= require ember_group_helper
 
 # for more details see: http://emberjs.com/guides/application/
 window.Samolov = Ember.Application.create
