@@ -82,52 +82,51 @@ h2.ui.header
                   th
                     | Сообщение
               tbody
-                group
-                  = each sortedProgresses
-                    tr class=rowColor
-                      td
-                        = inc _view.contentIndex
-                      td
-                        link-to 'users.show' user.id
-                          = user.fullName
-                      td.center.aligned
-                        img.ui.avatar.image src=user.avatarUrl
-                      td.center.aligned
-                        = success
-                      td.center.aligned
-                        = if videoIsComplete
+                = each sortedProgresses
+                  tr class=rowColor
+                    td
+                      = inc _view.contentIndex
+                    td
+                      link-to 'users.show' user.id
+                        = user.fullName
+                    td.center.aligned
+                      img.ui.avatar.image src=user.avatarUrl
+                    td.center.aligned
+                      = success
+                    td.center.aligned
+                      = if videoIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if quizIsComplete
+                        = link-to 'quiz_review' quizProgress.id
                           i.checkmark.icon
-                        = else
-                          i.remove.icon
-                      td.center.aligned
-                        = if quizIsComplete
-                          = link-to 'quiz_review' quizProgress.id
-                            i.checkmark.icon
-                        = else
-                          i.remove.icon
-                      td.center.aligned
-                        = if summaryIsComplete
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if summaryIsComplete
+                        i.checkmark.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      = if caseIsComplete
+                        = link-to 'quiz_review' caseProgress.id
                           i.checkmark.icon
-                        = else
-                          i.remove.icon
-                      td.center.aligned
-                        = if caseIsComplete
-                          = link-to 'quiz_review' caseProgress.id
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      .ui.input{action 'saveWebinarScore' this on='focusOut'}
+                        =input class='webinarScore' value=webinarScore maxlength=1
+                    td.center.aligned
+                      = if homeworkProgress.isComplete
+                        = link-to 'homework_review' homeworkProgress.id
+                          = if homeworkProgress.isNotVerified
+                            i.wait.icon
+                          = else
                             i.checkmark.icon
-                        = else
-                          i.remove.icon
-                      td.center.aligned
-                        .ui.input{action 'saveWebinarScore' this on='focusOut'}
-                          =input class='webinarScore' value=webinarScore maxlength=1
-                      td.center.aligned
-                        = if homeworkProgress.isComplete
-                          = link-to 'homework_review' homeworkProgress.id
-                            = if homeworkProgress.isNotVerified
-                              i.wait.icon
-                            = else
-                              i.checkmark.icon
-                        = else
-                          i.remove.icon
-                      td.center.aligned
-                        link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
-                          i.mail.icon
+                      = else
+                        i.remove.icon
+                    td.center.aligned
+                      link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
+                        i.mail.icon
