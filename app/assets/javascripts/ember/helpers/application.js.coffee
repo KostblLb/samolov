@@ -20,3 +20,18 @@ Ember.Handlebars.registerHelper 'unlessFirstItem', (options) ->
     options.inverse this
 Ember.Handlebars.registerHelper 'index_of',(context, ndx)->
    context[ndx]
+
+get = Ember.get
+set = Ember.set
+
+Ember.Handlebars.registerHelper 'group', (options) ->
+  data = options.data
+  fn = options.fn
+  view = data.view
+
+  childView = view.createChildView(Ember._MetamorphView,
+    context: get(view, "context")
+    template: (context, options) ->
+      options.data.insideGroup = true
+      fn context, options
+  )

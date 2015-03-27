@@ -31,3 +31,8 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   stepIsCompleted: (->
     @get('progress').get("#{@get 'step'}IsComplete")
   ).property('progress', 'step')
+
+  homeworkIsReview: (->
+    if @get('step') == 'homework'
+      @get('progress').get("homeworkProgress.state") == 'review'
+  ).property('progress', 'progress.homeworkProgress.state', 'step')

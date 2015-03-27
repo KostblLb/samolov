@@ -1,9 +1,12 @@
 = if stepSupported
   = if stepIsCompleted
-    = if template
-      = yield
+    = if homeworkIsReview
+      i.wait.icon
     = else
-      i.checkmark.icon
+      = if template
+        = yield
+      = else
+        i.checkmark.icon
   = else
     = if stepIsTimeOut
       i.warning.sign.icon

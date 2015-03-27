@@ -1,12 +1,19 @@
 h2.ui.header
   | Проверка домашнего задания
 .ui.segment
-  =if isReviewSaved
+  =if isVerified
     .ui.info.message
       .header
-        |Текущие отметки сохранены
+        |Проверка домашнего задания закончена
       p
-        |Вы можете продолжить проверку позже
+        |Ваши оценки и комментарии увидит студент
+  =else
+    =if isReviewSaved
+      .ui.info.message
+        .header
+          |Текущие отметки сохранены
+        p
+          |Вы можете продолжить проверку позже
   = each tasks
     .ui.secondary.segment class=isCorrect:green:red
       h3.ui.header

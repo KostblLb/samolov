@@ -6,8 +6,9 @@ Samolov.HomeworkReviewController = Ember.ObjectController.extend
       progress = @model
       progress.set 'stateEvent', 'verify'
       progress.save().then (newProgress)=>
+        progress.reload()
         newProgress.set 'stateEvent', null
-      window.scrollTo 0, 0
+        window.scrollTo 0, 0
 
     saveHomework: ->
       progress = @model

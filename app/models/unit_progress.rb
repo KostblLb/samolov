@@ -44,7 +44,7 @@ class UnitProgress
     end
 
     before_transition :homework => :done do |unit_progress|
-        unit_progress.course_part_progress.resolve_state(unit_progress)
+      unit_progress.course_part_progress.resolve_state(unit_progress)
     end
 
   end

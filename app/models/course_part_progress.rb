@@ -11,6 +11,8 @@ class CoursePartProgress
   delegate :scale, to: :course_progress
   delegate :teacher, to: :course_progress
 
+  scope :disabled, -> {where state: 'disabled'}
+
   def max_points
     unit_progresses.inject(0) {|sum, u| sum + u.max_points}
   end
@@ -42,16 +44,18 @@ class CoursePartProgress
   def resolve_state(unit_progress)
     next_unit = next_unit_progress(unit_progress)
     if next_unit
-      next_unit.next_step
+      if next_unit.disabled?
+        next_unit.next_step
+      end
     else
       complete
     end
   end
 
   def next_unit_progress(unit_progress)
-    next_unit = part.units.where(:position.gte => unit_progress.unit.position, :id.ne => unit_progress.unit).first
+    next_unit = part.units.where(:position.gte => unit_progress.unit.position, :id.gt => unit_progress.unit).first
     if next_unit
-      UnitProgress.disabled.where(unit: next_unit, user: user, state: 'disabled').first
+      UnitProgress.where(unit: next_unit, user: user).first
     else
       nil
     end

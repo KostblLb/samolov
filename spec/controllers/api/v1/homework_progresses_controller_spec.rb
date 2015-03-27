@@ -6,7 +6,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
     request.accept = 'application/json'
   end
   describe 'PUT update' do
-    let(:unit_progress) {create :unit_progress}
+    let(:unit_progress) {create :unit_progress, state: 'homework', course_part_progress: create(:course_part_progress, state: 'in_progress') }
 
     context 'student' do
       before :each do
@@ -88,6 +88,38 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         end
       end
 
+      context 'save homework' do
+        let(:group) {create :group, teacher: create(:user), students: [create(:user)], course: create(:empty_course), education_beginning: Date.new(2015,1,1)}
+        let(:unit_progress_first) {group.course_progresses.first.course_part_progresses.first.unit_progresses.first}
+        let(:unit_progress_last) {group.course_progresses.first.course_part_progresses.first.unit_progresses.last}
+        let(:homework_progress) {unit_progress_first.homework_progress}
+        before(:each) do
+          6.times { unit_progress_first.next_step }
+          sign_in unit_progress_first.user
+        end
+        let(:attributes) {{state_event: 'complete', tasks: [{id:homework_progress.tasks.first.id}]}}
+        subject{put :update, id: homework_progress.id, homework_progress: attributes}
+
+        context 'next unit not disabled' do
+          before(:each) {unit_progress_last.next_step}
+          it 'updates homework progress state' do
+            expect{subject}.to change{homework_progress.reload.state}.from('in_progress').to('review')
+          end
+          it 'updates unit progress state' do
+            expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
+          end
+        end
+
+        context 'next unit disabled' do
+          it 'updates homework progress state' do
+            expect{subject}.to change{homework_progress.reload.state}.from('in_progress').to('review')
+          end
+          it 'updates unit progress state' do
+            expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
+          end
+        end
+      end
+
     end
     context 'teacher' do
       before :each do
@@ -103,7 +135,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         end
       end
 
-      context 'finish checking' do
+      context 'finish checking homework' do
         let(:homework_progress) {create :homework_progress, state: 'review', unit_progress: unit_progress}
         let(:attributes) {{state_event: 'verify', tasks: [{id:homework_progress.tasks.first.id, is_correct: false, comment: '123123'}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}

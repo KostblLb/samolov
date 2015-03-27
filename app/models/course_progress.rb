@@ -24,16 +24,18 @@ class CourseProgress
   def resolve_state(course_part_progress)
     next_part = next_part_progress(course_part_progress)
     if next_part
-      next_part.activate
+      if next_part.disabled?
+        next_part.activate
+      end
     else
       self.is_complete = true
     end
   end
 
   def next_part_progress(course_part_progress)
-    next_part = course.parts.where(:position.gte => course_part_progress.part.position, :id.ne => course_part_progress.part).first
+    next_part = course.parts.where(:position.gte => course_part_progress.part.position, :id.gt => course_part_progress.part).first
     if next_part
-      CoursePartProgress.where(part: next_part, user: user, state: 'disabled').first
+      CoursePartProgress.where(part: next_part, user: user).first
     else
       nil
     end
