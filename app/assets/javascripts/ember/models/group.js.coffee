@@ -8,9 +8,9 @@ Samolov.Group = DS.Model.extend
   course:  DS.belongsTo 'course'
   scale:   DS.belongsTo 'scale'
 
-  students:         DS.hasMany 'user', async:true
+  students:         DS.hasMany 'user', async: true
   adverts:          DS.hasMany 'advert'
-  courseProgresses: DS.hasMany 'course_progress', async:true
+  courseProgresses: DS.hasMany 'course_progress', async: true
   format: 'DD.MM.YYYY'
 
 
