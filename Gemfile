@@ -9,6 +9,7 @@ gem 'mongoid', '~> 4.0.0'
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 
 gem 'active_model_serializers'
+gem 'oj'
 
 gem 'state_machine'
 
