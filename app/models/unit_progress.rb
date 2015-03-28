@@ -66,14 +66,19 @@ class UnitProgress
   end
 
   def rebuild!
-    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self unless user.has_quiz?(unit.quiz)
-    unit.case.quiz_progresses.create user: user, case_progress_socket: self unless user.has_quiz?(unit.case)
-    if homework_progress?
+    unless unit.quiz.nil?
+      unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self unless user.has_quiz?(unit.quiz)
+    end
+    unless unit.case.nil?
+      unit.case.quiz_progresses.create user: user, case_progress_socket: self unless user.has_quiz?(unit.case)
+    end
+    if homework_progress.nil?
+      unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil?
+    else
       if !homework? && homework_progress.in_progress?
+        homework_progress.delete
         unit.homework_meta.create_homework_prog(self, user)
       end
-    else
-      unit.homework_meta.create_homework_prog(self, user)
     end
   end
 
