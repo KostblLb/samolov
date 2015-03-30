@@ -110,7 +110,7 @@ class UnitProgress
   end
 
   def homework_deadline
-    case_deadline + unit.estimate.homework
+    webinar_deadline + unit.estimate.homework
   end
   alias :deadline :homework_deadline
   

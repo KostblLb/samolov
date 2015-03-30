@@ -20,8 +20,6 @@ class Group
 
   accepts_nested_attributes_for :adverts
 
-  default_scope -> {includes(:course_progresses)}
-
   def name
     if persisted?
       super || "#{course.name} | #{teacher.name}"
