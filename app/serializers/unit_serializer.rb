@@ -3,6 +3,7 @@ class UnitSerializer < ActiveModel::Serializer
 
   has_one :webinar
   has_one :my_progress
+  has_many :unit_progresses
 
   def quiz_id
     @object.quiz.try :id
