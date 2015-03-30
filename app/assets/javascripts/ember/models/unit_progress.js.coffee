@@ -13,6 +13,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   caseDeadline:        DS.attr 'string'
   webinarDeadline:     DS.attr 'string'
   homeworkDeadline:    DS.attr 'string'
+  unitBeginning:      DS.attr 'string'
 
 
   unit:                DS.belongsTo 'unit'#, async: true
@@ -112,6 +113,10 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   formattedHomeworkDeadline: (->
     @convertDate 'homeworkDeadline'
   ).property('homeworkDeadline', 'format')
+
+  formattedUnitBeginning: (->
+    @convertDate 'unitBeginning'
+  ).property('unitBeginning', 'format')
 
 
 

@@ -4,8 +4,10 @@
     table.ui.celled.table
       thead
         tr
-          th
+          th.moduleTitle
             | Модуль
+          th
+            | Время проведения
           th
             | Видео
           th
@@ -24,24 +26,25 @@
               = with myProgress
                 =if isAvailable
                   link-to 'unit' unit.id tagName='tr' class='unitRow'
-                    tr.unitRow
-                      td.collapsing
-                        | #{unit.name} (Завершить до: #{formattedDeadline})
-                      unit-table-state progress=this step='video'
+                    td
+                      = unit.name
+                    td.collapsing
+                      | #{formattedUnitBeginning} - #{formattedDeadline}
+                    unit-table-state progress=this step='video'
 
-                      unit-table-state progress=this step='quiz'
-                        = quizProgress.points
+                    unit-table-state progress=this step='quiz'
+                      = quizProgress.points
 
-                      unit-table-state progress=this step='summary'
+                    unit-table-state progress=this step='summary'
 
-                      unit-table-state progress=this step='case'
-                        = caseProgress.points
+                    unit-table-state progress=this step='case'
+                      = caseProgress.points
 
-                      unit-table-state progress=this step='webinar'
-                        = webinarScore
+                    unit-table-state progress=this step='webinar'
+                      = webinarScore
 
-                      unit-table-state progress=this step='homework'
-                        = homeworkProgress.points
+                    unit-table-state progress=this step='homework'
+                      = homeworkProgress.points
                 =else
                   tr.unitRow
                     td.collapsing

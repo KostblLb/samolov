@@ -36,3 +36,8 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
     if @get('step') == 'homework'
       @get('progress').get("homeworkProgress.state") == 'review'
   ).property('progress', 'progress.homeworkProgress.state', 'step')
+
+  stepFormattedDeadline: (->
+    format = 'DD.MM.YYYY'
+    moment(@get('progress').get("#{@get 'step'}Deadline")).format(format)
+  ).property('progress', 'step')
