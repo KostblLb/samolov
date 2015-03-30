@@ -1,2 +1,5 @@
+.title
+  |#{title}
 = if stepIsNotCompleted
-  |До #{stepDeadline}
+  .description.timeoutDescription
+    |До #{stepDeadline}

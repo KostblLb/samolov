@@ -54,11 +54,11 @@ RSpec.describe CoursePartProgress do
 
   describe '#part_beginning' do
     it {expect(course_part_progress_first.part_beginning).to eq(Date.new(2015, 1, 1))}
-    it {expect(course_part_progress_last.part_beginning).to eq(Date.new(2015, 1, 11))}
+    it {expect(course_part_progress_last.part_beginning).to eq(Date.new(2015, 1, 13))}
   end
 
   describe '#deadline' do
-    it {expect(course_part_progress_first.deadline).to eq(Date.new(2015, 1, 11))}
-    it {expect(course_part_progress_last.deadline).to eq(Date.new(2015, 1, 21))}
+    it {expect(course_part_progress_first.deadline).to eq(Date.new(2015, 1, 13))}
+    it {expect(course_part_progress_last.deadline).to eq(Date.new(2015, 1, 25))}
   end
 end

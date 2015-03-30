@@ -9,6 +9,6 @@ class Estimate
   embedded_in :unit
 
   def duration
-    video + test + summary + self.case + homework
+    video + test + summary + self.case + 1 + homework
   end
 end

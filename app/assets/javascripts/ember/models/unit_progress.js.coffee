@@ -11,6 +11,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   quizDeadline:        DS.attr 'string'
   summaryDeadline:     DS.attr 'string'
   caseDeadline:        DS.attr 'string'
+  webinarDeadline:     DS.attr 'string'
   homeworkDeadline:    DS.attr 'string'
 
 
@@ -21,10 +22,6 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   caseProgress:        DS.belongsTo 'quiz_progress',     async: true
 
   format: 'DD.MM.YYYY'
-
-  webinarDeadline: ( ->
-    @get('unit.webinar.end')
-  ).property('unit.webinar.end')
 
   stepIsComplite: (step) ->
     @states.indexOf(step) < @states.indexOf(@get 'state')

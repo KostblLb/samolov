@@ -176,4 +176,8 @@ module-accordion {
     cursor: pointer;
 }
 
+.timeoutDescription {
+    color: #d95c5c !important;
+}
+
 

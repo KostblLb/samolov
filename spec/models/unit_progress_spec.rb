@@ -82,14 +82,16 @@ RSpec.describe UnitProgress do
     context 'add quiz'do
       before(:each) {group.course.parts.first.units.first.quiz = create(:quiz)}
       it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
-      it {expect{subject}.to change{student.my_homeworks.count}.from(4).to(5)}
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.to change{student.my_homeworks.last}}
       it {expect{subject}.not_to change{student.unit_progresses}}
     end
 
     context 'add case'do
       before(:each) {group.course.parts.first.units.first.case = create(:quiz)}
       it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
-      it {expect{subject}.to change{student.my_homeworks.count}.from(4).to(5)}
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.to change{student.my_homeworks.last}}
       it {expect{subject}.not_to change{student.unit_progresses}}
     end
 
@@ -108,25 +110,23 @@ RSpec.describe UnitProgress do
 
     context 'all unit_progresses&course_part_progresses are exist' do
       it {expect(group.course_progresses.first.course_part_progresses.first.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,1))}
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,13))}
     end
 
     context 'previous unit_progress is not exist' do
       before(:each) do
-        group.save
         group.course_progresses.first.course_part_progresses.first.unit_progresses = nil
       end
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,12))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,13))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,14))}
     end
 
     context 'previous course_part_progress is not exist' do
       before(:each) do
-        group.save
         group.course_progresses.first.course_part_progresses.first.delete
       end
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,11))}
-      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,12))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.unit_beginning).to eq(Date.new(2015,1,13))}
+      it {expect(group.course_progresses.first.course_part_progresses.last.unit_progresses.first.video_deadline).to eq(Date.new(2015,1,14))}
     end
   end
 end

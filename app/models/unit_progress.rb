@@ -105,12 +105,12 @@ class UnitProgress
     summary_deadline + unit.estimate.case
   end
 
+  def webinar_deadline
+    case_deadline + 1
+  end
+
   def homework_deadline
-    if unit.webinar.nil?
-      case_deadline + unit.estimate.homework
-    else
-      unit.webinar.end.to_date + unit.estimate.homework
-    end
+    case_deadline + unit.estimate.homework
   end
   alias :deadline :homework_deadline
   

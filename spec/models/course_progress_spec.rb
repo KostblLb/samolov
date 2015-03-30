@@ -9,6 +9,17 @@ RSpec.describe CourseProgress do
   let(:course_part_progress_first) {course_progress.course_part_progresses.first}
   let(:course_part_progress_last) {course_progress.course_part_progresses.last}
 
+  describe '#resolve_state(course_part_progress)' do
+    context 'next part progress exist' do
+      subject{course_progress.resolve_state(course_part_progress_first)}
+      it {expect{subject}.to change{course_part_progress_last.reload.state}.from('disabled').to('in_progress')}
+    end
+    context 'next part progress not exist' do
+      subject{course_progress.resolve_state(course_part_progress_last)}
+      it {expect{subject}.to change{course_progress.is_complete}.from(false).to(true)}
+    end
+  end
+
   describe 'create new object' do
     it 'creates parts progresses' do
       expect(course_progress.course_part_progresses.count).to eq(2)
@@ -35,17 +46,6 @@ RSpec.describe CourseProgress do
 
     context 'next part progress not exist' do
       it { expect(course_progress.next_part_progress(course_part_progress_last)).to be_nil }
-    end
-  end
-
-  describe '#resolve_state(course_part_progress)' do
-    context 'next part progress exist' do
-      subject{course_progress.resolve_state(course_part_progress_first)}
-      it {expect{subject}.to change{course_part_progress_last.reload.state}.from('disabled').to('in_progress')}
-    end
-    context 'next part progress not exist' do
-      subject{course_progress.resolve_state(course_part_progress_last)}
-      it {expect{subject}.to change{course_progress.is_complete}.from(false).to(true)}
     end
   end
 
