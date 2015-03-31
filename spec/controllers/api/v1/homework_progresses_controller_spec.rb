@@ -108,6 +108,9 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
           it 'updates unit progress state' do
             expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
           end
+          it 'updates unit progress state' do
+            expect{subject}.not_to change{unit_progress_last.reload.state}
+          end
         end
 
         context 'next unit disabled' do
@@ -116,6 +119,9 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
           end
           it 'updates unit progress state' do
             expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
+          end
+          it 'updates unit progress state' do
+            expect{subject}.to change{unit_progress_last.reload.state}.from('disabled').to('video')
           end
         end
       end

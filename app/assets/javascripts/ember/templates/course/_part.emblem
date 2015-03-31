@@ -47,8 +47,10 @@
                       = homeworkProgress.points
                 =else
                   tr.unitRow
+                    td
+                      = unit.name
                     td.collapsing
-                      | #{unit.name} (Завершить до: #{formattedDeadline})
+                      | #{formattedUnitBeginning} - #{formattedDeadline}
                     unit-table-state progress=this step='video'
 
                     unit-table-state progress=this step='quiz'

@@ -4,7 +4,7 @@
   .ui.header
     .ui.ordered.steps
       = if isExam
-        link-to 'quiz' case.id class="step"
+        link-to 'case' case.id class="step"
           | Тест
         link-to 'unit.index' id (query-params scope='webinar') class="step"
           | Скайп игра

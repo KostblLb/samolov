@@ -3,7 +3,7 @@ Samolov.ProgressMixin = Ember.Mixin.create
   maxPoints: DS.attr 'number'
   points:    DS.attr 'number'
 
-  user: DS.belongsTo 'user'
+  user: DS.belongsTo 'user', async: true
 
   success: (->
     "#{@get 'points'}/#{@get 'maxPoints'}"
