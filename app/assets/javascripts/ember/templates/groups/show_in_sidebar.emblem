@@ -11,8 +11,8 @@
       .ui.header
         | Моя группа
       .ui.ordered.divided.list
-        =if sortedCourseProgresses
-          = each sortedCourseProgresses
+        = each sortedCourseProgresses
+          =if user.isLoaded
             .item
               unless user.itsMe
                 link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
@@ -24,20 +24,20 @@
                     = user.fullName
                 | Кол-во баллов -&nbsp
                 = points
-        =else
-          = partial 'partials/preloader'
+          =else
+            = partial 'partials/preloader'
 
     .ui.segment
       .header
         | Объявления
       .ui.divided.list
-        = each adverts
-          =if this.isLoaded
+        =if adverts
+          = each adverts
             .item
               .header
                 = title
               = text
-          =else
-            = partial 'partials/preloader'
+        =else
+          = partial 'partials/preloader'
       = if canICreateAdvert
         | Add

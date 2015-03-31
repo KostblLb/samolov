@@ -8,6 +8,11 @@
       = else
         i.checkmark.icon
   = else
-    = stepFormattedDeadline
+    = if stepIsTimeOut
+      i.warning.sign.icon
+      = stepFormattedDeadline
+    = else
+      i.wait.icon
+      = stepFormattedDeadline
 = else
   i.ban.icon
