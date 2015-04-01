@@ -1,0 +1,4 @@
+=each
+  .ui.vertical.segment
+    h3.header.h3==question
+    p==answer

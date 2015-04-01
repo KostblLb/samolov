@@ -53,5 +53,12 @@ RailsAdmin.config do |config|
     nestable_list true
   end
 
+  config.model Faq do
+    field :question, :ck_editor
+    field :answer, :ck_editor
+    include_all_fields
+    nestable_list true
+  end
+
 
 end
