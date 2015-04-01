@@ -11,7 +11,7 @@ RSpec.describe Unit, :type => :model do
   end
 
   describe 'after_create' do
-    it {expect(group.course.parts.first.units.first.estimate).to be_persisted}
+    it {expect(group.course.parts.first.units.first.estimate).not_to be_nil}
   end
 
 end
