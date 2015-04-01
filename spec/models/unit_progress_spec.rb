@@ -19,10 +19,23 @@ RSpec.describe UnitProgress do
   end
 
   describe 'next step' do
-    let(:unit_progress) {create :unit_progress, state: :disabled}
     subject{unit_progress.next_step}
 
-    it {expect{subject}.to change{unit_progress.reload.state}.from('disabled').to('video')}
+    context 'unit is not exam' do
+      let(:unit_progress) {create :unit_progress, state: :disabled}
+      it {expect{subject}.to change{unit_progress.reload.state}.from('disabled').to('video')}
+    end
+
+    context 'unit is exam' do
+      context 'unit progress state disabled' do
+        let(:unit_progress) {create :unit_progress, unit: create(:exam), state: :disabled}
+        it {expect{subject}.to change{unit_progress.reload.state}.from('disabled').to('case')}
+      end
+      context 'unit progress state webinar' do
+        let(:unit_progress) {create :unit_progress, unit: create(:exam), state: :webinar}
+        it {expect{subject}.to change{unit_progress.reload.state}.from('webinar').to('done')}
+      end
+    end
   end
 
   describe '#max_points' do

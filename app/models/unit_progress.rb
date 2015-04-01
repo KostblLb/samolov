@@ -38,7 +38,7 @@ class UnitProgress
     state :done
 
     event :next_step do
-      # transition :disabled => :case, :case => :webinar, :webinar => :done, :if => :is_exam
+      transition :disabled => :case, :case => :webinar, :webinar => :done, :if => :is_exam
 
       transition :disabled => :video, :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
                :webinar => :homework, :homework => :done, :unless => :is_exam
