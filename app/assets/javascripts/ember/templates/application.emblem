@@ -23,18 +23,13 @@
     = link-to 'scales.index' class='item'
       i.tasks.icon
       | Шкалы
-  = link-to 'courses' class='item'
-    i.suitcase.icon
-    | Курсы
-  a.item
-    i.alarm.icon
-    | Объявления
+  =else
+    = link-to 'courses' class='item'
+      i.suitcase.icon
+      | Курсы
   = link-to 'faq.index' class='item'
     i.help.icon
     | F.A.Q
-  a.item
-    i.gift.icon
-    | Бонусы
 
 .container
   = outlet

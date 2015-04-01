@@ -13,7 +13,7 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def my_answer
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
-    if my_progress && my_progress.finished?
+    if my_progress
       UserAnswer.where(quiz_progress: my_progress.id, question_id: @object.id).first
     else
       nil

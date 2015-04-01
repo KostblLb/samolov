@@ -7,7 +7,7 @@ Samolov.QuestionController = Ember.ObjectController.extend
   ).property('userAnswer.answers')
 
   hasAnswer: (->
-    @model.get('myAnswer.isNew')
+    !@model.get('myAnswer.isNew')
   ).property('model.myAnswer')
 
   actions:

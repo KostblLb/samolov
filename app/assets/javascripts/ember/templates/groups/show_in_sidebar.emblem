@@ -33,11 +33,14 @@
       .ui.divided.list
         =if adverts
           = each adverts
-            .item
-              .header
-                = title
-              = text
+            =if this
+              .item
+                .header
+                  = title
+                = text
+            =else
+              = partial 'partials/preloader'
         =else
-          = partial 'partials/preloader'
+          |В группе нет объявлений
       = if canICreateAdvert
         | Add

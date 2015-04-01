@@ -20,6 +20,8 @@
             | Вебинар
           th
             | ДЗ
+          th
+            |Успех
       tbody
           = each units
             =if isLoaded
@@ -33,18 +35,20 @@
                     unit-table-state progress=this step='video'
 
                     unit-table-state progress=this step='quiz'
-                      = quizProgress.points
+                      = quizProgressPoints
 
                     unit-table-state progress=this step='summary'
 
                     unit-table-state progress=this step='case'
-                      = caseProgress.points
+                      = caseProgressPoints
 
                     unit-table-state progress=this step='webinar'
                       = webinarScore
 
                     unit-table-state progress=this step='homework'
-                      = homeworkProgress.points
+                      = homeworkProgressPoints
+                    td
+                      =success
                 =else
                   tr.unitRow
                     td
@@ -66,6 +70,8 @@
 
                     unit-table-state progress=this step='homework'
                       = homeworkProgress.point
+                    td
+                      =success
             =else
               = partial 'partials/preloader'
   =else
