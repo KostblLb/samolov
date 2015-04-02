@@ -10,4 +10,8 @@ class Answer
   scope :right, -> {where is_correct: true}
   scope :incorrect, -> {where is_correct: false}
 
+  def dup
+    Answer.new(text: text, is_correct: is_correct)
+  end
+
 end

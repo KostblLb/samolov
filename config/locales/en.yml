@@ -27,4 +27,12 @@ en:
         menu: 'Rebuild Group'
         title: 'Rebuild Group'
         breadcrumb: 'Rebuild Group'
+      dup_unit:
+        menu: 'Duplicate Unit'
+        title: 'Duplicate Unit'
+        breadcrumb: 'Duplicate Unit'
+      dup_quiz:
+        menu: 'Duplicate Quiz'
+        title: 'Duplicate Quiz'
+        breadcrumb: 'Duplicate Quiz'
 

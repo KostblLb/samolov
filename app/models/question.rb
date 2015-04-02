@@ -24,4 +24,10 @@ class Question
   def user_has_answer?(user)
     user_answers.where(user_id: user.id).count > 0
   end
+
+  def dup
+    new_answers = []
+    answers.each {|answer| new_answers << answer.dup}
+    Question.new(text: text, answers: new_answers)
+  end
 end
