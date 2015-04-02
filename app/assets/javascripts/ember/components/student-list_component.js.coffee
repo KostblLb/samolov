@@ -6,10 +6,10 @@ Samolov.StudentListComponent = Ember.Component.extend
 
   sortedProgresses: (->
     currentProgresses = []
-    unitProgresses = @get('currentUnit.unitProgresses')
+    unitProgresses = @get('currentUnit.unitProgresses').content
     students = @get('currentGroup.students').content
     currentProgresses = unitProgresses.filter((item) ->
-      students.indexOf(item.get('user').content) != -1
+      students.indexOf(item.get('user')) != -1
     )
-  ).property('currentUnit','currentGroup')
+  ).property('currentUnit', 'currentUnit.unitProgresses', 'currentGroup')
 
