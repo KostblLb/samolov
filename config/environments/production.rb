@@ -77,4 +77,17 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.host = 'samolov.kerweb.ru'
+  config.action_mailer.default_url_options = { host: config.host }
+
+  ActionMailer::Base.default from: 'Samolov <samolov.dev@yandex.ru>'
+
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.yandex.ru',
+      port:                  587,
+      domain:               'yandex.ru',
+      user_name:            'samolov.dev@yandex.ru',
+      password:             'samolov!@#',
+      authentication:       'plain',
+      enable_starttls_auto:  true  }
 end
