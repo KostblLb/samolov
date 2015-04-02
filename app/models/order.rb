@@ -24,6 +24,6 @@ class Order
   end
 
   def cost
-    super || course.cost
+    super || course.try(:cost)
   end
 end
