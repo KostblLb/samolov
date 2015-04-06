@@ -4,10 +4,10 @@
   .ui.header
     .ui.ordered.steps
       = if isExam
-        link-to 'case' case.id class="step"
-          | Тест
+        link-to 'quiz' case.id class="step"
+          step-description progress=myProgress step='case' title='Тест'
         link-to 'unit.index' id (query-params scope='webinar') class="step"
-          | Скайп игра
+          step-description progress=myProgress step='webinar' title='Скайп игра'
       = else
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           step-description progress=myProgress step='video'  title='Видео'

@@ -17,7 +17,7 @@
               | Правильные ответы:
               table.ui.table
                 tbody
-                  = each question.correctAnswersReview
+                  = each question.correctAnswerReviews
                     tr.positive
                       td
                         = text

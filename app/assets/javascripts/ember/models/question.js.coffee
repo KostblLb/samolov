@@ -8,9 +8,9 @@ Samolov.Question = DS.Model.extend
 
   answers:        DS.hasMany 'answer'
   correctAnswers: DS.hasMany 'answer'
-  correctAnswersReview: DS.hasMany 'answer'
+  correctAnswerReviews: DS.hasMany 'answer', async: true
   myAnswer:       DS.belongsTo 'user_answer'
-  quiz:           DS.belongsTo 'quiz', asynch: true
+  quiz:           DS.belongsTo 'quiz', async: true
 
   isSingleAnswer: ( ->
     @get('rightAnswersCount') == 1

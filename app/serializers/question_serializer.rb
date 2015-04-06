@@ -1,9 +1,8 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :text, :right_answers_count, :preview_image_url, :number
+  attributes :id, :text, :right_answers_count, :preview_image_url, :number, :correct_answer_review_ids
 
   has_many :answers
   has_many :correct_answers
-  has_many :correct_answers_review
 
   has_one :my_answer, serializer: UserAnswerSerializer
 
@@ -29,7 +28,7 @@ class QuestionSerializer < ActiveModel::Serializer
     end
   end
 
-  def correct_answers_review
-    answers.right
+  def correct_answer_review_ids
+    answers.right.map {|answer| answer.id }
   end
 end
