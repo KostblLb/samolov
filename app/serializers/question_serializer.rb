@@ -21,7 +21,7 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def correct_answers
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
-    if my_progress && my_progress.finished?
+    if (my_progress && my_progress.finished?) || current_user.is_teacher?
       answers.right
     else
       []

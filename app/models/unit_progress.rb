@@ -15,7 +15,7 @@ class UnitProgress
   after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, :teacher, to: :course_part_progress
-  delegate :is_exam, to: :unit
+  delegate :is_exam, :name, to: :unit
 
   scope :disabled, -> {where state: 'disabled'}
 
