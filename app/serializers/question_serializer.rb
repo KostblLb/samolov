@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :text, :right_answers_count, :preview_image_url, :number, :correct_answer_review_ids
+  attributes :id, :text, :right_answers_count, :preview_image_url, :number
 
   has_many :answers
   has_many :correct_answers
@@ -21,14 +21,10 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def correct_answers
     my_progress = QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first
-    if (my_progress && my_progress.finished?) || current_user.is_teacher?
+    if (my_progress && my_progress.finished?) || @scope.teacher?
       answers.right
     else
       []
     end
-  end
-
-  def correct_answer_review_ids
-    answers.right.map {|answer| answer.id }
   end
 end
