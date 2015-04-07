@@ -59,8 +59,7 @@ module-accordion name=currentUnit.name
             = else
               i.remove.icon
           td.center.aligned
-            .ui.input{action 'saveWebinarScore' this on='focusOut'}
-              =input class='webinarScore' value=webinarScore maxlength=1
+            webinar-scores webinarScore=webinarScore progress=this
           td.center.aligned
             = if homeworkProgress.isComplete
               = link-to 'homework_review' homeworkProgress.id
