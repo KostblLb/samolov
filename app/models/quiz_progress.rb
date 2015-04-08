@@ -50,7 +50,7 @@ class QuizProgress
 
   private
   def set_current_question
-    self.current_question = quiz.questions.first
+    self.current_question = quiz.questions.where(number: 1).first
     true
   end
 end

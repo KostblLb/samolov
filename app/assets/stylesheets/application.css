@@ -184,3 +184,21 @@ module-accordion {
     width: 83px;
 }
 
+.unread_messages_count {
+    position: relative;
+    top: -30px;
+    left: 19px;
+    background: #a94442;
+    width: 20px;
+    height: 20px;
+    padding: 4px 0 0 0;
+    border-radius: 25px;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+#scrolling_messages {
+    max-height: 400px;
+    overflow: auto;
+    margin-bottom: 20px;
+}

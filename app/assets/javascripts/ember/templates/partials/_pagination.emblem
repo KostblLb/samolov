@@ -1,0 +1,12 @@
+.ui.pagination.menu
+  = if previousPageEnable
+    =link-to (query-params page=previousPage) classNames='icon item'
+      i.left.arrow.icon
+
+  = each content.pages
+    =link-to (query-params page=num) class='item'
+      = num
+
+  = if nextPageEnable
+    =link-to (query-params page=nextPage) classNames='icon item'
+      i.right.arrow.icon

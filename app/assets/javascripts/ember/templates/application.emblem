@@ -15,7 +15,11 @@
     | Профиль
   = link-to 'conversations' class='item'
     i.mail.icon
+      if currentUser.hasUnread
+        .unread_messages_count
+          | #{currentUser.unreads_messages_count}
     | Диалоги
+
   = if currentUser.isTeacher
     = link-to 'groups.index' class='item'
       i.student.icon
