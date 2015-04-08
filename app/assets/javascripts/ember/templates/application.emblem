@@ -9,7 +9,7 @@
 .ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu.visible
   .item
     img.ui.avatar.image src=currentUser.avatarUrl
-    = currentUser.email
+    = currentUser.previewEmail
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль

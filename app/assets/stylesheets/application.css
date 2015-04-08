@@ -17,15 +17,33 @@
  *= require jquery.tagit
  *= require_self
  */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1380px) {
     .container {
         width: 980px;
     }
 }
-@media screen and (max-width: 1200px) {
+
+@media screen and (max-width: 1380px) {
+    .container {
+        width: 980px;
+        margin-left: 200px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 780px;
+        margin-left: 200px;
+    }
+    .ui.steps .step {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
     .container {
         width: 700px;
-        margin-left: 120px;
+        margin-left: 200px;
     }
     .ui.steps {
         overflow: visible;
@@ -47,10 +65,11 @@
         display: none;
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
     .container {
         width: 500px;
-        margin-left: 120px;
+        margin-left: 200px;
+        font-size: 10px;
     }
     .ui.steps {
         overflow: visible;
@@ -198,7 +217,7 @@ module-accordion {
 }
 
 #scrolling_messages {
-    max-height: 400px;
+    max-height: 300px;
     overflow: auto;
     margin-bottom: 20px;
 }
