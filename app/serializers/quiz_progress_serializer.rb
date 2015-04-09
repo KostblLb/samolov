@@ -1,5 +1,6 @@
 class QuizProgressSerializer < ActiveModel::Serializer
-  attributes :id, :current_question_id, :quiz_id, :correct_answers_count, :points, :unit_id, :is_quiz, :is_case
+  attributes :id, :current_question_id, :quiz_id, :correct_answers_count, :points, :unit_id, :is_quiz, :is_case,
+             :current_question_number
 
   has_many :user_answers
 

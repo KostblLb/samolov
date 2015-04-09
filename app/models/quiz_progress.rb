@@ -2,6 +2,8 @@ class QuizProgress
   include Mongoid::Document
   include PointsCounter
 
+  field :current_question_number, type: Integer, default: 1
+
   belongs_to :quiz
   belongs_to :user
   belongs_to :quiz_progress_socket, class_name: 'UnitProgress', inverse_of: :quiz_progress
@@ -22,7 +24,8 @@ class QuizProgress
 
   def next_question!
     return false if user_answers.where(question: current_question).empty?
-    self.update! current_question_id: quiz.questions[current_question.number].try(:id)
+    self.update! current_question_id: quiz.questions.where(:id.gt => current_question.id).first.try(:id)
+    current_question.nil? ? false : self.current_question_number += 1
   end
 
   def correct_answers_count
@@ -50,7 +53,7 @@ class QuizProgress
 
   private
   def set_current_question
-    self.current_question = quiz.questions.where(number: 1).first
+    self.current_question = quiz.questions.first
     true
   end
 end

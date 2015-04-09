@@ -2,7 +2,8 @@
 
 Samolov.QuestionRoute = Ember.Route.extend
   model: (params)->
-    @store.find 'question', params.question_id
+    @store.find('question', params.question_id).then (question) =>
+      question.reload()
 
   setupController: (controller, model) ->
     controller.set 'model', model

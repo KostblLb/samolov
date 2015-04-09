@@ -12,11 +12,6 @@ class Question
 
   alias :name :text
 
-  def number
-    return 0 if quiz.nil?
-    quiz.questions.index(self) + 1
-  end
-
   def right_answers_count
     answers.right.count
   end
