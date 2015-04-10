@@ -2,5 +2,4 @@
 
 Samolov.CoursePartProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.ProgressMixin,
   unitProgresses: DS.hasMany 'unit_progress', async:true
-  state:      DS.attr 'string'
   deadline:   DS.attr 'string'

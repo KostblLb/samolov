@@ -1,5 +1,5 @@
 Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.ProgressMixin,
-  states: ['disabled', 'video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
+  states: ['video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
 
   state:                  DS.attr 'string'
   stateEvent:             DS.attr 'string'
@@ -62,10 +62,6 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
 
   quizIsActive: (->
     @stepIsActive 'quiz'
-  ).property('state')
-
-  isAvailable: (->
-    @get('state') != 'disabled'
   ).property('state')
 
   quizIsAvailable: (->

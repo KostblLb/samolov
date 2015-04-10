@@ -12,16 +12,13 @@ class UnitProgress
 
   belongs_to :unit
 
+  before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, :name, to: :unit
 
-  scope :disabled, -> {where state: 'disabled'}
-
-  state_machine :initial => :disabled do
-
-    state :disabled
+  state_machine :initial => :video do
 
     state :video
 
@@ -38,16 +35,11 @@ class UnitProgress
     state :done
 
     event :next_step do
-      transition :disabled => :case, :case => :webinar, :webinar => :done, :if => :is_exam
+      transition :case => :webinar, :webinar => :done, :if => :is_exam
 
-      transition :disabled => :video, :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
                :webinar => :homework, :homework => :done, :unless => :is_exam
     end
-
-    before_transition :homework => :done do |unit_progress|
-      unit_progress.course_part_progress.resolve_state(unit_progress)
-    end
-
   end
 
   def max_points
@@ -116,6 +108,10 @@ class UnitProgress
   alias :deadline :homework_deadline
   
   private
+
+  def set_init_state_for_exam
+    self.state = 'case' if is_exam
+  end
 
   def safe_get_points(method)
     quiz_points     = quiz_progress.try(method) || 0

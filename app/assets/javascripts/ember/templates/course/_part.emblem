@@ -26,52 +26,28 @@
           = each units
             =if isLoaded
               = with myProgress
-                =if isAvailable
-                  link-to 'unit' unit.id tagName='tr' class='unitRow'
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
-                    unit-table-state progress=this step='video'
+                link-to 'unit' unit.id tagName='tr' class='unitRow'
+                  td
+                    = unit.name
+                  td.collapsing
+                    | #{formattedUnitBeginning} - #{formattedDeadline}
+                  unit-table-state progress=this step='video'
 
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  unit-table-state progress=this step='quiz'
+                    = quizProgressPoints
 
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='summary'
 
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='case'
+                    = caseProgressPoints
 
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
 
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
-                    td
-                      =success
-                =else
-                  tr.unitRow
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
-                    unit-table-state progress=this step='video'
-
-                    unit-table-state progress=this step='quiz'
-                      = quizProgress.points
-
-                    unit-table-state progress=this step='summary'
-
-                    unit-table-state progress=this step='case'
-                      = caseProgress.points
-
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
-
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgress.point
-                    td
-                      =success
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgressPoints
+                  td
+                    =success
             =else
               = partial 'partials/preloader'
   =else
