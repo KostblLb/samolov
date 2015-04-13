@@ -58,9 +58,17 @@ describe QuizProgress do
     end
   end
 
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:course_progress) {group.course_progresses.first}
+  let(:course_part_progress) {course_progress.course_part_progresses.first}
+  let(:unit_progress) { course_part_progress.unit_progresses.first }
+
+
   describe '#max_points' do
-    let(:unit_progress) {create :unit_progress, unit: unit}
-    let(:quiz_progress) {create :quiz_progress, quiz: unit.quiz, quiz_progress_socket: (create :unit_progress)}
+    let(:quiz_progress) {create :quiz_progress, quiz: unit.case, quiz_progress_socket: unit_progress}
 
     subject{quiz_progress.max_points}
 
@@ -76,8 +84,7 @@ describe QuizProgress do
   end
 
   describe '#points' do
-    let(:unit_progress) {create :unit_progress, unit: unit}
-    let(:quiz_progress) {create :quiz_progress, quiz: unit.quiz, quiz_progress_socket: (create :unit_progress)}
+    let(:quiz_progress) {create :quiz_progress, quiz: unit.case, quiz_progress_socket: unit_progress}
 
     subject{quiz_progress.points}
 
@@ -104,12 +111,12 @@ describe QuizProgress do
 
     subject{quiz_progress.quiz?}
     context 'quiz progress socket' do
-      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: unit_progress}
       it { is_expected.to be_truthy }
     end
 
     context 'case progress socket' do
-      let(:quiz_progress) {create :quiz_progress, case_progress_socket: (create :unit_progress)}
+      let(:quiz_progress) {create :quiz_progress, case_progress_socket: unit_progress}
       it { is_expected.to be_falsey }
     end
   end
@@ -118,12 +125,12 @@ describe QuizProgress do
 
     subject{quiz_progress.case?}
     context 'case progress socket' do
-      let(:quiz_progress) {create :quiz_progress, case_progress_socket: (create :unit_progress)}
+      let(:quiz_progress) {create :quiz_progress, case_progress_socket: unit_progress}
       it { is_expected.to be_truthy }
     end
 
     context 'quiz progress socket' do
-      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: (create :unit_progress)}
+      let(:quiz_progress) {create :quiz_progress, quiz_progress_socket: unit_progress}
       it { is_expected.to be_falsey }
     end
   end

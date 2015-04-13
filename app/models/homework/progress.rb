@@ -41,6 +41,9 @@ module Homework
       event :verify do
         transition :review => :verified
       end
+      before_transition :on => :complete do |homework_progress|
+        homework_progress.unit_progress.next_step unless homework_progress.unit_progress.done?
+      end
     end
 
     private

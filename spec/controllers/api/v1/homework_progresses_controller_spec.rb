@@ -6,7 +6,13 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
     request.accept = 'application/json'
   end
   describe 'PUT update' do
-    let(:unit_progress) {create :unit_progress, state: 'homework', course_part_progress: create(:course_part_progress, state: 'in_progress') }
+    let(:course) {create :empty_course}
+    let(:teacher) {create :user}
+    let(:student) {create :user}
+    let(:group) {create :group, teacher: teacher, students: [student], course: course, education_beginning: Date.new(2015,1,1)}
+    let(:course_progress) { group.course.course_progresses.first }
+    let(:course_part_progress) { course_progress.course_part_progresses.first }
+    let(:unit_progress) { course_part_progress.unit_progresses.first }
 
     context 'student' do
       before :each do
@@ -94,7 +100,7 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         let(:unit_progress_last) {group.course_progresses.first.course_part_progresses.first.unit_progresses.last}
         let(:homework_progress) {unit_progress_first.homework_progress}
         before(:each) do
-          6.times { unit_progress_first.next_step }
+          5.times { unit_progress_first.next_step }
           sign_in unit_progress_first.user
         end
         let(:attributes) {{state_event: 'complete', tasks: [{id:homework_progress.tasks.first.id}]}}
@@ -110,18 +116,6 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
           end
           it 'updates unit progress state' do
             expect{subject}.not_to change{unit_progress_last.reload.state}
-          end
-        end
-
-        context 'next unit disabled' do
-          it 'updates homework progress state' do
-            expect{subject}.to change{homework_progress.reload.state}.from('in_progress').to('review')
-          end
-          it 'updates unit progress state' do
-            expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
-          end
-          it 'updates unit progress state' do
-            expect{subject}.to change{unit_progress_last.reload.state}.from('disabled').to('video')
           end
         end
       end

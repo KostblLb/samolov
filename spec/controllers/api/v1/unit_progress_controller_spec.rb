@@ -19,7 +19,7 @@ RSpec.describe Api::V1::UnitProgressesController, :type => :controller do
 
     it 'assigns unit_progress has a new state' do
       subject
-      expect((assigns :unit_progress).state).to eq('video')
+      expect((assigns :unit_progress).state).to eq('quiz')
     end
 
     it 'returns updated unit_progress as JSON' do
