@@ -31,11 +31,11 @@ class CourseProgress
   end
 
   def course_beginning
-    group.education_beginning
+    course_part_progresses.first.part_beginning
   end
 
   def deadline
-    course_beginning + course.duration
+    course_part_progresses.last.deadline
   end
 
   private

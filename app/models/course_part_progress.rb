@@ -29,14 +29,11 @@ class CoursePartProgress
   end
 
   def part_beginning
-    course_progress.course_beginning + course_progress.course
-                                           .parts
-                                           .where(:position.lte => part.position, :id.lt => part.id)
-                                           .map(&:duration).inject(0) {|sum,x| sum + x }
+    unit_progresses.first.schedule.start_date
   end
 
   def deadline
-    part_beginning + part.duration
+    unit_progresses.last.schedule.end_date
   end
 
   private

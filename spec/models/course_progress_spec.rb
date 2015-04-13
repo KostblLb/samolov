@@ -21,9 +21,17 @@ RSpec.describe CourseProgress do
     it {is_expected.to eq(course_progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
   end
 
-  describe '#rebuild!' do
-    subject { course_progress.rebuild! }
-    before(:each) { group.course.parts << build(:empty_part)}
-    it { expect{subject}.to change{course_progress.course_part_progresses.count}.from(2).to(3)}
-  end
+  # describe '#course_beginning' do
+  #   it { expect(course_progress.course_beginning).to eq(Date.new(2015,1,1)) }
+  # end
+  #
+  # describe 'deadline' do
+  #   it { expect(course_progress.deadline).to eq(Date.new(2015,1,25)) }
+  # end
+  #
+  # describe '#rebuild!' do
+  #   subject { course_progress.rebuild! }
+  #   before(:each) { group.course.parts << build(:empty_part)}
+  #   it { expect{subject}.to change{course_progress.course_part_progresses.count}.from(2).to(3)}
+  # end
 end

@@ -75,11 +75,12 @@ class UnitProgress
     end
   end
 
+  def schedule
+    course_part_progress.course_progress.group.unit_schedules.where(unit: unit).first
+  end
+
   def unit_beginning
-    course_part_progress.part_beginning + course_part_progress.part
-                                           .units
-                                           .where(:position.lte => unit.position, :id.lt => unit.id)
-                                           .map(&:duration).inject(0) {|sum,x| sum + x }
+    schedule.start_date
   end
 
   def video_deadline
