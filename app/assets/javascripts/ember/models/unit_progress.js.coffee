@@ -33,8 +33,12 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   stepIsActive: (step) ->
     @states.indexOf(step) == @states.indexOf(@get 'state')
 
-  stepIsAvailable: (step) ->
-    @states.indexOf(step) <= @states.indexOf(@get 'state')
+  momentDate: ->
+    moment()
+
+  isAvailable: (->
+    moment(@get('unitBeginning')) <= moment()
+  ).property('unitBeginning', 'momentDate')
 
   videoIsComplete: (->
     @stepIsComplite 'video'
@@ -62,26 +66,6 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
 
   quizIsActive: (->
     @stepIsActive 'quiz'
-  ).property('state')
-
-  quizIsAvailable: (->
-    @stepIsAvailable 'quiz'
-  ).property('state')
-
-  summaryIsAvailable: (->
-    @stepIsAvailable 'summary'
-  ).property('state')
-
-  caseIsAvailable: (->
-    @stepIsAvailable 'case'
-  ).property('state')
-
-  webinarIsAvailable: (->
-    @stepIsAvailable 'webinar'
-  ).property('state')
-
-  homeworkIsAvailable: (->
-    @stepIsAvailable 'homework'
   ).property('state')
 
   convertDate: (field) ->

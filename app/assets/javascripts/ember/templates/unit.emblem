@@ -11,15 +11,15 @@
       = else
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           step-description progress=myProgress step='video'  title='Видео'
-        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed myProgress.quizIsAvailable:enabled:disabled'
+        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
           step-description progress=myProgress step='quiz' title='Тест'
-        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed myProgress.summaryIsAvailable:enabled:disabled'
+        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
           step-description progress=myProgress step='summary' title='Конспект'
-        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed myProgress.caseIsAvailable:enabled:disabled'
+        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed'
           step-description progress=myProgress step='case' title='Кейс'
-        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed myProgress.webinarIsAvailable:enabled:disabled'
+        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed'
           step-description progress=myProgress step='webinar' title='Вебинар'
-        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed myProgress.homeworkIsAvailable:enabled:disabled'
+        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed'
           step-description progress=myProgress step='homework' title='Домашнее задание'
   .ui.secondary.segment
 

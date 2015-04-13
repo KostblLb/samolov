@@ -1,9 +1,6 @@
-= if isNotAvailable
-  =partial 'unit/is_not_available'
-= else
-  link-to 'quiz_progress' myProgress.id class='ui green button'
-    i.play.icon
-    = if isQuiz
-      | Начать тест
-    = else
-      | Решить кейс
+link-to 'quiz_progress' myProgress.id class='ui green button'
+  i.play.icon
+  = if isQuiz
+    | Начать тест
+  = else
+    | Решить кейс
