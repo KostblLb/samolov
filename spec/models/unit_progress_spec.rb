@@ -66,38 +66,38 @@ RSpec.describe UnitProgress do
     end
   end
 
-  # describe '#unit_beginning' do
-  #   it { (expect(unit_progress.unit_beginning).to eq(Date.new(2015,1,1))) }
-  # end
-  #
-  # describe '#rebuild!' do
-  #   let(:student) { group.students.first }
-  #   subject {student.unit_progresses.first.rebuild!}
-  #
-  #   context 'add quiz'do
-  #     before(:each) {group.course.parts.first.units.first.quiz = create(:quiz)}
-  #     it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
-  #     it {expect{subject}.not_to change{student.my_homeworks.count}}
-  #     it {expect{subject}.to change{student.my_homeworks.last}}
-  #     it {expect{subject}.not_to change{student.unit_progresses}}
-  #   end
-  #
-  #   context 'add case'do
-  #     before(:each) {group.course.parts.first.units.first.case = create(:quiz)}
-  #     it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
-  #     it {expect{subject}.not_to change{student.my_homeworks.count}}
-  #     it {expect{subject}.to change{student.my_homeworks.last}}
-  #     it {expect{subject}.not_to change{student.unit_progresses}}
-  #   end
-  #
-  #   context 'homework state review'do
-  #     before(:each) do
-  #       group.save
-  #       student.unit_progresses.first.homework_progress.complete
-  #     end
-  #     it {expect{subject}.not_to change{student.my_homeworks.count}}
-  #     it {expect{subject}.not_to change{student.quiz_progresses.count}}
-  #     it {expect{subject}.not_to change{student.unit_progresses}}
-  #   end
-  # end
+  describe '#unit_beginning' do
+    it { (expect(unit_progress.unit_beginning).to eq(Date.new(2015,1,1))) }
+  end
+
+  describe '#rebuild!' do
+    let(:student) { group.students.first }
+    subject {student.unit_progresses.first.rebuild!}
+
+    context 'add quiz'do
+      before(:each) {group.course.parts.first.units.first.quiz = create(:quiz)}
+      it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.to change{student.my_homeworks.last}}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+
+    context 'add case'do
+      before(:each) {group.course.parts.first.units.first.case = create(:quiz)}
+      it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.to change{student.my_homeworks.last}}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+
+    context 'homework state review'do
+      before(:each) do
+        group.save
+        student.unit_progresses.first.homework_progress.complete
+      end
+      it {expect{subject}.not_to change{student.my_homeworks.count}}
+      it {expect{subject}.not_to change{student.quiz_progresses.count}}
+      it {expect{subject}.not_to change{student.unit_progresses}}
+    end
+  end
 end
