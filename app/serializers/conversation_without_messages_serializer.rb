@@ -1,6 +1,6 @@
 class ConversationWithoutMessagesSerializer < ActiveModel::Serializer
   attributes :id, :subject, :created_at, :updated_at, :has_unread
-  has_many :users
+  has_many :users, serializer: UserWithoutFriendsSerializer
   has_many :messages
 
   def messages

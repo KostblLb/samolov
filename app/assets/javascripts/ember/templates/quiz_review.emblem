@@ -2,7 +2,8 @@
   h3.ui.header
     | Результаты теста
     br
-    .ui.segments
+  .ui.segments
+    =if quiz.questions
       = each question in quiz.questions
         .ui.segment.tertiary
           h4.ui.header
@@ -22,14 +23,17 @@
                       td
                         = text
 
-    .ui.horizontal.divider
-      i.bar.chart.icon
-      | Итог
-    p
-      | Правильных ответов -&nbsp
-      = correctAnswersCount
-      | &nbspиз&nbsp
-      = quiz.questions.length
-    p
-      | Баллы -&nbsp
-      = points
+      .ui.horizontal.divider
+        i.bar.chart.icon
+        | Итог
+      p
+        | Правильных ответов -&nbsp
+        = correctAnswersCount
+        | &nbspиз&nbsp
+        = quiz.questions.length
+      p
+        | Баллы -&nbsp
+        = points
+    =else
+      =partial 'partials/preloader'
+br

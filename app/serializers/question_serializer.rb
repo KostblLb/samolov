@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :text, :right_answers_count, :preview_image_url, :number
+  attributes :id, :text, :right_answers_count, :preview_image_url
 
   has_many :answers
   has_many :correct_answers
@@ -8,14 +8,6 @@ class QuestionSerializer < ActiveModel::Serializer
 
   def preview_image_url
     @object.preview_image.exists? ? @object.preview_image.url : nil
-  end
-
-  def number
-    if @scope.is_a? User
-      QuizProgress.where(user_id: @scope.id, quiz_id: @object.quiz.id).first.current_question_number
-    else
-      nil
-    end
   end
 
   def my_answer
