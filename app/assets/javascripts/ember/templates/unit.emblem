@@ -11,7 +11,7 @@
       = else
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
           step-description progress=myProgress step='video'  title='Видео'
-        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
+        link-to 'quiz' quiz.id classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
           step-description progress=myProgress step='quiz' title='Тест'
         link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
           step-description progress=myProgress step='summary' title='Конспект'

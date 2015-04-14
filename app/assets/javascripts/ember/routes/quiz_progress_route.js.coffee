@@ -17,7 +17,7 @@ Samolov.QuizProgressRoute = Ember.Route.extend
     else
       progress.get('quiz').content.reload()
       @_super
-
-  deactivate: ->
-    $('.quiz_tab').removeClass('active')
-    $('.case_tab').removeClass('active')
+  actions:
+    willTransition: ->
+      $('.quiz_tab').removeClass('active')
+      $('.case_tab').removeClass('active')

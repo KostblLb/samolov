@@ -24,6 +24,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   homeworkProgress:    DS.belongsTo 'homework_progress', async: true
   quizProgress:        DS.belongsTo 'quiz_progress',     async: true
   caseProgress:        DS.belongsTo 'quiz_progress',     async: true
+  coursePartProgress:  DS.belongsTo 'course_part_progress', async: true
 
   format: 'DD MMMM'
 
@@ -39,6 +40,11 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   isAvailable: (->
     moment(@get('unitBeginning')) <= moment()
   ).property('unitBeginning', 'momentDate')
+
+
+  quizIsAvailable: (->
+    moment(@get('coursePartProgress.deadline')) >= moment()
+  ).property('coursePartProgress.deadline','momentDate')
 
   videoIsComplete: (->
     @stepIsComplite 'video'
@@ -100,6 +106,10 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   formattedUnitBeginning: (->
     @convertDate 'unitBeginning'
   ).property('unitBeginning', 'format')
+
+  homeworkIsAvailable: (->
+    moment() < (@get('homeworkDeadline') + 7)
+  ).property('homeworkDeadline', 'momentDate')
 
 
 

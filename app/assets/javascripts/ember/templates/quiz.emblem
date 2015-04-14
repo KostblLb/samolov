@@ -1,6 +1,9 @@
-link-to 'quiz_progress' myProgress.id class='ui green button'
-  i.play.icon
-  = if isQuiz
-    | Начать тест
-  = else
-    | Решить кейс
+= if myProgress.quizIAvailable
+  link-to 'quiz_progress' myProgress.id class='ui green button'
+    i.play.icon
+    = if isQuiz
+      | Начать тест
+    = else
+      | Решить кейс
+= else
+  =partial 'unit/is_not_available'

@@ -76,3 +76,14 @@
               = partial 'partials/preloader'
   =else
     = partial 'partials/preloader'
+
+.ui.basic.modal
+  /i.close.icon
+  .header Доступ закрыт
+  .content
+    .image
+      i.ban.icon
+    .description
+      br
+      br
+      |Доступ к модулю откроется по расписанию
