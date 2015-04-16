@@ -12,11 +12,6 @@ class Estimate
 
   validates :video, :test, :summary, :homework, estimate: true
 
-  after_create do |estimate|
-    if estimate.unit.is_exam
-      estimate.video = estimate.test = estimate.summary = estimate.homework = 0
-    end
-  end
 
   def duration
     video + test + summary + self.case + webinar + homework

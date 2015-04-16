@@ -24,3 +24,7 @@ job_type :job, "cd :path && :environment_variable=:environment bundle exec scrip
 every 1.day, at: '00:01 am' do
   job 'HomeworkStateSwitchWorker'
 end
+
+every 1.day, at: '12:00 pm' do
+  job 'EventMailerWorker'
+end

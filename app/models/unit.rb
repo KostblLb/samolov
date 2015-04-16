@@ -11,7 +11,7 @@ class Unit
   has_many :unit_progresses
 
   embeds_one :webinar
-  embeds_one :estimate, autobuild: true
+  embeds_one :estimate, autobuild: true, cascade_callbacks: true
 
   belongs_to :part
   belongs_to :homework_meta, class_name: 'Homework::Meta::Progress'
@@ -25,6 +25,8 @@ class Unit
   accepts_nested_attributes_for :webinar, :estimate, :quiz, :case
 
   validates_presence_of :name
+
+  before_create :set_estimate_for_exam, if: :is_exam
 
   default_scope -> {asc :position}
 
@@ -42,5 +44,11 @@ class Unit
     new_unit = dup
     new_unit.save!
     new_unit
+  end
+
+  protected
+  def set_estimate_for_exam
+    estimate.video = estimate.test = estimate.summary = estimate.homework = 0
+    true
   end
 end

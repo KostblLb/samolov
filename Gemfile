@@ -88,6 +88,7 @@ group :development, :test do
   gem 'capybara', '~> 2.3.0'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-rerun'
+  gem 'email_spec'
   gem 'rspec-legacy_formatters'
   gem 'rspec-mocks'
   gem 'factory_girl_rails'
