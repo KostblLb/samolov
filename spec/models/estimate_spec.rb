@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Estimate, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '#duration' do
+    context 'unit is not exam' do
+      let(:unit) {create :unit}
+      it {expect(unit.estimate.duration).to eq(6)}
+    end
+  end
 end

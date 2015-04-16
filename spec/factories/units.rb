@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "MyString"
     video_link "MyString"
     summary "MyString"
-    association :part
+    part {Part.new}
     association :quiz, factory: :quiz
     association :case, factory: :quiz
     association :homework_meta, factory: :homework_meta_progress
@@ -11,9 +11,10 @@ FactoryGirl.define do
 
   factory :exam, class: Unit do
     name "MyString"
-    association :part
+    part {Part.new}
     association :quiz, factory: :quiz
     association :case, factory: :quiz
+    association :homework_meta, factory: :homework_meta_progress
     is_exam true
   end
 
@@ -32,7 +33,6 @@ FactoryGirl.define do
     association :quiz, factory: :quiz
     association :case, factory: :quiz
     association :homework_meta, factory: :homework_meta_progress
-    webinar { build(:webinar) }
     position 1
   end
 
@@ -41,7 +41,6 @@ FactoryGirl.define do
     association :quiz, factory: :quiz
     association :case, factory: :quiz
     association :homework_meta, factory: :homework_meta_progress
-    webinar { build(:webinar2) }
     position 2
   end
 end

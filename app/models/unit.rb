@@ -11,7 +11,7 @@ class Unit
   has_many :unit_progresses
 
   embeds_one :webinar
-  embeds_one :estimate, autobuild: true
+  embeds_one :estimate, autobuild: true, cascade_callbacks: true
 
   belongs_to :part
   belongs_to :homework_meta, class_name: 'Homework::Meta::Progress'
@@ -22,13 +22,33 @@ class Unit
   has_mongoid_attached_file :attachment
   do_not_validate_attachment_file_type :attachment
 
-  accepts_nested_attributes_for :webinar, :estimate
+  accepts_nested_attributes_for :webinar, :estimate, :quiz, :case
 
-  validates_presence_of :name, :part
+  validates_presence_of :name
+
+  before_create :set_estimate_for_exam, if: :is_exam
 
   default_scope -> {asc :position}
 
   def duration
     estimate.duration
+  end
+
+  def dup
+    Unit.new(name: 'Copy of ' + name, video_link: video_link, summary: summary, is_exam: is_exam, webinar: webinar,
+             attachment: attachment? ? (File.exists?(attachment.path) ? attachment : nil) : nil,
+             quiz: quiz ? quiz.dup : nil, case: self.case ? self.case.dup : nil)
+  end
+
+  def dup!
+    new_unit = dup
+    new_unit.save!
+    new_unit
+  end
+
+  protected
+  def set_estimate_for_exam
+    estimate.video = estimate.test = estimate.summary = estimate.homework = 0
+    true
   end
 end

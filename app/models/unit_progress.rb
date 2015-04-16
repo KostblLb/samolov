@@ -16,13 +16,9 @@ class UnitProgress
   after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, :teacher, to: :course_part_progress
-  delegate :is_exam, to: :unit
+  delegate :is_exam, :name, to: :unit
 
-  scope :disabled, -> {where state: 'disabled'}
-
-  state_machine :initial => :disabled do
-
-    state :disabled
+  state_machine :initial => :video do
 
     state :video
 
@@ -39,14 +35,11 @@ class UnitProgress
     state :done
 
     event :next_step do
-      transition :disabled => :video, :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
-                 :webinar => :homework, :homework => :done
-    end
+      transition :case => :webinar, :webinar => :done, :if => :is_exam
 
-    before_transition :homework => :done do |unit_progress|
-      unit_progress.course_part_progress.resolve_state(unit_progress)
+      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+               :webinar => :homework, :homework => :done, :unless => :is_exam
     end
-
   end
 
   def max_points
@@ -66,22 +59,28 @@ class UnitProgress
   end
 
   def rebuild!
-    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self unless user.has_quiz?(unit.quiz)
-    unit.case.quiz_progresses.create user: user, case_progress_socket: self unless user.has_quiz?(unit.case)
-    if homework_progress?
+    unless unit.quiz.nil?
+      unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self unless user.has_quiz?(unit.quiz)
+    end
+    unless unit.case.nil?
+      unit.case.quiz_progresses.create user: user, case_progress_socket: self unless user.has_quiz?(unit.case)
+    end
+    if homework_progress.nil?
+      unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil?
+    else
       if !homework? && homework_progress.in_progress?
+        homework_progress.delete
         unit.homework_meta.create_homework_prog(self, user)
       end
-    else
-      unit.homework_meta.create_homework_prog(self, user)
     end
   end
 
+  def schedule
+    course_part_progress.course_progress.group.unit_schedules.where(unit: unit).first
+  end
+
   def unit_beginning
-    course_part_progress.part_beginning + course_part_progress.part
-                                           .units
-                                           .where(:position.lte => unit.position, :id.lt => unit.id)
-                                           .map(&:duration).inject(0) {|sum,x| sum + x }
+    schedule.start_date
   end
 
   def video_deadline
@@ -100,16 +99,17 @@ class UnitProgress
     summary_deadline + unit.estimate.case
   end
 
+  def webinar_deadline
+    case_deadline + 1
+  end
+
   def homework_deadline
-    if unit.webinar.nil?
-      case_deadline + unit.estimate.homework
-    else
-      unit.webinar.end.to_date + unit.estimate.homework
-    end
+    webinar_deadline + unit.estimate.homework
   end
   alias :deadline :homework_deadline
   
   private
+
   def set_init_state_for_exam
     self.state = 'case' if is_exam
   end

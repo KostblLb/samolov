@@ -7,4 +7,4 @@ Samolov.Part = DS.Model.extend
   myProgress: DS.belongsTo 'course_part_progress'
 
   coursePartProgresses: DS.hasMany 'course_part_progress'
-  units:      DS.hasMany 'unit',     async: true
+  units:      DS.hasMany 'unit'

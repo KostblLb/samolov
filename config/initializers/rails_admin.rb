@@ -1,5 +1,9 @@
 require 'rails_admin_rebuild_group'
+require 'rails_admin_dup_unit'
+require 'rails_admin_dup_quiz'
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::RebuildGroup)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::DupUnit)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::DupQuiz)
 
 RailsAdmin.config do |config|
 
@@ -30,6 +34,8 @@ RailsAdmin.config do |config|
     delete
     show_in_app
     rebuild_group
+    dup_unit
+    dup_quiz
     nestable
 
     ## With an audit adapter, you can add:
@@ -49,6 +55,13 @@ RailsAdmin.config do |config|
 
   config.model Unit do
     field :summary, :ck_editor
+    include_all_fields
+    nestable_list true
+  end
+
+  config.model Faq do
+    field :question, :ck_editor
+    field :answer, :ck_editor
     include_all_fields
     nestable_list true
   end

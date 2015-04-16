@@ -35,5 +35,6 @@ h2.header.h2
                   = link-to 'users.show' this.id |#{this.fullName}
                 else
                   = link-to 'users.show' this.id |#{this.fullName}
-
+  = if needPaginate
+    = partial 'partials/pagination'
 

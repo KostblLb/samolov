@@ -32,6 +32,10 @@ gem 'cancancan'
 
 gem 'slim-rails'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate_mongoid'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -82,6 +86,9 @@ group :development, :test do
 
   gem 'capybara', '~> 2.3.0'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rerun'
+  gem 'email_spec'
+  gem 'rspec-legacy_formatters'
   gem 'rspec-mocks'
   gem 'factory_girl_rails'
   gem 'database_cleaner', '~> 1.3.0'

@@ -30,6 +30,19 @@ class Quiz
   end
   alias :is_case :case?
 
+  def dup
+    new_questions = []
+    questions.each {|question| new_questions << question.dup}
+    Quiz.new(name: name, questions: new_questions)
+  end
+
+  def dup!
+    new_quiz = dup
+    new_quiz.name = 'Copy of ' + name
+    new_quiz.save!
+    new_quiz
+  end
+
   protected
   def only_one_socket_present
     errors[:case_socket] << 'only one socket can be presented' if quiz_socket.present? && case_socket.present?

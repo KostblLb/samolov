@@ -21,26 +21,6 @@ class CourseProgress
     course_part_progresses.inject(0) {|sum, p| sum + p.points}
   end
 
-  def resolve_state(course_part_progress)
-    next_part = next_part_progress(course_part_progress)
-    if next_part
-      if next_part.disabled?
-        next_part.activate
-      end
-    else
-      self.is_complete = true
-    end
-  end
-
-  def next_part_progress(course_part_progress)
-    next_part = course.parts.where(:position.gte => course_part_progress.part.position, :id.gt => course_part_progress.part).first
-    if next_part
-      CoursePartProgress.where(part: next_part, user: user).first
-    else
-      nil
-    end
-  end
-
   def rebuild!
     course.parts.each do |part|
       unless user.has_part?(part)
@@ -51,19 +31,16 @@ class CourseProgress
   end
 
   def course_beginning
-    group.education_beginning
+    course_part_progresses.first.part_beginning
   end
 
   def deadline
-    course_beginning + course.duration
+    course_part_progresses.last.deadline
   end
 
   private
   def create_part_progresses
     course.parts.each {|p| create_course_part_progress(p) }
-    first_part = course_part_progresses.where(part: course.parts.first).first
-    first_part.activate
-    first_part.unit_progresses.where(unit: first_part.part.units.first).first.next_step
   end
   def create_course_part_progress(part)
     course_part_progresses.create  part: part, user: user

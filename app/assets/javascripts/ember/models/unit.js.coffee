@@ -14,7 +14,7 @@ Samolov.Unit = DS.Model.extend
   quiz:       DS.belongsTo 'quiz', async: true
   case:       DS.belongsTo 'quiz', async: true
 
-  unitProgresses: DS.hasMany 'unit_progresses', inverse: 'unit'
+  unitProgresses: DS.hasMany 'unit_progresses', async: true, inverse: 'unit'
 
   sortedProgresses: (->
     @get('unitProgresses').sortBy('points').reverse()

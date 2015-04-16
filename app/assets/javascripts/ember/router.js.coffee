@@ -36,4 +36,7 @@ Samolov.Router.map ()->
     @resource 'conversation', path: ':id', ->
       @route 'show'
 
+  @resource 'faq', ->
+    @route 'show', path: ':id'
+
 

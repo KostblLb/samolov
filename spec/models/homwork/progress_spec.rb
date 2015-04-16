@@ -1,8 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Homework::Progress do
-  let (:homework_progress) {create :homework_progress, unit_progress: create(:unit_progress, unit: unit)}
-  let(:unit){create :unit}
+
+  let(:course) {create :empty_course}
+  let(:teacher) {create :user}
+  let(:student) {create :user}
+  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:course_progress) {group.course_progresses.first}
+  let(:course_part_progress) {course_progress.course_part_progresses.first}
+  let(:unit_progress) { course_part_progress.unit_progresses.first }
+
+  let (:homework_progress) {create :homework_progress, unit_progress: unit_progress}
 
   describe '#total_tasks' do
     subject {homework_progress.total_tasks}
@@ -57,6 +65,5 @@ RSpec.describe Homework::Progress do
       homework_progress.verify
     end
     it { expect(homework_progress.state).to eq('verified') }
-    it { expect(homework_progress.unit_progress.state).to eq('video') }
   end
 end

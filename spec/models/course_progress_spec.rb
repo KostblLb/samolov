@@ -1,13 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CourseProgress do
-  let(:course) {create :empty_course}
-  let(:teacher) {create :user}
-  let(:student) {create :user}
-  let(:group) {create :group, teacher: teacher, students: [student], course: course}
+  let(:group) {create :group, teacher: (create :user), students: [(create :user)], course: (create :empty_course)}
   let(:course_progress) {group.course_progresses.first}
-  let(:course_part_progress_first) {course_progress.course_part_progresses.first}
-  let(:course_part_progress_last) {course_progress.course_part_progresses.last}
 
   describe 'create new object' do
     it 'creates parts progresses' do
@@ -16,46 +11,27 @@ RSpec.describe CourseProgress do
   end
 
   describe '#max_points' do
-    let(:progress) {create :course_progress}
-    subject{progress.max_points}
+    subject{course_progress.max_points}
 
-    it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.max_points})}
+    it {is_expected.to eq(course_progress.course_part_progresses.inject(0) {|sum, p| sum + p.max_points})}
   end
   describe '#points' do
-    let(:progress) {create :course_progress}
-    subject{progress.points}
+    subject{course_progress.points}
 
-    it {is_expected.to eq(progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
+    it {is_expected.to eq(course_progress.course_part_progresses.inject(0) {|sum, p| sum + p.points})}
   end
 
-  describe '#next_part_progress(course_part_progress)' do
-    context 'next part progress exist' do
-      it { expect(course_progress.next_part_progress(course_part_progress_first)).to eq(course_part_progress_last) }
-    end
-
-    context 'next part progress not exist' do
-      it { expect(course_progress.next_part_progress(course_part_progress_last)).to be_nil }
-    end
+  describe '#course_beginning' do
+    it { expect(course_progress.course_beginning).to eq(Date.new(2015,1,1)) }
   end
 
-  describe '#resolve_state(course_part_progress)' do
-    context 'next part progress exist' do
-      subject{course_progress.resolve_state(course_part_progress_first)}
-      it {expect{subject}.to change{course_part_progress_last.reload.state}.from('disabled').to('in_progress')}
-    end
-    context 'next part progress not exist' do
-      subject{course_progress.resolve_state(course_part_progress_last)}
-      it {expect{subject}.to change{course_progress.is_complete}.from(false).to(true)}
-    end
+  describe 'deadline' do
+    it { expect(course_progress.deadline).to eq(Date.new(2015,1,25)) }
   end
 
   describe '#rebuild!' do
-    before(:each) {group.course.parts << build(:empty_part)}
-    subject {student.course_progresses.first.rebuild!}
-
-    it { expect{subject}.to change{student.course_part_progresses.count}.from(2).to(3) }
-    it { expect{subject}.to change{student.unit_progresses.count}.from(4).to(6) }
-    it { expect{subject}.not_to change{student.course_part_progresses.first}}
-    it { expect{subject}.not_to change{student.unit_progresses.first}}
+    subject { course_progress.rebuild! }
+    before(:each) { group.course.parts << build(:empty_part)}
+    it { expect{subject}.to change{course_progress.course_part_progresses.count}.from(2).to(3)}
   end
 end

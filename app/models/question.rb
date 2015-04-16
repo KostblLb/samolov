@@ -2,6 +2,7 @@ class Question
   include Mongoid::Document
 
   field :text
+  field :position, type: Integer, default: 1
 
   belongs_to :quiz
   has_many :answers, dependent: :destroy
@@ -12,10 +13,8 @@ class Question
 
   alias :name :text
 
-  def number
-    return 0 if quiz.nil?
-    quiz.questions.index(self) + 1
-  end
+  index({ position: 1 }, { unique: true})
+  default_scope -> { asc(:position).asc(:id) }
 
   def right_answers_count
     answers.right.count
@@ -23,5 +22,11 @@ class Question
 
   def user_has_answer?(user)
     user_answers.where(user_id: user.id).count > 0
+  end
+
+  def dup
+    new_answers = []
+    answers.each {|answer| new_answers << answer.dup}
+    Question.new(text: text, answers: new_answers)
   end
 end

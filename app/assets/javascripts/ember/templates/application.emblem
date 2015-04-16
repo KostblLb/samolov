@@ -9,13 +9,17 @@
 .ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu.visible
   .item
     img.ui.avatar.image src=currentUser.avatarUrl
-    = currentUser.email
+    = currentUser.previewEmail
   = link-to 'users.show' currentUser class='item'
     i.user.icon
     | Профиль
   = link-to 'conversations' class='item'
     i.mail.icon
+      if currentUser.hasUnread
+        .unread_messages_count
+          | #{currentUser.unreads_messages_count}
     | Диалоги
+
   = if currentUser.isTeacher
     = link-to 'groups.index' class='item'
       i.student.icon
@@ -23,18 +27,13 @@
     = link-to 'scales.index' class='item'
       i.tasks.icon
       | Шкалы
-  = link-to 'courses' class='item'
-    i.suitcase.icon
-    | Курсы
-  a.item
-    i.alarm.icon
-    | Объявления
-  a.item
+  =else
+    = link-to 'courses' class='item'
+      i.suitcase.icon
+      | Курсы
+  = link-to 'faq.index' class='item'
     i.help.icon
     | F.A.Q
-  a.item
-    i.gift.icon
-    | Бонусы
 
 .container
   = outlet

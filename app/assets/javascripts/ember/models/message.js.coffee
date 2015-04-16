@@ -7,7 +7,7 @@ Samolov.Message = DS.Model.extend Samolov.FormattedTimestampMixin,
   sender:    DS.belongsTo 'user', async: true
 
   previewMessage: (->
-    if @get('body').length > 10
+    if @get('body') != null && @get('body').length > 10
       return @get('body').substring(0,235) + '...'
     else
       return @get('body')

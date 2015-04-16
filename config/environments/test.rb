@@ -39,4 +39,19 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.log_formatter = ::Logger::Formatter.new
+  config.host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: config.host }
+
+  ActionMailer::Base.default from: 'Samolov <samolov.dev@yandex.ru>'
+
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.yandex.ru',
+      port:                  587,
+      domain:               'yandex.ru',
+      user_name:            'samolov.dev@yandex.ru',
+      password:             'samolov!@#',
+      authentication:       'plain',
+      enable_starttls_auto:  true  }
 end

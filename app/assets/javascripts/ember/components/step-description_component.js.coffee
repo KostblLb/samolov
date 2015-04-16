@@ -4,7 +4,7 @@ Samolov.StepDescriptionComponent = Ember.Component.extend
   progress: null
   step: ''
   tagName: 'div'
-  classNames: ['description']
+  classNames: ['content']
 
   stepIsTimeOut: (->
     moment(@get('progress').get("#{@get('step')}Deadline")) < moment()

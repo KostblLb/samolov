@@ -5,8 +5,4 @@ Samolov.GroupsShowController = Ember.ObjectController.extend
     update: ->
       @model.save()
 
-    saveWebinarScore: (progress)->
-      progress.save().then =>
-        @model.reload()
-
 

@@ -5,40 +5,22 @@
     .ui.ordered.steps
       = if isExam
         link-to 'quiz' case.id class="step"
-          | Тест
+          step-description progress=myProgress step='case' title='Тест'
         link-to 'unit.index' id (query-params scope='webinar') class="step"
-          | Скайп игра
+          step-description progress=myProgress step='webinar' title='Скайп игра'
       = else
         link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
-          icon-timeout progress=myProgress step='video'
-          .content
-            .title Видео
-            step-description progress=myProgress step='video'
-        link-to 'quiz' quiz.id currentWhen='quiz_progress' classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed myProgress.quizIsAvailable:enabled:disabled'
-          icon-timeout progress=myProgress step='quiz'
-          .content
-            .title Тест
-            step-description progress=myProgress step='quiz'
-        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed myProgress.summaryIsAvailable:enabled:disabled'
-          icon-timeout progress=myProgress step='summary'
-          .content
-            .title Конспект
-            step-description progress=myProgress step='summary'
-        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed myProgress.caseIsAvailable:enabled:disabled'
-          icon-timeout progress=myProgress step='case'
-          .content
-            .title Кейс
-            step-description progress=myProgress step='case'
-        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed myProgress.webinarIsAvailable:enabled:disabled'
-          icon-timeout progress=myProgress step='webinar'
-          .content
-            .title Вебинар
-            step-description progress=myProgress step='webinar'
-        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed myProgress.homeworkIsAvailable:enabled:disabled'
-          icon-timeout progress=myProgress step='homework'
-          .content
-            .title Домашнее задание
-            step-description progress=myProgress step='homework'
+          step-description progress=myProgress step='video'  title='Видео'
+        link-to 'quiz' quiz.id classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
+          step-description progress=myProgress step='quiz' title='Тест'
+        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
+          step-description progress=myProgress step='summary' title='Конспект'
+        link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed'
+          step-description progress=myProgress step='case' title='Кейс'
+        link-to 'unit.index' id (query-params scope='webinar') classNameBindings=':step myProgress.webinarIsComplete:completed'
+          step-description progress=myProgress step='webinar' title='Вебинар'
+        link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed'
+          step-description progress=myProgress step='homework' title='Домашнее задание'
   .ui.secondary.segment
 
     =if isLoaded

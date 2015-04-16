@@ -1,3 +1,3 @@
-Samolov.CourseProgressSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixin,
-  attrs:
-    coursePartProgresses: { embedded: 'always' }
+#Samolov.CourseProgressSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixin,
+#  attrs:
+#    coursePartProgresses: { embedded: 'always' }

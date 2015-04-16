@@ -6,6 +6,11 @@ module Api
       before_action :set_msg, only: [:show, :destroy]
       respond_to :json
 
+      def index
+        @conversation.messages.paginate(:page => (params[:page] || 1), :per_page => 10)
+        respond_with @message
+      end
+
       def show
         respond_with @message
       end

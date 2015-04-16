@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::PartsController, type: :controller do
 
-  let(:part) {create :empty_part}
+  let(:course) {create :empty_course}
+  let(:part) { course.parts.first }
 
   before :each do
     request.accept = 'application/json'

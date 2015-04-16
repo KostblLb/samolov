@@ -7,7 +7,7 @@ module Api
 
       def index
         @groups = scoped_collection
-        respond_with @groups
+        respond_with @groups.entries
       end
 
       def show

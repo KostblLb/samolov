@@ -4,8 +4,10 @@
     table.ui.celled.table
       thead
         tr
-          th
+          th.moduleTitle
             | Модуль
+          th
+            | Время проведения
           th
             | Видео
           th
@@ -18,50 +20,70 @@
             | Вебинар
           th
             | ДЗ
+          th
+            |Успех
       tbody
           = each units
             =if isLoaded
               = with myProgress
                 =if isAvailable
                   link-to 'unit' unit.id tagName='tr' class='unitRow'
-                    tr.unitRow
-                      td.collapsing
-                        | #{unit.name} (Завершить до: #{formattedDeadline})
-                      unit-table-state progress=this step='video'
-
-                      unit-table-state progress=this step='quiz'
-                        = quizProgress.points
-
-                      unit-table-state progress=this step='summary'
-
-                      unit-table-state progress=this step='case'
-                        = caseProgress.points
-
-                      unit-table-state progress=this step='webinar'
-                        = webinarScore
-
-                      unit-table-state progress=this step='homework'
-                        = homeworkProgress.points
-                =else
-                  tr.unitRow
+                    td
+                      = unit.name
                     td.collapsing
-                      | #{unit.name} (Завершить до: #{formattedDeadline})
+                      | #{formattedUnitBeginning} - #{formattedDeadline}
                     unit-table-state progress=this step='video'
 
                     unit-table-state progress=this step='quiz'
-                      = quizProgress.points
+                      = quizProgressPoints
 
                     unit-table-state progress=this step='summary'
 
                     unit-table-state progress=this step='case'
-                      = caseProgress.points
+                      = caseProgressPoints
 
                     unit-table-state progress=this step='webinar'
                       = webinarScore
 
                     unit-table-state progress=this step='homework'
-                      = homeworkProgress.point
+                      = homeworkProgressPoints
+                    td
+                      =success
+                =else
+                  tr.unitRow{action 'showUnitBeginning'}
+                    td
+                      = unit.name
+                    td.collapsing
+                      | #{formattedUnitBeginning} - #{formattedDeadline}
+                    unit-table-state progress=this step='video'
+
+                    unit-table-state progress=this step='quiz'
+                      = quizProgressPoints
+
+                    unit-table-state progress=this step='summary'
+
+                    unit-table-state progress=this step='case'
+                      = caseProgressPoints
+
+                    unit-table-state progress=this step='webinar'
+                      = webinarScore
+
+                    unit-table-state progress=this step='homework'
+                      = homeworkProgressPoints
+                    td
+                      =success
             =else
               = partial 'partials/preloader'
   =else
     = partial 'partials/preloader'
+
+.ui.basic.modal
+  /i.close.icon
+  .header Доступ закрыт
+  .content
+    .image
+      i.ban.icon
+    .description
+      br
+      br
+      |Доступ к модулю откроется по расписанию

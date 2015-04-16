@@ -5,10 +5,6 @@ class UnitSerializer < ActiveModel::Serializer
   has_one :webinar
   has_one :my_progress
 
-  def unit_progress_ids
-    UnitProgress.where(unit: @object).only(:id).map &:id
-  end
-
   def quiz_id
     @object.quiz.try :id
   end

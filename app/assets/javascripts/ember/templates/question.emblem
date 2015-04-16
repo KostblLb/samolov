@@ -1,4 +1,4 @@
-=unless hasAnswer
+=if hasAnswer
   .ui.success.message
     .header
       |Ответ на данный вопрос уже принят

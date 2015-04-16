@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         end
       end
       resources :courses,           only: [:index, :show]
+      resources :course_progresses, only: [:show]
       resources :scales,            only: [:index, :show, :create, :update]
       resources :groups,            only: [:index, :show, :update]
       resources :parts,             only: [:index, :show]
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
       resources :orders,            only: [:show, :create]
       resources :homework_metas
       resources :homework_progresses
+      resources :faqs,              only: [:show, :index]
 
 
       # Should be subresources of profile. but emberjs not suppored it.

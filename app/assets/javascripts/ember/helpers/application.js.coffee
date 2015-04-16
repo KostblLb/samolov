@@ -18,5 +18,6 @@ Ember.Handlebars.registerHelper 'unlessFirstItem', (options) ->
     options.fn this
   else
     options.inverse this
+
 Ember.Handlebars.registerHelper 'index_of',(context, ndx)->
    context[ndx]
