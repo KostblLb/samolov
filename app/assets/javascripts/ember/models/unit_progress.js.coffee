@@ -43,8 +43,8 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
 
 
   quizIsAvailable: (->
-    moment(@get('coursePartProgress.deadline')) >= moment()
-  ).property('coursePartProgress.deadline','momentDate')
+    moment(@get('coursePartProgress.content.deadline')) >= moment()
+  ).property('coursePartProgress.content.deadline','momentDate')
 
   videoIsComplete: (->
     @stepIsComplite 'video'

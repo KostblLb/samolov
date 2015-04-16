@@ -2,6 +2,7 @@ class Question
   include Mongoid::Document
 
   field :text
+  field :position, type: Integer, default: 1
 
   belongs_to :quiz
   has_many :answers, dependent: :destroy
@@ -11,6 +12,9 @@ class Question
   delegate :preview_image, to: :quiz
 
   alias :name :text
+
+  index({ position: 1 }, { unique: true})
+  default_scope -> { asc(:position).asc(:id) }
 
   def right_answers_count
     answers.right.count

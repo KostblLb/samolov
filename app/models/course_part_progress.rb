@@ -29,11 +29,11 @@ class CoursePartProgress
   end
 
   def part_beginning
-    unit_progresses.first.schedule.start_date
+    part.units.first.unit_progresses.where(user: user).first.schedule.start_date
   end
 
   def deadline
-    unit_progresses.last.schedule.end_date
+    part.units.last.unit_progresses.where(user: user).first.schedule.end_date
   end
 
   private
