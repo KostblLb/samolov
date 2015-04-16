@@ -8,6 +8,7 @@ module Homework
         field :order, type: Integer
 
         belongs_to :task, class_name: 'Homework::Meta::Task'
+        default_scope -> {asc :order}
 
         def build_instance(class_name = nil)
           inst_class = class_name || "Homework::Subtask::#{self.class.name.demodulize}"

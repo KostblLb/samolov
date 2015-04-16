@@ -10,6 +10,8 @@ module Homework
 
       belongs_to :meta, class_name: 'Homework::Meta::Progress'
 
+      default_scope -> {asc :order}
+
       def build_instance
         task = Homework::Task.new(meta: self)
         subtasks.each do |subtask|
