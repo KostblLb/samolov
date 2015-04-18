@@ -32,8 +32,8 @@ RSpec.describe Group do
   describe '#set_schedule' do
     let(:group) {create :group, teacher: teacher, students: [student], course: course}
     it {expect(group.unit_schedules.count).to eq(4)}
-    it {expect(group.unit_schedules.last.start_date).to eq(Date.new(2015,1,19))}
-    it {expect(group.unit_schedules.last.end_date).to eq(Date.new(2015,1,25))}
+    it {expect(group.unit_schedules.last.start_date).to eq(Date.new(2015,1,22))}
+    it {expect(group.unit_schedules.last.end_date).to eq(Date.new(2015,1,29))}
   end
 
   describe '#rebuild!' do

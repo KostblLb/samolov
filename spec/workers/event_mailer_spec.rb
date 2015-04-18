@@ -57,7 +57,7 @@ RSpec.describe EventMailerWorker, :type => :worker do
     end
     context 'tomorrow skype-game' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
-                          course: (create :course_with_exam), education_beginning: Date.today}
+                          course: (create :course_with_exam), education_beginning: Date.today-3}
       it {is_expected.to eq('Экзаменационная Скайп-игра')}
     end
   end

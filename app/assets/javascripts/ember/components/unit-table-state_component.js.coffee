@@ -41,3 +41,19 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
     format = 'DD MMMM'
     formattedDate = moment(@get('progress').get("#{@get 'step'}Deadline")).format(format)
   ).property('progress', 'step')
+
+  stepFormattedBeginning: (->
+    format = 'DD MMMM'
+    switch @get('step')
+      when 'video' then moment(@get('progress.unitBeginning')).format(format)
+      when 'quiz' then moment(@get('progress.videoDeadline')).format(format)
+      when 'summary' then moment(@get('progress.quizDeadline')).format(format)
+      when 'case' then moment(@get('progress.summaryDeadline')).format(format)
+      when 'webinar'
+        if @get('progress.unit.webinar.start')?
+          moment(@get('progress.unit.webinar.start')).format(format)
+        else
+          'Не задано'
+      when 'homework' then moment(@get('progress.webinarDeadline')).format(format)
+      else 'Не задано'
+  ).property('progress', 'step')
