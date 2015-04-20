@@ -5,7 +5,7 @@ module Homework
 
       field :name
 
-      has_many :tasks, class_name: 'Homework::Meta::Task'
+      has_many :tasks, class_name: 'Homework::Meta::Task', dependent: destroy
       has_many :units, inverse_of: :homework_meta
 
       #accepts_nested_attributes_for :meta_bases
