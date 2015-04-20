@@ -7,7 +7,7 @@ module Homework
 
       belongs_to :meta, class_name: 'Homework::Meta::Task'
 
-      embeds_many :subtasks, class_name: 'Homework::Subtask::Base', cascade_callbacks: true
+      embeds_many :subtasks, class_name: 'Homework::Subtask::Base', cascade_callbacks: true, dependent: :destroy
 
       embedded_in :progress, class_name: 'Homework::Progress', inverse_of: :tasks
 
