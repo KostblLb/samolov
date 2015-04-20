@@ -9,7 +9,7 @@ module Homework
     belongs_to :student, class_name: 'User', inverse_of: :my_homeworks
     belongs_to :unit_progress, class_name: 'UnitProgress', inverse_of: :homework_progress
 
-    embeds_many :tasks, class_name: 'Homework::Task', inverse_of: :progress, cascade_callbacks: true
+    embeds_many :tasks, class_name: 'Homework::Task', inverse_of: :progress, cascade_callbacks: true, dependent: :destroy
 
     accepts_nested_attributes_for :tasks
 
