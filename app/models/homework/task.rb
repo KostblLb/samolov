@@ -15,10 +15,6 @@ module Homework
 
       delegate :description, :order, to: :meta
 
-      after_create :sort_subtasks
-
-      def sort_subtasks
-        subtasks.sort_by{|subtask| subtask.order}
-      end
+      default_scope -> {asc :order}
     end
 end

@@ -9,6 +9,8 @@ module Homework
       belongs_to :meta, class_name: 'Homework::Meta::Subtask::Base'
 
       delegate :description, :order, to: :meta
+
+      default_scope -> {asc :order}
     end
   end
 end
