@@ -6,7 +6,7 @@ class Estimate
   field :summary, type: Integer, default: 1
   field :case, type: Integer, default: 1
   field :webinar, type: Integer, default: 1
-  field :homework, type: Integer, default: 1
+  field :homework, type: Integer, default: 2
 
   embedded_in :unit
 

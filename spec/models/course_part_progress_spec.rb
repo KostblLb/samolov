@@ -24,7 +24,7 @@ RSpec.describe CoursePartProgress do
   end
 
   describe '#deadline' do
-    it { expect(course_part_progress.deadline).to eq(Date.new(2015,1,13))}
+    it { expect(course_part_progress.deadline).to eq(Date.new(2015,1,15))}
   end
 
   describe '#rebuild!' do

@@ -6,7 +6,7 @@ module Homework
       field :description
       field :order, type: Integer
 
-      has_many :subtasks, class_name: 'Homework::Meta::Subtask::Base'
+      has_many :subtasks, class_name: 'Homework::Meta::Subtask::Base', dependent: destroy
 
       belongs_to :meta, class_name: 'Homework::Meta::Progress'
 

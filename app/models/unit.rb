@@ -48,7 +48,8 @@ class Unit
 
   protected
   def set_estimate_for_exam
-    estimate.video = estimate.test = estimate.summary = estimate.homework = 0
+    estimate.video = estimate.test = estimate.summary = 0
+    estimate.case = 4
     true
   end
 end

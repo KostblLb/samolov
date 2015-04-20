@@ -8,6 +8,6 @@
       = else
         i.checkmark.icon
   = else
-    = stepFormattedDeadline
+    = stepFormattedBeginning
 = else
   i.ban.icon
