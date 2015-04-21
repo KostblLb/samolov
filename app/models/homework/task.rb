@@ -4,6 +4,7 @@ module Homework
 
       field :is_correct, type: Boolean, default: false
       field :comment
+      field :order, type: Integer
 
       belongs_to :meta, class_name: 'Homework::Meta::Task'
 
@@ -13,7 +14,7 @@ module Homework
 
       accepts_nested_attributes_for :subtasks
 
-      delegate :description, :order, to: :meta
+      delegate :description, to: :meta
 
       default_scope -> {asc :order}
     end
