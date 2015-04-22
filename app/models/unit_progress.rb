@@ -79,6 +79,10 @@ class UnitProgress
     course_part_progress.course_progress.group.unit_schedules.where(unit: unit).first
   end
 
+  def webinar
+    schedule.webinar
+  end
+
   def unit_beginning
     schedule.start_date
   end

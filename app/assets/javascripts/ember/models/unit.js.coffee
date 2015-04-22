@@ -10,7 +10,7 @@ Samolov.Unit = DS.Model.extend
   
   myProgress: DS.belongsTo 'unit_progress'
   part:       DS.belongsTo 'part', async: true
-  webinar:    DS.belongsTo 'webinar'
+
   quiz:       DS.belongsTo 'quiz', async: true
   case:       DS.belongsTo 'quiz', async: true
 

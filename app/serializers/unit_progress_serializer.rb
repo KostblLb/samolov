@@ -3,10 +3,9 @@ class UnitProgressSerializer < ActiveModel::Serializer
              :case_progress_id, :is_exam, :webinar_score, :deadline, :video_deadline, :quiz_deadline,
              :summary_deadline, :case_deadline, :webinar_deadline, :homework_deadline, :unit_beginning,
              :case_progress_points, :quiz_progress_points, :homework_progress_state, :homework_progress_points,
-             :course_part_progress_id
+             :course_part_progress_id, :webinar
 
   has_one :user
-
   def state
     @object.state.to_s
   end

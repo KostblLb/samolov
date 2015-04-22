@@ -25,6 +25,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   quizProgress:        DS.belongsTo 'quiz_progress',     async: true
   caseProgress:        DS.belongsTo 'quiz_progress',     async: true
   coursePartProgress:  DS.belongsTo 'course_part_progress', async: true
+  webinar:             DS.belongsTo 'webinar'
 
   format: 'DD MMMM'
 
