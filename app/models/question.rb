@@ -2,7 +2,7 @@ class Question
   include Mongoid::Document
 
   field :text
-  field :position, type: Integer, default: 1
+  field :position, type: Integer
 
   belongs_to :quiz
   has_many :answers, dependent: :destroy
@@ -13,7 +13,10 @@ class Question
 
   alias :name :text
 
-  index({ position: 1 }, { unique: true})
+  before_create :set_next_position
+
+  validates_uniqueness_of :position, :scope => [:quiz]
+
   default_scope -> { asc(:position).asc(:id) }
 
   def right_answers_count
@@ -28,5 +31,10 @@ class Question
     new_answers = []
     answers.each {|answer| new_answers << answer.dup}
     Question.new(text: text, answers: new_answers)
+  end
+
+  def set_next_position
+    last_position = quiz.questions.max(:position)
+    self.position = last_position.nil? ? 1 : last_position + 1
   end
 end

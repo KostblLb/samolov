@@ -24,8 +24,7 @@ class QuizProgress
 
   def next_question!
     return false if user_answers.where(question: current_question).empty?
-    self.update! current_question_id: quiz.questions.where(:id.gt => current_question.id).first.try(:id)
-    # self.update! current_question_id: quiz.questions.where(:position.gte => current_question.position, :id.ne => current_question.id).first.try(:id)
+    self.update! current_question_id: quiz.questions.where(:position.gt => current_question.position).first.try(:id)
     current_question.nil? ? false : self.current_question_number += 1
   end
 

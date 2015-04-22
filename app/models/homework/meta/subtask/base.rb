@@ -12,7 +12,7 @@ module Homework
 
         def build_instance(class_name = nil)
           inst_class = class_name || "Homework::Subtask::#{self.class.name.demodulize}"
-          Object.const_get(inst_class).new meta: self
+          Object.const_get(inst_class).new(meta: self, order: order)
         end
       end
     end

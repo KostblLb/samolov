@@ -13,7 +13,7 @@ module Homework
       default_scope -> {asc :order}
 
       def build_instance
-        task = Homework::Task.new(meta: self)
+        task = Homework::Task.new(meta: self, order: order)
         subtasks.each do |subtask|
           task.subtasks << subtask.build_instance
         end
