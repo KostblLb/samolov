@@ -15,9 +15,9 @@ Dir.glob('db/seeds/homeworks/valid/*.yml') do |file|
   if config
     order = 0
     config.each do |meta_progress|
-      order +=1
       meta = Homework::Meta::Progress.create name: meta_progress['unit']
       meta_progress['meta_tasks'].each do |meta_task|
+        order +=1
         task = Homework::Meta::Task.create(meta: meta, description: meta_task['description'], order: order)
         suborder = 0
         meta_task['subtasks'].each do |meta_subtask|
