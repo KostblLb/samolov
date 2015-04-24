@@ -34,6 +34,8 @@
   = link-to 'faq.index' class='item'
     i.help.icon
     | F.A.Q
+  = link-to 'subscribtion' currentUser.subscribtion class='item'
+    |Управление подписками
 
 .container
   = outlet

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       resources :homework_metas
       resources :homework_progresses
       resources :faqs,              only: [:show, :index]
+      resources :subscribtions,       only: [:show, :update]
 
 
       # Should be subresources of profile. but emberjs not suppored it.

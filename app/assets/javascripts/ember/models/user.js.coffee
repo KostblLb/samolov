@@ -23,6 +23,7 @@ Samolov.User = DS.Model.extend
 
   friends:   DS.hasMany 'user'
 
+  subscribtion: DS.belongsTo 'subscribtion'
   fullName: (->
     firstName = @get('firstName') || 'No name'
     lastName  = @get('lastName')  || ''

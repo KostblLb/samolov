@@ -17,7 +17,7 @@ module Api
         if @homework_progress.update progress_params
           respond_with @homework_progress, status: :updated, root: 'homework_progress'
         else
-          respond_with @homework_progress, status: :some_error, root: 'homework_progress'
+          respond_with @homework_progress, status: :unprocessable_entity, root: 'homework_progress'
         end
       end
 

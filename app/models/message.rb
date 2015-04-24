@@ -14,6 +14,7 @@ class Message
     conversation.users.each do |current_user|
       receipts.build(recipient: current_user) if current_user != sender
     end
+
   end
 
   def unread?(user)
