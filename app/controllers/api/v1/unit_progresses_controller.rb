@@ -24,7 +24,8 @@ module Api
           if @unit_progress.teacher == current_user
             params.require(:unit_progress).permit :webinar_score
           else
-            params.require(:unit_progress).permit :state_event
+            params.require(:unit_progress).permit :video_complete, :summary_complete, :webinar_complete
+
           end
         end
 

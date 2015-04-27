@@ -1,5 +1,5 @@
 class Homework::ProgressSerializer < ActiveModel::Serializer
-  attributes :id,:max_points, :points, :mistakes_count, :correct_answer_counter, :total_tasks, :state, :is_complete, :is_available, :unit_id, :unit_state
+  attributes :id,:max_points, :points, :mistakes_count, :correct_answer_counter, :total_tasks, :state, :is_complete, :is_available, :unit_id
   has_many :tasks
 
   def is_complete
@@ -7,14 +7,12 @@ class Homework::ProgressSerializer < ActiveModel::Serializer
   end
 
   def is_available
-    return @object.unit_progress.state == 'homework'
+    return true
   end
 
   def unit_id
     @object.unit_progress.unit.id.to_s
   end
 
-  def unit_state
-    @object.unit_progress.state
-  end
+
 end

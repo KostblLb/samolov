@@ -4,6 +4,7 @@ Samolov.HomeworkProgressController = Ember.ObjectController.extend
     sendHomework:->
       progress = @model
       progress.set 'stateEvent', 'complete'
+      progress.set 'homeworkComplete', true
       progress.save().then (newProgress)=>
         progress.reload()
         newProgress.set 'stateEvent', null

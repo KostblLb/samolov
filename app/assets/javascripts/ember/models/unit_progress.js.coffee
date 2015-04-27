@@ -1,8 +1,8 @@
 Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.ProgressMixin,
   states: ['video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
 
-  state:                  DS.attr 'string'
-  stateEvent:             DS.attr 'string'
+#  state:                  DS.attr 'string'
+#  stateEvent:             DS.attr 'string'
   isExam:                 DS.attr 'boolean'
   hpid:                   DS.attr 'string'
   webinarScore:           DS.attr 'number'
@@ -19,6 +19,13 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   caseProgressPoints:     DS.attr 'string'
   quizProgressPoints:     DS.attr 'string'
 
+  videoComplete:     DS.attr 'boolean'
+  quizComplete:      DS.attr 'boolean'
+  summaryComplete:   DS.attr 'boolean'
+  caseComplete:      DS.attr 'boolean'
+  webinarComplete:   DS.attr 'boolean'
+  homeworkComplete:  DS.attr 'boolean'
+
   unit:                DS.belongsTo 'unit'#, async: true
   user:                DS.belongsTo 'user'#, async: true
   homeworkProgress:    DS.belongsTo 'homework_progress', async: true
@@ -30,7 +37,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   format: 'DD MMMM'
 
   stepIsComplite: (step) ->
-    @states.indexOf(step) < @states.indexOf(@get 'state')
+    @get("#{step}Complete")
 
   stepIsActive: (step) ->
     @states.indexOf(step) == @states.indexOf(@get 'state')

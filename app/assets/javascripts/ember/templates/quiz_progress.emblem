@@ -39,8 +39,8 @@ p
   | Баллы -&nbsp
   = points
 
-= if canNext
-  .next_button{action 'nextStep'}
-    .ui.right.labeled.green.icon.button
-      | Далее
-      i.right.arrow.icon
+/= if isQuiz
+/  .next_button{action 'completePart' "quiz"}
+/    .ui.right.labeled.green.icon.button
+/      | Далее
+/      i.right.arrow.icon

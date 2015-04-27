@@ -23,57 +23,64 @@
           th
             |Успех
       tbody
-          = each units
-            =if isLoaded
-              = with myProgress
-                =if isAvailable
-                  link-to 'unit' unit.id tagName='tr' class='unitRow'
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
+        = each units
+          =if isLoaded
+            = with myProgress
+              =if isAvailable
+                tr.unitRow
+                  td
+                    = unit.name
+                  td.collapsing
+                    | #{formattedUnitBeginning} - #{formattedDeadline}
+
+                  link-to 'unit' unit.id (query-params scope='video') tagName='td'
                     unit-table-state progress=this step='video'
 
+                  link-to 'unit' unit.id (query-params scope='quiz') tagName='td'
                     unit-table-state progress=this step='quiz'
                       = quizProgressPoints
 
+                  link-to 'unit' unit.id (query-params scope='summary') tagName='td'
                     unit-table-state progress=this step='summary'
 
+                  link-to 'unit' unit.id (query-params scope='case') tagName='td'
                     unit-table-state progress=this step='case'
                       = caseProgressPoints
 
+                  link-to 'unit' unit.id (query-params scope='webinar') tagName='td'
                     unit-table-state progress=this step='webinar'
                       = webinarScore
 
+                  link-to 'unit' unit.id (query-params scope='homework') tagName='td'
                     unit-table-state progress=this step='homework'
                       = homeworkProgressPoints
-                    td
-                      =success
-                =else
-                  tr.unitRow{action 'showUnitBeginning'}
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
-                    unit-table-state progress=this step='video'
+                  td
+                    =success
+              =else
+                tr.unitRow{action 'showUnitBeginning'}
+                  td
+                    = unit.name
+                  td.collapsing
+                    | #{formattedUnitBeginning} - #{formattedDeadline}
+                  unit-table-state progress=this step='video'
 
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  unit-table-state progress=this step='quiz'
+                    = quizProgressPoints
 
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='summary'
 
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='case'
+                    = caseProgressPoints
 
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
 
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
-                    td
-                      =success
-            =else
-              = partial 'partials/preloader'
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgressPoints
+                  td
+                    =success
+          =else
+            = partial 'partials/preloader'
   =else
     = partial 'partials/preloader'
 

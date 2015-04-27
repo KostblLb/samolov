@@ -11,7 +11,21 @@ class EventMailerWorker
       end
       if current.schedule.start==Date.today-1
         if current.user.subscribtion.module_start
-          EventMailer.send_mail('Директорский курс. Завтра начинаетя модуль '+current.unit.name, current.user, unit_start_body(current))
+          EventMailer.send_mail('Директорский курс. Завтра начинаетя модуль '+current.unit.name, current.user, unit_start_body(current)).deliver_now
+        end
+      end
+    end
+    Webinar.each do |current|
+      if current.start == DateTime.now-1.hour
+        bcc=[]
+        current.unit_schedule.group.students.rach do |student|
+          if student.subscribtion.new_event
+            bcc<<student.email
+          end
+        end
+        if bcc!=[]
+          EventMailer.delay(send_mail('Директорский курс. Вебинар начинается через час.', bcc,
+                                "Здравствуйте, чрез час начинается вебинар в модуле #{current.unit_schedule.unit.name}. Не пропустите!")).deliver_now
         end
       end
     end

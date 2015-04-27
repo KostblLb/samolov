@@ -3,6 +3,10 @@ class UnitProgress
 
   field :webinar_score, type: Integer
 
+  field :video_complete, type: Boolean, default: false
+  field :summary_complete, type: Boolean, default: false
+  field :webinar_complete, type: Boolean, default: false
+
   belongs_to :course_part_progress
   belongs_to :user
 
@@ -18,29 +22,29 @@ class UnitProgress
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, :name, to: :unit
 
-  state_machine :initial => :video do
-
-    state :video
-
-    state :quiz
-
-    state :summary
-
-    state :case
-
-    state :webinar
-
-    state :homework
-
-    state :done
-
-    event :next_step do
-      transition :case => :webinar, :webinar => :done, :if => :is_exam
-
-      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
-               :webinar => :homework, :homework => :done, :unless => :is_exam
-    end
-  end
+  # state_machine :initial => :video do
+  #
+  #   state :video
+  #
+  #   state :quiz
+  #
+  #   state :summary
+  #
+  #   state :case
+  #
+  #   state :webinar
+  #
+  #   state :homework
+  #
+  #   state :done
+  #
+  #   event :next_step do
+  #     transition :case => :webinar, :webinar => :done, :if => :is_exam
+  #
+  #     transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+  #              :webinar => :homework, :homework => :done, :unless => :is_exam
+  #   end
+  # end
 
   def max_points
     safe_get_points(:max_points)
@@ -52,6 +56,17 @@ class UnitProgress
 
   def hpid
     homework_progress.id
+  end
+
+  def homework_complete
+    homework_progress.complete?
+  end
+
+  def quiz_complete
+    quiz_progress.finished?
+  end
+  def case_complete
+    case_progress.finished?
   end
 
   def max_webinar_points
