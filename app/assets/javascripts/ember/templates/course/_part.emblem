@@ -62,21 +62,27 @@
                     = unit.name
                   td.collapsing
                     | #{formattedUnitBeginning} - #{formattedDeadline}
-                  unit-table-state progress=this step='video'
+                  td
+                    unit-table-state progress=this step='video'
 
-                  unit-table-state progress=this step='quiz'
-                    = quizProgressPoints
+                  td
+                    unit-table-state progress=this step='quiz'
+                      = quizProgressPoints
 
-                  unit-table-state progress=this step='summary'
+                  td
+                    unit-table-state progress=this step='summary'
 
-                  unit-table-state progress=this step='case'
-                    = caseProgressPoints
+                  td
+                    unit-table-state progress=this step='case'
+                      = caseProgressPoints
 
-                  unit-table-state progress=this step='webinar'
-                    = webinarScore
+                  td
+                    unit-table-state progress=this step='webinar'
+                      = webinarScore
 
-                  unit-table-state progress=this step='homework'
-                    = homeworkProgressPoints
+                  td
+                    unit-table-state progress=this step='homework'
+                      = homeworkProgressPoints
                   td
                     =success
           =else

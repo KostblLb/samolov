@@ -58,9 +58,7 @@ class UnitProgress
   end
 
   def homework_complete
-    if homework_progress == nil
-      true
-    else
+    if homework_progress != nil
       homework_progress.complete?
     end
   end
