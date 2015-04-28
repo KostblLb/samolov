@@ -25,7 +25,11 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   ).property('progress', 'step')
 
   stepSupported: (->
-    !(@get('progress').get('isExam'))
+    step = @get 'step'
+    if step == 'quiz' || step =='webinar'
+     true
+    else
+      !(@get('progress').get('isExam'))
   ).property('progress', 'step')
 
   stepIsCompleted: (->
@@ -57,3 +61,8 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
       when 'homework' then moment(@get('progress.webinarDeadline')).format(format)
       else 'Не задано'
   ).property('progress', 'step')
+
+  actions:
+    click: ->
+#      @transitionToRoute(unit, unit.id, queryParams: {scope: @get 'step'})
+      console.log('sdgjkjkn')
