@@ -66,10 +66,11 @@ class UnitProgress
   end
 
   def quiz_complete
-    quiz_progress.finished?
+    if quiz_progress !=nil
+      quiz_progress.finished?
   end
   def case_complete
-    if !is_exam
+    if !is_exam && case_progress != nil
       case_progress.finished?
   end
 
