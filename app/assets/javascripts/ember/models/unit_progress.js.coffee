@@ -40,7 +40,7 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
     @get("#{step}Complete")
 
   stepIsActive: (step) ->
-    @states.indexOf(step) == @states.indexOf(@get 'state')
+    true
 
   momentDate: ->
     moment()
@@ -55,32 +55,34 @@ Samolov.UnitProgress = DS.Model.extend Samolov.FormattedDeadlineMixin, Samolov.P
   ).property('coursePartProgress.content.deadline','momentDate')
 
   videoIsComplete: (->
-    @stepIsComplite 'video'
-  ).property('state')
+    @get('videoComplete')
+  ).property('videoComplete')
 
   quizIsComplete: (->
-    @stepIsComplite 'quiz'
-  ).property('state')
+    @get('quizComplete')
+  ).property('quizComplete')
 
   summaryIsComplete: (->
-    @stepIsComplite 'summary'
-  ).property('state')
+    @get('summaryComplete')
+  ).property('summaryComplete')
 
   caseIsComplete: (->
-    @stepIsComplite 'case'
-  ).property('state')
+    @get('caseComplete')
+  ).property('caseComplete')
 
   webinarIsComplete: (->
-    @stepIsComplite 'webinar'
-  ).property('state')
+    @get('webinarComplete')
+  ).property('webinarComplete')
 
   homeworkIsComplete: (->
-    @stepIsComplite 'homework'
-  ).property('state')
+    @get('homeworkComplete')
+  ).property('homeworkComplete')
 
-  quizIsActive: (->
-    @stepIsActive 'quiz'
-  ).property('state')
+  quizIsActive: ->
+    if @get('quizComplete')
+      false
+    else
+      true
 
   convertDate: (field) ->
     date = @.get field
