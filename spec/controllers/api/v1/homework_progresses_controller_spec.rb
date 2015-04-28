@@ -100,22 +100,14 @@ RSpec.describe Api::V1::HomeworkProgressesController, :type => :controller do
         let(:unit_progress_last) {group.course_progresses.first.course_part_progresses.first.unit_progresses.last}
         let(:homework_progress) {unit_progress_first.homework_progress}
         before(:each) do
-          5.times { unit_progress_first.next_step }
           sign_in unit_progress_first.user
         end
         let(:attributes) {{state_event: 'complete', tasks: [{id:homework_progress.tasks.first.id}]}}
         subject{put :update, id: homework_progress.id, homework_progress: attributes}
 
         context 'next unit not disabled' do
-          before(:each) {unit_progress_last.next_step}
           it 'updates homework progress state' do
             expect{subject}.to change{homework_progress.reload.state}.from('in_progress').to('review')
-          end
-          it 'updates unit progress state' do
-            expect{subject}.to change{unit_progress_first.reload.state}.from('homework').to('done')
-          end
-          it 'updates unit progress state' do
-            expect{subject}.not_to change{unit_progress_last.reload.state}
           end
         end
       end

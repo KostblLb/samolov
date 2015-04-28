@@ -8,14 +8,12 @@ RSpec.describe UnitProgress do
 
   describe 'create new object' do
     context 'unit is not exam' do
-      it {expect(unit_progress.state).to eq('video')}
       it {expect(unit_progress.quiz_progress).to be_persisted}
       it {expect(unit_progress.case_progress).to be_persisted}
       it {expect(unit_progress.homework_progress).to be_persisted}
     end
     context 'unit is exam' do
       let(:exam_progress) {create :unit_progress, unit: (create :exam)}
-      it {expect(exam_progress.state).to eq('case')}
       it {expect(unit_progress.case_progress).to be_persisted}
     end
   end
@@ -55,16 +53,16 @@ RSpec.describe UnitProgress do
     end
   end
 
-  describe '#next_step' do
-    subject {unit_progress.next_step}
-    context 'unit is not exam' do
-      it {expect{subject}.to change{unit_progress.state}.from('video').to('quiz')}
-    end
-    context 'unit is exam' do
-      let(:unit_progress) {create :unit_progress, unit: (create :exam)}
-      it {expect{subject}.to change{unit_progress.state}.from('case').to('webinar')}
-    end
-  end
+  # describe '#next_step' do
+  #   subject {unit_progress.next_step}
+  #   context 'unit is not exam' do
+  #     it {expect{subject}.to change{unit_progress.state}.from('video').to('quiz')}
+  #   end
+  #   context 'unit is exam' do
+  #     let(:unit_progress) {create :unit_progress, unit: (create :exam)}
+  #     it {expect{subject}.to change{unit_progress.state}.from('case').to('webinar')}
+  #   end
+  # end
 
   describe '#unit_beginning' do
     it { (expect(unit_progress.unit_beginning).to eq(Date.new(2015,1,1))) }
