@@ -71,29 +71,5 @@ class EventMailerWorker
     end
   end
 
-  def new_advert(group, title, text)
-    group.students.each do |student|
-      if student.subscribtion.new_advert
-        EventMailer.send_mail('Директорский курс. Новое объявление.',student, advert_body(group.name ,student, title, text)).deliver_now
-      end
-    end
-  end
-
-  def advert_body(group, student, title, text)
-    "Здравствуйте #{student.name}. Новое объявление для группы #{group}: <br>
-    <h2>#{title}</h2>
-    <p>#{text}</p>"
-  end
-
-  def new_message(user, sender, text)
-    if user.subscribtion.new_message
-      EventMailer.send_mail('Директорский курс. Новое сообщение', user, message_body(sender, text)).deliver_now
-    end
-  end
-
-  def message_body(sender, text)
-    "Здравствуйте, у вас новое сообщение, отправитель #{sender.name}:
-    <p>#{text}</p>"
-  end
 
 end

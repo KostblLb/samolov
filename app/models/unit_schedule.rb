@@ -11,9 +11,9 @@ class UnitSchedule
   embeds_one :webinar
   accepts_nested_attributes_for :webinar
 
-  before_create :set_webinar
-
-  def set_webinar
-    Webinar.new start: start_date + unit.estimate.video + unit.estimate.test + unit.estimate.summary + unit.estimate.case + 12.hours
-  end
+  # before_create :set_webinar
+  #
+  # def set_webinar
+  #   Webinar.new start: start_date + unit.estimate.video + unit.estimate.test + unit.estimate.summary + unit.estimate.case + 12.hours
+  # end
 end
