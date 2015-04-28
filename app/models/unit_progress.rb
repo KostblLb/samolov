@@ -69,7 +69,8 @@ class UnitProgress
     quiz_progress.finished?
   end
   def case_complete
-    case_progress.finished?
+    if !is_exam
+      case_progress.finished?
   end
 
   def max_webinar_points
