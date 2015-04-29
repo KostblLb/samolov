@@ -65,8 +65,8 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
 
 
   openStep:( ->
-#    @sendAction('action', @get('unit.id'), @get('step'))
-    console.log(1)
+    @sendAction('action', @get('unit.id'), @get('step'))
+
   ).on('click')
 
 
