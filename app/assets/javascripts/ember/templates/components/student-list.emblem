@@ -26,7 +26,7 @@ module-accordion name=currentUnit.name
           | Сообщение
     tbody
       = each sortedProgresses
-        tr class=rowColor
+        tr
           td
             = inc _view.contentIndex
           td
@@ -36,29 +36,29 @@ module-accordion name=currentUnit.name
             img.ui.avatar.image src=user.avatarUrl
           td.center.aligned
             = success
-          td.center.aligned
-            = if videoIsComplete
+          td.center.aligned class=videoComplete:positive:negative
+            = if videoComplete
               i.checkmark.icon
             = else
               i.remove.icon
-          td.center.aligned
-            = if quizIsComplete
+          td.center.aligned class=quizComplete:positive:negative
+            = if quizComplete
               = link-to 'quiz_review' quizProgress.id
                 i.checkmark.icon
             = else
               i.remove.icon
-          td.center.aligned
-            = if summaryIsComplete
+          td.center.aligned class=summaryComplete:positive:negative
+            = if summaryComplete
               i.checkmark.icon
             = else
               i.remove.icon
-          td.center.aligned
-            = if caseIsComplete
+          td.center.aligned class=caseComplete:positive:negative
+            = if caseComplete
               = link-to 'quiz_review' caseProgress.id
                 i.checkmark.icon
             = else
               i.remove.icon
-          td.center.aligned
+          td.center.aligned class=webinarComplete:positive:negative
             webinar-scores webinarScore=webinarScore progress=this
           td.center.aligned
             = if homeworkProgress.isComplete
