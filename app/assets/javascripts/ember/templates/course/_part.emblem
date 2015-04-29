@@ -33,27 +33,22 @@
                   td.collapsing
                     | #{formattedUnitBeginning} - #{formattedDeadline}
 
-                  link-to 'unit' unit.id (query-params scope='video') tagName='td'
-                    unit-table-state progress=this step='video'
+                  /link-to 'unit' unit.id (query-params scope='video') tagName='td'
+                  unit-table-state progress=this step='video' unit=unit action='openStep'
 
-                  link-to 'unit' unit.id (query-params scope='quiz') tagName='td'
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  unit-table-state progress=this step='quiz' unit=unit action='openStep'
+                    = quizProgressPoints
 
-                  link-to 'unit' unit.id (query-params scope='summary') tagName='td'
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='summary' unit=unit action='openStep'
 
-                  link-to 'unit' unit.id (query-params scope='case') tagName='td'
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='case' unit=unit action='openStep'
+                    = caseProgressPoints
 
-                  link-to 'unit' unit.id (query-params scope='webinar') tagName='td'
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
+                  unit-table-state progress=this step='webinar' unit=unit action='openStep'
+                    = webinarScore
 
-                  link-to 'unit' unit.id (query-params scope='homework') tagName='td'
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
+                  unit-table-state progress=this step='homework' unit=unit action='openStep'
+                    = homeworkProgressPoints
                   td
                     =success
               =else
@@ -62,27 +57,23 @@
                     = unit.name
                   td.collapsing
                     | #{formattedUnitBeginning} - #{formattedDeadline}
-                  td
-                    unit-table-state progress=this step='video'
 
-                  td
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  unit-table-state progress=this step='video'
 
-                  td
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='quiz'
+                    = quizProgressPoints
 
-                  td
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='summary'
 
-                  td
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
 
-                  td
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
+                  unit-table-state progress=this step='case'
+                    = caseProgressPoints
+
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
+
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgressPoints
                   td
                     =success
           =else

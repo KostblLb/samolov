@@ -53,9 +53,10 @@
     color: #376C38
   &.negative
     color: #912D2B
-td~.unit_steps.active
-  background: none repeat scroll 0% 0% #E0E0E0
-td~.unit_steps.warning
-  background: none repeat scroll 0% 0% #FFFBE6
-td~.unit_steps.positive
-  background: none repeat scroll 0% 0% #E3FFD8
+table.ui
+  &td~span.unit_steps.active
+    background: none repeat scroll 0% 0% #E0E0E0
+  &td~span.unit_steps.warning
+    font-size: large!important
+  &td~span.unit_steps.positive
+    background: none repeat scroll 0% 0% #E3FFD8

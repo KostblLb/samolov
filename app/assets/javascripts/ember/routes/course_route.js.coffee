@@ -9,3 +9,6 @@ Samolov.CourseRoute = Ember.Route.extend
     @render 'groups/show_in_sidebar',  outlet: 'right_sidebar'
     @render 'course_progress/pivot',   outlet: 'pivot'
 
+
+
+

@@ -3,7 +3,8 @@
 Samolov.UnitTableStateComponent = Ember.Component.extend
   progress: null
   step: ''
-  tagName: 'span'
+  tagName: 'td'
+  unit: ''
   examStates: ['case', 'webinar']
   classNameBindings: ['getClassName']
 
@@ -11,12 +12,12 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   getClassName: (->
     progress = @get 'progress'
     if @get('stepSupported')
-      if @get("#progress.{@get 'step'}Complete")
-        'unit_steps positive'
+      if @get('progress').get("#{@get 'step'}IsComplete")
+        'positive'
       else
-        if @get('stepIsTimeOut') then 'negative' else 'unit_steps warning'
+        if @get('stepIsTimeOut') then 'negative' else 'warning'
     else
-      'unit_steps active'
+      'active'
   ).property('progress',  'step')
 
 
@@ -62,7 +63,10 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
       else 'Не задано'
   ).property('progress', 'step')
 
-  actions:
-    click: ->
-#      @transitionToRoute(unit, unit.id, queryParams: {scope: @get 'step'})
-      console.log('sdgjkjkn')
+
+  openStep:( ->
+#    @sendAction('action', @get('unit.id'), @get('step'))
+    console.log(1)
+  ).on('click')
+
+
