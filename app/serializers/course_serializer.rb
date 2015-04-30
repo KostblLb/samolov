@@ -1,5 +1,5 @@
 class CourseSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :status, :my_group_id, :part_ids, :cost
+  attributes :id, :name, :description, :status, :my_group_id, :part_ids, :cost, :groups
 
   has_one :my_progress
 

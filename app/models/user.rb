@@ -73,7 +73,7 @@ class User
   has_mongoid_attached_file :avatar, default_url: '/default_avatar.jpg'
   validates_attachment_content_type :avatar, :content_type => /\Aimage/
 
-  before_save :set_avatar_extension
+  before_save :set_avatar_extension, :set_subscribtion
   before_create :new_subscribtion
 
   def name
@@ -150,5 +150,11 @@ class User
     end while !User.where(avatar_file_name: name).empty?
     extension = self.avatar_content_type.gsub('image/', '.')
     self.avatar.instance_write(:file_name, name+extension)
+  end
+
+  def set_subscribtion
+    if !subscribtion?
+      self.create_subscribtion
+    end
   end
 end
