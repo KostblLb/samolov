@@ -11,5 +11,7 @@ Samolov.StudentListComponent = Ember.Component.extend
     currentProgresses = unitProgresses.filter((item) ->
       students.indexOf(item.get('user')) != -1
     )
+    currentProgresses.sortBy('points')
   ).property('currentUnit', 'currentUnit.unitProgresses', 'currentGroup')
+
 

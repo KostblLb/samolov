@@ -3,6 +3,11 @@
 Samolov.UnitController = Ember.ObjectController.extend
 #  states:['video', 'quiz', 'summary', 'case', 'webinar', 'homework']
 
+
+
+  sortedProgresses: (->
+    @get('unitProgresses').sortBy('points').reverse()
+  ).property('unitProgresses.@each.points')
   actions:
 #    nextStep: ->
 #      progress = @model.get('myProgress')
