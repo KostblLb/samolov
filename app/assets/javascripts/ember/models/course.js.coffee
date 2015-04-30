@@ -7,7 +7,7 @@ Samolov.Course = DS.Model.extend
   description:      DS.attr 'string'
   status:           DS.attr 'string'
 
-  myGroup:          DS.belongsTo 'group', async: true
+  myGroup:          DS.hasMany 'group', async: true
   myProgress:       DS.belongsTo 'course_progress'
 
   parts:            DS.hasMany 'part', async: true
