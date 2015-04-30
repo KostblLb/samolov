@@ -70,7 +70,10 @@ class User
   has_one :subscribtion
 
 
-  has_mongoid_attached_file :avatar, default_url: '/default_avatar.jpg'
+  has_mongoid_attached_file :avatar,
+                            default_url: '/default_avatar.jpg',
+                            styles: {default: '100x100#'},
+                            convert_options: { :all => '-background white -flatten +matte' }
   validates_attachment_content_type :avatar, :content_type => /\Aimage/
 
   before_save :set_avatar_extension, :set_subscribtion

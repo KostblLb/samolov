@@ -5,6 +5,7 @@ Samolov.User = DS.Model.extend
   lastName:  DS.attr 'string'
   firstName: DS.attr 'string'
   avatarUrl: DS.attr 'string'
+  smallAvatarUrl: DS.attr 'string'
   avatar:    DS.attr 'string'
   isTeacher: DS.attr 'boolean'
   birthday:  DS.attr 'date'
