@@ -1,0 +1,62 @@
+= with myGroup
+  .ui.segment
+    .ui.header
+      | Руководитель курса
+    =if teacher.isLoaded
+      img.ui.avatar.image src=teacher.avatarUrl
+      = teacher.fullName
+    =else
+      = partial 'partials/preloader'
+    .ui.header
+      | Моя группа
+    table.ui.table
+      thead
+        tr
+          th
+            | Место
+          th
+          th
+            | ФИО
+          th
+            | Баллы
+          th
+      tbody
+        = each sortedCourseProgresses
+          tr
+              td
+                = inc _view.contentIndex
+              td
+                =if user.isLoaded
+                  img.ui.avatar.image src=user.avatarUrl
+              td
+                =if user.isLoaded
+                  link-to 'users.show' user.id
+                    = user.fullName
+                =else
+                  = partial 'partials/preloader'
+              td
+                =if user.isLoaded
+                  = points
+              td
+                =if user.isLoaded
+                  unless user.itsMe
+                    link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
+                      i.mail.icon
+
+    .ui.segment
+      .header
+        | Объявления
+      .ui.divided.list
+        =if adverts
+          = each adverts
+            =if this
+              .item
+                .header
+                  = title
+                = text
+            =else
+              = partial 'partials/preloader'
+        =else
+          |В группе нет объявлений
+      = if canICreateAdvert
+        | Add

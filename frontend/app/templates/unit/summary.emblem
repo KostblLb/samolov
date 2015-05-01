@@ -1,0 +1,6 @@
+== summary
+a href=attachmentUrl
+  |Скачать конспект
+.next_button{action 'completePart' 'summary'}
+  .ui.right.labeled.green.icon.button
+    | Завершить

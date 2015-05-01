@@ -1,0 +1,22 @@
+= link-to 'conversations'
+  i.reply.icon
+  | Вернуться к диалогам
+h2.header.h2
+  | Новый диалог
+.ui.segment
+  form.ui.form
+    .field
+      label Получатели
+      user-select content=availableUsers value=users
+      .ui.red.message.hide_error id='users_error'
+        |Необходимо выбрать хотя бы одного получателя
+    .field
+      label Тема
+      = input value=subject
+    .field
+      label Сообщение
+      = textarea value=messages.firstObject.body cols='1'
+      .ui.red.message.hide_error id='message_error'
+        |Необходимо ввести сообщение
+    button.ui.button{action 'create'}
+      | Создать

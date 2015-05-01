@@ -1,0 +1,26 @@
+= if myProgress
+  .ui.segment
+    h3.ui.header
+      | Зачетка по курсу - &nbsp
+      = name
+    table.ui.celled.striped.table
+      thead
+        tr
+          th
+            | Часть
+          th
+            | Баллов
+          th
+            | Макс. возможно
+      tbody
+        = each parts
+          tr
+            =if this.isLoaded
+              td
+                = name
+              td
+                = myProgress.points
+              td
+                = myProgress.maxPoints
+            =else
+              = partial 'partials/preloader'

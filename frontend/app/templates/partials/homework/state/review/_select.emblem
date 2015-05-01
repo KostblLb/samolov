@@ -1,0 +1,3 @@
+.ui.stacked.segment
+  = each answer in answers
+    =answer.answer

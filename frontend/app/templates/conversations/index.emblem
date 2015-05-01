@@ -1,0 +1,40 @@
+.field
+  = link-to 'conversations.new'
+    i.plus.icon
+    | Создать диалог
+h2.header.h2
+  | Ваши диалоги
+  if currentUser.hasUnread
+    | (Непрочитанных сообщений: #{currentUser.unreads_messages_count} )
+.ui.segment
+  .ui.comments
+    = each
+      unlessFirstItem
+        .ui.divider
+      = link-to 'conversation' this.id
+        .comment class=hasUnread:unread-message
+          .avatar
+            img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
+          .content
+            a.author
+              if subject
+                label Тема диалога: "#{subject}"
+              else
+                label Без темы
+            .metadata
+              .date
+                | Последнее сообщение: #{formattedUpdatedAt}
+            .text
+              = messages.lastObject.previewMessage
+            .actions
+              | Участники диалога:
+              '
+              = each users
+                unlessFirstItem
+                  '
+                  = link-to 'users.show' this.id |#{this.fullName}
+                else
+                  = link-to 'users.show' this.id |#{this.fullName}
+  = if needPaginate
+    = partial 'partials/pagination'
+

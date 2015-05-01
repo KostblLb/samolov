@@ -1,0 +1,13 @@
+= if stepSupported
+  = if stepIsCompleted
+    = if homeworkIsReview
+      i.wait.icon
+    = else
+      = if template
+        = yield
+      = else
+        i.checkmark.icon
+  = else
+    = stepFormattedBeginning
+= else
+  i.ban.icon

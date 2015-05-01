@@ -1,0 +1,46 @@
+h2.ui.header
+  | Проверка домашнего задания
+.ui.segment
+  =if isVerified
+    .ui.info.message
+      .header
+        |Проверка домашнего задания закончена
+      p
+        |Ваши оценки и комментарии увидит студент
+  =else
+    =if isReviewSaved
+      .ui.info.message
+        .header
+          |Текущие отметки сохранены
+        p
+          |Вы можете продолжить проверку позже
+  = each tasks
+    .ui.secondary.segment class=isCorrect:green:red
+      h3.ui.header
+        | Задание № #{inc _view.contentIndex}
+      .ui.grid
+        .twelve.wide.column
+          if description
+            == description
+            br
+          = each subtasks
+            br
+            if description
+              == description
+            = partial isCompletePartialName
+        .four.wide.column
+          form.ui.form
+            .field
+              label
+                | Комментарий
+              = textarea value=comment rows='8' class='commentText'
+            .field
+              label
+                | Правильно!
+              = input checked=isCorrect type="checkbox" class="ui checkbox"
+
+  =if isNotVerified
+    .ui.primary.button{action 'saveHomework'}
+      |Сохранить
+    .ui.primary.button{action 'endChecking'}
+      |Закончить проверку

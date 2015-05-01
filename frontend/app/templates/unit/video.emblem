@@ -1,0 +1,4 @@
+ui-video data_url=videoLink
+.next_button{action 'completePart' 'video'}
+  .ui.right.labeled.green.icon.button
+    | Завершить

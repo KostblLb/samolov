@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-
-  namespace :api do
-  namespace :v1 do
-    get 'conversation/view'
-    end
-  end
-
   get 'landing/directors'
   get 'landing/history'
   get 'landing/founders'
@@ -55,11 +48,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'cabinet' => 'cabinet#index'
-  get 'temporary/index'
-
-
-
   root 'cabinet#index'
 
+  get '/*path' => 'cabinet#index'
 end

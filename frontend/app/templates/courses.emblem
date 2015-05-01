@@ -1,0 +1,21 @@
+h2.ui.header
+  i.suitcase.icon
+  .content
+    | Курсы
+.ui.segment
+  .ui.divided.list
+    = each
+      .item
+        = if needBuy
+          link-to 'course.buy' id class='right floated compact ui blue button'
+            i.shop.icon
+            | Купить
+        = else
+          link-to 'course' id class='right floated compact ui blue button'
+            i.unlock.icon
+            | К курсу
+        .content
+          .header
+            = name
+          .description
+            = description

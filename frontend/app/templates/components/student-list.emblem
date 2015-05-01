@@ -1,0 +1,74 @@
+module-accordion name=currentUnit.name
+  table.ui.celled.striped.table
+    thead
+      tr
+        th
+          | Рейтинг
+        th
+          | ФИО
+        th
+          | Фото
+        th
+          | Успех
+        th
+          | Видео
+        th
+          | Тест
+        th
+          | Конспект
+        th
+          | Кейс
+        th
+          | Вебинар
+        th
+          | Домашнее задание
+        th
+          | Сообщение
+    tbody
+      = each sortedProgresses
+        tr
+          td
+            = inc _view.contentIndex
+          td
+            link-to 'users.show' user.id
+              = user.fullName
+          td.center.aligned
+            img.ui.avatar.image src=user.avatarUrl
+          td.center.aligned
+            = success
+          td.center.aligned class=videoComplete:positive:negative
+            = if videoComplete
+              i.checkmark.icon
+            = else
+              i.remove.icon
+          td.center.aligned class=quizComplete:positive:negative
+            = if quizComplete
+              = link-to 'quiz_review' quizProgress.id
+                i.checkmark.icon
+            = else
+              i.remove.icon
+          td.center.aligned class=summaryComplete:positive:negative
+            = if summaryComplete
+              i.checkmark.icon
+            = else
+              i.remove.icon
+          td.center.aligned class=caseComplete:positive:negative
+            = if caseComplete
+              = link-to 'quiz_review' caseProgress.id
+                i.checkmark.icon
+            = else
+              i.remove.icon
+          td.center.aligned class=webinarComplete:positive:negative
+            webinar-scores webinarScore=webinarScore progress=this
+          td.center.aligned
+            = if homeworkProgress.isComplete
+              = link-to 'homework_review' homeworkProgress.id
+                = if homeworkProgress.isNotVerified
+                  i.wait.icon
+                = else
+                  i.checkmark.icon
+            = else
+              i.remove.icon
+          td.center.aligned
+            link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
+              i.mail.icon

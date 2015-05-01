@@ -1,0 +1,62 @@
+.ui.blue.inverted.main.menu
+  a.item
+  .right.menu
+    a.item href='/users/sign_out'
+      | Выход
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler#left onclick="$('.ui.right.sidebar').sidebar('setting', 'transition', 'scale down').sidebar('setting', 'dimPage', false).sidebar('toggle')"
+  i.content.icon
+
+.ui.left.vertical.blue.inverted.labeled.icon.sidebar.menu.visible
+  .item
+    img.ui.avatar.image src=currentUser.smallAvatarUrl
+    = currentUser.previewEmail
+  = link-to 'users.show' currentUser class='item'
+    i.user.icon
+    | Профиль
+  = link-to 'conversations' class='item'
+    i.mail.icon
+      if currentUser.hasUnread
+        .unread_messages_count
+          | #{currentUser.unreads_messages_count}
+    | Диалоги
+
+  = if currentUser.isTeacher
+    = link-to 'groups.index' class='item'
+      i.student.icon
+      | Мои группы
+    = link-to 'scales.index' class='item'
+      i.tasks.icon
+      | Шкалы
+  =else
+    = link-to 'courses' class='item'
+      i.suitcase.icon
+      | Курсы
+  = link-to 'faq.index' class='item'
+    i.help.icon
+    | F.A.Q
+  = link-to 'subscribtion' currentUser.subscribtion class='item'
+    |Управление подписками
+
+.container
+  = outlet
+
+
+.ui.right.sidebar.ui.segment
+  = outlet 'right_sidebar'
+  = outlet 'pivot'
+
+  .ui.segment
+    .ui.header
+      | Порекомендуйте наш курс
+    .ui.facebook.button
+      i.facebook.icon
+      | Facebook
+    .ui.twitter.button
+      i.twitter.icon
+      | Twitter
+    .ui.google.plus.button
+      i.google.plus.icon
+      | Google Plus
+    .ui.vk.button
+      i.vk.icon
+      | VK

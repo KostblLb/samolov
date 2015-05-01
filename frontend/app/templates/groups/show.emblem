@@ -1,0 +1,66 @@
+h2.ui.header
+  .content
+    = name
+
+.ui.segment
+  .ui.blue.ribbon.label
+    | Название курса
+  p
+    = course.name
+
+  .ui.blue.ribbon.label
+    | Объявления
+  .ui.divided.list
+    = each adverts
+      .item
+        .header
+          = title
+        = text
+  p
+    = if canICreateAdvert
+      link-to 'adverts.new' class='ui button'
+        | Добавить объявление
+
+  .ui.blue.ribbon.label
+    | Шкала оценок
+  = with scale
+    table.ui.celled.striped.table
+      thead
+        tr
+          = each sections
+            th.center.aligned
+              = name
+          th
+
+      tbody
+        tr
+          = each sections
+            td.center.aligned
+              = points
+          td.center.aligned
+            = link-to 'scale.edit' this title='Редактировать'
+              i.configure.icon
+  .ui.basic.segment
+    .ui.form
+      .field
+        Ember.Select selection=scale content=controller.scales.content optionLabelPath='content.name' optionValuePath='content.id'
+      button.ui.button{action 'update'}
+        | Обновить шкалу
+
+  .ui.blue.ribbon.label
+    | Успеваемость
+  = each part in course.parts
+    =if part.units
+      .ui.secondary.segment
+        h3.ui.header
+          = part.name
+        = each unit in part.units
+          =if unit.unitProgresses.isFulfilled
+            student-list currentUnit=unit currentGroup=model
+          =else
+            .ui.message
+              = partial 'partials/preloader'
+    =else
+      .ui.secondary.segment
+        h3.ui.header
+          = partial 'partials/preloader'

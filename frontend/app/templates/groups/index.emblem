@@ -1,0 +1,21 @@
+h2.ui.header
+  i.student.icon
+  .content
+    | Мои группы
+.ui.segment
+  table.ui.celled.striped.table
+    thead
+      tr
+        th
+          | Название
+        th
+          | Название курса
+    tbody
+      group
+        = each model
+          link-to 'groups.show' id tagName='tr' class='itemGroupList'
+            td
+              = name
+            td
+              = course.name
+

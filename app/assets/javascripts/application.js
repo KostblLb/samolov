@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
 //= require semantic-ui/all
-//= require ember-validations
+//= require select2.min
+//= require moment
+//= require moment/ru.js
+
 

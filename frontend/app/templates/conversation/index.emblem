@@ -1,0 +1,33 @@
+= link-to 'conversations'
+  i.reply.icon
+  | Вернуться к диалогам
+
+h4.header.h4
+  | Участники диалога:
+  '
+  = each users
+    unlessFirstItem
+      |,
+      '
+      = link-to 'users.show' this.id |#{this.fullName}
+    else
+      = link-to 'users.show' this.id |#{this.fullName}
+
+h3.header.h3
+    | Тема диалога:
+    = subject
+
+scrolling-messages messages=messages
+
+form.ui.form
+  .field
+    label Новое сообщение:
+    = if messages.lastObject.isNew
+      = textarea value=messages.lastObject.body rows='3'
+    = else
+      = textarea rows='3'
+    .ui.red.message.hide_error id='message_error'
+      |Необходимо ввести сообщение
+  .field
+    button.ui.button{action 'addMessage'}
+      | Отправить

@@ -1,0 +1,40 @@
+.ui.segment
+  = each tasks
+    .ui.secondary.segment
+      .ui.message class=isCorrect:positive:negative
+        .ui.grid
+          .twelve.wide.column
+            .ui.header
+              | Задание № #{inc _view.contentIndex}
+            if description
+              == description
+              br
+            = each subtasks
+              br
+              if description
+                == description
+              = partial isCompletePartialName
+          .four.wide.column
+            .ui.compact.message
+              .header
+                = if isCorrect
+                  | Правильно!
+                =else
+                  | Не правильно!
+            = if comment
+              .ui.compact.message
+                .header
+                  | Комментарий
+                p
+                  =comment
+  .ui.horizontal.divider
+    i.bar.chart.icon
+    | Итог
+    p
+      | Правильно выполненных заданий -&nbsp
+      = correctAnswerCounter
+      | &nbspиз&nbsp
+      = totalTasks
+    p
+      | Баллы -&nbsp
+      = points

@@ -1,0 +1,19 @@
+=with myProgress
+  .ui.blue.ribbon.label
+    | Ссылка
+  p
+    a href=webinar.link target='_blank'
+      | Перейти к вебинару
+  .ui.blue.ribbon.label
+    | Начало
+  p
+    = webinar.formattedStart
+  .ui.blue.ribbon.label
+    | Закончится
+  p
+    = webinar.formattedEnd
+  p
+  .ui.blue.ribbon.label
+    | Видео из архива
+  ui-video data_url=webinar.video
+

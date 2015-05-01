@@ -1,0 +1,88 @@
+.ui.two.column.grid
+  .column
+    .ui.card
+      .image
+        img src=avatarUrl
+      .content
+        = if itsMe
+          link-to 'users.edit'
+            i.right.floated.edit.icon
+        = else
+          link-to 'conversations.new' (query-params sender_id=this.id)
+            i.right.floated.mail.icon
+        .header
+          = fullName
+  .column
+    .ui.raised.segment
+      .ui.teal.ribbon.label
+        | Личные данные
+      .ui.celled.list
+        .item
+          .header
+            | Email
+          .content
+            = email
+        = if itsMe
+          .item
+            .header
+              | Телефон
+            .content
+              = phone
+        .item
+          .header
+            | Skype
+          .content
+            = skype
+        .item
+          .header
+            | Город
+          .content
+            = city
+        .item
+          .header
+            | Страна
+          .content
+            = country
+
+
+      .ui.teal.ribbon.label
+        | Профессиональные данные
+      .ui.celled.list
+        .item
+          .header
+            | Компания
+          .content
+            = companyName
+        .item
+          .header
+            | Должность
+          .content
+            = jobTitle
+      .ui.teal.ribbon.label
+        | Профили соц. сетей
+      .ui.list
+        .item
+          .image
+            i.vk.icon
+          .content
+            = vkLink
+        .item
+          .image
+            i.facebook.icon
+          .content
+            = fbLink
+        .item
+          .image
+            i.google.plus.icon
+          .content
+            = gplusLink
+        .item
+          .image
+            i.linkedin.icon
+          .content
+            = lnLink
+        .item
+          .image
+            i.twitter.icon
+          .content
+            = twLink
