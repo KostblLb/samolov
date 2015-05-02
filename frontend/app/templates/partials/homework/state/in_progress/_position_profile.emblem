@@ -17,94 +17,94 @@ table.ui.celled.striped.table.profile_table
       td.border_top colspan='2'
         | 1. Пол:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.sex
+          = input value=profileCompulsory.sex
       td.border_top colspan='2'
         | 1. Пол:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.sex
+          = input value=profileDesirable.sex
     tr
       td colspan='2'
         | 2. Возраст:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.age
+          = input value=profileCompulsory.age
       td colspan='2'
         | 2. Возраст:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.age
+          = input value=profileDesirable.age
     tr
       td colspan='2'
         | 3. Внешние данные:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.appearance
+          = input value=profileCompulsory.appearance
       td colspan='2'
         | 3. Внешние данные:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.appearance
+          = input value=profileDesirable.appearance
     tr
       td colspan='2'
         | 4. Другие физические характеристики:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.otherPhysical
+          = input value=profileCompulsory.otherPhysical
       td colspan='2'
         | 4. Другие физические характеристики:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.otherPhysical
+          = input value=profileDesirable.otherPhysical
     tr
       td rowspan='6'
         b 2. Образование, квалификация, опыт
       td colspan='2'
         | 1. Уровень образования:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.educationLevel
+          = input value=profileCompulsory.educationLevel
       td colspan='2'
         | 1. Уровень образования:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.educationLevel
+          = input value=profileDesirable.educationLevel
     tr
       td colspan='2'
         | 2. Специализация по образованию:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.specialization
+          = input value=profileCompulsory.specialization
       td colspan='2'
         | 2. Специализация по образованию:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.specialization
+          = input value=profileDesirable.specialization
     tr
       td colspan='2'
         | 3. Дополнительное профессиональное обучение:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.additionalTraining
+          = input value=profileCompulsory.additionalTraining
       td colspan='2'
         | 3. Дополнительное профессиональное обучение:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.additionalTraining
+          = input value=profileDesirable.additionalTraining
     tr
       td colspan='2'
         | 4. Знание языков:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.languages
+          = input value=profileCompulsory.languages
       td colspan='2'
         | 4. Знание языков:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.languages
+          = input value=profileDesirable.languages
     tr
       td colspan='2'
         | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.workExperience
+          = input value=profileCompulsory.workExperience
       td colspan='2'
         | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.workExperience
+          = input value=profileDesirable.workExperience
     tr
       td colspan='2'
         |6. Дополнительные обязательные требования:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.additionalRequirements
+          = input value=profileCompulsory.additionalRequirements
       td colspan='2'
         |6. Дополнительные обязательные требования:
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.additionalRequirements
+          = input value=profileDesirable.additionalRequirements
     tr
       td rowspan='2'
         b Пункты профиля
@@ -122,75 +122,75 @@ table.ui.celled.striped.table.profile_table
         | Деньги
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.money
+          = input value=profileCompulsory.money
       td
         | Деньги
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.money
+          = input value=profileDesirable.money
     tr
       td
         | Имидж
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.image
+          = input value=profileCompulsory.image
       td
         | Имидж
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.image
+          = input value=profileDesirable.image
     tr
       td
         | Безопасность
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.security
+          = input value=profileCompulsory.security
       td
         | Безопасность
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.security
+          = input value=profileDesirable.security
     tr
       td
         | Удобство физ.
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.physicalEase
+          = input value=profileCompulsory.physicalEase
       td
         | Удобство физ.
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.physicalEase
+          = input value=profileDesirable.physicalEase
     tr
       td
         | Удобство психол.
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.psychologicalEase
+          = input value=profileCompulsory.psychologicalEase
       td
         | Удобство психол.
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.psychologicalEase
+          = input value=profileDesirable.psychologicalEase
     tr
       td
         | Самосовершенствование
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.selfCultivation
+          = input value=profileCompulsory.selfCultivation
       td
         | Самосовершенствование
       td
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.selfCultivation
+          = input value=profileDesirable.selfCultivation
     tr
       td
         b 4. Дополнительные требования компании
       td colspan='2'
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileCompulsory.additionalRequirementsCompany
+          = input value=profileCompulsory.additionalRequirementsCompany
       td colspan='2'
         .ui.fluid.icon.input class=isComplete:enabled:disabled
-          Ember.TextField value=profileDesirable.additionalRequirementsCompany
+          = input value=profileDesirable.additionalRequirementsCompany
 
 

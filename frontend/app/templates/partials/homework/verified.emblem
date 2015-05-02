@@ -31,10 +31,13 @@
     i.bar.chart.icon
     | Итог
     p
-      | Правильно выполненных заданий -&nbsp
+      | Правильно выполненных заданий -
+      '
       = correctAnswerCounter
-      | &nbspиз&nbsp
+      |  из
+      '
       = totalTasks
     p
-      | Баллы -&nbsp
+      | Баллы -
+      '
       = points
