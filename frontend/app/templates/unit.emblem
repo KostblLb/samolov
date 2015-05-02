@@ -1,4 +1,4 @@
-= view 'progress_header' label='Успех модуля'
+= view 'progress-header' label='Успех модуля'
 
 .ui.segment
   .ui.header

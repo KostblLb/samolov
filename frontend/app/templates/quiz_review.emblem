@@ -8,7 +8,8 @@
         .ui.segment.tertiary
           h4.ui.header
             = inc _view.contentIndex
-            | .&nbsp
+            | .
+            '
             = question.text
           .ui.two.column.grid
             .column
@@ -27,12 +28,15 @@
         i.bar.chart.icon
         | Итог
       p
-        | Правильных ответов -&nbsp
+        | Правильных ответов -
+        '
         = correctAnswersCount
-        | &nbspиз&nbsp
+        |  из
+        '
         = quiz.questions.length
       p
-        | Баллы -&nbsp
+        | Баллы -
+        '
         = points
     =else
       =partial 'partials/preloader'

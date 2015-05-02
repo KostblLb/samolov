@@ -1,10 +1,10 @@
 All:
-Conversations
-Faq
+Conversations +
+Faq +
 
 Student:
-video
-unit steps
+video +
+unit steps +
 quiz
 homework
 

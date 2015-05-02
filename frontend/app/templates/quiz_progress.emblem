@@ -5,7 +5,8 @@ h3.ui.header
     .ui.segment.tertiary class=myAnswer.isCorrect:green:red
       h4.ui.header
         = inc _view.contentIndex
-        | .&nbsp
+        | .
+        '
         = text
       .ui.two.column.grid
         .column
@@ -31,12 +32,15 @@ h3.ui.header
   i.bar.chart.icon
   | Итог
 p
-  | Правильных ответов -&nbsp
+  | Правильных ответов -
+  '
   = correctAnswersCount
-  | &nbspиз&nbsp
+  |  из
+  '
   = quiz.questions.length
 p
-  | Баллы -&nbsp
+  | Баллы -
+  '
   = points
 
 /= if isQuiz

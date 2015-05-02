@@ -13,16 +13,17 @@
       .content
         img.ui.centered.image.quizImage src=preview_image_url
   .ui.segment
-    | Вопрос №&nbsp
+    | Вопрос №
     = number
-    |  из &nbsp
+    |  из
+    '
     = quiz.questions.length
   .content
     = text
     p
       = unless isSingleAnswer
         i.asterisk.icon
-        | Количество правильных ответов -&nbsp
+        | Количество правильных ответов -
         = rightAnswersCount
   .ui.horizontal.divider
     | Варианты ответа
