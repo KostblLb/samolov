@@ -6,11 +6,9 @@ ConversationsNewController = Ember.ObjectController.extend
 
   actions:
     create: ->
-      @model.validate().then =>
-        if @get('messages.lastObject.body')?
-          @model.save().then =>
-            @model.get('messages.lastObject').deleteRecord() if @model.get('messages.lastObject.isNew')
-            @transitionToRoute('conversations')
+      @model.save().then =>
+        @model.get('messages.lastObject').deleteRecord() if @model.get('messages.lastObject.isNew')
+        @transitionToRoute('conversations')
 
       if (@get('content.errors')['users'].length > 0)
         $("#users_error").removeClass('hide_error')

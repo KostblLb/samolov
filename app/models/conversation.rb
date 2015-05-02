@@ -11,6 +11,8 @@ class Conversation
 
   default_scope -> {desc(:updated_at)}
 
+  validates :user_ids, length: { minimum: 2 }
+
   def has_unread_for?(user)
     msg_count = 0
     messages.each do |msg|
