@@ -1,3 +1,0 @@
-h3.ui.header
-  | Редактирование
-= partial 'scales/form'

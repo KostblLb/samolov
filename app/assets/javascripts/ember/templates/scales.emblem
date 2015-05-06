@@ -1,7 +1,0 @@
-h2.ui.header
-  i.tasks.icon
-  .content
-    | Шкалы
-
-.ui.segment
-  = outlet

@@ -1,6 +1,0 @@
-= if single
-  input name=name type='radio' checked=checked
-else
-  input name=name type='checkbox' checked=checked
-label
-  = label

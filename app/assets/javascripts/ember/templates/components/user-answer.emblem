@@ -1,6 +1,0 @@
-tbody
-  =with userAnswer
-    = each answer in answers
-      tr class=isCorrect:positive:negative
-        td
-            = answer.text

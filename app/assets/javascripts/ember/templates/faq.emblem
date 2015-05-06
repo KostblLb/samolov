@@ -1,8 +1,0 @@
-h2.ui.header
-  i.help.icon
-  .content
-    | FAQ
-
-.ui.segment
-  = outlet
-br

@@ -1,5 +1,0 @@
-.title
-  |#{title}
-= if stepIsNotCompleted
-  .description.timeoutDescription
-    |До #{stepDeadline}

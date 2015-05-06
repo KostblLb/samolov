@@ -1,6 +1,0 @@
-.ui.message{action 'toggleModule'}
-  .header
-    i.toggleIcon.icon.caret.right
-    = name
-.moduleContent
-  = yield
