@@ -15,7 +15,7 @@ Samolov.StepDescriptionComponent = Ember.Component.extend
       @get('progress').get("homeworkProgress.state") == 'in_progress'
     else
       !@get('progress').get("#{@get 'step'}IsComplete")
-  ).property('progress.state', 'progress.homeworkProgress.state', 'step')
+  ).property('progress', 'step')
 
   stepDeadline: (->
     currentStep = @get('step')[0].toUpperCase() + @get('step').substring(1,@get('step').length);

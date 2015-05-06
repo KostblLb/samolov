@@ -23,57 +23,61 @@
           th
             |Успех
       tbody
-          = each units
-            =if isLoaded
-              = with myProgress
-                =if isAvailable
-                  link-to 'unit' unit.id tagName='tr' class='unitRow'
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
-                    unit-table-state progress=this step='video'
+        = each units
+          =if isLoaded
+            = with myProgress
+              =if isAvailable
+                tr.unitRow
+                  td
+                    = unit.name
+                  td.collapsing
+                    | #{formattedUnitBeginning} - #{formattedDeadline}
 
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  /link-to 'unit' unit.id (query-params scope='video') tagName='td'
+                  unit-table-state progress=this step='video' unit=unit action='openStep'
 
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='quiz' unit=unit action='openStep'
+                    = quizProgressPoints
 
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='summary' unit=unit action='openStep'
 
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
+                  unit-table-state progress=this step='case' unit=unit action='openStep'
+                    = caseProgressPoints
 
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
-                    td
-                      =success
-                =else
-                  tr.unitRow{action 'showUnitBeginning'}
-                    td
-                      = unit.name
-                    td.collapsing
-                      | #{formattedUnitBeginning} - #{formattedDeadline}
-                    unit-table-state progress=this step='video'
+                  unit-table-state progress=this step='webinar' unit=unit action='openStep'
+                    = webinarScore
 
-                    unit-table-state progress=this step='quiz'
-                      = quizProgressPoints
+                  unit-table-state progress=this step='homework' unit=unit action='openStep'
+                    = homeworkProgressPoints
+                  td
+                    =success
+              =else
+                tr.unitRow{action 'showUnitBeginning'}
+                  td
+                    = unit.name
+                  td.collapsing
+                    | #{formattedUnitBeginning} - #{formattedDeadline}
 
-                    unit-table-state progress=this step='summary'
+                  unit-table-state progress=this step='video'
 
-                    unit-table-state progress=this step='case'
-                      = caseProgressPoints
+                  unit-table-state progress=this step='quiz'
+                    = quizProgressPoints
 
-                    unit-table-state progress=this step='webinar'
-                      = webinarScore
+                  unit-table-state progress=this step='summary'
 
-                    unit-table-state progress=this step='homework'
-                      = homeworkProgressPoints
-                    td
-                      =success
-            =else
-              = partial 'partials/preloader'
+
+                  unit-table-state progress=this step='case'
+                    = caseProgressPoints
+
+                  unit-table-state progress=this step='webinar'
+                    = webinarScore
+
+                  unit-table-state progress=this step='homework'
+                    = homeworkProgressPoints
+                  td
+                    =success
+          =else
+            = partial 'partials/preloader'
   =else
     = partial 'partials/preloader'
 

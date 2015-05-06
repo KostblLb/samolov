@@ -37,6 +37,12 @@ RSpec.describe Group do
   end
 
   describe '#rebuild!' do
+  end
 
+  describe 'create webinar' do
+    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+    it do
+      expect(group.unit_schedules.first.webinar).to be_a(Webinar)
+    end
   end
 end

@@ -3,6 +3,10 @@ class UnitProgress
 
   field :webinar_score, type: Integer
 
+  field :video_complete, type: Boolean, default: false
+  field :summary_complete, type: Boolean, default: false
+  field :webinar_complete, type: Boolean, default: false
+
   belongs_to :course_part_progress
   belongs_to :user
 
@@ -12,35 +16,34 @@ class UnitProgress
 
   belongs_to :unit
 
-  before_create :set_init_state_for_exam
   after_create :create_quiz_progress, :create_homework_prog
 
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, :name, to: :unit
 
-  state_machine :initial => :video do
-
-    state :video
-
-    state :quiz
-
-    state :summary
-
-    state :case
-
-    state :webinar
-
-    state :homework
-
-    state :done
-
-    event :next_step do
-      transition :case => :webinar, :webinar => :done, :if => :is_exam
-
-      transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
-               :webinar => :homework, :homework => :done, :unless => :is_exam
-    end
-  end
+  # state_machine :initial => :video do
+  #
+  #   state :video
+  #
+  #   state :quiz
+  #
+  #   state :summary
+  #
+  #   state :case
+  #
+  #   state :webinar
+  #
+  #   state :homework
+  #
+  #   state :done
+  #
+  #   event :next_step do
+  #     transition :case => :webinar, :webinar => :done, :if => :is_exam
+  #
+  #     transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
+  #              :webinar => :homework, :homework => :done, :unless => :is_exam
+  #   end
+  # end
 
   def max_points
     safe_get_points(:max_points)
@@ -52,6 +55,25 @@ class UnitProgress
 
   def hpid
     homework_progress.id
+  end
+
+  def homework_complete
+    if homework_progress != nil
+      homework_progress.complete?
+    end
+  end
+
+  def quiz_complete
+    if quiz_progress !=nil
+      quiz_progress.finished?
+    end
+
+  end
+  def case_complete
+    if !is_exam && case_progress != nil
+      case_progress.finished?
+    end
+
   end
 
   def max_webinar_points
@@ -68,7 +90,7 @@ class UnitProgress
     if homework_progress.nil?
       unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil?
     else
-      if !homework? && homework_progress.in_progress?
+      if homework_progress.in_progress?
         homework_progress.delete
         unit.homework_meta.create_homework_prog(self, user)
       end
@@ -77,6 +99,10 @@ class UnitProgress
 
   def schedule
     course_part_progress.course_progress.group.unit_schedules.where(unit: unit).first
+  end
+
+  def webinar
+    schedule.webinar
   end
 
   def unit_beginning
@@ -109,11 +135,6 @@ class UnitProgress
   alias :deadline :homework_deadline
   
   private
-
-  def set_init_state_for_exam
-    self.state = 'case' if is_exam
-  end
-
   def safe_get_points(method)
     quiz_points     = quiz_progress.try(method) || 0
     case_points     = case_progress.try(method) || 0

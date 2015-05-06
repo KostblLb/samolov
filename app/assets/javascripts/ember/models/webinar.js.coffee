@@ -3,7 +3,6 @@
 Samolov.Webinar = DS.Model.extend Samolov.FormattedTimestampMixin,
   link: DS.attr 'string'
   start: DS.attr 'date'
-  end:   DS.attr 'date'
   video: DS.attr 'string'
 
   format: 'DD-MM-YYYY в HH:mm'

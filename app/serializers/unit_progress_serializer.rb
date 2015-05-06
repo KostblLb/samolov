@@ -1,15 +1,15 @@
 class UnitProgressSerializer < ActiveModel::Serializer
-  attributes :id, :state, :points, :max_points, :unit_id, :homework_progress_id, :quiz_progress_id,
+  attributes :id, :points, :max_points, :unit_id, :homework_progress_id, :quiz_progress_id,
              :case_progress_id, :is_exam, :webinar_score, :deadline, :video_deadline, :quiz_deadline,
              :summary_deadline, :case_deadline, :webinar_deadline, :homework_deadline, :unit_beginning,
              :case_progress_points, :quiz_progress_points, :homework_progress_state, :homework_progress_points,
-             :course_part_progress_id
+             :course_part_progress_id, :webinar, :video_complete, :quiz_complete, :summary_complete, :case_complete,
+             :webinar_complete, :homework_complete
 
   has_one :user
-
-  def state
-    @object.state.to_s
-  end
+  # def state
+  #   @object.state.to_s
+  # end
 
   def homework_progress_id
     @object.homework_progress.try(:id)

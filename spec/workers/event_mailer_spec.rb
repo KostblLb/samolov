@@ -13,32 +13,32 @@ RSpec.describe EventMailerWorker, :type => :worker do
     context 'tomorrow video' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today + 1}
-      it {is_expected.to eq('Видео')}
+      it {is_expected.to eq('видео')}
     end
     context 'tomorrow quiz' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today}
-      it {is_expected.to eq('Тест')}
+      it {is_expected.to eq('тест')}
     end
     context 'tomorrow summary' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today - 1}
-      it {is_expected.to eq('Конспект')}
+      it {is_expected.to eq('конспект')}
     end
     context 'tomorrow case' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today - 2}
-      it {is_expected.to eq('Кейс')}
+      it {is_expected.to eq('кейс')}
     end
     context 'tomorrow webinar' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today - 3}
-      it {is_expected.to eq('Вебинар')}
+      it {is_expected.to eq('вебинар')}
     end
     context 'tomorrow homework' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
                           course: (create :empty_course), education_beginning: Date.today - 4}
-      it {is_expected.to eq('Домашнее задание')}
+      it {is_expected.to eq('домашнее задание')}
     end
     context 'event nil' do
       let(:group) {create :group, teacher: (create :user), students: [(create :user)],
@@ -73,7 +73,7 @@ RSpec.describe EventMailerWorker, :type => :worker do
     let(:student) {create :user}
     let(:group) {create :group, teacher: (create :user), students: [student],
                         course: (create :course_with_exam), education_beginning: Date.today + 1}
-    let(:email) { EventMailer.upcoming_event(student, 'tommorow event') }
+    let(:email) { EventMailer.send_mail('Не пропустите', student, 'tommorow event') }
 
     it {expect(email).to deliver_to(student.email)}
     it {expect(email).to deliver_from('Samolov <samolov.dev@yandex.ru>')}

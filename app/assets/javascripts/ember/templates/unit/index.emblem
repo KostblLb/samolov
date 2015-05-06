@@ -1,3 +1,1 @@
 = partial tpl
-= if canNext
-  = partial 'unit/next_button'

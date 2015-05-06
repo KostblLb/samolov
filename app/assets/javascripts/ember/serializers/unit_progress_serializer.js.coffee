@@ -1,3 +1,4 @@
 Samolov.UnitProgressSerializer = DS.ActiveModelSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
-    user:    { embedded: 'always' }
+    webinar:    { embedded: 'always' }
+    user:       { embedded: 'always' }

@@ -50,7 +50,8 @@ class Group
     beginning = education_beginning
     course.parts.each do |part|
       part.units.each do |unit|
-        unit_schedules << UnitSchedule.new(start_date: beginning, end_date: beginning + unit.duration, unit: unit)
+        unit_schedules << UnitSchedule.new(start_date: beginning, end_date: beginning + unit.duration, unit: unit,
+                                           webinar: Webinar.new(start: beginning + unit.estimate.video + unit.estimate.test + unit.estimate.summary + unit.estimate.case + 12.hours))
         beginning += unit.duration
       end
     end

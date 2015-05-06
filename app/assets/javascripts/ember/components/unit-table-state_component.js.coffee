@@ -4,6 +4,7 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   progress: null
   step: ''
   tagName: 'td'
+  unit: ''
   examStates: ['case', 'webinar']
   classNameBindings: ['getClassName']
 
@@ -11,13 +12,13 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   getClassName: (->
     progress = @get 'progress'
     if @get('stepSupported')
-      if @get('stepIsCompleted') ||  @get('homeworkIsReview')
+      if @get('progress').get("#{@get 'step'}IsComplete")
         'positive'
       else
         if @get('stepIsTimeOut') then 'negative' else 'warning'
     else
       'active'
-  ).property('progress', 'progress.homeworkProgress.state', 'step')
+  ).property('progress',  'step')
 
 
   stepIsTimeOut: (->
@@ -25,7 +26,11 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
   ).property('progress', 'step')
 
   stepSupported: (->
-    !(@get('progress').get('isExam') && @get('examStates').indexOf(@get('step')) == -1)
+    step = @get 'step'
+    if step == 'quiz' || step =='webinar'
+     true
+    else
+      !(@get('progress').get('isExam'))
   ).property('progress', 'step')
 
   stepIsCompleted: (->
@@ -50,10 +55,18 @@ Samolov.UnitTableStateComponent = Ember.Component.extend
       when 'summary' then moment(@get('progress.quizDeadline')).format(format)
       when 'case' then moment(@get('progress.summaryDeadline')).format(format)
       when 'webinar'
-        if @get('progress.unit.webinar.start')?
-          moment(@get('progress.unit.webinar.start')).format(format)
+        if @get('progress.webinar.start')?
+          moment(@get('progress.webinar.start')).format(format)
         else
           'Не задано'
       when 'homework' then moment(@get('progress.webinarDeadline')).format(format)
       else 'Не задано'
   ).property('progress', 'step')
+
+
+  openStep:( ->
+    @sendAction('action', @get('unit.id'), @get('step'))
+
+  ).on('click')
+
+

@@ -9,11 +9,11 @@
         link-to 'unit.index' id (query-params scope='webinar') class="step"
           step-description progress=myProgress step='webinar' title='Скайп игра'
       = else
-        link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoIsComplete:completed:active'
+        link-to 'unit.index' id (query-params scope='video') classNameBindings=':step myProgress.videoComplete:completed'
           step-description progress=myProgress step='video'  title='Видео'
         link-to 'quiz' quiz.id classNameBindings=':quiz_tab :step myProgress.quizIsComplete:completed'
           step-description progress=myProgress step='quiz' title='Тест'
-        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryIsComplete:completed'
+        link-to 'unit.index' id (query-params scope='summary') classNameBindings=':step myProgress.summaryComplete:completed'
           step-description progress=myProgress step='summary' title='Конспект'
         link-to 'quiz' case.id classNameBindings=':case_tab :step myProgress.caseIsComplete:completed'
           step-description progress=myProgress step='case' title='Кейс'

@@ -1,3 +1,5 @@
 class WebinarSerializer < ActiveModel::Serializer
-  attributes :id, :link, :start, :end, :video
+  attributes :link, :start, :end, :video
+
+
 end

@@ -3,7 +3,7 @@ class Webinar
   field :link
   field :video
   field :start, type: DateTime, default: -> { DateTime.now }
-  field :end,   type: DateTime, default: -> { DateTime.now }
 
-  embedded_in :unit
+  embedded_in :unit_schedule
+
 end
