@@ -1,0 +1,2 @@
+.ui.fluid.icon.input class=isComplete:enabled:disabled
+  = input value=answer

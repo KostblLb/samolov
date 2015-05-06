@@ -1,0 +1,26 @@
+table.ui.celled.striped.table
+  thead
+    tr
+      =each col_names
+        th
+          ==this
+  tbody
+    =each rows
+      tr
+        =if name
+          =if colspan
+            td colspan=colspan
+              ==name
+          =else
+            td.collapsing
+              ==name
+            =each cell in cells
+              td
+                .ui.input.fluid
+                  view 'table-field' object=this index=_view.contentIndex value=cell
+        =else
+          =each cell in cells
+            td
+              .ui.input.fluid
+                view 'table-field' object=this index=_view.contentIndex value=cell
+

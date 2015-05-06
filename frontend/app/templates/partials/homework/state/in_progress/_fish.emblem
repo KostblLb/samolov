@@ -1,0 +1,6 @@
+.fish_body
+  .ui.fluid.icon.input class=isComplete:enabled:disabled
+    = input value=fishBody
+.fish_head
+  .ui.fluid.icon.input class=isComplete:enabled:disabled
+    = input value=fishHead

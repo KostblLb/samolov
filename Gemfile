@@ -57,6 +57,7 @@ gem 'emblem-rails'
 gem 'emblem-source', '~> 0.3.0'
 gem 'momentjs-rails'
 gem 'ember-validations-rails'
+gem 'ember-cli-rails'
 
 gem 'semantic-ui-rails', github: 'max-konin/semantic-ui-rails', branch: 'v1.x'
 gem 'therubyracer',  platforms: :ruby # or any other runtime

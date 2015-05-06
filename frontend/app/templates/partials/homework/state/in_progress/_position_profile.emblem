@@ -1,0 +1,196 @@
+table.ui.celled.striped.table.profile_table
+  thead
+    tr
+      th rowspan='2'
+        | Пункты профиля
+      th colspan='4' align='center'
+        | Требуемые качества
+    tr
+      th colspan='2' align='center'
+        u Обязательные
+      th colspan='2' align='center'
+        u Желательные
+  tbody
+    tr
+      td rowspan='4'
+        b 1. Физический облик
+      td.border_top colspan='2'
+        | 1. Пол:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.sex
+      td.border_top colspan='2'
+        | 1. Пол:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.sex
+    tr
+      td colspan='2'
+        | 2. Возраст:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.age
+      td colspan='2'
+        | 2. Возраст:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.age
+    tr
+      td colspan='2'
+        | 3. Внешние данные:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.appearance
+      td colspan='2'
+        | 3. Внешние данные:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.appearance
+    tr
+      td colspan='2'
+        | 4. Другие физические характеристики:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.otherPhysical
+      td colspan='2'
+        | 4. Другие физические характеристики:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.otherPhysical
+    tr
+      td rowspan='6'
+        b 2. Образование, квалификация, опыт
+      td colspan='2'
+        | 1. Уровень образования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.educationLevel
+      td colspan='2'
+        | 1. Уровень образования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.educationLevel
+    tr
+      td colspan='2'
+        | 2. Специализация по образованию:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.specialization
+      td colspan='2'
+        | 2. Специализация по образованию:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.specialization
+    tr
+      td colspan='2'
+        | 3. Дополнительное профессиональное обучение:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.additionalTraining
+      td colspan='2'
+        | 3. Дополнительное профессиональное обучение:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.additionalTraining
+    tr
+      td colspan='2'
+        | 4. Знание языков:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.languages
+      td colspan='2'
+        | 4. Знание языков:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.languages
+    tr
+      td colspan='2'
+        | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.workExperience
+      td colspan='2'
+        | 5. Опыт работы (уровень должности, обязанности, объем ответственности):
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.workExperience
+    tr
+      td colspan='2'
+        |6. Дополнительные обязательные требования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.additionalRequirements
+      td colspan='2'
+        |6. Дополнительные обязательные требования:
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.additionalRequirements
+    tr
+      td rowspan='2'
+        b Пункты профиля
+      td colspan='4'
+        b Требуемые качества
+    tr
+      td colspan='2'
+        u Обязательные (напишите "от" или "к" напротив подходящего определения)
+      td colspan='2'
+        u Желательные (напишите "от" или "к" напротив подходящего определения)
+    tr
+      td rowspan='6'
+        b 3. Мотиваторы
+      td
+        | Деньги
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.money
+      td
+        | Деньги
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.money
+    tr
+      td
+        | Имидж
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.image
+      td
+        | Имидж
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.image
+    tr
+      td
+        | Безопасность
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.security
+      td
+        | Безопасность
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.security
+    tr
+      td
+        | Удобство физ.
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.physicalEase
+      td
+        | Удобство физ.
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.physicalEase
+    tr
+      td
+        | Удобство психол.
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.psychologicalEase
+      td
+        | Удобство психол.
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.psychologicalEase
+    tr
+      td
+        | Самосовершенствование
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.selfCultivation
+      td
+        | Самосовершенствование
+      td
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.selfCultivation
+    tr
+      td
+        b 4. Дополнительные требования компании
+      td colspan='2'
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileCompulsory.additionalRequirementsCompany
+      td colspan='2'
+        .ui.fluid.icon.input class=isComplete:enabled:disabled
+          = input value=profileDesirable.additionalRequirementsCompany
+
+

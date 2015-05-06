@@ -1,0 +1,43 @@
+.ui.segment
+  h3.ui.header
+    | Результаты теста
+    br
+  .ui.segments
+    =if quiz.questions
+      = each question in quiz.questions
+        .ui.segment.tertiary
+          h4.ui.header
+            = inc _view.contentIndex
+            | .
+            '
+            = question.text
+          .ui.two.column.grid
+            .column
+              | Мои ответы:
+              user-answer userAnswers=userAnswers id=question.id
+            .column
+              | Правильные ответы:
+              table.ui.table
+                tbody
+                  = each question.correctAnswers
+                    tr.positive
+                      td
+                        = text
+
+      .ui.horizontal.divider
+        i.bar.chart.icon
+        | Итог
+      p
+        | Правильных ответов -
+        '
+        = correctAnswersCount
+        |  из
+        '
+        = quiz.questions.length
+      p
+        | Баллы -
+        '
+        = points
+    =else
+      =partial 'partials/preloader'
+br
