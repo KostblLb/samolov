@@ -14,7 +14,4 @@ class Part
 
   default_scope -> {asc :position}
 
-  def duration
-    units.map(&:duration).inject(0) {|sum,x| sum + x }
-  end
 end

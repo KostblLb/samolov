@@ -6,8 +6,6 @@
 UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
   states: ['video', 'quiz', 'summary', 'case', 'webinar', 'homework', 'done']
 
-#  state:                  DS.attr 'string'
-#  stateEvent:             DS.attr 'string'
   isExam:                 DS.attr 'boolean'
   hpid:                   DS.attr 'string'
   webinarScore:           DS.attr 'number'

@@ -6,8 +6,29 @@
       = if template
         = yield
       = else
-        i.checkmark.icon
+        =if stepWithoutDeadline
+          i.check.circle.outline.icon
+        = else
+            i.radio.icon
   = else
-    = stepFormattedBeginning
+    =if stepWithoutDeadline
+      i.radio.icon
+    = else
+      =if stepIsWebinar
+        =if webinarIsStart
+          i.radio.icon
+        =else
+          =if webinarIsEnd
+            =if webinarIsReview
+              = if webinarWasVisited
+                = yield
+              = else
+                i.remove.circle.outline.icon
+            = else
+              i.wait.icon
+          =else
+            = webinarStart
+      = else
+        = stepFormattedDeadline
 = else
   i.ban.icon

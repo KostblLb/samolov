@@ -21,30 +21,6 @@ class UnitProgress
   delegate :scale, :teacher, to: :course_part_progress
   delegate :is_exam, :name, to: :unit
 
-  # state_machine :initial => :video do
-  #
-  #   state :video
-  #
-  #   state :quiz
-  #
-  #   state :summary
-  #
-  #   state :case
-  #
-  #   state :webinar
-  #
-  #   state :homework
-  #
-  #   state :done
-  #
-  #   event :next_step do
-  #     transition :case => :webinar, :webinar => :done, :if => :is_exam
-  #
-  #     transition :video => :quiz, :quiz => :summary, :summary => :case, :case => :webinar,
-  #              :webinar => :homework, :homework => :done, :unless => :is_exam
-  #   end
-  # end
-
   def max_points
     safe_get_points(:max_points)
   end
@@ -109,30 +85,22 @@ class UnitProgress
     schedule.start_date
   end
 
-  def video_deadline
-    unit_beginning + unit.estimate.video
-  end
-
   def quiz_deadline
-    video_deadline + unit.estimate.test
+    webinar.start
   end
-
-  def summary_deadline
-    quiz_deadline + unit.estimate.summary
-  end
-
-  def case_deadline
-    summary_deadline + unit.estimate.case
-  end
+  alias :case_deadline :quiz_deadline
 
   def webinar_deadline
-    case_deadline + 1
+    webinar.start + 3.hours
   end
 
   def homework_deadline
-    webinar_deadline + unit.estimate.homework
+    schedule.end_date + 7
   end
-  alias :deadline :homework_deadline
+
+  def deadline
+    schedule.end_date
+  end
   
   private
   def safe_get_points(method)

@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
  # for more details see: http://emberjs.com/guides/components/
 
 UnitTableStateComponent = Ember.Component.extend
@@ -14,14 +14,37 @@ UnitTableStateComponent = Ember.Component.extend
   getClassName: (->
     progress = @get 'progress'
     if @get('stepSupported')
-      if @get('progress').get("#{@get 'step'}IsComplete")
+      if (@get('progress').get("#{@get 'step'}IsComplete")) || (@get('stepIsWebinar') && @get('webinarWasVisited'))
         'positive'
       else
-        if @get('stepIsTimeOut') then 'negative' else 'warning'
+        if !@get('stepWithoutDeadline') && @get('stepIsTimeOut') then 'negative' else 'warning'
     else
       'active'
   ).property('progress',  'step')
 
+  stepWithoutDeadline: (->
+    @get('step') == 'video' || @get('step') == 'summary'
+  ).property('step')
+
+  stepIsWebinar: (->
+    @get('step') == 'webinar'
+  ).property('step')
+
+  webinarIsStart: (->
+    moment(@get('progress.webinar.start')) < moment() && moment(@get('progress.webinar.start')) > moment(@get('progress.webinarDeadline'))
+  ).property('progress.webinar.start')
+
+  webinarIsEnd: (->
+    moment(@get('progress.webinarDeadline')) < moment()
+  ).property('progress.webinarDeadline')
+
+  webinarIsReview: (->
+    @get('progress.webinarScore')?
+  ).property('progress.webinarScore')
+
+  webinarWasVisited: (->
+    @get('progress.webinarScore') != 0 && @get('progress.webinarScore')?
+  ).property('progress.webinarScore')
 
   stepIsTimeOut: (->
     moment(@get('progress').get("#{@get 'step'}Deadline")) < moment()
@@ -29,7 +52,7 @@ UnitTableStateComponent = Ember.Component.extend
 
   stepSupported: (->
     step = @get 'step'
-    if step == 'quiz' || step =='webinar'
+    if step == 'case' || step =='webinar'
      true
     else
       !(@get('progress').get('isExam'))
@@ -45,25 +68,17 @@ UnitTableStateComponent = Ember.Component.extend
   ).property('progress', 'progress.homeworkProgressState', 'step')
 
   stepFormattedDeadline: (->
-    format = 'DD MMMM'
+    format = 'DD.MM'
     formattedDate = moment(@get('progress').get("#{@get 'step'}Deadline")).format(format)
   ).property('progress', 'step')
 
-  stepFormattedBeginning: (->
-    format = 'DD MMMM'
-    switch @get('step')
-      when 'video' then moment(@get('progress.unitBeginning')).format(format)
-      when 'quiz' then moment(@get('progress.videoDeadline')).format(format)
-      when 'summary' then moment(@get('progress.quizDeadline')).format(format)
-      when 'case' then moment(@get('progress.summaryDeadline')).format(format)
-      when 'webinar'
-        if @get('progress.webinar.start')?
-          moment(@get('progress.webinar.start')).format(format)
-        else
-          'Не задано'
-      when 'homework' then moment(@get('progress.webinarDeadline')).format(format)
-      else 'Не задано'
-  ).property('progress', 'step')
+  webinarStart: (->
+    format = 'DD.MM в HH:mm'
+    if @get('progress.webinar.start')?
+      moment(@get('progress.webinar.start')).format(format)
+    else
+      'Не задано'
+  ).property('progress.webinar.start', 'step')
 
 
   openStep:( ->
@@ -72,6 +87,6 @@ UnitTableStateComponent = Ember.Component.extend
   ).on('click')
 
 
- 
- 
+
+
 `export default UnitTableStateComponent;`

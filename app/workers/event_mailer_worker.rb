@@ -18,14 +18,14 @@ class EventMailerWorker
     Webinar.each do |current|
       if current.start == DateTime.now - 1.hour
         bcc=[]
-        current.unit_schedule.group.students.rach do |student|
+        current.unit_schedule.group.students.each do |student|
           if student.subscribtion.new_event
             bcc<<student.email
           end
         end
         if bcc!=[]
           EventMailer.delay(send_mail('Директорский курс. Вебинар начинается через час.', bcc,
-                                "Здравствуйте, чрез час начинается вебинар в модуле #{current.unit_schedule.unit.name}. Не пропустите!")).deliver_now
+                                "Здравствуйте, через час начинается вебинар в модуле #{current.unit_schedule.unit.name}. Не пропустите!")).deliver_now
         end
       end
     end
@@ -43,29 +43,8 @@ class EventMailerWorker
 
   def tommorow_event(progress)
     case Date.today
-      when progress.unit_beginning - 1
-        return 'видео'
-      when progress.video_deadline - 1
-        return 'тест'
-      when progress.quiz_deadline - 1
-        return 'конспект'
-      when progress.summary_deadline - 1
-        return 'кейс'
-      when progress.case_deadline - 1
+      when progress.webinar.start - 1
         return 'вебинар'
-      when progress.webinar_deadline - 1
-        return 'домашнее задание'
-      else
-        return nil
-    end
-  end
-
-  def tommorow_event_exam(progress)
-    case Date.today
-      when progress.unit_beginning - 1
-        return 'Экзаминационный тест'
-      when progress.case_deadline - 1
-        return 'Экзаменационная Скайп-игра'
       else
         return nil
     end

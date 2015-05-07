@@ -21,7 +21,4 @@ class Course
     :new
   end
 
-  def duration
-    parts.map(&:duration).inject(0) {|sum,x| sum + x }
-  end
 end

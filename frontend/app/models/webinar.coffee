@@ -20,8 +20,4 @@ Webinar = DS.Model.extend FormattedTimestampMixin,
     @convertDate 'start'
   ).property('start', 'format')
 
-  formattedEnd: (->
-    @convertDate 'end'
-  ).property('end', 'format')
-
 `export default Webinar;`

@@ -10,29 +10,20 @@ class Unit
 
   has_many :unit_progresses
 
-  embeds_one :estimate, autobuild: true, cascade_callbacks: true
-
   belongs_to :part
   belongs_to :homework_meta, class_name: 'Homework::Meta::Progress'
 
   has_one :quiz, class_name: 'Quiz', inverse_of: :quiz_socket, dependent: :destroy
   has_one :case, class_name: 'Quiz', inverse_of: :case_socket, dependent: :destroy
 
-
   has_mongoid_attached_file :attachment
   do_not_validate_attachment_file_type :attachment
 
-  accepts_nested_attributes_for :estimate, :quiz, :case
+  accepts_nested_attributes_for :quiz, :case
 
   validates_presence_of :name
 
-  before_create :set_estimate_for_exam, if: :is_exam
-
   default_scope -> {asc :position}
-
-  def duration
-    estimate.duration
-  end
 
   def dup
     Unit.new(name: 'Copy of ' + name, video_link: video_link, summary: summary, is_exam: is_exam,
@@ -44,14 +35,5 @@ class Unit
     new_unit = dup
     new_unit.save!
     new_unit
-  end
-
-
-
-  protected
-  def set_estimate_for_exam
-    estimate.video = estimate.test = estimate.summary = 0
-    estimate.case = 4
-    true
   end
 end
