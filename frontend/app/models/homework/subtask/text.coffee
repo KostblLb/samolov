@@ -6,4 +6,8 @@ Text = Subtask.extend
   partialName: 'partials/homework/state/in_progress/text'
   isCompletePartialName: 'partials/homework/state/review/text'
 
+  isFilled: (->
+    @get('answer')? && @get('answer') != ''
+  ).property('answer')
+
 `export default Text`

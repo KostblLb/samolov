@@ -1,0 +1,3 @@
+form.ui.form
+  .field.elastic
+    = textarea value=bindingTo

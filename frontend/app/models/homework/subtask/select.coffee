@@ -11,5 +11,9 @@ Select = Subtask.extend
   options: DS.hasMany 'homework/subtask/option'
   answers: DS.hasMany 'homework/subtask/option'
 
+  isFilled: (->
+    @get('options').filterBy('isFilled', true).length > 0
+  ).property('answers.@each.isFilled')
+
 
 `export default Select;`

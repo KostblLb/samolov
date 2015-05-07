@@ -7,4 +7,8 @@ Fish = Subtask.extend
   partialName: 'partials/homework/state/in_progress/fish'
   isCompletePartialName: 'partials/homework/state/review/fish'
 
+  isFilled: (->
+    @get('fishBody')? && @get('fishBody') != '' && @get('fishHead')? && @get('fishHead') != ''
+  ).property('fishBody', 'fishHead')
+
 `export default Fish;`

@@ -17,5 +17,6 @@
 //= require select2.min
 //= require moment
 //= require moment/ru.js
+//= require autogrow.min
 
 

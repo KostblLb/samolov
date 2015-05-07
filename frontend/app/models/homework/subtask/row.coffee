@@ -6,4 +6,7 @@ Row = DS.Model.extend
   colspan: DS.attr 'number'
   rowspan: DS.attr 'number'
 
+  isFilled: (->
+    @get('cells').filterBy('',null).length + @get('cells').filterBy('','').length < @get('cells').length
+  ).property('cells')
 `export default Row;`

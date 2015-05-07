@@ -9,4 +9,8 @@ Table = Subtask.extend
 
   rows: DS.hasMany 'homework/subtask/row'
 
+  isFilled: (->
+    @get('rows').filterBy('isFilled', false).length == 0
+  ).property('rows.@each.isFilled')
+
 `export default Table`

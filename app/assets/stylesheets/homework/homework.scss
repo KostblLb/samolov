@@ -1,0 +1,19 @@
+.fixed_bottom {
+  position: fixed !important;
+  bottom: 13px;
+  left: 213px;
+  width: 954px;
+  padding: 9px 100px !important;
+  .second {
+    margin-left: 100px;
+  }
+}
+
+.field.elastic textarea{
+  min-height: 3em !important;
+  height: 20px;
+}
+
+.ui.divider {
+  font-size: 20px;
+}

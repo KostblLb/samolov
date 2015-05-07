@@ -1,27 +1,29 @@
 =if content.isLoaded
-  .ui.segment
-    =if isSaved
-      .ui.info.message
-        .header
-          |Домашнее задание сохранено
-        p
-          |Вы можете продолжить выполнение позже
-    = each tasks
-      .ui.secondary.segment
-        .ui.header
-          | Задание № #{inc _view.contentIndex}
+  =if isSaved
+    .ui.info.message
+      .header
+        |Домашнее задание сохранено
+      p
+        |Вы можете продолжить выполнение позже
+  = each tasks
+    .ui.vertical.segment
+      .ui.header
+        | Задание № #{inc _view.contentIndex}
+      if description
+        == description
+        br
+      = each subtasks
+        br
         if description
           == description
-          br
-        = each subtasks
-          br
-          if description
-            == description
-          = partial partialName
+        = partial partialName
+  br
+  br
 
-  .ui.primary.button{action 'saveHomework'}
-    |Сохранить
-  .ui.primary.button{action 'sendHomework'}
-    |Отправить
+  .fixed_bottom.ui.secondary.segment
+    .ui.primary.button{action 'sendHomework'} class=allTasksIsComplete::disabled
+      |Отправить
+    .ui.button.second{action 'saveHomework'}
+      |Сохранить
 =else
   .spinner

@@ -8,4 +8,8 @@ PositionProfile = Subtask.extend
   profileCompulsory: DS.belongsTo 'homework/subtask/profile'
   profileDesirable:  DS.belongsTo 'homework/subtask/profile'
 
+  isFilled: (->
+    @get('profileCompulsory').isFilled && @get('profileDesirable').isFilled
+  ).property('profileCompulsory', 'profileDesirable')
+
 `export default PositionProfile;`

@@ -1,5 +1,5 @@
-`import DS from "ember-data";` 
- 
+`import DS from "ember-data";`
+
 Task = DS.Model.extend
 
   description: DS.attr 'string'
@@ -9,6 +9,8 @@ Task = DS.Model.extend
 
   subtasks: DS.hasMany 'subtask', polymorphic: true
 
+  allSubtasksIsFilled: (->
+    @get('subtasks').filterBy('isFilled', false).length == 0
+  ).property('subtasks.@each.isFilled')
 
- 
 `export default Task;`

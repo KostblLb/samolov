@@ -39,5 +39,9 @@ HomeworkProgress = DS.Model.extend
     @get('state') != 'in_progress'
   ).property('state')
 
+  allTasksIsComplete: (->
+    @get('tasks').filterBy('allSubtasksIsFilled', false).length == 0
+  ).property('tasks.@each.allSubtasksIsFilled')
+
 
 `export default HomeworkProgress;`

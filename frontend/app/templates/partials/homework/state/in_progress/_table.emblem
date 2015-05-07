@@ -16,11 +16,13 @@ table.ui.celled.striped.table
               ==name
             =each cell in cells
               td
-                .ui.input.fluid
-                  view 'table-field' object=this index=_view.contentIndex value=cell
+                form.ui.form
+                  .field.elastic
+                    view 'table-field' object=this index=_view.contentIndex value=cell
         =else
           =each cell in cells
             td
-              .ui.input.fluid
-                view 'table-field' object=this index=_view.contentIndex value=cell
+              form.ui.form
+                .field.elastic
+                  view 'table-field' object=this index=_view.contentIndex value=cell
 

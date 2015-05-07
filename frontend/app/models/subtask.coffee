@@ -13,4 +13,5 @@ Subtask = DS.Model.extend
     "#{@get 'partialName'}_review"
   ).property('partialName')
 
+
 `export default Subtask`
