@@ -1,18 +1,5 @@
 .ui.two.column.grid
   .column
-    .ui.card
-      .image
-        img src=avatarUrl
-      .content
-        = if itsMe
-          link-to 'users.edit'
-            i.right.floated.edit.icon
-        = else
-          link-to 'conversations.new' (query-params sender_id=this.id)
-            i.right.floated.mail.icon
-        .header
-          = fullName
-  .column
     .ui.raised.segment
       .ui.teal.ribbon.label
         | Личные данные
@@ -86,3 +73,18 @@
             i.twitter.icon
           .content
             = twLink
+      link-to 'users.edit' class='ui primary button right floated' tagName='div'
+        | Редактировать
+  .column
+    .ui.card
+      .image
+        img src=avatarUrl
+      .content
+        = if itsMe
+          link-to 'users.edit'
+            i.right.floated.edit.icon
+        = else
+          link-to 'conversations.new' (query-params sender_id=this.id)
+            i.right.floated.mail.icon
+        .header
+          = fullName

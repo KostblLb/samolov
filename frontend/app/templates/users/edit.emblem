@@ -76,5 +76,7 @@ h2.ui.header
       = input value=twLink
 
 
-    .ui.submit.button{action 'save'}
+    .ui.primary.button{action 'save'}
       | Сохранить
+    link-to 'users.show' currentUser class='ui button' tagName='div'
+      | Отмена

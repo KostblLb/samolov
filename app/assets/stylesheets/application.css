@@ -17,6 +17,7 @@
  *= require jquery.tagit
  *= require homework/homework
  *= require quiz/quiz
+ *= require user_profile/user_profile
  *= require_self
  */
 @media screen and (min-width: 1380px) {
