@@ -21,7 +21,7 @@
           step-description progress=myProgress step='webinar' title='Вебинар'
         link-to 'homework_progress' myProgress.homeworkProgress.id classNameBindings=':step myProgress.homeworkProgress.isComplete:completed'
           step-description progress=myProgress step='homework' title='Домашнее задание'
-  .ui.secondary.segment
+  .ui.segment
 
     =if isLoaded
       = outlet

@@ -1,6 +1,6 @@
-tbody
-  =with userAnswer
-    = each answer in answers
-      tr class=isCorrect:positive:negative
-        td
-            = answer.text
+=each answer in userAnswer
+  .item class=answer.isCorrect:green:red
+    i.icon class=answer.isCorrect:checkmark:remove
+    .content
+      .description class=answer.isCorrect:green:red
+        = answer.text

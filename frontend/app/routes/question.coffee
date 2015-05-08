@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
 # For more information see: http://emberjs.com/guides/routing/
 
 QuestionRoute = Ember.Route.extend
@@ -24,5 +24,5 @@ QuestionRoute = Ember.Route.extend
     willTransition: ->
       $('.quiz_tab').removeClass('active')
       $('.case_tab').removeClass('active')
- 
+
 `export default QuestionRoute;`

@@ -12,12 +12,10 @@
     .ui.segment
       .content
         img.ui.centered.image.quizImage src=preview_image_url
-  .ui.segment
-    | Вопрос №
-    = number
-    |  из
-    '
-    = quiz.questions.length
+  =if quiz.questions.length
+    = quiz-progressbar number=number count=quiz.questions.length quizProgress=this
+  =else
+    .spinner
   .content
     = text
     p
@@ -25,9 +23,8 @@
         i.asterisk.icon
         | Количество правильных ответов -
         = rightAnswersCount
-  .ui.horizontal.divider
-    | Варианты ответа
-    i.pointing.down.icon
+  br
+  br
   form.ui.form
     = each answers
       .field
@@ -35,7 +32,6 @@
 
 
     .ui.horizontal.divider
-    = if canAnswer
-      button.ui.button{action 'answer'}
+      button.ui.button{action 'answer'} class=canAnswer::disabled
         | Дальше
         i.arrow.right.icon

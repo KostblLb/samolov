@@ -1,43 +1,39 @@
-.ui.segment
-  h3.ui.header
-    | Результаты теста
-    br
-  .ui.segments
-    =if quiz.questions
+=if quiz.questions
+  .ui.segment
+    .ui.blue.icon.message
+      i.bar.chart.icon
+      .content
+        .header.quiz_result #{correctAnswersCount} правильных ответов из #{quiz.questions.length}
+        .header.quiz_result #{points} баллов
+    h3.ui.header
+      | Результаты теста
       = each question in quiz.questions
-        .ui.segment.tertiary
-          h4.ui.header
-            = inc _view.contentIndex
-            | .
-            '
-            = question.text
+        .ui.vertical.segment
+          h4.ui.header.question
+            | #{inc _view.contentIndex}. #{question.text}
           .ui.two.column.grid
             .column
-              | Мои ответы:
               user-answer userAnswers=userAnswers id=question.id
-            .column
-              | Правильные ответы:
-              table.ui.table
-                tbody
-                  = each question.correctAnswers
-                    tr.positive
-                      td
-                        = text
 
-      .ui.horizontal.divider
-        i.bar.chart.icon
-        | Итог
-      p
-        | Правильных ответов -
-        '
-        = correctAnswersCount
-        |  из
-        '
-        = quiz.questions.length
-      p
-        | Баллы -
-        '
-        = points
-    =else
-      =partial 'partials/preloader'
+
+
+            .column
+              =if question.inMyAnswers
+                | Правильные ответы:
+                .ui.list
+                  = each question.showCorrectAnswers
+                    .item.green
+                      i.icon.checkmark
+                      .content
+                        .description.green
+                          = text
+
+
+    .ui.blue.icon.message
+      i.bar.chart.icon
+      .content
+        .header.quiz_result #{correctAnswersCount} правильных ответов из #{quiz.questions.length}
+        .header.quiz_result #{points} баллов
+=else
+  .spinner
 br

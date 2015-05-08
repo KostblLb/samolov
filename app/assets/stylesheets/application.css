@@ -16,6 +16,7 @@
  *= require select2.min
  *= require jquery.tagit
  *= require homework/homework
+ *= require quiz/quiz
  *= require_self
  */
 @media screen and (min-width: 1380px) {

@@ -1,0 +1,27 @@
+.column .ui.list .item.red {
+  color: red;
+}
+.column .ui.list .item.green {
+  color: green;
+}
+
+.column .ui.list .item .content .description {
+  font-weight: normal;
+  &.red {
+    color: red !important;
+  }
+}
+
+.column .ui.list .item .content .description.green {
+  color: green !important;
+}
+
+h4.ui.header.question {
+  max-width: 70%;
+  margin-left: 30px;
+  text-align: justify;
+}
+
+.quiz_result {
+  font-size: 20px !important;
+}

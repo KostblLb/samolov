@@ -1,9 +1,9 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
  # for more details see: http://emberjs.com/guides/components/
 
 RadioButtonComponent = Ember.Component.extend
-  classNames: ['ui', 'toggle', 'checkbox']
+  classNames: ['ui', 'checkbox']
 
   didInsertElement: ->
     @_super()
@@ -19,6 +19,6 @@ RadioButtonComponent = Ember.Component.extend
   checked: (->
     return @get("selection").indexOf(@get("value")) != -1
   ).property('selection')
- 
- 
+
+
 `export default RadioButtonComponent;`

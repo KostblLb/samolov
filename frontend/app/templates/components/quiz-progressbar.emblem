@@ -1,0 +1,4 @@
+h3.ui.center.aligned.green.header Прогресс прохождения:
+.ui.progress.success
+  .bar
+    .progress #{currentProgress}%
