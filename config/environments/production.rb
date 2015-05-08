@@ -80,14 +80,14 @@ Rails.application.configure do
   config.host = 'samolov.kerweb.ru'
   config.action_mailer.default_url_options = { host: config.host }
 
-  ActionMailer::Base.default from: 'Samolov <samolov.dev@yandex.ru>'
+  ActionMailer::Base.default from: 'SamolovGroup <informer@samolov.ru>'
 
   config.action_mailer.smtp_settings = {
-      address:              'smtp.yandex.ru',
+      address:              'smtp.mandrillapp.com',
       port:                  587,
-      domain:               'yandex.ru',
-      user_name:            'samolov.dev@yandex.ru',
-      password:             'samolov!@#',
+      domain:               'mandrillapp.com',
+      user_name:            'informer@samolov.ru',
+      password:             'CZ905SSupA271H4e6nKgoA',
       authentication:       'plain',
       enable_starttls_auto:  true  }
 end
