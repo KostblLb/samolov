@@ -1,6 +1,13 @@
+h2.ui.right.floated.header
+  a href=attachmentUrl
+    .ui.button
+      |Скачать конспект
+.ui.clearing.divider
 == summary
-a href=attachmentUrl
-  |Скачать конспект
-.next_button{action 'completePart' 'summary'}
-  .ui.right.labeled.green.icon.button
+.ui.clearing.divider
+h2.ui.right.floated.header
+  .ui.primary.button{action 'completePart' 'summary'}
     | Завершить
+  a href=attachmentUrl
+    .ui.button
+      |Скачать конспект

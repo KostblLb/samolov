@@ -40,7 +40,7 @@ h2.ui.header
               = input checked=isCorrect type="checkbox" class="ui checkbox"
 
   =if isNotVerified
-    .ui.primary.button{action 'saveHomework'}
-      |Сохранить
     .ui.primary.button{action 'endChecking'}
       |Закончить проверку
+    .ui.button{action 'saveHomework'}
+      |Сохранить
