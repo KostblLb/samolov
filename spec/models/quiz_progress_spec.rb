@@ -80,6 +80,10 @@ describe QuizProgress do
       let(:unit){create :unit}
       it{is_expected.to eq(quiz_progress.scale.points_for 0)}
     end
+    context 'no questions in quiz' do
+      let(:unit){create :unit_with_empty_quiz}
+      it{is_expected.to eq(0)}
+    end
 
   end
 
@@ -98,6 +102,10 @@ describe QuizProgress do
       context 'unit is not exam' do
         let(:unit){create :unit}
         it{is_expected.to eq(quiz_progress.scale.points_for quiz_progress.mistakes_count)}
+      end
+      context 'no questions in quiz' do
+        let(:unit){create :unit_with_empty_quiz}
+        it{is_expected.to eq(0)}
       end
     end
 

@@ -51,6 +51,22 @@ class QuizProgress
   end
   alias :is_case :case?
 
+  def max_points
+    if quiz.questions.count == 0
+      0
+    else
+      double_if_necessary(scale.points_for 0)
+    end
+  end
+
+  def points
+    if finished? && quiz.questions.count != 0
+      double_if_necessary(scale.points_for mistakes_count)
+    else
+      0
+    end
+  end
+
   private
   def set_current_question
     self.current_question = quiz.questions.first

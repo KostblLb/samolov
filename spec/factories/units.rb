@@ -36,6 +36,14 @@ FactoryGirl.define do
     position 1
   end
 
+  factory :unit_with_empty_quiz, class: Unit do
+    name "MyString"
+    association :quiz, factory: :empty_quiz
+    association :case, factory: :empty_quiz
+    association :homework_meta, factory: :homework_meta_progress
+    position 1
+  end
+
   factory :empty_unit2, class: Unit do
     name "MyString"
     association :quiz, factory: :quiz
