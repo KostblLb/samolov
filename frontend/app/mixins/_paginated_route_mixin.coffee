@@ -1,14 +1,12 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
 _PaginatedRouteMixin = Ember.Mixin.create
   paginationRoute: Ember.required(String)
 
   queryParams:
     page:
-      refreshModel: true
       replace: true
     per_page:
-      refreshModel: true
       replace: true
 
   getParams: (params) ->
@@ -38,5 +36,5 @@ _PaginatedRouteMixin = Ember.Mixin.create
     records.set "pages", pages
 
     records
- 
+
 `export default _PaginatedRouteMixin;`

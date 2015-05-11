@@ -26,7 +26,7 @@ module Api
       end
 
       def index
-        @conversation = current_user.conversations.paginate(:page => (params[:page] || 1), :per_page => 10)
+        @conversation = current_user.conversations.paginate(:page => (params[:page] || 1), :per_page => 15)
         respond_with @conversation, each_serializer: ConversationWithoutMessagesSerializer, serializer: PaginationSerializer
       end
 

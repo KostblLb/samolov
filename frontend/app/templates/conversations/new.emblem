@@ -1,4 +1,4 @@
-= link-to 'conversations'
+= link-to 'conversations' tagName='button' class="ui button"
   i.reply.icon
   | Вернуться к диалогам
 h2.header.h2
@@ -18,5 +18,5 @@ h2.header.h2
       = textarea value=messages.firstObject.body cols='1'
       .ui.red.message.hide_error id='message_error'
         |Необходимо ввести сообщение
-    button.ui.button{action 'create'}
+    button.ui.primary.button{action 'create'}
       | Создать

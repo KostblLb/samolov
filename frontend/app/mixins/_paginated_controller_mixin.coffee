@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
 _PaginatedControllerMixin = Ember.Mixin.create
   queryParams: ['page', 'per_page']
   page: 1
@@ -10,7 +10,6 @@ _PaginatedControllerMixin = Ember.Mixin.create
   perPageSelectHandler: (->
     @transitionToRoute queryParams: {per_page: @per_page}
   ).observes('per_page')
-
 
   previousPageEnable: (->
     @page > 1
@@ -31,5 +30,5 @@ _PaginatedControllerMixin = Ember.Mixin.create
   needPaginate: (->
     @get('content').pages.length > 1
   ).property('content.pages')
- 
+
 `export default _PaginatedControllerMixin;`

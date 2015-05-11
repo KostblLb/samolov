@@ -11,4 +11,11 @@ ConversationsIndexController = Ember.ArrayController.extend _PaginatedController
       conversation.destroyRecord().then =>
         @transitionToRoute('conversations')
 
- `export default ConversationsIndexController;`
+    showMore: (page)->
+      $.ajax("/api/v1/conversations.json?page=#{page}", 'GET').then (nextPage)=>
+        nextPage.conversations.forEach (item)=>
+          @get('model').pushObject(item)
+        @set('page', page)
+
+
+`export default ConversationsIndexController;`

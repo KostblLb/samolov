@@ -1,11 +1,10 @@
 .field
-  = link-to 'conversations.new'
+  = link-to 'conversations.new' tagName='div' class="ui primary button"
     i.plus.icon
-    | Создать диалог
+    | Написать
 h2.header.h2
-  | Ваши диалоги
   if currentUser.hasUnread
-    | (Непрочитанных сообщений: #{currentUser.unreads_messages_count} )
+    | Непрочитанных сообщений: #{currentUser.unreads_messages_count}
 .ui.segment
   .ui.comments
     = each
@@ -18,7 +17,7 @@ h2.header.h2
           .content
             a.author
               if subject
-                label Тема диалога: "#{subject}"
+                label #{subject}
               else
                 label Без темы
             .metadata
@@ -27,8 +26,6 @@ h2.header.h2
             .text
               = messages.lastObject.previewMessage
             .actions
-              | Участники диалога:
-              '
               = each users
                 unlessFirstItem
                   '
@@ -36,5 +33,7 @@ h2.header.h2
                 else
                   = link-to 'users.show' this.id |#{this.fullName}
   = if needPaginate
-    = partial 'partials/pagination'
+    = if nextPageEnable
+        .ui.button{action 'showMore' nextPage}
+          | Показать еще
 
