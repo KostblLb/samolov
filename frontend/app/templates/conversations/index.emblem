@@ -1,6 +1,6 @@
 .field
   = link-to 'conversations.new' tagName='div' class="ui primary button"
-    i.plus.icon
+    i.edit.icon
     | Написать
 h2.header.h2
   if currentUser.hasUnread
