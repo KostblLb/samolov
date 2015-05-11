@@ -20,5 +20,16 @@ Unit = DS.Model.extend
     @get('unitProgresses').sortBy('points').reverse()
   ).property('unitProgresses.@each.points')
 
+  nextUnit: (->
+    @get('part.units').findBy('position', @get('position') + 1)
+  ).property('part')
+
+  prevUnit: (->
+    @get('part.units').findBy('position', @get('position') - 1)
+  ).property('part')
+
+  noNextOrPrev: (->
+    !@get('nextUnit')? || !@get('prevUnit')?
+  ).property('nextUnit', 'prevUnit')
 
 `export default Unit;`

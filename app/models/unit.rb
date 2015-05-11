@@ -36,4 +36,5 @@ class Unit
     new_unit.save!
     new_unit
   end
+
 end

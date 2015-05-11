@@ -23,4 +23,4 @@
               td
                 = myProgress.maxPoints
             =else
-              = partial 'partials/preloader'
+              .spinner

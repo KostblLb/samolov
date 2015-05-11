@@ -6,7 +6,7 @@
       img.ui.avatar.image src=teacher.avatarUrl
       = teacher.fullName
     =else
-      = partial 'partials/preloader'
+      .spinner
     .ui.header
       | Моя группа
     table.ui.table
@@ -33,7 +33,7 @@
                   link-to 'users.show' user.id
                     = user.fullName
                 =else
-                  = partial 'partials/preloader'
+                  .spinner
               td
                 =if user.isLoaded
                   = points
@@ -55,7 +55,7 @@
                   = title
                 = text
             =else
-              = partial 'partials/preloader'
+              .spinner
         =else
           |В группе нет объявлений
       = if canICreateAdvert

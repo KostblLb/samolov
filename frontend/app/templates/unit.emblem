@@ -1,5 +1,34 @@
-= view 'progress-header' label='Успех модуля'
-
+.ui.right.floated
+  = view 'progress-header' label='Успех модуля' part='true'
+.clear
+=if noNextOrPrev
+  .ui.fluid.two.item.menu
+    = if prevUnit
+      .item
+        link-to 'unit.index' prevUnit.id (query-params scope='video')
+          i.long.arrow.left.icon
+          =prevUnit.name
+    .item
+      =name
+    = if nextUnit
+      .item
+        link-to 'unit.index' nextUnit.id (query-params scope='video')
+          =nextUnit.name
+          i.long.arrow.right.icon
+=else
+  .ui.fluid.three.item.menu
+    = if prevUnit
+      .item
+        link-to 'unit.index' prevUnit.id (query-params scope='video')
+          i.long.arrow.left.icon
+          =prevUnit.name
+    .item
+      =name
+    = if nextUnit
+      .item
+        link-to 'unit.index' nextUnit.id (query-params scope='video')
+          =nextUnit.name
+          i.long.arrow.right.icon
 .ui.segment
   .ui.header
     .ui.ordered.steps
@@ -26,6 +55,6 @@
     =if isLoaded
       = outlet
     =else
-      =isLoaded
+      .spinner
 
 

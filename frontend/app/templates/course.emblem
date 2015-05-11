@@ -1,13 +1,5 @@
 .ui.basic.segment
-  h2.ui.left.floated.header
+  h4.ui.left.floated.header
     link-to 'course.index'
       = name
-  .clear
-    .ui.icon.message
-      i.calendar.icon
-      .content
-        .header
-          |Начало курса: #{myGroup.formattedEducationBeginnning}
-        .header
-          |Окончание курса: #{myProgress.formattedDeadline}
 = outlet

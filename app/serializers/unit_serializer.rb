@@ -7,13 +7,17 @@ class UnitSerializer < ActiveModel::Serializer
   def quiz_id
     @object.quiz.try :id
   end
+
   def case_id
     @object.case.try :id
   end
+
   def my_progress
     UnitProgress.where(user: @scope, unit: @object).first
   end
+
   def attachment_url
     @object.attachment.url
   end
+
 end

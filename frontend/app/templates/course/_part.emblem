@@ -77,9 +77,9 @@
                   td
                     =success
           =else
-            = partial 'partials/preloader'
+            .spinner
   =else
-    = partial 'partials/preloader'
+    .spinner
 
 .ui.basic.modal
   /i.close.icon

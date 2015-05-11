@@ -8,8 +8,8 @@
         = else
           | Решить кейс
     =else
-      =partial 'partials/preloader'
+      .spinner
   =else
-    =partial 'partials/preloader'
+    .spinner
 =else
-  =partial 'partials/preloader'
+  .spinner
