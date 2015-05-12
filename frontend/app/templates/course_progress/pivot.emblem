@@ -1,8 +1,7 @@
 = if myProgress
   .ui.segment
     h3.ui.header
-      | Зачетка по курсу - &nbsp
-      = name
+      | Зачетка по курсу #{name}
     table.ui.celled.striped.table
       thead
         tr

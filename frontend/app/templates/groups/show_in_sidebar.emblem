@@ -13,9 +13,6 @@
       thead
         tr
           th
-            | Место
-          th
-          th
             | ФИО
           th
             | Баллы
@@ -23,25 +20,20 @@
       tbody
         = each sortedCourseProgresses
           tr
-              td
-                = inc _view.contentIndex
-              td
-                =if user.isLoaded
-                  img.ui.avatar.image src=user.avatarUrl
-              td
-                =if user.isLoaded
-                  link-to 'users.show' user.id
-                    = user.fullName
-                =else
-                  .spinner
-              td
-                =if user.isLoaded
-                  = points
-              td
-                =if user.isLoaded
-                  unless user.itsMe
-                    link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
-                      i.mail.icon
+            td
+              =if user.isLoaded
+                link-to 'users.show' user.id
+                  = user.fullName
+              =else
+                .spinner
+            td
+              =if user.isLoaded
+                = points
+            td
+              =if user.isLoaded
+                unless user.itsMe
+                  link-to 'conversations.new' (query-params sender_id=user.id) class='right floated compact'
+                    i.mail.icon
 
     .ui.segment
       .header

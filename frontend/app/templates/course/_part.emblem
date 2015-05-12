@@ -1,3 +1,6 @@
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler#left{action 'showSideBar'}
+  i.content.icon
+
 .ui.segment
   view 'progress-header' label='Успех раздела'
   =if isLoaded

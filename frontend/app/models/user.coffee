@@ -40,11 +40,11 @@ User = DS.Model.extend
   ).property('unreads_messages_count')
 
   previewEmail: (->
-    if @get('email') != null && @get('email').length > 20
-      return @get('email').substring(0,20) + '...'
+    if @get('firstName')? && @get('lastName')?
+      @get('fullName')
     else
-      return @get('email')
-  ).property('email')
+      @get('email')
+  ).property('email', 'firstName', 'lastName')
 
 
 

@@ -29,14 +29,12 @@
 @media screen and (max-width: 1380px) {
     .container {
         width: 980px;
-        margin-left: 200px;
     }
 }
 
 @media screen and (max-width: 1279px) {
     .container {
         width: 880px;
-        margin-left: 200px;
     }
     .ui.steps .step {
         font-size: 13px;
@@ -46,7 +44,6 @@
 @media screen and (max-width: 1200px) {
     .container {
         width: 780px;
-        margin-left: 200px;
     }
     .ui.steps .step {
         font-size: 11px;
@@ -55,8 +52,7 @@
 
 @media screen and (max-width: 1050px) {
     .container {
-        width: 700px;
-        margin-left: 200px;
+        width: 780px;
     }
     .ui.steps {
         overflow: visible;
@@ -77,11 +73,13 @@
     .ui.steps .step:after {
         display: none;
     }
+    .ui.menu .item {
+        font-size: 12px;
+    }
 }
 @media screen and (max-width: 970px) {
     .container {
-        width: 500px;
-        margin-left: 200px;
+        width: 630px;
         font-size: 10px;
     }
     .ui.steps {
@@ -103,6 +101,10 @@
     .ui.steps .step:after {
         display: none;
     }
+}
+
+.container {
+    margin-top: 80px;
 }
 
 .clear {

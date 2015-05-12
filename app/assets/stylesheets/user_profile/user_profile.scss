@@ -5,3 +5,39 @@
 .ui.card {
   width: 200px;
 }
+
+img.ui.avatar.image {
+  display: inline-block !important;
+  margin-right: 10px !important;
+}
+
+.ui.menu .item {
+  line-height: 36px;
+}
+.ui.blue.inverted.main.menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  margin-bottom: 80p;
+}
+
+.ui.right.sidebar {
+  top: 59px;
+  max-width: 350px;
+  padding-bottom: 70px;
+}
+
+#hide-sidebar {
+  width: 60px;
+  height: 45px;
+  position: fixed;
+  right: 350px;
+  top: 70px;
+  display: none;
+}
+
+.left_content {
+  margin: 80px auto 0 20px;
+}
