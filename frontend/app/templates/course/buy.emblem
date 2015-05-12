@@ -23,5 +23,7 @@ h2.ui.header
       select
         option
           | Банковский перевод
-    button.ui.submit.green.button{action 'create'}
+    link-to 'courses' tagName='button' class='ui button'
+      | Отмена
+    button.ui.primary.button{action 'create'}
       | Купить
