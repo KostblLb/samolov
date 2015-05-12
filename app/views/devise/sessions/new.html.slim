@@ -4,20 +4,24 @@
       h4.dividing.header
         | Вход
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          = f.label :email
-          br
-          = f.email_field :email, autofocus: true
-        .field
-          = f.label :password, 'Пароль'
-          br
-          = f.password_field :password, autocomplete: "off"
+        table.ui.two.column.table
+          tbody
+            tr
+              td
+                = f.label :email
+              td
+                = f.email_field :email, autofocus: true
+            tr
+              td
+                = f.label :password, 'Пароль'
+              td
+                = f.password_field :password, autocomplete: "off"
         - if devise_mapping.rememberable?
           .field
             .ui.toggle.checkbox
               = f.check_box :remember_me
               = f.label :remember_me, 'Запомнить меня'
         .actions
-          = button_tag type: 'submit', class: 'ui submit button' do
+          = button_tag type: 'submit', class: 'ui primary button' do
             | Вход
-      = render "devise/shared/links"
+          = render "devise/shared/links"

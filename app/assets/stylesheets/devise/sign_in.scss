@@ -1,0 +1,20 @@
+.container.devise {
+  .ui.blue.segment {
+    width: 500px;
+    margin: 0 auto;
+  }
+  input[type="email"], input[type="password"] {
+    width: 320px;
+  }
+  table {
+    border: 0;
+    tbody {
+      tr {
+        border: 0;
+        td {
+          border: 0;
+        }
+      }
+    }
+  }
+}
