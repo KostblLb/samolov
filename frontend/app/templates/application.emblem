@@ -1,5 +1,5 @@
 .ui.blue.inverted.main.menu
-  a.item
+  a
   .right.menu
     = link-to 'subscribtion' currentUser.subscribtion class='item'
       i.options.icon

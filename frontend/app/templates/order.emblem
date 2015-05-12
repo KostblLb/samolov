@@ -1,7 +1,6 @@
 h2.ui.header
   .content
-    | Заказ №&nbsp
-    = id
+    | Заказ #{id}
 .ui.segment
   h3.ui.header
     | Подробности заказа:

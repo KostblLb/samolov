@@ -17,6 +17,7 @@ UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
   webinarDeadline:        DS.attr 'string'
   homeworkDeadline:       DS.attr 'string'
   unitBeginning:          DS.attr 'string'
+  webinarBeginning:       DS.attr 'string'
   homeworkProgressPoints: DS.attr 'string'
   homeworkProgressState:  DS.attr 'string'
   caseProgressPoints:     DS.attr 'string'
@@ -124,9 +125,17 @@ UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
     moment() < (@get('homeworkDeadline') + 7)
   ).property('homeworkDeadline', 'momentDate')
 
+  webinarTime: (->
+    moment(@get('webinarBeginning')).format('DD MMMM с HH:MM') + moment(@get('webinarDeadline')).format(' до HH:MM')
+  ).property('webinarBeginning', 'webinarDeadline')
 
+  webinarIsStart: (->
+    moment(@get('progress.webinar.start')) < moment() && moment(@get('progress.webinar.start')) > moment(@get('progress.webinarDeadline'))
+  ).property('progress.webinar.start')
 
-
+  webinarIsEnd: (->
+    moment(@get('webinarDeadline')) < moment()
+  ).property('momentDate', 'webinarDeadline')
 
 
 `export default UnitProgress;`

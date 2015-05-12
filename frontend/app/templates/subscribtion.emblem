@@ -3,20 +3,20 @@ h2.ui.header
 .ui.segment
   .field
     view Ember.Checkbox checkedBinding=newMessage class='ui checkbox'
-    /input type='checkbox' checked=newMessage
     label
-      |&nbsp Получать уведомления о новых сообщениях
+      'Получать уведомления о новых сообщениях
   .field
     view Ember.Checkbox checkedBinding=newAdvert class='ui checkbox'
     label
-      |&nbsp Получать уведомления об объявлениях
+      'Получать уведомления об объявлениях
   .field
     view Ember.Checkbox checkedBinding=newEvent class='ui checkbox'
     label
-      |&nbsp Получать уведомления о новых событиях
+      'Получать уведомления о новых событиях
   .field
     view Ember.Checkbox checkedBinding=moduleStart class='ui checkbox'
     label
-      |&nbsp Получать уведомления о начале нового модуля
-  button.ui.button{action 'save'}
+      'Получать уведомления о начале нового модуля
+  br
+  button.ui.primary.button{action 'save'}
     |Сохранить

@@ -1,19 +1,20 @@
 =with myProgress
-  .ui.blue.ribbon.label
-    | Ссылка
-  p
-    a href=webinar.link target='_blank'
-      | Перейти к вебинару
-  .ui.blue.ribbon.label
-    | Начало
-  p
-    = webinar.formattedStart
-  .ui.blue.ribbon.label
-    | Закончится
-  p
-    = webinar.formattedEnd
-  p
-  .ui.blue.ribbon.label
-    | Видео из архива
-  ui-video data_url=webinar.video
+  =if webinarIsStart
+    h4.ui.header.h4
+      | Вебинар будет проходить #{webinarTime}.
+    a href=webinar.link target='_blank' class='ui button'
+      | Участвовать
+  =else
+    =if webinarIsEnd
+      h4.ui.header.h4
+        | Вебинар прошел, можно посмотреть запись.
+    =else
+      h4.ui.header.h4
+        | Вебинар будет проходить #{webinarTime}.
+      a href=webinar.link target='_blank' class='ui button disabled'
+        | Участвовать
+  =if webinarIsEnd
+    .ui.blue.ribbon.label
+      | Видео из архива
+    ui-video data_url=webinar.video
 

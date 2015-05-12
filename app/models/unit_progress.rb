@@ -81,6 +81,10 @@ class UnitProgress
     schedule.webinar
   end
 
+  def webinar_beginning
+    webinar.start
+  end
+
   def unit_beginning
     schedule.start_date
   end
