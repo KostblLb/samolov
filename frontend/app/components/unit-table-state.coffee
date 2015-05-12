@@ -15,11 +15,11 @@ UnitTableStateComponent = Ember.Component.extend
     progress = @get 'progress'
     if @get('stepSupported')
       if (@get('progress').get("#{@get 'step'}IsComplete")) || (@get('stepIsWebinar') && @get('webinarWasVisited'))
-        'positive'
+        'green_cell'
       else
-        if !@get('stepWithoutDeadline') && @get('stepIsTimeOut') then 'negative' else 'warning'
+        if !@get('stepWithoutDeadline') && @get('stepIsTimeOut') then 'red_cell' else 'black_cell'
     else
-      'active'
+      'grey_cell'
   ).property('progress',  'step')
 
   stepWithoutDeadline: (->

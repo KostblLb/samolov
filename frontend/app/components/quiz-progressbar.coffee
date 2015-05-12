@@ -6,7 +6,7 @@ QuizProgressbarComponent = Ember.Component.extend
   quizProgress: null
 
   currentProgress: (->
-    (@.get('quizProgress.quiz.myProgress.currentQuestionNumber') - 1) / @get('count') * 100
+    Math.floor((@.get('quizProgress.quiz.myProgress.currentQuestionNumber') - 1) / @get('count') * 100)
   ).property('number', 'quizProgress.quiz.myProgress.currentQuestionNumber')
 
   setProgress:(->

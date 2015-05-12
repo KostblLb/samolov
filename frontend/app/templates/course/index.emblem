@@ -1,2 +1,6 @@
+.ui.basic.segment
+  h1.ui.left.floated.header
+    = name
+
 = each parts
  = partial 'course/part'

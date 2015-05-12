@@ -1,5 +1,2 @@
-.ui.basic.segment
-  h4.ui.left.floated.header
-    link-to 'course.index'
-      = name
+
 = outlet

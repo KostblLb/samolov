@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require likely
 //= require jquery_ujs
 //= require jquery-ui
 //= require semantic-ui/all
@@ -18,5 +19,6 @@
 //= require moment
 //= require moment/ru.js
 //= require autogrow.min
+
 
 

@@ -1,3 +1,4 @@
+
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#left{action 'showSideBar'}
   i.content.icon
 
@@ -7,10 +8,7 @@
     table.ui.celled.table
       thead
         tr
-          th.moduleTitle
-            | Модуль
           th
-            | Время проведения
           th
             | Видео
           th
@@ -31,9 +29,9 @@
             = with myProgress
               =if isAvailable
                 tr.unitRow
-                  td
+                  td.moduleTitle
                     = unit.name
-                  td.collapsing
+                    br
                     | #{formattedUnitBeginning} - #{formattedDeadline}
 
                   /link-to 'unit' unit.id (query-params scope='video') tagName='td'

@@ -1,4 +1,4 @@
-.ui.blue.inverted.main.menu
+.ui.blue.inverted.main.menu.top_menu
   a
   .right.menu
     = link-to 'subscribtion' currentUser.subscribtion class='item'
@@ -38,22 +38,23 @@
 .ui.right.sidebar.ui.segment
   = outlet 'right_sidebar'
   = outlet 'pivot'
-
-
-  .ui.segment
-    .ui.header
-      | Порекомендуйте наш курс
-    .ui.facebook.button
-      i.facebook.icon
-      | Facebook
-    .ui.twitter.button
-      i.twitter.icon
-      | Twitter
-    .ui.google.plus.button
-      i.google.plus.icon
-      | Google Plus
-    .ui.vk.button
-      i.vk.icon
-      | VK
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#hide-sidebar onclick="$('.ui.right.sidebar').removeClass('overlay visible'); $('#hide-sidebar').css('display','none'); $('.container').removeClass('left_content')"
   i.content.icon
+
+.footer
+  .footer_content
+    div Для отзывов и предложений: feedback@samolov.ru
+    br
+    .likely.likely_visible.likely_ready
+      .twitter.likely__widget.likely__widget_twitter
+        span.likely__icon.social_icon.twitter_icon
+        .likely__button.likely__button_twitter Twitter
+      .vkontakte.likely__widget.likely__widget_vkontakte
+        span.likely__icon.social_icon.vk_icon
+        .likely__button.likely__button_vkontakte Вконтакте
+      .facebook.likely__widget.likely__widget_facebook
+        span.likely__icon.social_icon.facebook_icon
+        .likely__button.likely__button_facebook Facebook
+      .gplus.likely__widget.likely__widget_gplus
+        span.likely__icon.social_icon.google_icon
+        .likely__button.likely__button_gplus Google +

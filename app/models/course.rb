@@ -9,8 +9,12 @@ class Course
   has_many :groups
   has_many :parts, dependent: :destroy
 
-
   accepts_nested_attributes_for :parts
+
+  def course_beginning
+    parts.first.units.first
+  end
+
   def group_for(user)
     return nil if user.nil?
     groups.where(student_ids: user.id).first

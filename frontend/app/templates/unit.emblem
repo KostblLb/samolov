@@ -1,3 +1,7 @@
+.ui.basic.segment
+  h4.ui.left.floated.header
+    link-to 'course.index'
+      = part.course.name
 .ui.right.floated
   = view 'progress-header' label='Успех модуля' part='true'
 .clear

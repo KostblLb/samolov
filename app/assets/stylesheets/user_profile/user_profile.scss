@@ -14,13 +14,17 @@ img.ui.avatar.image {
 .ui.menu .item {
   line-height: 36px;
 }
-.ui.blue.inverted.main.menu {
+.top_menu {
   position: fixed;
   right: 0;
   top: 0;
   width: 100%;
   z-index: 1000;
-  margin-bottom: 80p;
+  margin-bottom: 80px;
+}
+
+.footer {
+ font-size: 12px;
 }
 
 .ui.right.sidebar {
@@ -40,4 +44,32 @@ img.ui.avatar.image {
 
 .left_content {
   margin: 80px auto 0 20px;
+}
+
+
+.twitter_icon {
+  background: asset_url('socials/twitter.png') 0 0 no-repeat;
+}
+.vk_icon {
+  background: asset_url('socials/vk.png') 0 0 no-repeat;
+}
+.google_icon {
+  background: asset_url('socials/google.png') 0 0 no-repeat;
+}
+.facebook_icon {
+  background: asset_url('socials/facebook.png') 0 0 no-repeat;
+}
+.social_icon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.footer {
+  width: 100%;
+}
+.footer_content {
+  margin: 0 auto;
+  width: 500px;
 }

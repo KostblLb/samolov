@@ -19,6 +19,8 @@
  *= require quiz/quiz
  *= require user_profile/user_profile
  *= require devise/sign_in
+ *= require course/course
+ *= require likely
  *= require_self
  */
 @media screen and (min-width: 1380px) {
@@ -216,7 +218,7 @@ module-accordion {
 }
 
 .moduleTitle {
-    width: 83px;
+    width: 220px;
 }
 
 .unread_messages_count {
