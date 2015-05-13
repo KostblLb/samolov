@@ -1,5 +1,5 @@
-`import DS from "ember-data";` 
- 
+`import DS from "ember-data";`
+
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
 Course = DS.Model.extend
@@ -16,9 +16,32 @@ Course = DS.Model.extend
 
   parts:            DS.hasMany 'part', async: true
 
+  format: 'DD MMMM'
+
+  convertDate: (field) ->
+    date = @.get field
+    format = @.get 'format'
+    moment(date).format format
+
   needBuy: (->
     @get('status') == 'new'
   ).property('status')
 
- 
+  courseStart: (->
+    @get('parts.firstObject.partStart')
+  ).property('parts.firstObject.partStart')
+
+  courseEnd: (->
+    @get('parts.lastObject.partEnd')
+  ).property('parts.lastObject.partEnd')
+
+  formattedCourseStart: (->
+    @convertDate 'courseStart'
+  ).property('courseStart', 'format')
+
+  formattedCourseEnd: (->
+    @convertDate 'courseEnd'
+  ).property('courseEnd', 'format')
+
+
 `export default Course;`

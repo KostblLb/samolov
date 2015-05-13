@@ -2,9 +2,9 @@
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#left{action 'showSideBar'}
   i.content.icon
 
-.ui.segment
-  view 'progress-header' label='Успех раздела'
-  =if isLoaded
+
+=if isLoaded
+  module-accordion name='свернуть/развернуть' part=this
     table.ui.celled.table
       thead
         tr
@@ -54,9 +54,9 @@
                     =success
               =else
                 tr.unitRow{action 'showUnitBeginning'}
-                  td
+                  td.moduleTitle
                     = unit.name
-                  td.collapsing
+                    br
                     | #{formattedUnitBeginning} - #{formattedDeadline}
 
                   unit-table-state progress=this step='video'
@@ -79,7 +79,8 @@
                     =success
           =else
             .spinner
-  =else
+=else
+  .ui.message
     .spinner
 
 .ui.basic.modal

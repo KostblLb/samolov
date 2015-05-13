@@ -1,6 +1,9 @@
 .ui.basic.segment
   h1.ui.left.floated.header
     = name
+  .clear
+    h3.ui.floated.left.header
+      | #{formattedCourseStart} - #{formattedCourseEnd}
 
 = each parts
  = partial 'course/part'

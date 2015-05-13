@@ -1,8 +1,9 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
  # for more details see: http://emberjs.com/guides/components/
 
 ModuleAccordionComponent = Ember.Component.extend
+  part: null
 
   changeIcon: ->
     if @$('.moduleContent').css('display') == 'none'
@@ -14,7 +15,8 @@ ModuleAccordionComponent = Ember.Component.extend
 
   didInsertElement: ->
     @_super()
-    @$('.moduleContent').hide()
+    if !@get('part.isCurrent')
+      @$('.moduleContent').hide()
     @$().css('margin-top','15px')
     @$().css('cursor','pointer')
 
@@ -23,6 +25,10 @@ ModuleAccordionComponent = Ember.Component.extend
       @changeIcon()
       @$('.moduleContent').toggle(700)
 
- 
- 
+  thisIsPart: (->
+    @get('part')?
+  ).property('part')
+
+
+
 `export default ModuleAccordionComponent;`

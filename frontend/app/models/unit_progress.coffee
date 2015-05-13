@@ -121,6 +121,10 @@ UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
     @convertDate 'unitBeginning'
   ).property('unitBeginning', 'format')
 
+  formattedDeadline: (->
+    @convertDate 'deadline'
+  ).property('deadline', 'format')
+
   homeworkIsAvailable: (->
     moment() < (@get('homeworkDeadline') + 7)
   ).property('homeworkDeadline', 'momentDate')

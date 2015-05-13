@@ -1,13 +1,19 @@
 .ui.basic.segment
   h2.ui.floated.left.header
     = if view.link
-      link-to view.link id
-        = name
+      h2.ui.floated.left.header
+        link-to view.link id
+          = name
     = else
       =if view.part
-        = part.name
+        h2.ui.floated.left.header
+          = part.name
       =else
-        = name
+        h2.ui.floated.left.header
+          i.toggleIcon.icon.caret.right
+          = name
+        h4.ui.floated.left.header
+          | 1 мая - 15 мая
   h2.ui.right.floated.header
     = if myProgress
       .ui.tiny.statistic class=myProgress.color
@@ -15,11 +21,3 @@
           = myProgress.success
         .label
           = view.label
-  =unless view.part
-    .clear
-    .ui.icon.message
-      i.calendar.icon
-      .content
-        .header
-          |Окончание части:
-        p #{myProgress.formattedDeadline}

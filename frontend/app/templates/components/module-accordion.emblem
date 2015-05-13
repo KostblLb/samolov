@@ -1,6 +1,23 @@
 .ui.message{action 'toggleModule'}
   .header
-    i.toggleIcon.icon.caret.right
-    = name
+
+    =if thisIsPart
+      =with part
+        h2.ui.floated.left.header
+          i.toggleIcon.icon.caret.right
+          = name
+        h2.ui.right.floated.header
+          = if myProgress
+            .ui.tiny.statistic class=myProgress.color
+              .value
+                = myProgress.success
+              .label
+                | Успех раздела
+        .clear
+        h4.ui.floated.left.header.part_date
+          | #{formattedPartStart} - #{formattedPartEnd}
+    =else
+      i.toggleIcon.icon.caret.right
+      = name
 .moduleContent
   = yield
