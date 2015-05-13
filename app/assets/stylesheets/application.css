@@ -223,7 +223,7 @@ module-accordion {
 
 .unread_messages_count {
     position: relative;
-    color: #a94442;
+    color: #fff;
     width: 20px;
     height: 20px;
     padding: 4px 0 0 0;
