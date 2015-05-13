@@ -13,7 +13,7 @@ class Ability
       group.teacher == user
     end
     can :update, Homework::Progress  do |progress|
-      progress.in_progress? &&  progress.unit_progress.user == user || progress.review? && progress.teacher == user
+      (progress.in_progress? &&  progress.unit_progress.user == user) || ((progress.verified? || progress.review?) && progress.teacher == user)
     end
     can :update, QuizProgress do |quiz|
       quiz.is_quiz && quiz.quiz_progress_socket.quiz? || quiz.is_case && quiz.case_progress_socket.case?

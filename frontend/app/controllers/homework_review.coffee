@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
   # for more details see: http://emberjs.com/guides/controllers/
 
 HomeworkReviewController = Ember.ObjectController.extend
@@ -18,6 +18,13 @@ HomeworkReviewController = Ember.ObjectController.extend
       progress.set 'isReviewSaved', true
       window.scrollTo 0, 0
 
+    sendToStudent: ->
+      progress = @model
+      progress.set 'stateEvent', 'return'
+      progress.save().then (newProgress)=>
+        progress.reload()
+        newProgress.set 'stateEvent', null
+        history.back()
 
- 
+
  `export default HomeworkReviewController;`

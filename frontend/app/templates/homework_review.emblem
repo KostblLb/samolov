@@ -44,3 +44,5 @@ h2.ui.header
       |Закончить проверку
     .ui.button{action 'saveHomework'}
       |Сохранить
+  .ui.button{action 'sendToStudent'}
+    |Вернуть студенту
