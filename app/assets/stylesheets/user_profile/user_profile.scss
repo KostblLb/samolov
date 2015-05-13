@@ -46,6 +46,42 @@ img.ui.avatar.image {
   margin: 80px auto 0 20px;
 }
 
+.social {
+  display: inline-block;
+  height: 25px;
+  margin-right: 10px;
+  padding: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11.9999990463257px;
+  background-color: rgba(236, 236, 236, 0.156863);
+  color: rgba(0, 0, 0, 0.8);
+  &:hover {
+    color: black;
+  }
+}
+
+.twitter:hover {
+  background: rgba(191, 237, 250, 0.8);
+}
+
+.vk:hover {
+  background-color: rgba(211, 218, 227, 0.8);
+}
+
+.facebook:hover {
+  background-color: rgba(207, 212, 229, 0.8);
+}
+
+.google:hover {
+  background-color: rgba(246, 207, 207, 0.8);
+}
+
+span.title {
+  position: relative;
+  bottom: 6px;
+}
 
 .twitter_icon {
   background: asset_url('socials/twitter.png') 0 0 no-repeat;
@@ -60,6 +96,9 @@ img.ui.avatar.image {
   background: asset_url('socials/facebook.png') 0 0 no-repeat;
 }
 .social_icon {
+  position: relative;
+  text-align: left;
+  display: inline-block;
   width: 20px;
   height: 20px;
   background-size: cover;

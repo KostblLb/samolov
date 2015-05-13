@@ -17,10 +17,10 @@
         | Курсы
     = link-to 'conversations' class='item'
       i.mail.icon
-        if currentUser.hasUnread
-          .unread_messages_count
-            | #{currentUser.unreads_messages_count}
       | Сообщения
+      if currentUser.hasUnread
+        span.unread_messages_count
+          | +#{currentUser.unreads_messages_count}
     = link-to 'faq.index' class='item'
       i.help.icon
       | Вопросы и ответы
@@ -43,18 +43,21 @@
 
 .footer
   .footer_content
-    div Для отзывов и предложений: feedback@samolov.ru
+    div
+      |Для отзывов и предложений:
+      a href="mailto:feedback@samolov.ru"
+        '
+        | feedback@samolov.ru
     br
-    .likely.likely_visible.likely_ready
-      .twitter.likely__widget.likely__widget_twitter
-        span.likely__icon.social_icon.twitter_icon
-        .likely__button.likely__button_twitter Twitter
-      .vkontakte.likely__widget.likely__widget_vkontakte
-        span.likely__icon.social_icon.vk_icon
-        .likely__button.likely__button_vkontakte Вконтакте
-      .facebook.likely__widget.likely__widget_facebook
-        span.likely__icon.social_icon.facebook_icon
-        .likely__button.likely__button_facebook Facebook
-      .gplus.likely__widget.likely__widget_gplus
-        span.likely__icon.social_icon.google_icon
-        .likely__button.likely__button_gplus Google +
+    a.social.twitter href="https://twitter.com/share" target="_blank"
+      span.social_icon.twitter_icon
+      span.title Twitter
+    a.social.vk href="http://vk.com/share.php?url=http://samolov.kerweb.ru" target="_blank"
+      span.social_icon.vk_icon
+      span.title Вконтакте
+    a.social.facebook href="https://www.facebook.com/sharer/sharer.php?u=http://samolov.kerweb.ru" target="_blank"
+      span.social_icon.facebook_icon
+      span.title Facebook
+    a.social.google href="https://plus.google.com/share?url=http://samolov.kerweb.ru" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank"
+      span.social_icon.google_icon
+      span.title Google +
