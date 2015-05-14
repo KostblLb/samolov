@@ -15,10 +15,14 @@ ModuleAccordionComponent = Ember.Component.extend
 
   didInsertElement: ->
     @_super()
-    if !@get('part.isCurrent')
+    unless @get('part.isCurrent')
       @$('.moduleContent').hide()
+    else
+      @$('.toggleIcon').removeClass('right')
+      @$('.toggleIcon').addClass('down')
     @$().css('margin-top','15px')
     @$().css('cursor','pointer')
+
 
   actions:
     toggleModule: ->

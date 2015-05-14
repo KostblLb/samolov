@@ -37,6 +37,17 @@ RSpec.describe Group do
   end
 
   describe '#rebuild!' do
+    let(:group) {create :group, teacher: teacher, students: [student], course: course}
+    let(:schedules) { group.unit_schedules }
+    context 'no changes in group' do
+      it { expect{group.rebuild!}.not_to change{schedules} }
+    end
+    context 'add unit to group' do
+      let(:new_unit) { create :empty_unit, position: 3 }
+      before(:each) { group.course.parts.last.units << new_unit }
+      it { expect{group.rebuild!}.to change{schedules.count}.by(1) }
+    end
+
   end
 
   describe 'create webinar' do

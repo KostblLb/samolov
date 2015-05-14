@@ -41,7 +41,6 @@ class Group
       end
       student.course_progress_by(course).rebuild!
     end
-    unit_schedules.delete_all
     set_schedule
   end
 
@@ -50,8 +49,11 @@ class Group
     beginning = education_beginning
     course.parts.each do |part|
       part.units.each do |unit|
-        unit_schedules << UnitSchedule.new(start_date: beginning, end_date: beginning + 7, unit: unit,
+        schedule = unit_schedules.where(unit: unit).first
+        if schedule.nil?
+          unit_schedules << UnitSchedule.new(start_date: beginning, end_date: beginning + 7, unit: unit,
                                            webinar: Webinar.new(start: beginning + 4 + 12.hours))
+        end
         beginning += 7
       end
     end
