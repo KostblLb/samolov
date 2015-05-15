@@ -19,6 +19,7 @@
 //= require moment
 //= require moment/ru.js
 //= require autogrow.min
+//= require slick.min
 
 
 

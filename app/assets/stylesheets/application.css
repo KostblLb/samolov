@@ -22,6 +22,8 @@
  *= require course/course
  *= require likely
  *= require landing/directors_landing
+ *= require slick
+ *= require slick-theme
  *= require_self
  */
 @media screen and (min-width: 1380px) {
