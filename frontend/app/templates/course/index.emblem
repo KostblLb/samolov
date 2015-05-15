@@ -3,7 +3,10 @@
     = name
   .clear
     h3.ui.floated.left.header
-      | #{formattedCourseStart} - #{formattedCourseEnd}
+      =if parts
+        | #{formattedCourseStart} - #{formattedCourseEnd}
+      =else
+        .spinner
 
 = each parts
  = partial 'course/part'

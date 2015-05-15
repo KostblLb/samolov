@@ -4,6 +4,7 @@
 
 CoursePartProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
   unitProgresses: DS.hasMany 'unit_progress', async:true
-  deadline:   DS.attr 'string'
+  partBeginning:  DS.attr 'string'
+  deadline:       DS.attr 'string'
 
 `export default CoursePartProgress;`

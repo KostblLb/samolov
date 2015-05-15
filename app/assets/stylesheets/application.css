@@ -21,6 +21,7 @@
  *= require devise/sign_in
  *= require course/course
  *= require likely
+ *= require landing/directors_landing
  *= require_self
  */
 @media screen and (min-width: 1380px) {

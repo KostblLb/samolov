@@ -1,0 +1,29 @@
+.container
+  = outlet
+
+.ui.right.sidebar.ui.segment
+  = outlet 'right_sidebar'
+  = outlet 'pivot'
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler#hide-sidebar onclick="$('.ui.right.sidebar').removeClass('overlay visible'); $('#hide-sidebar').css('display','none'); $('.container').removeClass('left_content')"
+  i.content.icon
+
+.footer
+  .footer_content
+    div
+      |Для отзывов и предложений:
+      a href="mailto:feedback@samolov.ru"
+        '
+        | feedback@samolov.ru
+    br
+    a.social.twitter href="https://twitter.com/share" target="_blank"
+      span.social_icon.twitter_icon
+      span.title Twitter
+    a.social.vk href="http://vk.com/share.php?url=http://samolov.kerweb.ru" target="_blank"
+      span.social_icon.vk_icon
+      span.title Вконтакте
+    a.social.facebook href="https://www.facebook.com/sharer/sharer.php?u=http://samolov.kerweb.ru" target="_blank"
+      span.social_icon.facebook_icon
+      span.title Facebook
+    a.social.google href="https://plus.google.com/share?url=http://samolov.kerweb.ru" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank"
+      span.social_icon.google_icon
+      span.title Google +

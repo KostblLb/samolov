@@ -1,0 +1,156 @@
+.ui.inverted.blue.menu {
+  background-color: #2a323d;
+}
+.landing_container {
+  background: asset_url('directors_landing/bg-1400px.jpg') 0 0 no-repeat;
+  margin-top: 50px;
+  width: 100%;
+  font-family: arial, sans-serif;
+  height: 2000px;
+  #directors_landing {
+    width: 1000px;
+    margin: 20px auto;
+    #about {
+      .header {
+        margin-top: 90px;
+        font-size: 56px;
+        line-height: 72px;
+        font-weight: bolder;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      .description {
+        margin-top: 30px;
+        font-size: 18px;
+        line-height: 26px;
+        color: #fff;
+        font-weight: bolder;
+      }
+      .right_float{
+        width: 195px;
+        margin: 110px 45px 0 0;
+      }
+      .first_training {
+        .title {
+          font-size: 24px;
+          line-height: 32px;
+          color: white;
+        }
+        .group_places {
+          font-size: 16px;
+          line-height: 22px;
+          color: #fff;
+          margin-top: 14px;
+        }
+        .time_left {
+          font-size: 16px;
+          line-height: 22px;
+          color: #f1c42c;
+        }
+        .join_button {
+          background: #eeba2b;
+          width: 134px;
+          border-radius: 3px;
+          padding: 12px 20px;
+          margin-top: 26px;
+          font-size: 18px;
+          line-height: 22px;
+          border: 0;
+        }
+      }
+      .advantages {
+        margin-top: 50px;
+        .advantage {
+          display: inline-block;
+          width: 227px;
+          padding-top: 110px;
+          vertical-align: top;
+          margin-right: 13px;
+          font-size: 16px;
+          line-height: 22px;
+          font-weight: 600;
+        }
+        .management {
+          background: asset_url('socials/facebook.png') 0 0 no-repeat;
+          background-size: 60px;
+        }
+        .effectiveness {
+          background: asset_url('socials/twitter.png') 0 0 no-repeat;
+          background-size: 60px;
+        }
+        .partners {
+          background: asset_url('socials/vk.png') 0 0 no-repeat;
+          background-size: 60px;
+        }
+      }
+    }
+    #creators {
+      margin-top: 100px;
+      .creator {
+        display: inline-block;
+        width: 48%;
+        vertical-align: top;
+        margin-top: 66px;
+        padding-left: 119px;
+        .title {
+          font-size: 24px;
+          line-height: 32px;
+          font-weight: bolder;
+        }
+        .description {
+          font-size: 14px;
+          line-height: 22px;
+          margin-top: 20px;
+        }
+      }
+      .author {
+        background: asset_url('socials/vk.png') 0 0 no-repeat;
+        background-size: 60px;
+      }
+      .trainer {
+        background: asset_url('socials/facebook.png') 0 0 no-repeat;
+        background-size: 60px;
+      }
+    }
+    #course_programm {
+      margin-top: 100px;
+      background-color: #f2efe1;
+      tr {
+        vertical-align: top;
+      }
+      .title {
+        padding-top: 66px;
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: bold;
+      }
+      .description {
+        font-size: 18px;
+        line-height: 26px;
+        padding-top: 27px;
+      }
+      table {
+        margin-top: 65px;
+        .part {
+          width: 157px;
+        }
+        .programm {
+          width: 295px;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .result {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
+.left_float {
+  float: left;
+}
+.right_float {
+  float: right;
+}
+
