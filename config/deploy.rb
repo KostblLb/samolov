@@ -31,9 +31,17 @@ after 'deploy:update', 'deploy:cleanup'
 after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
 after 'deploy:restart', 'unicorn:restart'   # app preloaded
 after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
+before 'deploy:assets:precompile', 'bower:install'
 
 namespace :deploy do
   task :init_vhost do
     run "ln -s #{deploy_to}/current/config/#{application}.vhost /etc/nginx/sites-enabled/#{application}"
+  end
+end
+
+namespace :bower do
+  desc 'Install bower components'
+  task :install do
+    run "cd #{current_release}/frontend && bower install"
   end
 end
