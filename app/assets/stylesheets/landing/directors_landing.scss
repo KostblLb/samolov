@@ -60,13 +60,14 @@
           color: #f1c42c;
         }
         .join_button {
-          background: #eeba2b;
           width: 134px;
           border-radius: 3px;
           padding: 12px 20px;
           margin-top: 26px;
           font-size: 18px;
-          line-height: 22px;
+          padding: 12px 0 14px 0px;
+          color: #000;
+          line-height: 19px;
           border: 0;
         }
       }
@@ -75,7 +76,7 @@
         .advantage {
           display: inline-block;
           width: 227px;
-          padding-top: 110px;
+          padding-top: 102px;
           vertical-align: top;
           margin-right: 13px;
           font-size: 16px;
@@ -83,27 +84,32 @@
           font-weight: 600;
         }
         .management {
-          background: asset_url('socials/facebook.png') 0 0 no-repeat;
-          background-size: 60px;
+          background: asset_url('directors_landing/management.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: -13px 9px;;
         }
         .effectiveness {
-          background: asset_url('socials/twitter.png') 0 0 no-repeat;
-          background-size: 60px;
+          background: asset_url('directors_landing/effectiveness.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: -4px 6px;
         }
         .partners {
-          background: asset_url('socials/vk.png') 0 0 no-repeat;
-          background-size: 60px;
+          background: asset_url('directors_landing/partners.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: 0px 10px;
         }
       }
     }
     #creators {
       margin-top: 100px;
+      width: 1100px;
+      margin-left: -11px;
       .creator {
         display: inline-block;
-        width: 48%;
+        width: 44%;
         vertical-align: top;
         margin-top: 66px;
-        padding-left: 119px;
+        padding-left: 129px;
         .title {
           font-size: 24px;
           line-height: 32px;
@@ -112,25 +118,35 @@
         .description {
           font-size: 14px;
           line-height: 22px;
-          margin-top: 20px;
+          margin-top: 14px;
         }
       }
       .author {
-        background: asset_url('socials/vk.png') 0 0 no-repeat;
-        background-size: 60px;
+        background: asset_url('directors_landing/ury-samolov.png') 0 0 no-repeat;
+        background-size: 110px;
+        background-position: 0px 3px;
       }
       .trainer {
-        background: asset_url('socials/facebook.png') 0 0 no-repeat;
-        background-size: 60px;
+        background: asset_url('directors_landing/elena-troshina.png') 0 0 no-repeat;
+        margin-left: -4px;
+        background-size: 110px;
+        background-position: 0px 0px;
       }
     }
     #course_programm {
-      margin-top: 100px;
+      margin-top: 91px;
       margin-left: -1000px;
       padding-left: 1000px;
-      padding-bottom: 99px;
+      padding-bottom: 0px;
       margin-right: 120px;
+      height: 1222px;
       background-color: #f2efe1;
+      img {
+        position: relative;
+        top: -956px;
+        left: 753px;
+        width: 168px;
+      }
       tr {
         vertical-align: top;
       }
@@ -148,7 +164,7 @@
       table {
         margin-top: 30px;
         td {
-          padding-top: 36px;
+          padding-top: 32px;
         }
         .part {
           width: 157px;
@@ -200,7 +216,6 @@
         }
         .ui.basic.button {
           height: 50px;
-          border: 1px solid rgba(39, 41, 43, 0.15);
           font-size: 18px;
           padding-left: 0px;
           width: 170px;
@@ -209,7 +224,8 @@
       }
     }
     #reviews {
-      margin-top: 70px;
+      margin-top: 66px;
+      padding-bottom: 44px;
       .title {
         font-size: 32px;
         line-height: 42px;
@@ -243,7 +259,7 @@
           display: inline-block;
           padding: 32px 0 0 80px;
           font-size: 18px;
-          line-height: 26px;
+          line-height: 27px;
         }
         .photo {
           display: inline-block;
@@ -261,7 +277,118 @@
             font-style: italic;
             font-family: 'Times New Roman';
           }
+          img {
+            width: 100px;
+            margin-bottom: 20px;
+          }
         }
+      }
+    }
+  }
+  #entry_to_course {
+    background: #f3f6f8;
+    width: 100%;
+    .wrapper {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 61px 0;
+      .title {
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: bolder;
+      }
+      .form {
+        display: inline-block;
+        table {
+          margin-top: 40px;
+          td {
+            padding-bottom: 20px;
+          }
+          td.field_name {
+            width: 117px;
+            font-size: 18px;
+          }
+        }
+        input[type="text"] {
+          margin-right: 16px;
+          width: 360px;
+          height: 50px;
+          font-size: 1rem;
+          border: 1px solid rgba(39, 41, 43, 0.15);
+          color: rgba(0, 0, 0, 0.8);
+          border-radius: 0.2857rem;
+          padding-left: 14px;
+          font-size: 18px;
+        }
+        .join_button {
+          width: 201px;
+          border-radius: 3px;
+          font-size: 18px;
+          padding: 15px 0 16px 0px;
+          color: #000;
+          line-height: 19px;
+          border: 0;
+        }
+      }
+      .description {
+        display: inline-block;
+        vertical-align: top;
+        width: 386px;
+        margin: 33px 0 0 64px;
+        h3 {
+          font-size: 24px;
+          line-height: 32px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          i {
+            margin: 0;
+          }
+          span.yellow {
+            color: orange;
+          }
+        }
+        p.questions {
+          margin-top: 38px;
+        }
+      }
+    }
+  }
+  #footer {
+    width: 100%;
+    background: asset_url('directors_landing/footer.png') 0 0 no-repeat;
+    .wrapper {
+      width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 50px;
+      h3 {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: bolder;
+        color: #fff;
+        padding: 44px 0 0 0;
+        margin: 0;
+      }
+      .social_icon {
+        position: relative;
+        text-align: left;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        margin-right: 12px;
+        top: 4px;
+      }
+      .social {
+        display: inline-block;
+        height: 40px;
+        margin-right: 62px;
+        padding: 2px 11px 11px 11px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 21px;
       }
     }
   }
