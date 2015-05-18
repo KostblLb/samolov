@@ -220,7 +220,8 @@
     }
     #reviews {
       margin-top: 66px;
-      padding-bottom: 44px;
+      padding-bottom: 0px;
+      height: 420px;
       .title {
         font-size: 32px;
         line-height: 42px;
@@ -255,6 +256,8 @@
           padding: 32px 0 0 80px;
           font-size: 18px;
           line-height: 27px;
+          width: 715px;
+          text-align: justify;
         }
         .photo {
           display: inline-block;
