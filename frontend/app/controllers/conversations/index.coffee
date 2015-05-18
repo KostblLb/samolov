@@ -12,9 +12,8 @@ ConversationsIndexController = Ember.ArrayController.extend _PaginatedController
         @transitionToRoute('conversations')
 
     showMore: (page)->
-      $.ajax("/api/v1/conversations.json?page=#{page}", 'GET').then (nextPage)=>
-        nextPage.conversations.forEach (item)=>
-          @get('model').pushObject(item)
+      @store.find('conversation', {page: page}).then (nextPage) =>
+        @get('model').pushObjects(nextPage.content)
         @set('page', page)
 
 
