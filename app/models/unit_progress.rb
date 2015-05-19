@@ -40,16 +40,15 @@ class UnitProgress
   end
 
   def quiz_complete
-    if quiz_progress !=nil
+    if !is_exam && quiz_progress !=nil
       quiz_progress.finished?
     end
-
   end
+
   def case_complete
-    if !is_exam && case_progress != nil
+    if case_progress != nil
       case_progress.finished?
     end
-
   end
 
   def max_webinar_points

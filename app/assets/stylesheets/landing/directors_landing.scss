@@ -6,9 +6,46 @@
   width: 100%;
   font-family: arial, sans-serif;
   height: 1807px;
+  .form {
+    display: inline-block;
+    table {
+      margin-top: 40px;
+      td {
+        padding-bottom: 20px;
+      }
+      td.field_name {
+        width: 117px;
+        font-size: 18px;
+      }
+    }
+    input[type="text"] {
+      margin-right: 16px;
+      width: 360px;
+      height: 50px;
+      border: 1px solid rgba(39, 41, 43, 0.15);
+      color: rgba(0, 0, 0, 0.8);
+      border-radius: 0.2857rem;
+      padding-left: 14px;
+      font-size: 18px;
+    }
+    .join_button {
+      width: 201px;
+      border-radius: 3px;
+      font-size: 18px;
+      padding: 15px 0 16px 0px;
+      color: #000;
+      line-height: 19px;
+      border: 0;
+    }
+  }
   #directors_landing {
     width: 1000px;
     margin: 20px auto;
+    ul {
+      margin-top: 0px;
+      margin-left: -15px;
+      list-style-image: asset_url('directors_landing/list-style-dash.png');
+    }
     #about {
       .header {
         margin-top: -9px;
@@ -66,6 +103,32 @@
           line-height: 19px;
           border: 0;
         }
+        #join_form {
+          display: none;
+          width: 500px;
+          height: 340px;
+          margin-bottom: -200px;
+          position: relative;
+          top: -50px;
+          left: -281px;
+          background: white;
+          border-radius: 4px;
+          .form {
+            margin-left: 10px;
+          }
+          .close {
+            position: relative;
+            top: -359px;
+            left: 480px;
+            width: 34px;
+            height: 34px;
+            background: asset_url('directors_landing/close.png');
+            cursor: pointer;
+            &:active {
+              top: -357px;
+            }
+          }
+        }
       }
       .advantages {
         margin-top: 50px;
@@ -113,8 +176,14 @@
         }
         .description {
           font-size: 14px;
-          line-height: 22px;
-          margin-top: 14px;
+          line-height: 24px;
+          margin-top: 17px;
+          ul {
+            margin-left: -24px;
+            li {
+              margin-bottom: 5px;
+            }
+          }
         }
       }
       .author {
@@ -130,16 +199,16 @@
       }
     }
     #course_programm {
-      margin-top: 91px;
+      margin-top: 78px;
       margin-left: -1000px;
       padding-left: 1000px;
       padding-bottom: 0px;
       margin-right: 120px;
-      height: 1222px;
+      height: 1199px;
       background-color: #f2efe1;
       img {
         position: relative;
-        top: -956px;
+        top: -980px;
         left: 753px;
         width: 168px;
       }
@@ -147,7 +216,7 @@
         vertical-align: top;
       }
       .title {
-        padding-top: 90px;
+        padding-top: 67px;
         font-size: 32px;
         line-height: 42px;
         font-weight: bold;
@@ -160,7 +229,7 @@
       table {
         margin-top: 30px;
         td {
-          padding-top: 32px;
+          padding-top: 26px;
         }
         .part {
           width: 157px;
@@ -221,7 +290,7 @@
     #reviews {
       margin-top: 66px;
       padding-bottom: 0px;
-      height: 420px;
+      height: 412px;
       .title {
         font-size: 32px;
         line-height: 42px;
@@ -294,38 +363,6 @@
         font-size: 32px;
         line-height: 42px;
         font-weight: bolder;
-      }
-      .form {
-        display: inline-block;
-        table {
-          margin-top: 40px;
-          td {
-            padding-bottom: 20px;
-          }
-          td.field_name {
-            width: 117px;
-            font-size: 18px;
-          }
-        }
-        input[type="text"] {
-          margin-right: 16px;
-          width: 360px;
-          height: 50px;
-          border: 1px solid rgba(39, 41, 43, 0.15);
-          color: rgba(0, 0, 0, 0.8);
-          border-radius: 0.2857rem;
-          padding-left: 14px;
-          font-size: 18px;
-        }
-        .join_button {
-          width: 201px;
-          border-radius: 3px;
-          font-size: 18px;
-          padding: 15px 0 16px 0px;
-          color: #000;
-          line-height: 19px;
-          border: 0;
-        }
       }
       .description {
         display: inline-block;
