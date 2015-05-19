@@ -66,5 +66,16 @@ RailsAdmin.config do |config|
     nestable_list true
   end
 
+  config.model Homework::Meta::Task do
+    field :description, :ck_editor
+    include_all_fields
+    nestable_list true
+  end
+
+  config.model Homework::Meta::Subtask::Base do
+    field :description, :ck_editor
+    include_all_fields
+    nestable_list true
+  end
 
 end
