@@ -28,4 +28,13 @@ namespace :samolov do
     Unit.where(is_exam: true).update_all('estimate.video' => 0, 'estimate.test' => 0, 'estimate.summary' => 0,
                                          'estimate.case' => 4, 'estimate.webinar' => 3, 'estimate.homework' => 0)
   end
+
+  desc 'Set orders for tasks'
+  task set_orders: :environment do
+    Homework::Progress.each do |progress|
+      progress.tasks.each do |task|
+        task.update(order: task.meta.order)
+      end
+    end
+  end
 end
