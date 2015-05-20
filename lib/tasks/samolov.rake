@@ -33,7 +33,11 @@ namespace :samolov do
   task set_orders: :environment do
     Homework::Progress.each do |progress|
       progress.tasks.each do |task|
-        task.update(order: task.meta.order)
+        unless task.meta.nil?
+          task.update(order: task.meta.order)
+        else
+          task.remove
+        end
       end
     end
   end
