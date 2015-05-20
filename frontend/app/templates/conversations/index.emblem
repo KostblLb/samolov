@@ -10,28 +10,31 @@ h2.header.h2
     = each
       unlessFirstItem
         .ui.divider
-      = link-to 'conversation' this.id
-        .comment class=hasUnread:unread-message
-          .avatar
-            img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
-          .content
-            a.author
-              if subject
-                label #{subject}
-              else
-                label Без темы
-            .metadata
-              .date
-                | Последнее сообщение: #{formattedUpdatedAt}
-            .text
-              = messages.lastObject.previewMessage
-            .actions
-              = each users
-                unlessFirstItem
-                  '
-                  = link-to 'users.show' this.id |#{this.fullName}
+      =if messages.lastObject.isLoaded
+        = link-to 'conversation' this.id
+          .comment class=hasUnread:unread-message
+            .avatar
+              img.ui.avatar.image src=messages.lastObject.sender.avatarUrl
+            .content
+              a.author
+                if subject
+                  label #{subject}
                 else
-                  = link-to 'users.show' this.id |#{this.fullName}
+                  label Без темы
+              .metadata
+                .date
+                  | Последнее сообщение: #{formattedUpdatedAt}
+              .text
+                = messages.lastObject.previewMessage
+              .actions
+                = each users
+                  unlessFirstItem
+                    '
+                    = link-to 'users.show' this.id |#{this.fullName}
+                  else
+                    = link-to 'users.show' this.id |#{this.fullName}
+      =else
+       .spinner
   = if needPaginate
     = if nextPageEnable
         .ui.button{action 'showMore' nextPage}

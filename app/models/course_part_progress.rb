@@ -29,11 +29,11 @@ class CoursePartProgress
   end
 
   def part_beginning
-    part.units.first.unit_progresses.where(user: user).first.schedule.start_date
+    course_progress.group.unit_schedules.where(:unit_id.in => part.units.map(&:id)).min(:start_date)
   end
 
   def deadline
-    part.units.last.unit_progresses.where(user: user).first.schedule.end_date
+    course_progress.group.unit_schedules.where(:unit_id.in => part.units.map(&:id)).max(:end_date)
   end
 
   private

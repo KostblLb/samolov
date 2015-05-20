@@ -35,10 +35,6 @@ HomeworkProgress = DS.Model.extend
     @get('unitState') == 'homework' || @get('unitState') == 'done'
   ).property('unitState')
 
-  isComplete: (->
-    @get('state') != 'in_progress'
-  ).property('state')
-
   allTasksIsComplete: (->
     @get('tasks').filterBy('allSubtasksIsFilled', false).length == 0
   ).property('tasks.@each.allSubtasksIsFilled')

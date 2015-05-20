@@ -17,12 +17,12 @@ Part = DS.Model.extend
     moment(date).format format
 
   partStart: (->
-    @get('units.firstObject.myProgress.unitBeginning')
-  ).property('units.lastObject.myProgress.unitBeginning')
+    @get('myProgress.partBeginning')
+  ).property('myProgress.partBeginning')
 
   partEnd: (->
-    @get('units.lastObject.myProgress.deadline')
-  ).property('units.lastObject.myProgress.deadline')
+    @get('myProgress.deadline')
+  ).property('myProgress.deadline')
 
   formattedPartStart: (->
     @convertDate 'partStart'

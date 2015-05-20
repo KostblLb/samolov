@@ -28,12 +28,12 @@ Course = DS.Model.extend
   ).property('status')
 
   courseStart: (->
-    @get('parts.firstObject.partStart')
-  ).property('parts.firstObject.partStart')
+    @get('myProgress.courseBeginning')
+  ).property('myProgress.courseBeginning')
 
   courseEnd: (->
-    @get('parts.lastObject.partEnd')
-  ).property('parts.lastObject.partEnd')
+    @get('myProgress.deadline')
+  ).property('myProgress.deadline')
 
   formattedCourseStart: (->
     @convertDate 'courseStart'

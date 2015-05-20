@@ -1,0 +1,440 @@
+.white_bg {
+  background-color: #fff;
+  width: 100%;
+  height: 3400px;
+}
+.landing_container {
+  background: asset_url('directors_landing/top_bg.jpg') 0 0 no-repeat;
+  background-size: 1920px;
+  background-position-y: -477px;
+  margin-top: 50px;
+  width: 100%;
+  font-family: arial, sans-serif;
+  height: 1807px;
+  .form {
+    display: inline-block;
+    table {
+      margin-top: 40px;
+      td {
+        padding-bottom: 20px;
+      }
+      td.field_name {
+        width: 117px;
+        font-size: 18px;
+      }
+    }
+    input[type="text"] {
+      margin-right: 16px;
+      width: 360px;
+      height: 50px;
+      border: 1px solid rgba(39, 41, 43, 0.15);
+      color: rgba(0, 0, 0, 0.8);
+      border-radius: 0.2857rem;
+      padding-left: 14px;
+      font-size: 18px;
+    }
+    .join_button {
+      width: 201px;
+      border-radius: 3px;
+      font-size: 18px;
+      padding: 15px 0 16px 0px;
+      color: #000;
+      line-height: 19px;
+      border: 0;
+    }
+  }
+  #directors_landing {
+    width: 1000px;
+    margin: 20px auto;
+    ul {
+      margin-top: 0px;
+      margin-left: -15px;
+      list-style-image: asset_url('directors_landing/list-style-dash.png');
+    }
+    #about {
+      .header {
+        margin-top: -9px;
+        font-size: 56px;
+        line-height: 72px;
+        font-weight: bolder;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      .logo {
+        background: asset_url('directors_landing/logo.png') 0 0 no-repeat;
+        position: relative;
+        background-size: cover;
+        z-index: 10;
+        width: 100px;
+        height: 100px;
+        top: 62px;
+        left: -75px;
+      }
+      .description {
+        margin-top: 30px;
+        font-size: 18px;
+        line-height: 26px;
+        color: #fff;
+      }
+      .right_float{
+        width: 195px;
+        margin: 110px 45px 0 0;
+      }
+      .first_training {
+        .title {
+          font-size: 24px;
+          line-height: 32px;
+          color: white;
+        }
+        .group_places {
+          font-size: 16px;
+          line-height: 22px;
+          color: #fff;
+          margin-top: 14px;
+        }
+        .time_left {
+          font-size: 16px;
+          line-height: 22px;
+          color: #f1c42c;
+        }
+        .join_button {
+          width: 134px;
+          border-radius: 3px;
+          margin-top: 26px;
+          font-size: 18px;
+          padding: 12px 0 14px 0px;
+          color: #000;
+          line-height: 19px;
+          border: 0;
+        }
+        #join_form {
+          display: none;
+          width: 500px;
+          height: 340px;
+          margin-bottom: -200px;
+          position: relative;
+          top: -50px;
+          left: -281px;
+          background: white;
+          border-radius: 4px;
+          .form {
+            margin-left: 10px;
+          }
+          .close {
+            position: relative;
+            top: -359px;
+            left: 480px;
+            width: 34px;
+            height: 34px;
+            background: asset_url('directors_landing/close.png');
+            cursor: pointer;
+            &:active {
+              top: -357px;
+            }
+          }
+        }
+      }
+      .advantages {
+        margin-top: 50px;
+        .advantage {
+          display: inline-block;
+          width: 227px;
+          padding-top: 102px;
+          vertical-align: top;
+          margin-right: 13px;
+          font-size: 16px;
+          line-height: 22px;
+        }
+        .management {
+          background: asset_url('directors_landing/management.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: -13px 9px;;
+        }
+        .effectiveness {
+          background: asset_url('directors_landing/effectiveness.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: -4px 6px;
+        }
+        .partners {
+          background: asset_url('directors_landing/partners.png') 0 0 no-repeat;
+          background-size: 82px;
+          background-position: 0px 10px;
+        }
+      }
+    }
+    #creators {
+      margin-top: 100px;
+      width: 1100px;
+      margin-left: -11px;
+      .creator {
+        display: inline-block;
+        width: 44%;
+        vertical-align: top;
+        margin-top: 66px;
+        padding-left: 129px;
+        .title {
+          font-size: 24px;
+          line-height: 32px;
+          font-weight: bolder;
+        }
+        .description {
+          font-size: 14px;
+          line-height: 24px;
+          margin-top: 17px;
+          ul {
+            margin-left: -24px;
+            li {
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+      .author {
+        background: asset_url('directors_landing/ury-samolov.png') 0 0 no-repeat;
+        background-size: 110px;
+        background-position: 0px 3px;
+      }
+      .trainer {
+        background: asset_url('directors_landing/elena-troshina.png') 0 0 no-repeat;
+        margin-left: -4px;
+        background-size: 110px;
+        background-position: 0px 0px;
+      }
+    }
+    #course_programm {
+      margin-top: 78px;
+      margin-left: -1000px;
+      padding-left: 1000px;
+      padding-bottom: 0px;
+      margin-right: 120px;
+      height: 1199px;
+      background-color: #f2efe1;
+      img {
+        position: relative;
+        top: -980px;
+        left: 753px;
+        width: 168px;
+      }
+      tr {
+        vertical-align: top;
+      }
+      .title {
+        padding-top: 67px;
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: bold;
+      }
+      .description {
+        font-size: 18px;
+        line-height: 26px;
+        padding-top: 27px;
+      }
+      table {
+        margin-top: 30px;
+        td {
+          padding-top: 26px;
+        }
+        .part {
+          width: 157px;
+          .part_name {
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: bolder;
+          }
+          .part_dates {
+            padding-top: 10px;
+            font-style: italic;
+            font-family: 'Times New Roman';
+            font-size: 16px;
+          }
+        }
+        .programm {
+          width: 295px;
+          font-size: 14px;
+          line-height: 27px;
+        }
+        .result {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+    }
+    #has_questions {
+      .title {
+        margin: 63px 0;
+        display: inline-flex;
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .call_form {
+        display: inline;
+        position: relative;
+        top: 15px;
+        left: 30px;
+        input[type="text"] {
+          margin-right: 16px;
+          width: 200px;
+          height: 50px;
+          border: 1px solid rgba(39, 41, 43, 0.15);
+          color: rgba(0, 0, 0, 0.8);
+          border-radius: 0.2857rem;
+          padding-left: 14px;
+          font-size: 18px;
+        }
+        .ui.basic.button {
+          height: 50px;
+          font-size: 18px;
+          padding-left: 0px;
+          width: 170px;
+          background: #fff !important;
+        }
+      }
+    }
+    #reviews {
+      margin-top: 66px;
+      padding-bottom: 0px;
+      height: 412px;
+      .title {
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: bolder;
+      }
+      .slick-prev {
+        height: 60px;
+        cursor: pointer;
+        margin-top: -90px;
+        width: 23px;
+        background-size: contain !important;
+        background: asset_url('directors_landing/left_arrow.png') 0 0 no-repeat;
+        &:hover {
+          background: asset_url('directors_landing/left_arrow_hover.png') 0 0 no-repeat;
+        }
+      }
+      .slick-next {
+        margin-top: -90px;
+        width: 23px;
+        background-size: contain !important;
+        margin-right: 45px;
+        height: 62px;
+        cursor: pointer;
+        background: asset_url('directors_landing/right_arrow.png') 0 0 no-repeat;
+        &:hover {
+          background: asset_url('directors_landing/right_arrow_hover.png') 0 0 no-repeat;
+        }
+      }
+      .review {
+        .text {
+          display: inline-block;
+          padding: 32px 0 0 80px;
+          font-size: 18px;
+          line-height: 27px;
+          width: 715px;
+          text-align: justify;
+        }
+        .photo {
+          display: inline-block;
+          vertical-align: top;
+          margin-left: 38px;
+          margin-top: 35px;
+          width: 200px;
+          .name {
+            font-size: 16px;
+            line-height: 22px;
+          }
+          .profession {
+            font-size: 16px;
+            line-height: 22px;
+            font-style: italic;
+            font-family: 'Times New Roman';
+          }
+          img {
+            width: 100px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+  #entry_to_course {
+    background: #f3f6f8;
+    width: 100%;
+    .wrapper {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 61px 0;
+      .title {
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: bolder;
+      }
+      .description {
+        display: inline-block;
+        vertical-align: top;
+        width: 386px;
+        margin: 33px 0 0 64px;
+        h3 {
+          font-size: 24px;
+          line-height: 32px;
+          font-family: Arial;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          i {
+            margin: 0;
+          }
+          span.yellow {
+            color: orange;
+          }
+        }
+        p.questions {
+          margin-top: 38px;
+        }
+      }
+    }
+  }
+  #footer {
+    width: 100%;
+    background: asset_url('directors_landing/footer.png') 0 0 no-repeat;
+    .wrapper {
+      width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 50px;
+      h3 {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: bolder;
+        color: #fff;
+        padding: 44px 0 0 0;
+        margin: 0;
+      }
+      .social_icon {
+        position: relative;
+        text-align: left;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        margin-right: 12px;
+        top: 4px;
+      }
+      .social {
+        display: inline-block;
+        height: 40px;
+        margin-right: 62px;
+        padding: 2px 11px 11px 11px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 21px;
+      }
+    }
+  }
+}
+.left_float {
+  float: left;
+}
+.right_float {
+  float: right;
+}
+
