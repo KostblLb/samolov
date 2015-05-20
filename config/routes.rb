@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'inquire/create'
+
   get 'landing/directors'
   get 'landing/history'
   get 'landing/founders'
@@ -38,7 +40,8 @@ Rails.application.routes.draw do
       resources :homework_metas
       resources :homework_progresses
       resources :faqs,              only: [:show, :index]
-      resources :subscribtions,       only: [:show, :update]
+      resources :subscribtions,     only: [:show, :update]
+      resources :inquires,          only: [:create]
 
 
       # Should be subresources of profile. but emberjs not suppored it.

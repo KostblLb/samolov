@@ -1,0 +1,2 @@
+module InquireHelper
+end

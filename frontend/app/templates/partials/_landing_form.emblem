@@ -8,7 +8,7 @@
     tr
       td class='field_name' Почта
       td
-        = input value=name placeholder='pushkin@mail.ru'
+        = input value=email placeholder='pushkin@mail.ru'
     tr
       td class='field_name' Телефон
       td
@@ -16,5 +16,5 @@
     tr
       td
       td
-        button.join_button.ui.yellow.button
+        button.join_button.ui.yellow.button{action 'create'}
           | Записаться

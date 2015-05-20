@@ -48,5 +48,6 @@ Router.map ->
 
     @resource 'subscribtion', path: 'subscribtion/:id'
 
+  @route 'Directors'
 
 `export default Router`

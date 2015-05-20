@@ -6,7 +6,6 @@
 .landing_container {
   background: asset_url('directors_landing/top_bg.jpg') 0 0 no-repeat;
   background-size: 1920px;
-  background-position-y: -477px;
   margin-top: 50px;
   width: 100%;
   font-family: arial, sans-serif;
@@ -293,7 +292,7 @@
     #reviews {
       margin-top: 66px;
       padding-bottom: 0px;
-      height: 412px;
+      height: 480px;
       .title {
         font-size: 32px;
         line-height: 42px;
@@ -436,5 +435,18 @@
 }
 .right_float {
   float: right;
+}
+
+.successMessage {
+  display: none;
+  position: relative;
+  width: 214px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 1px;
+  top: -70px;
+  left: 114px;
+  padding: 16px 41px;
+  color: green;
 }
 
