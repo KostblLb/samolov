@@ -168,8 +168,8 @@
         .call_form
           = input value=name placeholder='Ваше имя'
           = input value=phone placeholder='Номер телефона'
-          .ui.basic.button
-            i.icon.phone
+          button.ui.basic.button#recall{action 'create'}
+            i.text.telephone.icon
             | Перезвонить
       .ui.divider
       #reviews

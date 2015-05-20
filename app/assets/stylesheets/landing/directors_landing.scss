@@ -45,6 +45,7 @@
   #directors_landing {
     width: 1000px;
     margin: 20px auto;
+    padding-left: 30px;
     ul {
       margin-top: 0px;
       margin-left: -15px;
@@ -283,7 +284,7 @@
         .ui.basic.button {
           height: 50px;
           font-size: 18px;
-          padding-left: 0px;
+          padding: 0.78571em 0.5em 0.78571em !important;
           width: 170px;
           background: #fff !important;
         }
@@ -327,8 +328,8 @@
           padding: 32px 0 0 80px;
           font-size: 18px;
           line-height: 27px;
-          width: 715px;
-          text-align: justify;
+          width: 74%;
+          text-align: left;
         }
         .photo {
           display: inline-block;
@@ -357,6 +358,7 @@
   #entry_to_course {
     background: #f3f6f8;
     width: 100%;
+    padding-left: 30px;
     .wrapper {
       width: 1000px;
       margin: 0 auto;
@@ -395,6 +397,7 @@
   #footer {
     width: 100%;
     background: asset_url('directors_landing/footer.png') 0 0 no-repeat;
+    padding-left: 30px;
     .wrapper {
       width: 1000px;
       margin: 0 auto;
@@ -435,18 +438,5 @@
 }
 .right_float {
   float: right;
-}
-
-.successMessage {
-  display: none;
-  position: relative;
-  width: 214px;
-  height: 50px;
-  background-color: #fff;
-  border-radius: 1px;
-  top: -70px;
-  left: 114px;
-  padding: 16px 41px;
-  color: green;
 }
 

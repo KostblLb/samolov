@@ -1,0 +1,31 @@
+.ui.blue.inverted.main.menu.top_menu
+  a
+  .right.menu
+    = link-to 'subscribtion' currentUser.subscribtion class='item'
+      i.options.icon
+      |Управление подписками
+    = if currentUser.isTeacher
+      = link-to 'groups.index' class='item'
+        i.student.icon
+        | Мои группы
+      = link-to 'scales.index' class='item'
+        i.tasks.icon
+        | Шкалы
+    =else
+      = link-to 'courses' class='item'
+        i.suitcase.icon
+        | Курсы
+    = link-to 'conversations' class='item'
+      i.mail.icon
+      | Сообщения
+      if currentUser.hasUnread
+        span.unread_messages_count
+          | +#{currentUser.unreads_messages_count}
+    = link-to 'faq.index' class='item'
+      i.help.icon
+      | Вопросы и ответы
+    = link-to 'users.show' currentUser class='item'
+      img.ui.avatar.image src=currentUser.smallAvatarUrl
+      = currentUser.previewEmail
+    a.item href='/users/sign_out'
+      | Выйти

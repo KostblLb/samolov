@@ -1,0 +1,5 @@
+.ui.blue.inverted.main.menu.top_menu
+  a
+  .right.menu
+    a.item href='/users/sign_in'
+      | Войти

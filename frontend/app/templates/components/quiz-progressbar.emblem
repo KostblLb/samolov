@@ -1,4 +1,4 @@
-h3.ui.center.aligned.green.header Прогресс прохождения:
+h3.ui.center.aligned.green.header Прогресс прохождения (#{number} / #{count})
 .ui.progress.success
   .bar
     .progress #{currentProgress}%

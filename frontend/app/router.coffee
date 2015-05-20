@@ -7,6 +7,7 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route 'free'
+  @route 'root', path: ''
   @route 'directors'
 
   @resource 'education', ->
@@ -47,7 +48,6 @@ Router.map ->
       @route 'show', path: ':id'
 
     @resource 'subscribtion', path: 'subscribtion/:id'
-
-  @route 'Directors'
+  @route 'Root'
 
 `export default Router`

@@ -1,7 +1,7 @@
 # Takes two parameters: container and app
 initialize = (container, application) ->
   # Wait until all of the following promises are resolved
-  if window.myId?
+  unless Ember.isBlank(window.myId)
     application.deferReadiness()
     container.lookup('store:main').find('user', window.myId).then (user)->
       container.register 'user:current', user, {instantiate: false, singleton: true}
