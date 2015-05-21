@@ -173,11 +173,11 @@
     }
     #creators {
       margin-top: 100px;
-      width: 998px;
+      width: 950px;
       margin-left: -11px;
       .creator {
         display: inline-block;
-        width: 48%;
+        width: 50%;
         vertical-align: top;
         margin-top: 66px;
         padding-left: 129px;
@@ -282,7 +282,7 @@
         left: 20px;
         input[type="text"] {
           margin-right: 16px;
-          width: 200px;
+          width: 185px;
           height: 50px;
           border: 1px solid rgba(39, 41, 43, 0.15);
           color: rgba(0, 0, 0, 0.8);
@@ -297,7 +297,7 @@
           height: 50px;
           font-size: 18px;
           padding: 0.78571em 0.5em 0.78571em !important;
-          width: 170px;
+          width: 157px;
           background: #fff !important;
         }
       }
