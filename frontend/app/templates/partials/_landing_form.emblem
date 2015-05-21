@@ -16,5 +16,5 @@
     tr
       td
       td
-        button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('Top Form'); return true;"
+        button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('top'); return true;"
           | Записаться

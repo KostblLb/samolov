@@ -25,7 +25,7 @@
             .time_left
               | Осталось #{timeLeft}!
             button.join_button.ui.yellow.button onclick="$('#join_form').toggle(400);"
-              | Записаться
+              | Записатьс я
             #join_form
               =partial 'partials/landing_form'
               .close onclick="$('#join_form').toggle(400);"
@@ -168,7 +168,7 @@
         .call_form
           | {{input value=name placeholder='Ваше имя' class=errors.name:error}}
           | {{input-mask mask='+7 (999) 999-99-99' value=phone placeholder='Номер телефона' class=errors.phone:error}}
-          button.ui.basic.button#recall{action 'create'}  onclick="yaCounter30418327.reachGoal('Middle Form'); return true;"
+          button.ui.basic.button#recall{action 'create'}  onclick="yaCounter30418327.reachGoal('middle'); return true;"
             i.text.telephone.icon
             | Перезвонить
       .ui.divider
@@ -290,7 +290,7 @@
             tr
               td
               td
-                button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('Bottom Form'); return true;"
+                button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('bottom'); return true;"
                   | Записаться
         .description
           h3

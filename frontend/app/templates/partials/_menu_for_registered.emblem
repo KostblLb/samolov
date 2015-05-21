@@ -1,5 +1,5 @@
 .ui.blue.inverted.main.menu.top_menu
-  .samolov_logo
+  .samolov_logo onclick='$(window).scrollTop();'
   .right.menu
     = link-to 'subscribtion' currentUser.subscribtion class='item'
       i.options.icon

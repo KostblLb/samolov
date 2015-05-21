@@ -1,5 +1,5 @@
 .ui.blue.inverted.main.menu.top_menu
-  .samolov_logo
+  .samolov_logo onclick="window.scrollTo(0, 0);"
   .right.menu
     a.item href='/users/sign_in'
       | Войти
