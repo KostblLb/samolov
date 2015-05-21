@@ -21,7 +21,7 @@
   br
 
   .fixed_bottom.ui.secondary.segment
-    .ui.primary.button{action 'sendHomework'} class=allTasksIsComplete::disabled
+    .ui.primary.button{action 'sendHomework'}
       |Отправить
     .ui.button.second{action 'saveHomework'}
       |Сохранить

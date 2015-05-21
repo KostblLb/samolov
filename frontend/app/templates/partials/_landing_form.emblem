@@ -4,7 +4,7 @@
       td class='field_name'
         | Имя<br>и фамилия
       td
-        = input value=name placeholder='Александр Пушкин'
+        | {{input value=name placeholder='Александр Пушкин' class=errors.name:error}}
     tr
       td class='field_name' Почта
       td
@@ -12,9 +12,9 @@
     tr
       td class='field_name' Телефон
       td
-        = input value=phone placeholder='+7 900 123 01 02'
+        | {{input-mask mask='+7 (999) 999-99-99' value=phone  placeholder='+7 900 123 01 02' class=errors.phone:error}}
     tr
       td
       td
-        button.join_button.ui.yellow.button{action 'create'}
+        button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('Top Form'); return true;"
           | Записаться

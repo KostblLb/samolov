@@ -1,3 +1,10 @@
+.ui.blue.inverted.main.menu.top_menu {
+  height: 50px;
+  .right.menu .item {
+    padding: 0.48571em 0.95em;
+  }
+}
+
 .white_bg {
   background-color: #fff;
   width: 100%;
@@ -5,7 +12,6 @@
 }
 .landing_container {
   background: asset_url('directors_landing/top_bg.jpg') 0 0 no-repeat;
-  background-size: 1920px;
   margin-top: 50px;
   width: 100%;
   font-family: arial, sans-serif;
@@ -31,6 +37,9 @@
       border-radius: 0.2857rem;
       padding-left: 14px;
       font-size: 18px;
+      &.error{
+        border: 1px solid rgba(215, 40, 40, 0.65);
+      }
     }
     .join_button {
       width: 201px;
@@ -148,7 +157,7 @@
         .management {
           background: asset_url('directors_landing/management.png') 0 0 no-repeat;
           background-size: 82px;
-          background-position: -13px 9px;;
+          background-position: -13px 9px;
         }
         .effectiveness {
           background: asset_url('directors_landing/effectiveness.png') 0 0 no-repeat;
@@ -164,11 +173,11 @@
     }
     #creators {
       margin-top: 100px;
-      width: 1100px;
+      width: 998px;
       margin-left: -11px;
       .creator {
         display: inline-block;
-        width: 44%;
+        width: 48%;
         vertical-align: top;
         margin-top: 66px;
         padding-left: 129px;
@@ -270,7 +279,7 @@
         display: inline;
         position: relative;
         top: 15px;
-        left: 30px;
+        left: 20px;
         input[type="text"] {
           margin-right: 16px;
           width: 200px;
@@ -280,6 +289,9 @@
           border-radius: 0.2857rem;
           padding-left: 14px;
           font-size: 18px;
+          &.error{
+            border: 1px solid rgba(215, 40, 40, 0.65);
+          }
         }
         .ui.basic.button {
           height: 50px;
@@ -293,7 +305,6 @@
     #reviews {
       margin-top: 66px;
       padding-bottom: 0px;
-      height: 480px;
       .title {
         font-size: 32px;
         line-height: 42px;
@@ -302,7 +313,7 @@
       .slick-prev {
         height: 60px;
         cursor: pointer;
-        margin-top: -90px;
+        margin-top: -30px;
         width: 23px;
         background-size: contain !important;
         background: asset_url('directors_landing/left_arrow.png') 0 0 no-repeat;
@@ -311,7 +322,7 @@
         }
       }
       .slick-next {
-        margin-top: -90px;
+        margin-top: -30px;
         width: 23px;
         background-size: contain !important;
         margin-right: 45px;
@@ -360,7 +371,7 @@
     width: 100%;
     padding-left: 30px;
     .wrapper {
-      width: 1000px;
+      width: 950px;
       margin: 0 auto;
       padding: 61px 0;
       .title {
@@ -397,11 +408,10 @@
   #footer {
     width: 100%;
     background: asset_url('directors_landing/footer.png') 0 0 no-repeat;
-    padding-left: 30px;
     .wrapper {
       width: 1000px;
       margin: 0 auto;
-      padding-bottom: 50px;
+      padding: 61px 0 61px 30px;
       h3 {
         font-size: 24px;
         line-height: 32px;
@@ -439,4 +449,15 @@
 .right_float {
   float: right;
 }
-
+.samolov_logo {
+  background: asset_url('directors_landing/samolov_logo.png') 0 0 no-repeat;
+  height: 23px;
+  width: 152px;
+  position: absolute;
+  background-size: cover;
+  top: 14px;
+  left: 11%;
+}
+#cabinet_app {
+  background-color: #005983;
+}

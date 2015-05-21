@@ -6,6 +6,7 @@ ItemCarouselComponent = Ember.Component.extend
     @$('#carousel').slick
       slidesToShow: 1
       slidesToScroll: 1
+      adaptiveHeight: true
     $('.carousel_right img').click ->
       @$('#carousel').slick('slickNext')
     $('.carousel_left img').click ->

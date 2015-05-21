@@ -166,9 +166,9 @@
           | У вас есть вопросы? Оставьте свой номер,<br>
             мы перезвоним и ответим
         .call_form
-          = input value=name placeholder='Ваше имя'
-          = input value=phone placeholder='Номер телефона'
-          button.ui.basic.button#recall{action 'create'}
+          | {{input value=name placeholder='Ваше имя' class=errors.name:error}}
+          | {{input-mask mask='+7 (999) 999-99-99' value=phone placeholder='Номер телефона' class=errors.phone:error}}
+          button.ui.basic.button#recall{action 'create'}  onclick="yaCounter30418327.reachGoal('Middle Form'); return true;"
             i.text.telephone.icon
             | Перезвонить
       .ui.divider
@@ -272,7 +272,26 @@
     #entry_to_course
       .wrapper
         .title Запись на Директорский курс
-        =partial 'partials/landing_form'
+        .form
+          table
+            tr
+              td class='field_name'
+                | Имя<br>и фамилия
+              td
+                | {{input value=name placeholder='Александр Пушкин' class=errors.name:error}}
+            tr
+              td class='field_name' Почта
+              td
+                = input value=email placeholder='pushkin@mail.ru'
+            tr
+              td class='field_name' Телефон
+              td
+                | {{input-mask mask='+7 (999) 999-99-99' value=phone placeholder='+7 900 123 01 02' class=errors.phone:error}}
+            tr
+              td
+              td
+                button.join_button.ui.yellow.button{action 'create'} onclick="yaCounter30418327.reachGoal('Bottom Form'); return true;"
+                  | Записаться
         .description
           h3
             | Первый тренинг 1 — 28 июня,<br>

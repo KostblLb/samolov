@@ -6,4 +6,5 @@ class Inquire
   field :phone
   field :email
 
+  validates :name, :phone, presence: true
 end

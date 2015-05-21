@@ -6,6 +6,7 @@ module Api
       def create
         @inquire = Inquire.new(inquire_params)
         if @inquire.save
+          InquireMailer.send_mail('Новая заявка',@inquire).deliver
           respond_with @inquire, status: :created, location: false
         else
           respond_with @inquire, status: :unprocessable_entity
