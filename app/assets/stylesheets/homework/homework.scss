@@ -1,7 +1,7 @@
 .fixed_bottom {
   position: fixed !important;
   bottom: 43px;
-  left: 279px;
+  left: calc((100% / 2) - 477px);
   width: 954px;
   padding: 9px 100px !important;
   .second {

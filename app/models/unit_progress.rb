@@ -64,11 +64,6 @@ class UnitProgress
     end
     if homework_progress.nil?
       unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil?
-    else
-      if homework_progress.in_progress?
-        homework_progress.delete
-        unit.homework_meta.create_homework_prog(self, user)
-      end
     end
   end
 
