@@ -46,15 +46,23 @@ RailsAdmin.config do |config|
 
 
   config.model Answer do
-    field :text, :text
+
     parent Quiz
-    include_all_fields
+    field :id
+    field :text, :text
+    field :is_correct
+    field :position
+    field :question
   end
 
   config.model Question do
-    field :text, :text
+    field :id
+    field :text, :ck_editor
     parent Quiz
-    include_all_fields
+    field :answers
+    field :position
+    field :quiz
+    field :user_answers
   end
 
   config.model UserAnswer do
@@ -63,10 +71,19 @@ RailsAdmin.config do |config|
 
   config.model QuizProgress do
     parent Quiz
+    field :id
+    field :user
+    field :quiz
+    field :current_question_number
+    field :current_question
+    field :user_answers
+    field :quiz_progress_socket
+    field :case_progress_socket
   end
 
   config.model Quiz do
     navigation_label 'Тесты и кейсы'
+    exclude_fields :quiz_progresses
     weight -3
   end
 

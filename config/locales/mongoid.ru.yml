@@ -194,6 +194,41 @@ ru:
         groups: Группы с этой шкалой
         sections: Границы ошибок
 
+      quiz:
+        name: Название
+        quiz_socket: Тест модуля
+        case_socket: Кейс модуля
+        preview_image: Вводное изображение кейса
+        questions: Вопросы
+
+      question:
+        text: Текст вопроса
+        position: Номер вопроса
+        quiz: Тест или кейс
+        answers: Ответы
+        user_answers: Ответы пользователей
+
+      answer:
+        text: Текст ответа
+        is_correct: Правильный
+        position: Номер ответа
+        question: Вопрос
+
+      user_answer:
+        question: Вопрос
+        quiz_progress: Тест/кейс
+        user: Пользователь
+        answers: Ответы
+
+      quiz_progress:
+        current_question_number: Номер текущего вопроса
+        quiz: Название теста
+        user: Пользователь
+        quiz_progress_socket: Тест модуля
+        case_progress_socket: Кейс модуля
+        current_question: Текущий вопрос
+        user_answers: Ответы пользователя
+
 
 
 
