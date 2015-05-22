@@ -25,7 +25,7 @@
             .time_left
               | Осталось #{timeLeft}!
             button.join_button.ui.yellow.button onclick="$('#join_form').toggle(400);"
-              | Записатьс я
+              | Записаться
             #join_form
               =partial 'partials/landing_form'
               .close onclick="$('#join_form').toggle(400);"
