@@ -43,20 +43,145 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+
+
   config.model Answer do
     field :text, :text
+    parent Quiz
     include_all_fields
   end
 
   config.model Question do
     field :text, :text
+    parent Quiz
     include_all_fields
+  end
+
+  config.model UserAnswer do
+    parent Quiz
+  end
+
+  config.model QuizProgress do
+    parent Quiz
+  end
+
+  config.model Quiz do
+    navigation_label 'Тесты и кейсы'
+    weight -3
+  end
+
+  config.model Part do
+    parent Course
+    exclude_fields :course_part_progresses
+  end
+
+  config.model Scale do
+    parent Course
+  end
+
+  config.model CourseProgress do
+    parent Course
+    visible false
+  end
+
+  config.model CoursePartProgress do
+    parent Course
+    visible false
+  end
+
+  config.model UnitProgress do
+    field :id
+    field :user
+    field :unit
+    field :video_complete
+    field :summary_complete
+    field :webinar_complete
+
+    field :webinar_score
+    field :quiz_progress
+    field :case_progress
+    field :homework_progress
+    parent Course
+  end
+
+  config.model Course do
+    navigation_label 'Курсы'
+    weight -4
+    exclude_fields :course_progresses
   end
 
   config.model Unit do
     field :summary, :ck_editor
     include_all_fields
     nestable_list true
+    parent Course
+  end
+
+  config.model Admin do
+    parent User
+  end
+
+  config.model Group do
+    parent User
+    include_all_fields
+    exclude_fields :unit_schedules, :course_progresses
+    field :education_beginning do
+      strftime_format "%d-%m-%Y"
+    end
+  end
+
+  config.model Conversation do
+    visible false
+    parent User
+  end
+
+  config.model Subscribtion do
+    parent User
+  end
+
+  config.model User do
+    navigation_label 'Пользователи'
+    weight -5
+    field :id
+    field :email
+    field :first_name
+    field :last_name
+    field :groups
+    field :trained_groups
+
+    field :city
+    field :country
+    field :company_name
+    field :job_title
+    field :phone
+    field :skype
+
+
+    field :vk_link
+    field :fb_link
+    field :gplus_link
+    field :ln_link
+    field :tw_link
+    field :avatar
+
+    field :orders
+    field :course_progresses
+    field :course_part_progresses
+    field :unit_progresses
+    field :quiz_progresses
+    field :user_answers
+
+    field :my_homeworks
+    field :students_homeworks
+    field :conversations
+    field :subscribtion
+    field :sign_in_count
+
+    field :birthday
+    field :last_sign_in_at do
+      strftime_format "%d-%m-%Y"
+    end
+
   end
 
   config.model Faq do
@@ -70,12 +195,59 @@ RailsAdmin.config do |config|
     field :description, :ck_editor
     include_all_fields
     nestable_list true
+    navigation_label 'Задания ДЗ'
+    weight -2
   end
 
   config.model Homework::Meta::Subtask::Base do
     field :description, :ck_editor
     include_all_fields
     nestable_list true
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Subtask::Option do
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Subtask::Row do
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Progress do
+    visible false
+  end
+
+  config.model Homework::Progress do
+    parent Course
+    exclude_fields :tasks, :is_complete
+  end
+
+  config.model Faq do
+    navigation_label 'Сайт'
+    weight -6
+  end
+
+  config.model Inquire do
+    navigation_label 'Сайт'
+    include_all_fields
+    field :created_at do
+      strftime_format "%d-%m-%Y"
+    end
+  end
+
+  config.model Order do
+    navigation_label 'Сайт'
+    include_all_fields
+    field :created_at do
+      strftime_format "%d-%m-%Y"
+    end
+    field :updated_at do
+      hide
+    end
   end
 
 end
