@@ -1,0 +1,73 @@
+ru:
+  mongoid:
+    answer:
+      one: Ответ
+      few: Ответы
+      many: Ответов
+      other: Ответов
+
+    conversation:
+      one: Диалог
+      few: Диалоги
+      many: Диалогов
+      other: Диалоги
+
+    course:
+      one: Курс
+      few: Курсы
+      many: Курсов
+      other: Курсы
+
+    course_progress: Прогресс по курсу
+
+    course_part_progress: Прогресс по тренингу
+
+    group:
+      one: Группа
+      few: Группы
+      many: Групп
+      other: Группы
+
+    inquire:
+      one: Заявка
+      few: Заявки
+      many: Заявок
+      other: Заявки
+
+    order:
+      one: Заказ
+      few: Заказы
+      many: Заказов
+      other: Заказы
+
+    parts:
+      one: Тренинг
+      few: Тренинги
+      many: Тренингов
+      other: Тренинги
+
+    question:
+      one: Вопрос
+      few: Вопросы
+      many: Вопросов
+      other: Вопросы
+
+    quiz: Тесты и кейсы
+
+    quiz_progress: Прогресс по тестам и кейсам
+
+    scales: 
+      one: Шкала
+      few: Шкалы
+      many: Шкал
+      other: Шкалы
+
+    subscribtion: Подписки на уведомления
+
+    unit:
+      one: Модуль
+      few: Модули
+      many: Модулей
+      other: Модули
+
+    unit_progress: Прогресс по модулям
