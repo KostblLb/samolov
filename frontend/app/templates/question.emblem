@@ -18,7 +18,7 @@
   =else
     .spinner
   .content
-    = text
+    == text
     p
       = unless isSingleAnswer
         i.asterisk.icon
