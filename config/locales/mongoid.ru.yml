@@ -23,6 +23,8 @@ ru:
 
       course_part_progress: Прогресс по тренингам
 
+      homework/progress: Прохождение ДЗ
+
       faq: FAQ
 
       group:
@@ -148,6 +150,50 @@ ru:
         scale: Шкала
         students: Студенты
         adverts: Объявления
+
+      subscribtion:
+        new_message: Новые сообщения
+        new_advert: Объявления
+        new_event: Уведомления о занятиях
+        module_start: Начало модуля
+        user: Пользователь
+
+      course:
+        name: Название
+        description: Описание
+        cost: Стоимость
+        groups: Группы курса
+        parts: Тренинги курса
+
+      homework/progress:
+        name: Название
+        student: Пользователь
+        unit_progress: Модуль
+        state: Статус
+
+      unit_progress:
+        webinar_score: Оценка за вебинар
+        video_complete: Видео пройдено
+        summary_complete: Конспект пройден
+        webinar_complete: Вебинар пройден
+        user: Пользователь
+        unit: Модуль
+        quiz_progress: Тест
+        case_progress: Кейс
+        homework_progress: ДЗ
+
+      part:
+        name: Название тренинга
+        position: Очередность
+        course: Название курса
+        units: Модули
+
+      scale:
+        name: Название шкалы
+        is_default: Шкала по умолчанию
+        groups: Группы с этой шкалой
+        sections: Границы ошибок
+
 
 
 

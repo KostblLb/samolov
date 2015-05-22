@@ -72,6 +72,7 @@ RailsAdmin.config do |config|
 
   config.model Part do
     parent Course
+    exclude_fields :course_part_progresses
   end
 
   config.model Scale do
@@ -89,12 +90,24 @@ RailsAdmin.config do |config|
   end
 
   config.model UnitProgress do
+    field :id
+    field :user
+    field :unit
+    field :video_complete
+    field :summary_complete
+    field :webinar_complete
+
+    field :webinar_score
+    field :quiz_progress
+    field :case_progress
+    field :homework_progress
     parent Course
   end
 
   config.model Course do
     navigation_label 'Курсы'
     weight -4
+    exclude_fields :course_progresses
   end
 
   config.model Unit do
@@ -210,6 +223,7 @@ RailsAdmin.config do |config|
 
   config.model Homework::Progress do
     parent Course
+    exclude_fields :tasks, :is_complete
   end
 
   config.model Faq do
