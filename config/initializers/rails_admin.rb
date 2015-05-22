@@ -43,20 +43,88 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+
+
   config.model Answer do
     field :text, :text
+    parent Quiz
     include_all_fields
   end
 
   config.model Question do
     field :text, :text
+    parent Quiz
     include_all_fields
+  end
+
+  config.model UserAnswer do
+    parent Quiz
+  end
+
+  config.model QuizProgress do
+    parent Quiz
+  end
+
+  config.model Quiz do
+    navigation_label 'Тесты и кейсы'
+    weight -3
+  end
+
+  config.model Part do
+    parent Course
+  end
+
+  config.model Scale do
+    parent Course
+  end
+
+  config.model CourseProgress do
+    parent Course
+    visible false
+  end
+
+  config.model CoursePartProgress do
+    parent Course
+    visible false
+  end
+
+  config.model UnitProgress do
+    parent Course
+    visible false
+  end
+
+  config.model Course do
+    navigation_label 'Курсы'
+    weight -4
   end
 
   config.model Unit do
     field :summary, :ck_editor
     include_all_fields
     nestable_list true
+    parent Course
+  end
+
+  config.model Admin do
+    parent User
+  end
+
+  config.model Group do
+    parent User
+  end
+
+  config.model Conversation do
+    visible false
+    parent User
+  end
+
+  config.model Subscribtion do
+    parent User
+  end
+
+  config.model User do
+    navigation_label 'Пользователи'
+    weight -5
   end
 
   config.model Faq do
@@ -70,12 +138,47 @@ RailsAdmin.config do |config|
     field :description, :ck_editor
     include_all_fields
     nestable_list true
+    navigation_label 'Задания ДЗ'
+    weight -2
   end
 
   config.model Homework::Meta::Subtask::Base do
     field :description, :ck_editor
     include_all_fields
     nestable_list true
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Subtask::Option do
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Subtask::Row do
+    navigation_label 'Подзадания ДЗ'
+    weight -1
+  end
+
+  config.model Homework::Meta::Progress do
+    visible false
+  end
+
+  config.model Homework::Progress do
+    visible false
+  end
+
+  config.model Faq do
+    navigation_label 'Сайт'
+    weight -6
+  end
+
+  config.model Inquire do
+    navigation_label 'Сайт'
+  end
+
+  config.model Order do
+    navigation_label 'Сайт'
   end
 
 end
