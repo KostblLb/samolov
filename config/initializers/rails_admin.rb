@@ -90,7 +90,6 @@ RailsAdmin.config do |config|
 
   config.model UnitProgress do
     parent Course
-    visible false
   end
 
   config.model Course do
@@ -125,6 +124,44 @@ RailsAdmin.config do |config|
   config.model User do
     navigation_label 'Пользователи'
     weight -5
+    field :id
+    field :email
+    field :first_name
+    field :last_name
+    field :groups
+    field :trained_groups
+
+    field :city
+    field :country
+    field :company_name
+    field :job_title
+    field :phone
+    field :skype
+
+
+    field :vk_link
+    field :fb_link
+    field :gplus_link
+    field :ln_link
+    field :tw_link
+    field :avatar
+
+    field :orders
+    field :course_progresses
+    field :course_part_progresses
+    field :unit_progresses
+    field :quiz_progresses
+    field :user_answers
+
+    field :my_homeworks
+    field :students_homeworks
+    field :conversations
+    field :subscribtion
+    field :sign_in_count
+
+    field :birthday
+    field :last_sign_in_at
+
   end
 
   config.model Faq do
@@ -165,7 +202,7 @@ RailsAdmin.config do |config|
   end
 
   config.model Homework::Progress do
-    visible false
+    parent Course
   end
 
   config.model Faq do
@@ -179,6 +216,10 @@ RailsAdmin.config do |config|
 
   config.model Order do
     navigation_label 'Сайт'
+    include_all_fields
+    field :updated_at do
+      hide
+    end
   end
 
 end

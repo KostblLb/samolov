@@ -13,6 +13,7 @@ class QuizProgress
   has_many :user_answers, dependent: :destroy
 
   delegate :unit, to: :quiz
+  delegate :name, to: :quiz, allow_nil: true
 
   before_create :set_current_question
 

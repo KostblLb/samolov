@@ -1,73 +1,144 @@
 ru:
   mongoid:
-    answer:
-      one: Ответ
-      few: Ответы
-      many: Ответов
-      other: Ответов
+    models:
+      answer:
+        one: Ответ
+        few: Ответы
+        many: Ответов
+        other: Ответы
 
-    conversation:
-      one: Диалог
-      few: Диалоги
-      many: Диалогов
-      other: Диалоги
+      conversation:
+        one: Диалог
+        few: Диалоги
+        many: Диалогов
+        other: Диалоги
 
-    course:
-      one: Курс
-      few: Курсы
-      many: Курсов
-      other: Курсы
+      course:
+        one: Курс
+        few: Курсы
+        many: Курсов
+        other: Курсы
 
-    course_progress: Прогресс по курсу
+      course_progress: Прогресс по курсам
 
-    course_part_progress: Прогресс по тренингу
+      course_part_progress: Прогресс по тренингам
 
-    group:
-      one: Группа
-      few: Группы
-      many: Групп
-      other: Группы
+      faq: FAQ
 
-    inquire:
-      one: Заявка
-      few: Заявки
-      many: Заявок
-      other: Заявки
+      group:
+        one: Группа
+        few: Группы
+        many: Групп
+        other: Группы
 
-    order:
-      one: Заказ
-      few: Заказы
-      many: Заказов
-      other: Заказы
+      inquire:
+        one: Заявка
+        few: Заявки
+        many: Заявок
+        other: Заявки
 
-    parts:
-      one: Тренинг
-      few: Тренинги
-      many: Тренингов
-      other: Тренинги
+      order:
+        one: Заказ
+        few: Заказы
+        many: Заказов
+        other: Заказы
 
-    question:
-      one: Вопрос
-      few: Вопросы
-      many: Вопросов
-      other: Вопросы
+      part:
+        one: Тренинг
+        few: Тренинги
+        many: Тренингов
+        other: Тренинги
 
-    quiz: Тесты и кейсы
+      question:
+        one: Вопрос
+        few: Вопросы
+        many: Вопросов
+        other: Вопросы
 
-    quiz_progress: Прогресс по тестам и кейсам
+      quiz: Тесты и кейсы
 
-    scales: 
-      one: Шкала
-      few: Шкалы
-      many: Шкал
-      other: Шкалы
+      quiz_progress: Прогресс по тестам и кейсам
 
-    subscribtion: Подписки на уведомления
+      scale:
+        one: Шкала
+        few: Шкалы
+        many: Шкал
+        other: Шкалы
 
-    unit:
-      one: Модуль
-      few: Модули
-      many: Модулей
-      other: Модули
+      subscribtion: Подписки на уведомления
 
-    unit_progress: Прогресс по модулям
+      unit:
+        one: Модуль
+        few: Модули
+        many: Модулей
+        other: Модули
+
+      unit_progress: Прохождение модулей
+      homework_progress: Прохождение ДЗ
+
+      user_answer: Ответы пользователей
+      
+      user: 
+        one: Пользователь
+        few: Пользователи
+        many: Пользователей
+        other: Пользователи
+
+      admin:
+        one: Администратор
+        few: Администраторы
+        many: Администраторов
+        other: Администраторы
+
+    attributes:
+      faq:
+        question: Вопрос
+        answer: Ответ
+
+      order:
+        created_at: Дата создания
+        cost: Стоимость
+        user: Клиент
+        course: Курс
+        state: Статус
+
+      inquire:
+        created_at: Дата создания
+        name: ФИО
+        phone: Телефон
+        email: E-mail
+
+      user:
+        email: E-mail
+        sign_in_count: Число входов
+        last_sign_in_at: Последний раз был
+        first_name: Имя
+        last_name: Фамилия
+        birthday: Дата рождения
+        city: Город
+        country: Страна
+        phone: Телефон
+        skype: Skype
+        company_name: Компания
+        job_title: Должность
+        vk_link: ВКонтакте
+        fb_link: Facebook
+        gplus_link: Google+
+        ln_link: LinkedIn
+        tw_link: Twitter
+        conversations: Диалоги
+        groups: Группа
+        avatar: Аватар
+        orders: Заказ
+        course_progresses: Прохождения курсов
+        course_part_progresses: Прохождения тренингов
+        unit_progresses: Прохождения модулей
+        quiz_progresses: Прохождения тестов-кейсов
+        user_answers: Ответы на тесты-кейсы
+        students_homeworks:	Домашние задания студентов
+        my_homeworks: Домашние задания
+        trained_groups:	Группы в обучении
+        subscribtion: Подписки на уведомления
+
+
+
