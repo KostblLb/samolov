@@ -110,6 +110,11 @@ RailsAdmin.config do |config|
 
   config.model Group do
     parent User
+    include_all_fields
+    exclude_fields :unit_schedules, :course_progresses
+    field :education_beginning do
+      strftime_format "%d-%m-%Y"
+    end
   end
 
   config.model Conversation do
@@ -160,7 +165,9 @@ RailsAdmin.config do |config|
     field :sign_in_count
 
     field :birthday
-    field :last_sign_in_at
+    field :last_sign_in_at do
+      strftime_format "%d-%m-%Y"
+    end
 
   end
 
@@ -212,11 +219,18 @@ RailsAdmin.config do |config|
 
   config.model Inquire do
     navigation_label 'Сайт'
+    include_all_fields
+    field :created_at do
+      strftime_format "%d-%m-%Y"
+    end
   end
 
   config.model Order do
     navigation_label 'Сайт'
     include_all_fields
+    field :created_at do
+      strftime_format "%d-%m-%Y"
+    end
     field :updated_at do
       hide
     end

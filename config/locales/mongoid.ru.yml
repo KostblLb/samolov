@@ -140,5 +140,14 @@ ru:
         trained_groups:	Группы в обучении
         subscribtion: Подписки на уведомления
 
+      group:
+        name: Название
+        education_beginning: Дата начала обучения
+        course: Название курса
+        teacher: Преподаватель
+        scale: Шкала
+        students: Студенты
+        adverts: Объявления
+
 
 
