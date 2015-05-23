@@ -76,7 +76,6 @@ RSpec.describe UnitProgress do
       before(:each) {group.course.parts.first.units.first.quiz = create(:quiz)}
       it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
       it {expect{subject}.not_to change{student.my_homeworks.count}}
-      it {expect{subject}.to change{student.my_homeworks.last}}
       it {expect{subject}.not_to change{student.unit_progresses}}
     end
 
@@ -84,7 +83,6 @@ RSpec.describe UnitProgress do
       before(:each) {group.course.parts.first.units.first.case = create(:quiz)}
       it {expect{subject}.to change{student.quiz_progresses.count}.from(8).to(9)}
       it {expect{subject}.not_to change{student.my_homeworks.count}}
-      it {expect{subject}.to change{student.my_homeworks.last}}
       it {expect{subject}.not_to change{student.unit_progresses}}
     end
 
