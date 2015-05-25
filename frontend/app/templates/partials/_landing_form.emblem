@@ -4,15 +4,15 @@
       td class='field_name'
         | Имя<br>и фамилия
       td
-        | {{input value=name placeholder='Александр Пушкин' class=errors.name:error}}
+        | {{input value=name placeholder='Ваше имя' class=errors.name:error}}
     tr
       td class='field_name' Почта
       td
-        = input value=email placeholder='pushkin@mail.ru'
+        = input value=email placeholder='Ваш e-mail'
     tr
       td class='field_name' Телефон
       td
-        | {{input-mask mask='+7 (999) 999-99-99' value=phone  placeholder='+7 900 123 01 02' class=errors.phone:error}}
+        | {{input-mask mask='+7 (999) 999-99-99' value=phone  placeholder='Ваш телефон' class=errors.phone:error}}
     tr
       td
       td

@@ -21,7 +21,7 @@
       if currentUser.hasUnread
         span.unread_messages_count
           | +#{currentUser.unreads_messages_count}
-    = link-to 'faq.index' class='item'
+    /= link-to 'faq.index' class='item'
       i.help.icon
       | Вопросы и ответы
     = link-to 'users.show' currentUser class='item'
