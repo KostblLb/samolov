@@ -141,7 +141,7 @@ RailsAdmin.config do |config|
   config.model Group do
     parent User
     include_all_fields
-    exclude_fields :unit_schedules, :course_progresses
+    exclude_fields :course_progresses
     field :education_beginning do
       strftime_format "%d-%m-%Y"
     end
