@@ -19,6 +19,7 @@
  *= require quiz/quiz
  *= require user_profile/user_profile
  *= require devise/sign_in
+ *= require devise/registration
  *= require course/course
  *= require likely
  *= require landing/directors_landing
