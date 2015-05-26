@@ -84,6 +84,38 @@
         font-size: 18px;
         line-height: 26px;
         color: #fff;
+        .youtube_layer {
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.76);
+          z-index: 1;
+          #youtube {
+            width: 500px;
+            height: 340px;
+            margin-bottom: -200px;
+            position: relative;
+            top: -50px;
+            left: -281px;
+            background: white;
+            border-radius: 4px;
+            .close {
+              position: relative;
+              top: -359px;
+              left: 480px;
+              width: 34px;
+              height: 34px;
+              background: asset_url('directors_landing/close.png');
+              cursor: pointer;
+              &:active {
+                top: -357px;
+              }
+            }
+          }
+        }
       }
       .right_float{
         width: 195px;
