@@ -57,11 +57,11 @@ gem 'emblem-rails'
 gem 'emblem-source', '~> 0.3.0'
 gem 'momentjs-rails'
 gem 'ember-validations-rails'
-gem 'ember-cli-rails'
+gem 'ember-cli-rails', :git => 'git://github.com/swelham/ember-cli-rails', branch: 'fix-win-symlink'
 
-gem 'semantic-ui-rails', github: 'max-konin/semantic-ui-rails', branch: 'v1.x'
+gem 'semantic-ui-rails', github: 'max-konin/semantic-ui-rails', branch: 'v1.x', platforms: :ruby
 gem 'therubyracer',  platforms: :ruby # or any other runtime
-gem 'less-rails'
+gem 'less-rails',  platforms: :ruby
 gem 'autoprefixer-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -121,4 +121,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'font-awesome-rails'
 
-gem 'rmagick'
+gem 'rmagick', platform: :ruby
