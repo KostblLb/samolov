@@ -10,13 +10,10 @@
               Ваши подчиненные мотивированы только деньгами,<br>и Вы хотите постичь искусство нематериальной мотивации?<br><br>
               Вы ошибаетесь в подборе персонала<br>и хотите научиться принимать правильных людей в команду?<br><br>
               Пройдите  Директорский  Курс  Samolov Group<br>и научитесь мастерству профессионального управления людьми!<br><br>
-            a href='' onclick="$('.youtube_layer').toggle(400);"
+            h2 onclick="$('#youtube').toggle(400);" style='text-decoration: underline; cursor: pointer; display: inline-block; margin-top: 0;'
               | Смотреть видео о курсе
-            .youtube_layer
-              #youtube
-                iframe width="560" height="315" src="https://www.youtube.com/embed/kKGb35Q8lHw" frameborder="0" allowfullscreen='true'
-                .close onclick="$('#youtube').toggle(400);"
-
+            #youtube
+              iframe width="560" height="315" src="https://www.youtube.com/embed/kKGb35Q8lHw" frameborder="0" allowfullscreen='true'
             h2 Всего за 4 месяца Вы:
         .right_float
           .first_training
