@@ -2,6 +2,13 @@
 
 DirectorsController = Ember.ObjectController.extend
 
+  dateNow: ->
+    moment()
+
+  timeLeft: (->
+    moment("20150629", "YYYYMMDD").fromNow(true);
+  ).property('dateNow')
+
   actions:
     create: ->
       @model.save().then =>
