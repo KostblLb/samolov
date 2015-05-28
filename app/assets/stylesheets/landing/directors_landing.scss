@@ -84,6 +84,13 @@
         font-size: 18px;
         line-height: 26px;
         color: #fff;
+        h2{
+          text-decoration: underline;
+          cursor: pointer;
+          display: inline-block;
+          margin-top: 0;
+        }
+
         #youtube {
           display: none;
           position: relative;
