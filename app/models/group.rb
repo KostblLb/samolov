@@ -20,7 +20,7 @@ class Group
   validates_presence_of :course, :scale, :teacher, :education_beginning
   validate :cannot_be_a_student
 
-  accepts_nested_attributes_for :adverts, :unit_schedules
+  accepts_nested_attributes_for :adverts, :unit_schedules, allow_destroy: true
 
   def name
     if persisted?

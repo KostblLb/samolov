@@ -10,4 +10,5 @@ class UnitSchedule
 
   embeds_one :webinar
   accepts_nested_attributes_for :webinar
+  delegate :name, to: :unit, allow_nil: true
 end
