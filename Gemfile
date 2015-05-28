@@ -32,6 +32,8 @@ gem 'cancancan'
 
 gem 'slim-rails'
 
+gem 'russian'
+
 # Pagination
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate_mongoid'

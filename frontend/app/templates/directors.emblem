@@ -18,11 +18,11 @@
         .right_float
           .first_training
             .title
-              | Первый тренинг 1 — 28 июня
+              | Первый тренинг<br>29 июня — 28 июля
             .group_places
               | 15 мест в группе
             .time_left
-              | Осталось #{timeLeft}!
+              | Остался #{timeLeft}!
             button.join_button.ui.yellow.button onclick="$('#join_form').toggle(400);"
               | Записаться
             #join_form
@@ -93,7 +93,7 @@
           tr
             td.part
               .part_name Навыки эффективного делегирования
-              .part_dates 1 — 28&nbsp;июня
+              .part_dates 29 июня — &nbsp;26 июля
             td.programm
               ul
                 li Управленческие стили
@@ -111,7 +111,7 @@
           tr
             td.part
               .part_name Навыки эффективной мотивации
-              .part_dates 6&nbsp;июля — 2&nbsp;августа
+              .part_dates 27&nbsp;июля —&nbsp;23 августа
             td.programm
               ul
                 li Пирамида мотивации
@@ -127,7 +127,7 @@
           tr
             td.part
               .part_name Развивающее управление
-              .part_dates 10&nbsp;августа — 6&nbsp;сентября
+              .part_dates 24&nbsp;августа —&nbsp;<br>20 сентября
             td.programm
               ul
                 li Набор персонала
@@ -145,7 +145,7 @@
           tr
             td.part
               .part_name Личная эффективность руководителя
-              .part_dates 14&nbsp;сентября — 11&nbsp;октября
+              .part_dates 21&nbsp;сентября —&nbsp;<br>18 октября
             td.programm
               ul
                 li Принципы постановки целей
@@ -293,11 +293,10 @@
                   | Записаться
         .description
           h3
-            | Первый тренинг 1 — 28 июня,<br>
-              15 000
+            | Первый тренинг,<br>29 июня — 26 июля, 15 000
             i.ruble.icon
           p
-            | При оплате полного курса (4 тренинга) до 1 июня<br>
+            | При оплате полного курса (4 тренинга) до 29 июня<br>
               стоимость <b>49 900</b>
             i.ruble.icon
             | , скидка 10 100
@@ -305,10 +304,10 @@
             | .<br>
             | Обычная стоимость 60 000
             i.ruble.icon
-            | (15 000 × 4).<br>
+            |  (15 000 × 4).<br>
             | 15 мест в группе.
             '
-            span.yellow Осталось #{timeLeft} до начала!
+            span.yellow Остался #{timeLeft} до начала!
           p.questions
             | Если у вас остались вопросы, просто напишите нам<br>
               на
