@@ -10,7 +10,7 @@ class Advert
 
   private
   def send_notification
-    AdvertMailerWorker.perform(group, title, text)
+    AdvertMailerWorker.perform_async(group, title, text)
   end
 
 end
