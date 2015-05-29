@@ -6,7 +6,7 @@ class AdvertMailerWorker
       if student.subscribtion.new_advert
         EventMailer.send_mail('Директорский курс. Новое объявление.',student, "Здравствуйте #{student.name}. Новое объявление для группы #{group.name}: <br>
     <h2>#{title}</h2>
-    <p>#{text}</p>")
+    <p>#{text}</p>").deliver
       end
     end
   end
