@@ -1,7 +1,7 @@
 = if myProgress
   .ui.segment
     h3.ui.header
-      | Зачетка по части - &nbsp
+      | Зачетка по тренингу - &nbsp
       = name
     table.ui.celled.striped.table
       thead

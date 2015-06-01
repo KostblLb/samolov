@@ -15,9 +15,6 @@
           .ui.two.column.grid
             .column
               user-answer userAnswers=userAnswers id=question.id
-
-
-
             .column
               =if question.inMyAnswers
                 | Правильные ответы:
@@ -28,7 +25,6 @@
                       .content
                         .description.green
                           == text
-
 
     .ui.blue.icon.message
       i.bar.chart.icon
