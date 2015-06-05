@@ -14,7 +14,7 @@
       a href="mailto:feedback@samolov.ru"
         '
         | feedback@samolov.ru
-    br
+    h5 Поделитесь с друзьями и коллегами в социальных сетях:
     a.social.twitter href="https://twitter.com/share" target="_blank"
       span.social_icon.twitter_icon
       span.title Twitter
