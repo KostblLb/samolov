@@ -84,7 +84,10 @@
         font-size: 18px;
         line-height: 26px;
         color: #fff;
-        h2{
+        .video_header{
+          font-size: 1.714rem;
+          font-weight: bold;
+          color: orange;
           text-decoration: underline;
           cursor: pointer;
           display: inline-block;
@@ -93,7 +96,8 @@
 
         #youtube {
           display: none;
-          position: relative;
+          position: absolute;
+          top: 200px;
           width: 560px;
           height: 315px;
           margin: 20px auto;

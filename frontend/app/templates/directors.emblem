@@ -10,19 +10,21 @@
               Ваши подчиненные мотивированы только деньгами,<br>и Вы хотите постичь искусство нематериальной мотивации?<br><br>
               Вы ошибаетесь в подборе персонала<br>и хотите научиться принимать правильных людей в команду?<br><br>
               Пройдите  Директорский  Курс  Samolov Group<br>и научитесь мастерству профессионального управления людьми!<br><br>
-            h2 onclick="$('#youtube').toggle(400);"
+            .video_header onclick="$('#youtube').toggle(400);"
               | Смотреть видео о курсе
+            br
             #youtube
               iframe width="560" height="315" src="https://www.youtube.com/embed/kKGb35Q8lHw" frameborder="0" allowfullscreen='true'
-            h2 Всего за 4 месяца Вы:
+            h2
+              | Всего за 4 месяца Вы:
         .right_float
           .first_training
             .title
-              | Первый тренинг<br>29 июня — 28 июля
+              | Первый тренинг<br>29 июня — 26 июля
             .group_places
               | 15 мест в группе
             .time_left
-              | Остался #{timeLeft} до начала!
+              | Осталось #{timeLeft} до начала!
             button.join_button.ui.yellow.button onclick="$('#join_form').toggle(400);"
               | Записаться
             #join_form
@@ -295,7 +297,7 @@
             i.ruble.icon
           p
             | При оплате полного курса (4 тренинга) до 29 июня<br>
-              стоимость <b>49 900</b>
+                      стоимость <b>49 900</b>
             i.ruble.icon
             | , скидка 10 100
             i.ruble.icon
@@ -305,7 +307,7 @@
             |  (15 000 × 4).<br>
             | 15 мест в группе.
             '
-            span.yellow Остался #{timeLeft} до начала!
+            span.yellow Осталось #{timeLeft} до начала!
           p.questions
             | Если у вас остались вопросы, просто напишите нам<br>
               на
