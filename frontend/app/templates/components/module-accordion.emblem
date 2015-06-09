@@ -12,7 +12,7 @@
               .value
                 = myProgress.success
               .label
-                | Успех раздела
+                | Успех тренинга
         .clear
         h4.ui.floated.left.header.part_date
           | #{formattedPartStart} - #{formattedPartEnd}

@@ -84,9 +84,20 @@
         font-size: 18px;
         line-height: 26px;
         color: #fff;
+        .video_header{
+          font-size: 1.714rem;
+          font-weight: bold;
+          color: orange;
+          text-decoration: underline;
+          cursor: pointer;
+          display: inline-block;
+          margin-top: 0;
+        }
+
         #youtube {
           display: none;
-          position: relative;
+          position: absolute;
+          top: 200px;
           width: 560px;
           height: 315px;
           margin: 20px auto;
@@ -95,7 +106,7 @@
 
       }
       .right_float{
-        width: 195px;
+        width: 222px;
         margin: 110px 45px 0 0;
       }
       .first_training {
@@ -213,7 +224,7 @@
         background-position: 0px 3px;
       }
       .trainer {
-        background: asset_url('directors_landing/elena-troshina.png') 0 0 no-repeat;
+        background: asset_url('directors_landing/veronica.png') 0 0 no-repeat;
         margin-left: -4px;
         background-size: 110px;
         background-position: 0px 0px;

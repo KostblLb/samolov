@@ -6,7 +6,7 @@ class Advert
 
   embedded_in :group
 
-  # after_create :send_notification
+  after_create :send_notification
 
   private
   def send_notification

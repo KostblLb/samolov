@@ -9,7 +9,8 @@
   = each quiz.questions
     .ui.vertical.segment
       h4.ui.header.question
-        | #{inc _view.contentIndex}. #{text}
+        | #{inc _view.contentIndex}
+        == text
       .ui.two.column.grid
         .column
           .ui.list
@@ -18,7 +19,7 @@
                 i.icon class=isCorrect:checkmark:remove
                 .content
                   .description class=isCorrect:green:red
-                    = text
+                    == text
 
 
         .column
@@ -30,7 +31,7 @@
                   i.icon class=isCorrect:checkmark:remove
                   .content
                     .description class=isCorrect:green:red
-                      = text
+                      == text
   .ui.blue.icon.message
     i.bar.chart.icon
     .content

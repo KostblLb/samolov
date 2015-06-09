@@ -10,13 +10,11 @@
       = each question in quiz.questions
         .ui.vertical.segment
           h4.ui.header.question
-            | #{inc _view.contentIndex}. #{question.text}
+            | #{inc _view.contentIndex}
+            == text
           .ui.two.column.grid
             .column
               user-answer userAnswers=userAnswers id=question.id
-
-
-
             .column
               =if question.inMyAnswers
                 | Правильные ответы:
@@ -26,8 +24,7 @@
                       i.icon.checkmark
                       .content
                         .description.green
-                          = text
-
+                          == text
 
     .ui.blue.icon.message
       i.bar.chart.icon
