@@ -1,9 +1,27 @@
 require 'rails_admin_rebuild_group'
 require 'rails_admin_dup_unit'
 require 'rails_admin_dup_quiz'
+require 'rails_admin/config/fields/base'
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::RebuildGroup)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::DupUnit)
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::DupQuiz)
+
+module RailsAdmin
+  module Config
+    module Fields
+      module Types
+        class Datetime < RailsAdmin::Config::Fields::Base
+          def value
+            value_in_default_time_zone = bindings[:object].send(name)
+            return nil if value_in_default_time_zone.nil?
+            time_zone = ActiveSupport::TimeZone.new('Moscow')
+            value_in_default_time_zone.in_time_zone(time_zone)
+          end
+        end
+      end
+    end
+  end
+end
 
 RailsAdmin.config do |config|
 
