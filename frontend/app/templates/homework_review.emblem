@@ -45,4 +45,4 @@ h2.ui.header
     .ui.button{action 'saveHomework'}
       |Сохранить
   .ui.button{action 'sendToStudent'}
-    |Вернуть студенту
+    |Вернуть студенту на доработку
