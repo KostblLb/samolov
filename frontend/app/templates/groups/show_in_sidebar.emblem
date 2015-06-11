@@ -3,8 +3,17 @@
     .ui.header
       | Руководитель курса
     =if teacher.isLoaded
-      img.ui.avatar.image src=teacher.avatarUrl
-      = teacher.fullName
+      table.ui.table
+        tbody
+          tr
+            td
+              img.ui.avatar.image src=teacher.avatarUrl
+            td
+              = teacher.fullName
+            td
+            td
+              link-to 'conversations.new' (query-params sender_id=teacher.id) class='right floated compact'
+                i.mail.icon
     =else
       .spinner
     .ui.header
