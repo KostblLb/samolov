@@ -2,4 +2,6 @@
      User Global Variables
 *******************************/
 
-@blue: #2A323D;
+@blue: #303f52;
+@headerFont: Arial, sans-serif;
+@pageFont : Arial, sans-serif;
