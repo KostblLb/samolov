@@ -2,8 +2,8 @@
   .ui.blue.icon.message
     i.bar.chart.icon
     .content
-      .header.quiz_result #{correctAnswersCount} правильных ответов из #{quiz.questions.length}
-      .header.quiz_result #{points} баллов
+      .header.quiz_result Правильных ответов: #{correctAnswersCount} из #{quiz.questions.length}
+      .header.quiz_result Баллов: #{points}
   h3.ui.header
     | Результаты теста
   = each quiz.questions
@@ -35,7 +35,8 @@
   .ui.blue.icon.message
     i.bar.chart.icon
     .content
-      .header.quiz_result #{correctAnswersCount} правильных ответов из #{quiz.questions.length}
-      .header.quiz_result #{points} баллов
+      .header.quiz_result Правильных ответов: #{correctAnswersCount} из #{quiz.questions.length}
+      .header.quiz_result Баллов: #{points}
+
 =else
   .spinner
