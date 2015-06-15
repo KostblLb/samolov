@@ -31,7 +31,7 @@ UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
   homeworkComplete:  DS.attr 'boolean'
 
   unit:                DS.belongsTo 'unit'#, async: true
-  user:                DS.belongsTo 'user'#, async: true
+  user:                DS.belongsTo 'user', async: true
   homeworkProgress:    DS.belongsTo 'homework_progress', async: true
   quizProgress:        DS.belongsTo 'quiz_progress',     async: true
   caseProgress:        DS.belongsTo 'quiz_progress',     async: true
