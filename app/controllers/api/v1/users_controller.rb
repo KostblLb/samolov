@@ -27,7 +27,9 @@ module Api
 
       protected
       def user_params
-        params.require(:user).permit :email, :last_name, :first_name, :avatar, :birthday, :city, :country, :phone, :skype,
+        user_params = params.require(:user)
+        user_params.delete :avatar if user_params[:avatar].blank?
+        user_params.permit :email, :last_name, :first_name, :avatar, :birthday, :city, :country, :phone, :skype,
             :company_name, :job_title, :vk_link, :fb_link, :gplus_link, :ln_link, :tw_link
       end
 
