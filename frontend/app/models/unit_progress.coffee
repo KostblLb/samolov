@@ -130,12 +130,12 @@ UnitProgress = DS.Model.extend FormattedDeadlineMixin, ProgressMixin,
   ).property('homeworkDeadline', 'momentDate')
 
   webinarTime: (->
-    moment(@get('webinarBeginning')).format('DD MMMM с HH:MM') + moment(@get('webinarDeadline')).format(' до HH:MM')
+    moment(@get('webinarBeginning')).format('DD MMMM с HH:mm') + moment(@get('webinarDeadline')).format(' до HH:mm')
   ).property('webinarBeginning', 'webinarDeadline')
 
   webinarIsStart: (->
-    moment(@get('progress.webinar.start')) < moment() && moment(@get('progress.webinar.start')) > moment(@get('progress.webinarDeadline'))
-  ).property('progress.webinar.start')
+    moment(@get('webinar.start')).diff(moment(),'hours') < 24 && moment() < moment(@get('webinarDeadline'))
+  ).property('webinar.start')
 
   webinarIsEnd: (->
     moment(@get('webinarDeadline')) < moment()

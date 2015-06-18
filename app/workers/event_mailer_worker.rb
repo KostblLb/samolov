@@ -16,6 +16,20 @@ class EventMailerWorker
       end
     end
     Webinar.each do |current|
+      if current.start == DateTime.now - 24.hour
+        bcc=[]
+        current.unit_schedule.group.students.each do |student|
+          if student.subscribtion.new_event
+            bcc<<student.email
+          end
+        end
+        if bcc!=[]
+          EventMailer.delay(send_mail('Директорский курс. Завтра состоится вебинар', bcc,
+                                      "Здравствуйте, завтра в модуле #{current.unit_schedule.unit.name} состоится вебинар. Не пропустите!")).deliver_now
+        end
+      end
+    end
+    Webinar.each do |current|
       if current.start == DateTime.now - 1.hour
         bcc=[]
         current.unit_schedule.group.students.each do |student|
