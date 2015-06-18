@@ -119,7 +119,7 @@ group :production do
   gem 'unicorn', platform: :ruby
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'font-awesome-rails'
 

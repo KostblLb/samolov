@@ -27,6 +27,13 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
     it 'updates first_name of user' do
       expect{subject}.to change{user.reload.first_name}.to('name1')
     end
+
+    context 'pass avatar as null' do
+      let(:user){create :user}
+      let(:attrs) {{avatar: nil}}
+
+      it{expect{subject}.not_to change{user.avatar.url}}
+    end
   end
 
 end

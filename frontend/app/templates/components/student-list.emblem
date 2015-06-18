@@ -24,7 +24,7 @@ module-accordion name=currentUnit.name
           | Домашнее задание
         th
           | Сообщение
-    tbody
+      tbody
       = each sortedProgresses
         tr
           td
