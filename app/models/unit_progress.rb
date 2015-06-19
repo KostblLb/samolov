@@ -110,11 +110,11 @@ class UnitProgress
   end
 
   def create_quiz_progress
-    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self if unit.quiz.present?
-    unit.case.quiz_progresses.create user: user, case_progress_socket: self if unit.case.present?
+    unit.quiz.quiz_progresses.create user: user, quiz_progress_socket: self if unit.present? && unit.quiz.present?
+    unit.case.quiz_progresses.create user: user, case_progress_socket: self if unit.present? && unit.case.present?
   end
 
   def create_homework_prog
-    unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil? if unit.homework_meta.present?
+    unit.homework_meta.create_homework_prog(self, user) unless unit.homework_meta.nil? if unit.present? && unit.homework_meta.present?
   end
 end

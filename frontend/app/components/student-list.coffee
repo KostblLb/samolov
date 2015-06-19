@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
  # for more details see: http://emberjs.com/guides/components/
 
 StudentListComponent = Ember.Component.extend
@@ -8,15 +8,13 @@ StudentListComponent = Ember.Component.extend
 
   sortedProgresses: (->
     currentProgresses = []
-    unitProgresses = @get('currentUnit.unitProgresses').content
-    students = @get('currentGroup.students').content
-    currentProgresses = unitProgresses.filter((item) ->
-      students.indexOf(item.get('user')) != -1
-    )
+    unitProgresses = @get('currentGroup.unitProgresses').content
+    currentProgresses = unitProgresses.filter (item) =>
+      item.get('unit.id') == @get('currentUnit.id')
     currentProgresses.sortBy('points')
-  ).property('currentUnit', 'currentUnit.unitProgresses', 'currentGroup')
+  ).property('currentUnit', 'currentGroup.unitProgresses.content', 'currentGroup')
 
 
- 
- 
+
+
 `export default StudentListComponent;`

@@ -14,7 +14,7 @@
 //= require likely
 //= require jquery_ujs
 //= require jquery-ui
-
+//= require semantic-ui/all
 //= require select2.min
 //= require moment
 //= require moment/ru.js

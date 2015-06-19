@@ -44,6 +44,11 @@ class Group
     set_schedule
   end
 
+  def unit_progresses
+    part_ids = CoursePartProgress.where(:course_progress_id.in => course_progress_ids).distinct :id
+    UnitProgress.where(:course_part_progress_id.in => part_ids)
+  end
+
   private
   def set_schedule
     beginning = education_beginning

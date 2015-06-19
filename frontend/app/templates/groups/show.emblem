@@ -55,11 +55,7 @@ h2.ui.header
         h3.ui.header
           = part.name
         = each unit in part.units
-          =if unit.unitProgresses.isFulfilled
-            student-list currentUnit=unit currentGroup=model
-          =else
-            .ui.message
-              .spinner
+          student-list currentUnit=unit currentGroup=model
     =else
       .ui.secondary.segment
         h3.ui.header

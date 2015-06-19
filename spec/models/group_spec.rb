@@ -47,7 +47,20 @@ RSpec.describe Group do
       before(:each) { group.course.parts.last.units << new_unit }
       it { expect{group.rebuild!}.to change{schedules.count}.by(1) }
     end
+  end
 
+  describe '#unit_progresses' do
+    let(:group){create :group, course: course}
+    let(:other_group){create :group, course: course}
+    let(:student_unit_progress){ create :unit_progress, course_part_progress: group.course_progresses.first.course_part_progresses.first}
+    let(:other_unit_progress)  { create :unit_progress, course_part_progress: other_group.course_progresses.first.course_part_progresses.first}
+
+    before(:each){other_unit_progress; student_unit_progress}
+
+    subject{group.unit_progresses}
+
+    it{is_expected.to include student_unit_progress}
+    it{is_expected.not_to include other_unit_progress}
   end
 
   describe 'create webinar' do

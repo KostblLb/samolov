@@ -1,5 +1,5 @@
-`import DS from "ember-data";` 
- 
+`import DS from "ember-data";`
+
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
 Group = DS.Model.extend
@@ -14,6 +14,7 @@ Group = DS.Model.extend
   students:         DS.hasMany 'user', async: true
   adverts:          DS.hasMany 'advert'
   courseProgresses: DS.hasMany 'course_progress', async: true
+  unitProgresses:   DS.hasMany 'unit_progress', async: true
   format: 'DD.MM.YYYY'
 
 
@@ -31,5 +32,5 @@ Group = DS.Model.extend
     format = @.get 'format'
     moment(date).format format
   ).property('educationBeginning', 'format')
- 
+
 `export default Group;`
