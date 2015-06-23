@@ -1,11 +1,12 @@
 .container
   = outlet
 
-.ui.right.sidebar.ui.segment
+.ui.right.visible.sidebar.ui.segment
   = outlet 'right_sidebar'
   = outlet 'pivot'
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler#hide-sidebar onclick="$('.ui.right.sidebar').removeClass('overlay visible'); $('#hide-sidebar').css('display','none'); $('.container').removeClass('left_content')"
-  i.content.icon
+   //i.content.icon
+   |Моя группа
 
 .footer
   .footer_content
