@@ -44,7 +44,7 @@ module-accordion name=currentUnit.name
           td.center.aligned class=quizComplete:positive:negative
             = if quizComplete
               = link-to 'quiz_review' quizProgress.id
-                = quizProgress.points
+                = quizProgressPoints
             = else
               i.remove.icon
           td.center.aligned class=summaryComplete:positive:negative
@@ -55,7 +55,7 @@ module-accordion name=currentUnit.name
           td.center.aligned class=caseComplete:positive:negative
             = if caseComplete
               = link-to 'quiz_review' caseProgress.id
-                = caseProgress.points
+                = caseProgressPoints
             = else
               i.remove.icon
           td.center.aligned class=webinarComplete:positive:negative
