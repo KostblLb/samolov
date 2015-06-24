@@ -9,7 +9,7 @@
         =if stepWithoutDeadline
           i.check.circle.outline.icon
         = else
-            i.radio.icon
+          i.radio.icon
   = else
     =if stepWithoutDeadline
       i.radio.icon
@@ -29,6 +29,8 @@
           =else
             = webinarStart
       = else
+        = if stepIsTimeOut
+          i.warning.circle.icon
         = stepFormattedDeadline
 = else
   i.ban.icon
