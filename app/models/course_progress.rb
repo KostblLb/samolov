@@ -11,6 +11,7 @@ class CourseProgress
 
   delegate :scale, to: :group
   delegate :teacher, to: :group
+
   after_create :create_part_progresses
 
   def max_points
