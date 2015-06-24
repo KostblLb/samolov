@@ -18,8 +18,8 @@ class UnitProgress
 
   after_create :create_quiz_progress, :create_homework_prog
 
-  delegate :scale, :teacher, to: :course_part_progress
-  delegate :is_exam, :name, to: :unit
+  delegate :scale, :teacher, to: :course_part_progress, allow_nil: true
+  delegate :is_exam, :name, to: :unit, allow_nil: true
 
   def max_points
     safe_get_points(:max_points)

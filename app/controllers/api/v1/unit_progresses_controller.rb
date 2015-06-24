@@ -1,15 +1,24 @@
 module Api
   module V1
     class UnitProgressesController < ApplicationController
+      before_action :set_unit_progress, except: :index
+
       respond_to :json
-      before_action :set_unit_progress
+
+      def index
+        if params[:ids].blank?
+          @unit_progresses = UnitProgress.all
+        else
+          @unit_progresses = UnitProgress.where(:id.in => params[:ids])
+        end
+        respond_with @unit_progresses
+      end
 
       def show
-        respond_with(@unit_progress)
+        respond_with @unit_progress
       end
 
       def update
-        @unit_progress
         if @unit_progress.update unit_progress_params
           @unit_progress.reload
           respond_to do |format|

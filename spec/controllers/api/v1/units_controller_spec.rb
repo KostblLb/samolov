@@ -23,6 +23,4 @@ RSpec.describe Api::V1::UnitsController, type: :controller do
       expect(assigns(:unit)).to eq(unit)
     end
   end
-
-
 end
