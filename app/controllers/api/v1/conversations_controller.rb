@@ -41,9 +41,9 @@ module Api
 
       private
       def conversation_params
-        for_current = params.require(:conversation).permit :subject, users: [], messages: [:sender, :body]
-        for_current[:users].push(current_user.id) unless for_current[:users].include?(current_user.id)
-        for_current[:user_ids] = for_current.delete(:users)
+        params.require(:conversation)[:user_ids] = params.require(:conversation).delete(:users) if params.require(:conversation)[:users].present? && params.require(:conversation)[:users_ids].nil?
+        for_current = params.require(:conversation).permit :subject, user_ids: [], messages: [:sender, :body]
+        for_current[:user_ids].push(current_user.id) unless for_current[:user_ids].include?(current_user.id)
         if  for_current.has_key?(:messages)
           for_current[:messages][0][:sender_id] = current_user.id
         end
