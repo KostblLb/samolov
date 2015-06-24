@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         end
       end
       resources :courses,           only: [:index, :show]
-      resources :course_progresses, only: [:show]
+      resources :course_progresses, only: [:index, :show]
       resources :scales,            only: [:index, :show, :create, :update]
       resources :groups,            only: [:index, :show, :update]
       resources :parts,             only: [:index, :show]

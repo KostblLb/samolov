@@ -4,8 +4,12 @@ module Api
       respond_to :json
 
       def index
-        course = Course.find params[:course_id]
-        @course_progressess = course.course_progresses
+        if params[:ids].present?
+          @course_progresses = CourseProgress.where :id.in => params[:ids]
+        else
+          course = Course.find params[:course_id]
+          @course_progresses = course.course_progresses
+        end
         respond_with @course_progresses
       end
 

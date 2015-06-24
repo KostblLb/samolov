@@ -1,0 +1,3 @@
+.ui.right.visible.sidebar.ui.segment
+  = partial 'groups/show_in_sidebar'
+  = partial 'course_progress/pivot'
