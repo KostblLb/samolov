@@ -6,6 +6,11 @@ module Api
 
       respond_to :json
 
+      def index
+        @homework_progresses = Homework::Progress.where :id.in => params[:ids]
+        respond_with @homework_progresses
+      end
+
       def show
         @homework_progress = Homework::Progress.find params[:id]
         respond_with @homework_progress, root: 'homework_progress'

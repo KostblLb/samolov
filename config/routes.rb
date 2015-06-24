@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       resources :questions,         only: [:index, :show]
       resources :answers,           only: [:index, :show]
       resources :quizzes,           only: :show
-      resources :quiz_progresses,   only: :show
+      resources :quiz_progresses,   only: [:index, :show]
       resources :user_answers,      only: :create
       resources :unit_progresses,   only: [:index, :show, :update]
       resources :orders,            only: [:show, :create]
