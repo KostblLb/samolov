@@ -1,7 +1,3 @@
-
-.ui.blue.big.left.attached.fixed.button.sidebar-toggler#left{action 'showSideBar'}
-  i.content.icon
-
 =if isLoaded
   module-accordion name='свернуть/развернуть' part=this
     table.ui.celled.table

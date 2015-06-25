@@ -1,0 +1,4 @@
+.ui.sidebar.ui.segment class=position
+  yield
+.ui.blue.big.left.attached.fixed.button.sidebar-toggler class=buttonClass
+  = buttonLabel
