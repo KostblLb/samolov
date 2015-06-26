@@ -17,7 +17,7 @@
     =else
       .spinner
     .ui.header
-      | Моя группа
+      | Одногруппники
     table.ui.table
       thead
         tr

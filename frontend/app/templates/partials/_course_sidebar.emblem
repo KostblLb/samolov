@@ -1,3 +1,3 @@
-ui-sidebar visible=true buttonLabel='Моя группа'
+ui-sidebar visible=true buttonLabel='Моя группа' title='Моя группа'
   = partial 'groups/show_in_sidebar'
   = partial 'course_progress/pivot'

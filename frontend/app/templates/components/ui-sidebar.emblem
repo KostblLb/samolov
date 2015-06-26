@@ -1,4 +1,12 @@
-.ui.sidebar.ui.segment class=position
+.ui.sidebar.ui.attached.segment class=position
+  .ui.basic.segment
+    .circular.ui.icon.right.floated.button.sidebar-toggler style='margin-top: -7px'
+      i.close.icon
+
+    .ui.header.left.floated
+      = title
+
+
   yield
 .ui.blue.big.left.attached.fixed.button.sidebar-toggler class=buttonClass
   = buttonLabel

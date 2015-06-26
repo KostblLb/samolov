@@ -7,12 +7,12 @@ UiSidebarComponent = Ember.Component.extend
   visible: false
 
   _init: (->
-    @$('.ui.sidebar').sidebar('setting', 'transition', 'push')
+    @$('.ui.sidebar').sidebar('setting', 'transition', 'overlay')
                      .sidebar('setting', 'dimPage', false)
                      .sidebar('setting', 'closable', false)
                      .sidebar('attach events', '.sidebar-toggler')
     if @get 'visible'
-      $('.ui.sidebar').sidebar 'toggle'
+      @$('.ui.sidebar').sidebar 'toggle'
   ).on('didInsertElement')
 
   buttonClass: (->
