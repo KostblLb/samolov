@@ -17,5 +17,4 @@ HomeworkProgressController = Ember.ObjectController.extend
       progress.set 'isSaved', true
       window.scrollTo 0, 0
 
-
  `export default HomeworkProgressController;`

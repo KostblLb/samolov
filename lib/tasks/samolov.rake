@@ -41,4 +41,21 @@ namespace :samolov do
       end
     end
   end
+
+  desc 'Create profile compulsory and desirable for tasks'
+  task create_profile_compulsory: :environment do
+    Homework::Progress.each do |pr|
+      pr.tasks.each do |t|
+        t.subtasks.where(_type: 'Homework::Subtask::PositionProfile').each do |position_profile|
+          if position_profile.profile_compulsory.nil?
+            puts position_profile.create_profile_compulsory
+          elsif position_profile.profile_desirable.nil?
+            puts position_profile.create_profile_desirable
+          else
+            puts 'already exist'
+          end
+        end
+      end
+    end
+  end
 end

@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
 HomeworkProgressRoute = Ember.Route.extend
   model: (params) ->
     @store.find 'homework_progress', params.homework_progress_id
@@ -9,6 +9,4 @@ HomeworkProgressRoute = Ember.Route.extend
     uId = model.get('unitId')
     @transitionTo('homework_progress', model.get('id'))
 
-
- 
 `export default HomeworkProgressRoute;`
