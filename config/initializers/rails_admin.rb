@@ -142,7 +142,8 @@ RailsAdmin.config do |config|
   config.model Course do
     navigation_label 'Курсы'
     weight -4
-    exclude_fields :course_progresses
+    field :description, :ck_editor
+    exclude_fields :course_progresses, :groups, :parts
   end
 
   config.model Unit do
@@ -212,6 +213,7 @@ RailsAdmin.config do |config|
 
     field :birthday
     field :last_sign_in_at
+    field :password
 
   end
 
