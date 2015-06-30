@@ -8,9 +8,4 @@ CourseIndexController = Ember.ObjectController.extend
     showUnitBeginning: ->
       $('.basic.modal').modal('show')
 
-    showSideBar: ->
-      $('.ui.right.sidebar').addClass('overlay visible')
-      $('#hide-sidebar').css('display','block')
-      $('.container').addClass('left_content')
-
 `export default CourseIndexController`

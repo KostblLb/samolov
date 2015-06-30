@@ -1,5 +1,5 @@
-`import Ember from "ember";` 
- 
+`import Ember from "ember";`
+
 # For more information see: http://emberjs.com/guides/routing/
 
 QuizProgressRoute = Ember.Route.extend
@@ -17,6 +17,7 @@ QuizProgressRoute = Ember.Route.extend
     if currentQuestion?
       @transitionTo 'question', currentQuestion
     else
+      progress.get('unitProgress').reload()
       progress.get('quiz').content.reload()
       @_super
   actions:
@@ -24,5 +25,4 @@ QuizProgressRoute = Ember.Route.extend
       $('.quiz_tab').removeClass('active')
       $('.case_tab').removeClass('active')
 
- 
 `export default QuizProgressRoute;`
