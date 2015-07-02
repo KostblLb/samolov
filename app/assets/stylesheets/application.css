@@ -244,3 +244,9 @@ module-accordion {
     overflow: auto;
     margin-bottom: 20px;
 }
+
+.coursefinalpoints {
+    margin-left : 867px;
+    margin-top: 17px;
+    position: absolute;
+}

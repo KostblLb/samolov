@@ -9,12 +9,20 @@
           = each sections
             th.center.aligned
               = name
-          
+
       tbody
         tr
           = each sections
             td.center.aligned
               = points
+
+.coursefinalpoints
+  = if myProgress
+    .ui.tiny.statistic class=myProgress.color
+      .value
+        = myProgress.success
+      .label
+        | Успех курса
 
 .ui.basic.segment
   h1.ui.left.floated.header
@@ -28,3 +36,4 @@
 
 = each parts
  = partial 'course/part'
+
