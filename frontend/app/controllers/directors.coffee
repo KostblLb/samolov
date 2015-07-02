@@ -6,7 +6,7 @@ DirectorsController = Ember.ObjectController.extend
     moment()
 
   timeLeft: (->
-    moment("20150629", "YYYYMMDD").fromNow(true);
+    moment("20150824", "YYYYMMDD").fromNow(true);
   ).property('dateNow')
 
   actions:
