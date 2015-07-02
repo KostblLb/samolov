@@ -20,7 +20,7 @@
         .right_float
           .first_training
             .title
-              | Первый тренинг<br>29 июня — 26 июля
+              | Первый тренинг<br>24 августа —<br>20 сентября
             .group_places
               | 15 мест в группе
             .time_left
@@ -93,7 +93,7 @@
           tr
             td.part
               .part_name Навыки эффективного делегирования
-              .part_dates 29 июня — &nbsp;26 июля
+              .part_dates 24&nbsp;августа —&nbsp;<br>20 cентября
             td.programm
               ul
                 li Управленческие стили
@@ -111,7 +111,7 @@
           tr
             td.part
               .part_name Навыки эффективной мотивации
-              .part_dates 27&nbsp;июля —&nbsp;23 августа
+              .part_dates 21&nbsp;сентября —&nbsp;<br>18 октября
             td.programm
               ul
                 li Пирамида мотивации
@@ -127,7 +127,7 @@
           tr
             td.part
               .part_name Развивающее управление
-              .part_dates 24&nbsp;августа —&nbsp;<br>20 сентября
+              .part_dates 19&nbsp;октября —&nbsp;<br>15 ноября
             td.programm
               ul
                 li Набор персонала
@@ -145,7 +145,7 @@
           tr
             td.part
               .part_name Личная эффективность руководителя
-              .part_dates 21&nbsp;сентября —&nbsp;<br>18 октября
+              .part_dates 16&nbsp;ноября —&nbsp;<br>13 декабря
             td.programm
               ul
                 li Принципы постановки целей
@@ -293,10 +293,10 @@
                   | Записаться
         .description
           h3
-            | Первый тренинг,<br>29 июня — 26 июля, 15 000
+            | Первый тренинг,<br>24 августа — 20 сентября,<br>15 000
             i.ruble.icon
           p
-            | При оплате полного курса (4 тренинга) до 29 июня<br>
+            | При оплате полного курса (4 тренинга) до 24 августа<br>
                       стоимость <b>49 900</b>
             i.ruble.icon
             | , скидка 10 100
