@@ -9,7 +9,8 @@
   = each quiz.questions
     .ui.vertical.segment
       h4.ui.header.question
-        | #{inc _view.contentIndex}
+        .numeric
+          | #{inc _view.contentIndex}
         == text
       .ui.two.column.grid
         .column
