@@ -49,9 +49,9 @@ namespace :samolov do
         t.subtasks.where(_type: 'Homework::Subtask::PositionProfile').each do |position_profile|
           position_profile.create_profile_compulsory if position_profile.profile_compulsory.nil?
           position_profile.create_profile_desirable  if position_profile.profile_desirable.nil?
-          end
         end
       end
     end
   end
 end
+
