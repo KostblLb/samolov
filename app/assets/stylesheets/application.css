@@ -250,3 +250,7 @@ module-accordion {
     margin-top: 17px;
     position: absolute;
 }
+
+.multilineareawidth {
+    width: 100%;
+}

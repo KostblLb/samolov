@@ -1,6 +1,8 @@
 `import Ember from "ember";`
 
-MultilineField = Ember.TextField.extend
+MultilineField = Ember.TextArea.extend
+  classNameBindings: ['multilineareawidth'],
+  multilineareawidth: true
 
   change: ->
     lines = @get('object.lines').slice(0)
